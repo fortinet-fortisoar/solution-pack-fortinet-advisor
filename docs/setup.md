@@ -32,17 +32,7 @@ For optimal performance of the **Fortinet Advisor** solution pack, install and c
 - The OpenAI connector as Fortinet Advisor uses OpenAI models as a backing LLM.  
     >**NOTE**: You must have OpenAI configured on your to get any response from Advisor. 
 
-    - To configure and use the OpenAI connector, see the OpenAI connector document. Note that you must add a configuration for this connector. Also, in case of multiple configurations, ensure that you mark at least one configuration as 'Default', since the solution uses the connector configuration that is marked as 'Default'. For more details, see the [OpenAI Connector](https://docs.fortinet.com/document/fortisoar/2.0.0/openai/706/openai-v2-0-0) document. Also note that RBAC is not currently implemented for Fortinet Advisor; however you can restrict access by specifying the teams that are authorized to use the OpenAI connector.
-
-To restrict access to Advisor by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
-
-1. To limit access, open the OpenAI configuration, mark its **Visibility** as **Private**, and then click the **Ownership** icon:  
-   ![OpenAI Connection configuration dialog - Ownership icon](../docs/res/rbac_openai.png)
-2. In the **Assign Owners** dialog, you will see that the logged-in user's teams are automatically assigned ownership. To remove ownership of any team, click the **Red Cross** beside its name; similarly, to assign ownership to any team, select the team from the **Owners** drop-down list, and then click **Assign**:  
-   ![OpenAI Connection configuration - Assigning owners for the connector](../docs/res/openai_assignownership.png)  
-   Once the teams are assigned, only those teams will have access to the OpenAI connector and will be able to receive responses from Fortinet Advisor.   
-   Additionally, note that if you want to implement a specific configuration for a particular team, you must modify the default configuration for each OpenAI connector step in the Fortinet Advisor Solution Pack's playbooks. Another option is to update the Fortinet Advisor Solution Pack's playbooks to retrieve the configuration ID for a specific team or user, and then parse this ID in the OpenAI connector steps.
-
+    - To configure and use the OpenAI connector, see the OpenAI connector document. Note that you must add a configuration for this connector. Also, in case of multiple configurations, ensure that you mark at least one configuration as 'Default', since the solution uses the connector configuration that is marked as 'Default'. For more details, see the [OpenAI Connector](https://docs.fortinet.com/document/fortisoar/2.0.0/openai/706/openai-v2-0-0) document. Also note that RBAC is not currently implemented for Fortinet Advisor; however you can restrict access by specifying the teams that are authorized to use the OpenAI connector. For more details, see the [How to restrict access to Advisor?](./advanced-usage.md#how-to-restrict-access-to-advisor) topic.
 
 
 # Next Steps

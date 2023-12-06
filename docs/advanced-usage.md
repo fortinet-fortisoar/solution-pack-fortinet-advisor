@@ -42,6 +42,24 @@ Use the following steps to update the training using your playbook collections:
 9. Run the updated playbook.  
    Once this playbook is successfully executed, your selected custom playbook collections become part of the training dataset.
 
+## How to restrict access to Advisor?
+
+To restrict access to Advisor by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
+
+1. To limit access, open the OpenAI configuration, mark its **Visibility** as **Private**, and then click the **Ownership** icon:  
+   ![OpenAI Connection configuration dialog - Ownership icon](../docs/res/rbac_openai.png)
+2. In the **Assign Owners** dialog, you will see that the logged-in user's teams are automatically assigned ownership. To remove ownership of any team, click the **Red Cross** beside its name; similarly, to assign ownership to any team, select the team from the **Owners** drop-down list, click **Assign** and then click **Submit**:  
+   ![OpenAI Connection configuration - Assigning owners for the connector](../docs/res/openai_assignownership.png)  
+3. Mark the following playbooks in the '10 - SP - Fortinet Advisor' playbook collection as **Private** and assign their ownership to the same teams that are assigned as owners in the OpenAI connector.
+   {0}.  Generate WorkPlan For User Input
+   {0}. Get Playbook Block Suggestion
+   {0}. Converse with LLM  
+      To mark a playbook, for example, the "Converse with LLM" playbook, as 'Private' and restrict its visibility to specific teams, follow these steps:
+      1. Open the Converse with LLM playbook in the playbook designer, and in the top bar, mark its **Visibility** as **Private**, and then click the **Ownership** icon.  
+         ![Marking playbooks as Private](../docs/res/pb_mark_private.png)
+      2. In the **Assign Owners** dialog, assign the ownership of the playbook to the same teams that are assigned as owners in the OpenAI connector, and then click **Submit**.  
+         Once the teams are assigned in both the playbooks and the OpenAI connector, only those teams will have access to the OpenAI connector and will be able to receive responses from Fortinet Advisor.
+
 ## How to use an alternate connector configuration?
 
 To use the connector configuration other than the default configuration to get responses from the LLM, follow these steps:
@@ -95,7 +113,7 @@ Based on your prompt, the Advisor is unable to generate the playbook steps.
 To resolve this issue, try the following:
 
 - Try to regenerate the steps.
-- Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](../docs/advanced-usage.md#prompting-tips).
+- Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](#prompting-tips).
 - Verify that your OpenAI account is operational and has enough credit.
 
 
