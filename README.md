@@ -1,6 +1,6 @@
 # Release Information
 
-* **Version**: 1.0.0 ![Preview icon](https://github.com/fortinet-fortisoar/solution-pack-outbreak-response-framework/blob/release/1.0.0/docs/res/icon-preview.svg)  
+* **Version**: 1.0.0 ![Preview icon](./docs/res/icon-preview.svg)  
   **NOTE**: This is a preview version of 'Advisor' designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 * **Certified**: Yes
 * **Publisher**: Fortinet
@@ -33,6 +33,8 @@ For any further questions or concerns about your privacy, refer to [OpenAI’s p
 
 # Next Steps
 
+| [Installation](./docs/setup.md#installation) | [Configuration](./docs/setup.md#configuration) | [Usage](./docs/usage.md) | [Contents](./docs/contents.md) |
+| ---------------------------------------- | ---------------------------------------- | ------------------------ | ------------------------------ |
+|                                          |                                          |                          |                                |
 
-| [Installation](docs/setup.md#installation) | [Configuration](docs/setup.md#configuration) | [Usage](docs/usage.md) | [Contents](docs/contents.md) |
 |--------------------------------------------|----------------------------------------------|------------------------|------------------------------|
