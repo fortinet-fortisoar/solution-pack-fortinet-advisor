@@ -92,8 +92,7 @@ The **FortiAI** solution pack contains the following resources:
         <td>
             To add a new question for different modules, follow these steps:
             <ol>
-                <li>Add the question in JSON format under the particular module's API name.</li>
-                <li><a href="./question-sample.json">Question JSON</a></li>
+                <li>Add the question in JSON format under the particular module's API name. <a href="./question-sample.json">Question JSON</a></li>
                 <li>Write a playbook along with the specific tag mentioned in the JSON above.</li>
             </ol>
         </td>
