@@ -76,6 +76,12 @@ You can engage in contextual conversation with Advisor in the list view and deta
 
 Advisor provides a summary about the malware and its associated threat groups. It also informs you that this malware has been observed in phishing campaigns and is designed to exploit vulnerabilities in common file formats, such as docx.
 
+### Module Specific Question 
+
+- Open any of the alerts and click on the bot icon. A few pre-defined questions will appear.
+  ![Module Question](./res/module_questions.png)
+- Click on any of the questions, and a dialog box will appear to review the data that will be sent to the LLM.
+  ![Dialog Box](./res/question_edit.png)
 
 For advanced usage topics, such as prompting tips n tricks, see [Advanced Usage](./advanced-usage.md).
 

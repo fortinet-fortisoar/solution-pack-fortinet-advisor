@@ -1,0 +1,30 @@
+{
+    "alert": {
+      "questions": [
+        {
+          "pbTag": "{{aibot-alert-summary}}",
+          "prompt": "{{add prompt and other details such as _recordDetails and replace it in playbook to render specific data.}}",
+          "enabled": true,
+          "question": "",
+          "description": "",
+          "fieldsOfInterest": {
+            "primaryFields": [
+              "name",
+              "description"
+            ],
+            "coRelatedFields": [
+              {
+                "moduleName": "comments",
+                "recordCount": 5,
+                "primaryFields": [
+                  "content"
+                ]
+              }
+            ]
+          },
+          "getSimilarRecords": true,
+          "showRecommendedPlaybooks": false
+        }
+      ]
+    }
+  }
