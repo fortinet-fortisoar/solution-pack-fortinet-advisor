@@ -1,10 +1,11 @@
 # Release Information
 
-* **Version**: 1.0.0 ![Preview icon](./docs/res/icon-preview.svg)  
+* **Version**: 2.0.0 ![Preview icon](./docs/res/icon-preview.svg)  
   **NOTE**: This is a preview version of 'Advisor' designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 * **Certified**: Yes
 * **Publisher**: Fortinet
 * **Compatible Version**: 7.4.3 and later
+* [Release Notes](./release_notes.md)
 
 # Overview
 
