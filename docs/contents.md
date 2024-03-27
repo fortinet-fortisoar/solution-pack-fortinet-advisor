@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|--------------------------------------------|
+|----------------------|
 
 # Contents
 
@@ -7,26 +7,27 @@ The **FortiAI** solution pack contains the following resources:
 
 ## Connectors
 
-| **Name**           | **Description**                          |
-| :----------------- | :--------------------------------------- |
-| AI Assistant Utils | Bundles helper methods that aid with content generation. |
+| Name               | Description                                                |
+|:-------------------|:-----------------------------------------------------------|
+| AI Assistant Utils | Bundles helper methods that aid with content generation.   |
 | OpenAI             | Provides the OpenAI models that are used as a backing LLM. |
 
 ## Widget
 
-| **Name**     | **Description**                          |
-| :----------- | :--------------------------------------- |
-| AI Assistant | Adds the Advisor bot to the FortiSOAR User Interface. |
-| AI Assistance Configuration <sup>New</sup> | Launches a wizard that walks a user through the process of setting up LLM Integration Configuration. |
+| Name                                                       | Description                                                                                          |
+|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
+| AI Assistant                                               | Adds the Advisor bot to the FortiSOAR User Interface.                                                |
+| AI Assistance Configuration![icon-new](./res/icon-new.svg) | Launches a wizard that walks a user through the process of setting up LLM Integration Configuration. |
 
 ## Key Store - Record Set
 
-| **Name**        | **Description**                          |
-| :-------------- | :--------------------------------------- |
-| FortiAI Configurations | Contains the key like `llmIntegrationToUse`, `llmIntegrationData`, `conversationModel`, `pBGenerationModel`, and `isMultiConfigAvailable` |
-| FortiAI Static Questions | Contains the question for different modules along with the playbook tag to execute on each question. Also the contain the list of fields to be use for question. |
+| Name                     | Description                                                                                                                                       |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
+| FortiAI Configurations   | Contains keys like `llmIntegrationToUse`, `llmIntegrationData`, `conversationModel`, `pBGenerationModel`, and `isMultiConfigAvailable`            |
+| FortiAI Static Questions | Contains questions for different modules and playbook tags to execute on each question. Also contains the list of fields to be used for question. |
 
-#### Table of Content
+### Table of Contents
+
 <table>
     <tr>  
         <th rowspan=5>FortiAI Configurations</th>  
@@ -93,7 +94,7 @@ The **FortiAI** solution pack contains the following resources:
             To add a new question for different modules, follow these steps:
             <ol>
                 <li>Add the question in JSON format under the particular module's API name. <a href="./question-sample.json">Question JSON</a></li>
-                <li>Write a playbook along with the specific tag mentioned in the JSON above.</li>
+                <li>Write a playbook along with the tag mentioned in the JSON above.</li>
             </ol>
         </td>
     </tr>
@@ -102,24 +103,25 @@ The **FortiAI** solution pack contains the following resources:
 ## Playbook Collection
 
 |10 - SP - Fortinet Advisor |
-| :--------------------------------------- |
+|:-------------------------:|
 
-| **Playbook Name**                   | **Description**                          |
-| :---------------------------------- | :--------------------------------------- |
-| Converse with LLM                   | Starts a conversation using the LLM.     |
-| Get Playbook Step Suggestion        | Suggests steps to create a playbook based on user's query. |
-| Get Playbook Step Suggestion (Loop) | Suggests steps to create a playbook based on user's query, in a loop. |
-| Get Playbook Block Suggestion       | Creates a suggested playbook block to perform actions based on user requirements. |
-| Generate WorkPlan for User Inputs   | Creates a response plan for the scenario specified by the user. |
-| > Get LLM Response                  | Reference playbook for getting a response from the LLM. |
-| Get Alert Summary <sup>New</sup> | Get the Alert summary from LLM. |
-| Get Incident Summary <sup>New</sup> | Get the Incident summary from LLM. |
-| Get Alert Response Plan <sup>New</sup> | Get the Alert response plan from LLM. |
-| Get Incident Response Plan <sup>New</sup> | Get the Incident response plan from LLM. |
-| Get Alert Report <sup>New</sup> | Get the Alert report from LLM. |
-| Get Incident Report <sup>New</sup> | Get the Incident report from LLM. |
-| Get Alert MITRE Insight <sup>New</sup> | Get the Alert MITRE insight from LLM. |
-| Get Incident MITRE Insight <sup>New</sup> | Get the Incident MITRE insight from LLM. |
+
+| Playbook Name                                             | Description                                                                       |
+|:----------------------------------------------------------|:----------------------------------------------------------------------------------|
+| Converse with LLM                                         | Starts a conversation using the LLM.                                              |
+| Get Playbook Step Suggestion                              | Suggests steps to create a playbook based on user's query.                        |
+| Get Playbook Step Suggestion (Loop)                       | Suggests steps to create a playbook based on user's query, in a loop.             |
+| Get Playbook Block Suggestion                             | Creates a suggested playbook block to perform actions based on user requirements. |
+| Generate WorkPlan for User Inputs                         | Creates a response plan for the scenario specified by the user.                   |
+| > Get LLM Response                                        | Reference playbook for getting a response from the LLM.                           |
+| Get Alert Summary![icon-new](./res/icon-new.svg)          | Get the Alert summary from LLM.                                                   |
+| Get Incident Summary![icon-new](./res/icon-new.svg)       | Get the Incident summary from LLM.                                                |
+| Get Alert Response Plan![icon-new](./res/icon-new.svg)    | Get the Alert response plan from LLM.                                             |
+| Get Incident Response Plan![icon-new](./res/icon-new.svg) | Get the Incident response plan from LLM.                                          |
+| Get Alert Report![icon-new](./res/icon-new.svg)           | Get the Alert report from LLM.                                                    |
+| Get Incident Report![icon-new](./res/icon-new.svg)        | Get the Incident report from LLM.                                                 |
+| Get Alert MITRE Insight![icon-new](./res/icon-new.svg)    | Get the Alert MITRE insight from LLM.                                             |
+| Get Incident MITRE Insight![icon-new](./res/icon-new.svg) | Get the Incident MITRE insight from LLM.                                          |
 
 
 >**Warning:** We recommend that you clone these playbooks before customizing to avoid loss of information while upgrading the solution pack.
