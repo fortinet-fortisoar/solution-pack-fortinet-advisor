@@ -3,9 +3,9 @@
 
 # Usage
 
-This section aims to demonstrate how you can leverage Fortinet Advisor to generate playbooks, create response plans, understand Jinja, and ask questions among other things. It also provides steps on how to train the solution using your playbook collection to get results that reflect your organization's context and includes prompting tips to help you receive better and more targeted responses from Fortinet Advisor.
+This section aims to demonstrate how you can leverage FortiAI to generate playbooks, create response plans, understand Jinja, and ask questions among other things. It also provides steps on how to train the solution using your playbook collection to get results that reflect your organization's context and includes prompting tips to help you receive better and more targeted responses from FortiAI.
 
-Advisor operates in two distinct modes &ndash; Playbook Blocks and Conversation Mode &ndash; to provide intelligent assistance and guidance to security professionals: 
+FortiAI operates in two distinct modes &ndash; Playbook Blocks and Conversation Mode &ndash; to provide intelligent assistance and guidance to security professionals: 
 
 - The **Playbook Blocks** mode is active in the playbook designer and provides users with two options
     - Playbook Generation
@@ -20,13 +20,13 @@ Advisor operates in two distinct modes &ndash; Playbook Blocks and Conversation 
     <tr>
         <td>In the Conversation mode:
             <ul>
-                <li>click the 'Advisor' icon on the lower-right corner in the alert detail view.
+                <li>click the 'FortiAI' icon on the lower-right corner in the alert detail view.
                     <p><img src="./res/ai_bot_icon.png" alt="Advisor bot icon in FortiSOAR"></p>
                 </li>
-                <li>Click the <strong>Advisor</strong> to open the Advisor flyout to contextually communicate with the Advisor.
+                <li>Click the <strong>FortiAI</strong> to open the flyout to contextually communicate with the FortiAI
                     <p><img src="./res/ai_bot_dialog.png" alt="Advisor dialog"></p>
                 </li>
-                <li>Click the <strong>Clear Conversation</strong> button to manually clear a conversation in Advisor. The <em>Clear Conversation</em> button clears the conversations only from the current Conversation mode and not from <strong>Playbook Generation Mode</strong>.</li>
+                <li>Click the <strong>Clear Conversation</strong> button to manually clear a conversation in FortiAI The <em>Clear Conversation</em> button clears the conversations only from the current Conversation mode and not from <strong>Playbook Generation Mode</strong>.</li>
             </ul>
         </td>
     </tr>
@@ -39,39 +39,39 @@ Advisor operates in two distinct modes &ndash; Playbook Blocks and Conversation 
 
 ## Use cases
 
-### Build response plans using Advisor
+### Build response plans using FortiAI
 
 Consider a situation where you are assigned to create a plan of action for investigating a ransomware event.
 
-You can use *Advisor* to help with this task by opening a playbook in the playbook designer and clicking the **Response Plans / Jinja / Playbook How To's** option in the Advisor flyout.
+You can use *FortiAI* to help with this task by opening a playbook in the playbook designer and clicking the **Response Plans / Jinja / Playbook How To's** option in the FortiAI flyout.
 
 Type your query, such as
 
 >*Can you help me with a plan to handle a phishing attack?*
 
-Click the **Post** icon. Advisor, in response, provides you with a good framework for a response plan that you can use to design playbooks utilizing the **Playbook Generation** option:  
+Click the **Post** icon. FortiAI, in response, provides you with a good framework for a response plan that you can use to design playbooks utilizing the **Playbook Generation** option:  
 
-![Advisor framework for response plans](../docs/res/AdvisorResponsePlans.png)
+![FortiAI framework for response plans](../docs/res/AdvisorResponsePlans.png)
 
 ### Get help with a Jinja expression
 
 You might need assistance with Jinja expressions found in reference playbooks, or you might need specific Jinja values. For instance, you might be looking for a Jinja to trim HTML from a string input.
 
-Use Advisor to help with this task by clicking the **Response Plans / Jinja / Playbook How To's** option in the Advisor flyout.
+Use FortiAI to help with this task by clicking the **Response Plans / Jinja / Playbook How To's** option in the FortiAI flyout.
 
 Typing your requirements, such as
 
 >*I need help with Jinja to trim HTML from a string input*
 
-Click the **Post** icon. Advisor, in response, provides you with the relevant Jinja to utilize:
+Click the **Post** icon. FortiAI, in response, provides you with the relevant Jinja to utilize:
 
-![Advisor response for a Jinja query](../docs/res/AdvisorJinja.png)
+![FortiAI response for a Jinja query](../docs/res/AdvisorJinja.png)
 
-### Generate playbook steps using Advisor
+### Generate playbook steps using FortiAI
 
 Assume for the moment that you are a playbook designer who is required to build workflows to mitigate various types of threats. 
 
-  >**NOTE**: It is recommended to create smaller playbook blocks for easier review and minimal changes in the JSON template generated by Advisor. You can then combine these small playbook blocks to create a larger playbook for your desired workflow.
+  >**NOTE**: It is recommended to create smaller playbook blocks for easier review and minimal changes in the JSON template generated by FortiAI. You can then combine these small playbook blocks to create a larger playbook for your desired workflow.
 
 One use case to mitigate threats could require playbook steps that that extract indicators from an alert and enrich them using a threat intelligence tool such as VirusTotal.
 
@@ -79,38 +79,38 @@ Based on the reputation, the indicator reputation is updated to *Malicious*, if 
 
 You may not be a seasoned playbook developer yet and may require some assistance with developing this playbook.
 
-Use Advisor to help with this task by clicking the **Playbook Generation** option in the Advisor flyout.
+Use FortiAI to help with this task by clicking the **Playbook Generation** option in the FortiAI flyout.
 
 Type your requirements, such as
 
 >*Extract Indicators from the Alert Source Data and enrich them using VirusTotal. Based upon reputation, If `malicious` update the indicator reputation to `malicious` else if `suspicious` update the indicator reputation to `suspicious` else update indicator reputation to good*
 
-Click the **Post** icon. Advisor, in response, designs the playbook and presents you with the proposed playbook outline:
+Click the **Post** icon. FortiAI, in response, designs the playbook and presents you with the proposed playbook outline:
 
-![Advisor - Suggested playbook outline](../docs/res/AdvisorPBGeneration.png)
+![FortiAI - Suggested playbook outline](../docs/res/AdvisorPBGeneration.png)
 
 In the review mode itself, you can make modifications, such as changing the integration from VirusTotal to IPStack. Once you are satisfied, click **Ok, Generate Playbook**:
 
-![Advisor - Generate Playbook button](../docs/res/AdvisorPBGenerationReview.png)
+![FortiAI - Generate Playbook button](../docs/res/AdvisorPBGenerationReview.png)
 
 <table>
     <th>NOTE</th>
-    <td>If any step uses a connector that has not been installed, then Advisor will display a message informing the user that the specific step requires a connector that is not installed on the system.</td>
+    <td>If any step uses a connector that has not been installed, then FortiAI will display a message informing the user that the specific step requires a connector that is not installed on the system.</td>
 </table>
 
-Once Advisor starts generating the playbook steps, a loader indicates the progress. After playbook steps have been generated, a playbook block is suggested in the playbook designer.
+Once FortiAI starts generating the playbook steps, a loader indicates the progress. After playbook steps have been generated, a playbook block is suggested in the playbook designer.
 
-The Advisor-generated playbook block may require review, which you can perform by clicking the playbook steps and examining each step. Following image shows the *Determine Indicator Reputation* step:
+The FortiAI-generated playbook block may require review, which you can perform by clicking the playbook steps and examining each step. Following image shows the *Determine Indicator Reputation* step:
 
-![Reviewing a playbook step generated by Advisor](../docs/res/AdvisorGeneratedPb_StepReview.png)   
+![Reviewing a playbook step generated by FortiAI](../docs/res/AdvisorGeneratedPb_StepReview.png)   
 
 Post-review, you can connect the AI generated playbook blocks to the main playbook flow and create a complete workflow.
 
 As  demonstrated, this represents a significant advancement in playbook design and is of enormous  assistance to individuals who are just starting out developing playbooks.
 
-#### Common use cases for generating playbook steps using Advisor
+#### Common use cases for generating playbook steps using FortiAI
 
-Some other playbook generation use cases that you could use to familiarize yourself with Advisor are:
+Some other playbook generation use cases that you could use to familiarize yourself with FortiAI are:
 
 - Extract IOCs from CSV and Create Indicator Record for each
 - Extract Indicators from Alert Source Data and Create Indicator Records for each
@@ -126,13 +126,13 @@ Some other playbook generation use cases that you could use to familiarize yours
 - Check the reputation of the indicator using VirusTotal and prompt the user for action: either block it or take no action
 - Manually trigger a playbook upon a Phishing type Alert Record to change the status to Investigating
 
-### Ask a contextual question to Advisor
+### Ask a contextual question to FortiAI
 
-In **Conversation** Mode, Advisor takes on a more interactive role, offering valuable assistance through conversations in a natural language. 
+In **Conversation** Mode, FortiAI takes on a more interactive role, offering valuable assistance through conversations in a natural language. 
 
-You can engage in contextual conversation with Advisor in the list view and detail view of modules in FortiSOAR, where you can seek guidance, recommendations, information about the latest threats, security processes etc. Advisor provides insightful responses, leveraging its extensive knowledge base.
+You can engage in contextual conversation with FortiAI in the list view and detail view of modules in FortiSOAR, where you can seek guidance, recommendations, information about the latest threats, security processes etc. FortiAI provides insightful responses, leveraging its extensive knowledge base.
 
-In context of a malware (Dragonfly) alert, to know more about that malware, click the **Advisor** icon in the alert detail view.
+In context of a malware (Dragonfly) alert, to know more about that malware, click the **FortiAI** icon in the alert detail view.
 
 In the **Ask a question** text box, type
 
@@ -140,9 +140,9 @@ In the **Ask a question** text box, type
 
 Press **Enter** to get more information about the malware that is relevant to the alert in question, as shown in the following image:
 
-![Asking a question to Advisor](./res/conversationMode.png)  
+![Asking a question to FortiAI](./res/conversationMode.png)  
 
-Advisor provides a summary about the malware and its associated threat groups. It also informs you that this malware has been observed in phishing campaigns and is designed to exploit vulnerabilities in common file formats, such as docx.
+FortiAI provides a summary about the malware and its associated threat groups. It also informs you that this malware has been observed in phishing campaigns and is designed to exploit vulnerabilities in common file formats, such as docx.
 
 ### Module Specific Question 
 
