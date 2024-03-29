@@ -24,7 +24,7 @@ The **FortiAI** solution pack contains the following resources:
 | Name                     | Description                                                                                                                                       |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | FortiAI Configurations   | Contains keys like `llmIntegrations`, `llmIntegrationToUse`, and `llmIntegrationData`            |
-| FortiAI Static Questions | Contains questions for different modules and playbook tags to execute on each question. Also contains the list of fields to be used for question. |
+| FortiAI Static Questions | Contains questions for different modules along with playbook tags to execute on each question, prompt, fields to be used, include similar records, display recommended playbook. |
 
 ### Table of Contents
 
@@ -121,8 +121,8 @@ The **FortiAI** solution pack contains the following resources:
     <tr>
         <td>
             <ol>
-                <li>To add the new LLM or LLM Models, use <a href="./llm-configuration.json">JSON</a>.</li>
-                <li>To add the new question, use <a href="./question-sample.json">JSON</a>.</li>
+                <li>To add the new LLM or LLM Models, refer <a href="./llm-configuration.json">JSON</a>.</li>
+                <li>To add the new question, refer <a href="./question-sample.json">JSON</a>.</li>
                 <li>Write a playbook along with the tag mentioned in the JSON to execute it on a particular question.</li>
             </ol>
         </td>
