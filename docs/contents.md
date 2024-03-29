@@ -23,7 +23,7 @@ The **FortiAI** solution pack contains the following resources:
 
 | Name                     | Description                                                                                                                                       |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
-| FortiAI Configurations   | Contains keys like `llmIntegrationToUse`, `llmIntegrationData`, `conversationModel`, `pBGenerationModel`, and `isMultiConfigAvailable`            |
+| FortiAI Configurations   | Contains keys like `llmIntegrations`, `llmIntegrationToUse`, and `llmIntegrationData`            |
 | FortiAI Static Questions | Contains questions for different modules and playbook tags to execute on each question. Also contains the list of fields to be used for question. |
 
 ### Table of Contents
