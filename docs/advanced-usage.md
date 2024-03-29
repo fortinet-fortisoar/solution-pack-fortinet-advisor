@@ -114,7 +114,7 @@ To restrict access to FortiAU by specifying the teams that are authorized to use
 
 ### FortiAI bot not visible
 
-The FortiAI bot is not visible after installing the FortiAI solution pack.
+The FortiAI bot is not visible after installing the Fortinet Advisor solution pack.
 
 **Resolution**
 
