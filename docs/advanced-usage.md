@@ -5,7 +5,7 @@
 
 ## Prompting tips
 
-Simple tweaks to the input prompts could improve the playbook block generation process using Fortinet Advisor. While asking queries or giving input to the Advisor keep some tips in mind:
+Simple tweaks to the input prompts could improve the playbook block generation process using FortiAI. While asking queries or giving input to the FortiAI keep some tips in mind:
 
 - To use a specific integration in a use case, provide it as part of the prompt. For example;
 
@@ -15,7 +15,7 @@ Simple tweaks to the input prompts could improve the playbook block generation p
 
     - *Get IP Reputation*.
     
-    In the second prompt, Advisor may include any enrichment source such as IP Quality Score, AlienVault-OTX, VirusTotal, etc. You must also ensure that any connector specified in the prompt is installed on your system.
+    In the second prompt, FortiAI may include any enrichment source such as IP Quality Score, AlienVault-OTX, VirusTotal, etc. You must also ensure that any connector specified in the prompt is installed on your system.
 
 - To create playbooks intended to add a record in FortiSOAR, avoid using *Create <`module name`> record* as the first step. Instead, place it in the next step after gathering details from a previous action.
 
@@ -43,13 +43,13 @@ Simple tweaks to the input prompts could improve the playbook block generation p
 
 ## Utilizing your playbook collections to train the solution
 
-By default, Fortinet Advisor is trained using the large collection of use cases available on the [FortiSOAR Content Hub](https://fortisoar.contenthub.fortinet.com/list.html). 
+By default, FortiAI is trained using the large collection of use cases available on the [FortiSOAR Content Hub](https://fortisoar.contenthub.fortinet.com/list.html). 
 
-Simultaneously, we recognize that every organization develops automated content according to its own style and naming practice. You can add your playbook collections to the Advisor's training set to have it speak your language when creating the playbook blocks.
+Simultaneously, we recognize that every organization develops automated content according to its own style and naming practice. You can add your playbook collections to the FortiAI's training set to have it speak your language when creating the playbook blocks.
 
 <table>
     <th>NOTE</th>
-    <td>To achieve better training results, the playbook collections used for training must have appropriate step names with clear descriptions. This is because the Advisor uses these to generate the response playbook and steps. Additionally, when asking Advisor to generate playbooks, it is recommended to use similar step names or keywords as those used in your trained playbook collections. For example, if 'Indicators' are used in step names, then do not use 'IOCs'.</td>
+    <td>To achieve better training results, the playbook collections used for training must have appropriate step names with clear descriptions. This is because the FortiAI uses these to generate the response playbook and steps. Additionally, when asking FortiAI to generate playbooks, it is recommended to use similar step names or keywords as those used in your trained playbook collections. For example, if 'Indicators' are used in step names, then do not use 'IOCs'.</td>
 </table>
 
 Use the following steps to update the training using your playbook collections: 
@@ -70,9 +70,9 @@ Use the following steps to update the training using your playbook collections:
 
     ![Capturing the ID of the exported file](../docs/res/exportWiz_template.png)
 
-6. Click **Automation** > **Playbooks** and search for `Fortinet Advisor`.
+6. Click **Automation** > **Playbooks** and search for `FortiAI`.
 
-7. Open the 'Sample - Fortinet Advisor - 1.0.0' playbook collection and clone the 'Refresh Training Data' playbook:
+7. Open the 'Sample - AI Assistant Utils - 2.0.0' playbook collection and clone the 'Refresh Training Data' playbook:
 
    ![Cloning the Refresh Training Data playbook](../docs/res/clonePBcollection.png)
 
@@ -92,9 +92,9 @@ To use the connector configuration other than the default configuration to get r
    ![Selecting the configuration to be used](../docs/res/alternateConnectorConfig.png)
 3. Click **Save** to save the updated connector configuration and then click **Save Playbook** to save the playbook.  
 
-## How to restrict access to Advisor?
+## How to restrict access to FortiAI?
 
-To restrict access to Advisor by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
+To restrict access to FortiAU by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
 
 1. To limit access, open the OpenAI configuration, mark its **Visibility** as **Private**, and then click the **Ownership** icon:  
    ![OpenAI Connection configuration dialog - Ownership icon](../docs/res/rbac_openai.png)
@@ -108,13 +108,13 @@ To restrict access to Advisor by specifying the teams that are authorized to use
      1. Open the Converse with LLM playbook in the playbook designer, and in the top bar, mark its **Visibility** as **Private**, and then click the **Ownership** icon.  
         ![Marking playbooks as Private](../docs/res/pb_mark_private.png)  
      2. In the **Assign Owners** dialog, assign the ownership of the playbook to the same teams that are assigned as owners in the OpenAI connector, and then click **Submit**.   
-        Once the teams are assigned in both the playbooks and the OpenAI connector, only those teams will have access to the OpenAI connector and will be able to receive responses from Fortinet Advisor.
+        Once the teams are assigned in both the playbooks and the OpenAI connector, only those teams will have access to the OpenAI connector and will be able to receive responses from FortiAI.
 
-## How to update the OpenAI Model for use by Advisor?
+## How to update the OpenAI Model for use by FortiAI?
 
-You can choose the OpenAI Model that you want the Advisor to use by editing the `OpenAI_Model` global variable. By default, Advisor uses the 'gpt-4-1106-preview' model.
+You can choose the OpenAI Model that you want the FortiAI to use by editing the `OpenAI_Model` global variable. By default, FortiAI uses the 'gpt-4-1106-preview' model.
 
-To update the OpenAI Model used by Advisor, follow these steps:
+To update the OpenAI Model used by FortiAI, follow these steps:
 
 1. Log onto FortiSOAR.
 2. Navigate to **Automation** > **Playbooks**. 
@@ -126,28 +126,28 @@ To update the OpenAI Model used by Advisor, follow these steps:
 
 ## Troubleshooting
 
-### Advisor bot not visible
+### FortiAI bot not visible
 
-The Advisor bot is not visible after installing the Fortinet Advisor solution pack.
+The FortiAI bot is not visible after installing the FortiAI solution pack.
 
 **Resolution**
 
 To resolve this issue, you can either force a browser refresh or log out and log back in, to your FortiSOAR instance.
 
-### Advisor flyout does not open
+### FortiAI flyout does not open
 
-The Advisor flyout does not launch, or the Advisor does not display any response for the playbook outline.
+The FortiAI flyout does not launch, or the FortiAI does not display any response for the playbook outline.
 
 **Resolution**
 
-To resolve this issue, check if the user is assigned appropriate permissions. To utilize the Fortinet Advisor solution pack, users must have the following permissions, along with other appropriate permissions:
+To resolve this issue, check if the user is assigned appropriate permissions. To utilize the FortiAI solution pack, users must have the following permissions, along with other appropriate permissions:
 
 - Read and Usage permissions on Widgets
 - Read and Execute permissions on Playbooks
 
-### Advisor is unable to generate playbook steps
+### FortiAI is unable to generate playbook steps
 
-Based on your prompt, the Advisor cannot generate the playbook steps.
+Based on your prompt, the FortiAI cannot generate the playbook steps.
 
 **Resolution**
 
