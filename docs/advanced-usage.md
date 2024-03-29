@@ -110,20 +110,6 @@ To restrict access to FortiAU by specifying the teams that are authorized to use
      2. In the **Assign Owners** dialog, assign the ownership of the playbook to the same teams that are assigned as owners in the OpenAI connector, and then click **Submit**.   
         Once the teams are assigned in both the playbooks and the OpenAI connector, only those teams will have access to the OpenAI connector and will be able to receive responses from FortiAI.
 
-## How to update the OpenAI Model for use by FortiAI?
-
-You can choose the OpenAI Model that you want the FortiAI to use by editing the `OpenAI_Model` global variable. By default, FortiAI uses the 'gpt-4-1106-preview' model.
-
-To update the OpenAI Model used by FortiAI, follow these steps:
-
-1. Log onto FortiSOAR.
-2. Navigate to **Automation** > **Playbooks**. 
-3. Select any playbook to open the Playbook Designer.
-4. In the Playbook Designer, click **Tools** > **Global Variables**.
-5. In the Global Variables dialogue, search for `OpenAI_Model`. 
-6. Click **Edit** in the OpenAI_Model row to set the value of the OpenAI Model you want to use:   
-   ![Editing the OpenAI Model global variable](../docs/res/editing_openai_model.png)
-
 ## Troubleshooting
 
 ### FortiAI bot not visible
