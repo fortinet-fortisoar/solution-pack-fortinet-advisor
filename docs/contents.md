@@ -121,9 +121,9 @@ The **FortiAI** solution pack contains the following resources:
     <tr>
         <td>
             <ol>
-                <li>To add the new LLM or LLM Models use JSON <a href="./llm-configuration.json"></a></li>
-                <li>Add the question in JSON format under the particular module's API name. <a href="./question-sample.json">Question JSON</a></li>
-                <li>Write a playbook along with the tag mentioned in the JSON above.</li>
+                <li>To add the new LLM or LLM Models, use <a href="./llm-configuration.json">JSON</a>.</li>
+                <li>To add the new question, use <a href="./question-sample.json">JSON</a>.</li>
+                <li>Write a playbook along with the tag mentioned in the JSON to execute it on a particular question.</li>
             </ol>
         </td>
     </tr>
