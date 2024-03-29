@@ -94,7 +94,7 @@ To use the connector configuration other than the default configuration to get r
 
 ## How to restrict access to FortiAI?
 
-To restrict access to FortiAU by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
+To restrict access to FortiAI by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
 
 1. To limit access, open the OpenAI configuration, mark its **Visibility** as **Private**, and then click the **Ownership** icon:  
    ![OpenAI Connection configuration dialog - Ownership icon](../docs/res/rbac_openai.png)
