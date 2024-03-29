@@ -30,58 +30,87 @@ The **FortiAI** solution pack contains the following resources:
 
 <table>
     <tr>  
-        <th rowspan=5>FortiAI Configurations</th>  
+        <th rowspan=3>FortiAI Configurations</th>  
+        <th>llmIntegrations</th>
+        <td>Sets the integration such as OpenAI, Google Bard, etc., to be used as the LLM. By default, 'OpenAI' is configured to be used as the LLM.
+            <table>
+                <tr>
+                    <th>name</th>
+                    <td>LLM Integration name as per Connector.</td>
+                </tr>
+                <tr>
+                    <th>title</th>
+                    <td>LLM Integration title as per Connector.</td>
+                </tr>
+                <tr>
+                    <th>modelList</th>
+                    <td>List of LLM Integration models.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
         <th>llmIntegrationToUse</th>
         <td>Sets the integration such as OpenAI, Google Bard, etc., to be used as the LLM. By default, 'OpenAI' is configured to be used as the LLM.</td>
     </tr>
     <tr> 
         <th>llmIntegrationData</th>
-        <td>Contain the data for each LLM Integration.</td>
-    </tr>
-    <tr>
-        <th>conversationModel</th>
-        <td>Sets the model of LLM Integration to use in <i>Conversation</i> and <i>Response Plans / Jinja / Playbook How To's </i> Mode.</td>
-    </tr>
-    <tr>
-        <th>pBGenerationModel</th>
-        <td>Sets the model of LLM Integration to use in <i>Playbook Generation</i> Mode.</td>
-    </tr>
-    <tr>
-        <th>isMultiConfigAvailable</th>
-        <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration.</td>
+        <td>Contain the data for each LLM Integration.
+            <table>
+                <tr>
+                    <th>conversationModel</th>
+                    <td>Sets the model of LLM Integration to use in <i>Conversation</i> and <i>Response Plans / Jinja / Playbook How To's </i> Mode.</td>
+                </tr>
+                <tr>
+                    <th>pBGenerationModel</th>
+                    <td>Sets the model of LLM Integration to use in <i>Playbook Generation</i> Mode.</td>
+                </tr>
+                <tr>
+                    <th>isMultiConfigAvailable</th>
+                    <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration.</td>
+                </tr>
+            </table>
+        </td>
     </tr>
     <tr>  
-        <th rowspan=8>FortiAI Static Question</th>  
-        <th>questions</th>
-        <td>Includes a list of questions to be displayed based on the module type and specifies the playbook tag to be executed for each question. For instance, the <b>alerts</b> module includes specific questions such as <i>Generate Alert Summary</i>, which is associated with the playbook tag <i>aibot-alertRecordSummary</i></td>
-    </tr>
-    <tr>
-        <th>description</th>
-        <td>Description of the question to be displayed in the chatbot interface.</td>
-    </tr>
-    <tr>
-        <th>pbTag</th>
-        <td>Playbook tag indicating the execution of the playbook specific to that particular question.</td>
-    </tr>
-    <tr>
-        <th>enabled</th>
-        <td>Flag it as either true or false to determine whether it should be rendered on the AI bot.</td>
-    </tr>
-    <tr>
-        <th>prompt</th>
-        <td>Define the prompt to be sent to the LLM model, along with any additional details.</td>
-    </tr>
-    <tr> 
-        <th>fieldsOfInterest</th>
-        <td>Each module type contains the keys <b>primaryFields</b> and <b>coRelatedFields</b> to be utilized in prompts. <b>coRelatedFields</b> includes keys such as <i>moduleName</i>, <i>recordCount</i>, and <i>primaryFields</i>, which incorporate data pertaining to correlated fields, including the record count and the fields intended for use in coRelatedFields.</td>
-    </tr>
-    <tr>
-        <th>showRecommendedPlaybooks</th>
-        <td>Flag it as true or false to determine whether to retrieve recommended playbooks based on the output of that question.</td>
-    </tr>
-    <tr>
-        <th>getSimilarRecords</th>
-        <td>Set it as true or false to determine whether similar records should be included for that question.</td>
+        <th rowspan=1>FortiAI Static Question</th>  
+        <td>moduleAPIName</td>
+        <td>
+            <table>
+                <tr>
+                    <th>questions</th>
+                    <td>Includes a list of questions to be displayed based on the module type and specifies the playbook tag to be executed for each question. For instance, the <b>alerts</b> module includes specific questions such as <i>Generate Alert Summary</i>, which is associated with the playbook tag <i>aibot-alertRecordSummary</i></td>
+                </tr>
+                <tr>
+                    <th>description</th>
+                    <td>Description of the question to be displayed in the chatbot interface.</td>
+                </tr>
+                <tr>
+                    <th>pbTag</th>
+                    <td>Playbook tag indicating the execution of the playbook specific to that particular question.</td>
+                </tr>
+                <tr>
+                    <th>enabled</th>
+                    <td>Flag it as either true or false to determine whether it should be rendered on the AI bot.</td>
+                </tr>
+                <tr>
+                    <th>prompt</th>
+                    <td>Define the prompt to be sent to the LLM model, along with any additional details.</td>
+                </tr>
+                <tr> 
+                    <th>fieldsOfInterest</th>
+                    <td>Each module type contains the keys <b>primaryFields</b> and <b>coRelatedFields</b> to be utilized in prompts. <b>coRelatedFields</b> includes keys such as <i>moduleName</i>, <i>recordCount</i>, and <i>primaryFields</i>, which incorporate data pertaining to correlated fields, including the record count and the fields intended for use in coRelatedFields.</td>
+                </tr>
+                <tr>
+                    <th>showRecommendedPlaybooks</th>
+                    <td>Flag it as true or false to determine whether to retrieve recommended playbooks based on the output of that question.</td>
+                </tr>
+                <tr>
+                    <th>getSimilarRecords</th>
+                    <td>Set it as true or false to determine whether similar records should be included for that question.</td>
+                </tr>
+            </table>
+        </td>
     </tr>    
 </table>
 
@@ -91,8 +120,8 @@ The **FortiAI** solution pack contains the following resources:
     </tr>
     <tr>
         <td>
-            To add a new question for different modules, follow these steps:
             <ol>
+                <li>To add the new LLM or LLM Models use JSON <a href="./llm-configuration.json"></a></li>
                 <li>Add the question in JSON format under the particular module's API name. <a href="./question-sample.json">Question JSON</a></li>
                 <li>Write a playbook along with the tag mentioned in the JSON above.</li>
             </ol>
