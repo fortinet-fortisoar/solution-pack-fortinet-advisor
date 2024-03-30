@@ -10,7 +10,13 @@
 
 ## Prerequisites
 
-The **FortiAI** solution pack is not dependent on any other solution pack. However, ensure the following:
+The **FortiAI** solution pack depends on the following solution packs.
+
+| Name                     | Type          | Version           | Purpose                                |
+|:-------------------------|:--------------|:------------------|:---------------------------------------|
+| SOAR Framework           | Solution Pack | v2.2.0 and later  | Required for Key Store module          |
+
+Please also ensure the following:
 
 - You have An OpenAI account and a valid API key to access the OpenAI APIs.
 - *GPT4*, i.e. the `gpt-4-1106-preview` model is enabled for use in your OpenAI account. Versions prior of *GPT4* do not generate correct responses. 
