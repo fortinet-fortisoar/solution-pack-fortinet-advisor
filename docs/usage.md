@@ -112,19 +112,19 @@ As  demonstrated, this represents a significant advancement in playbook design a
 
 Some other playbook generation use cases that you could use to familiarize yourself with FortiAI are:
 
-- Extract IOCs from CSV and Create Indicator Record for each
+- Extract IOCs from CSV and Create the Indicator Record for each
 - Extract Indicators from Alert Source Data and Create Indicator Records for each
 - Fetch Unread Emails from Exchange and create Alert record
 - Notify using Slack when Alert severity changes
-- On Create of alert add a comment *Hello, Analyst!*
+- On Create of alert add a comment *Hello, Analyst!* on Alert
 - Check the IP's reputation using VirusTotal.
     - If it's considered malicious, set the indicator reputation as malicious.
     - If it's considered suspicious, set the indicator reputation as suspicious.
     - Else, set the indicator reputation as good
 - Submit a file for analysis to FortiSandbox and obtain the verdict for the analysis job
-- On Delete of alert, send an email to Admin
-- Check the reputation of the indicator using VirusTotal and prompt the user for action: either block it or take no action
-- Manually trigger a playbook upon a Phishing type Alert Record to change the status to Investigating
+- On Delete of an alert, using Exchange send an email to Admin
+- Find the reputation of the indicator using VirusTotal and prompt the user for action: either block it using FortiGate or take no action.
+- Manually trigger a playbook for an Alert Record to change the status to Investigating.
 
 ### Ask a contextual question to FortiAI
 
