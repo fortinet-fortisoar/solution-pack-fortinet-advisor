@@ -67,7 +67,7 @@ The **FortiAI** solution pack contains the following resources:
                 </tr>
                 <tr>
                     <th>isMultiConfigAvailable</th>
-                    <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration. By Default, it is marked as `false`</td>
+                    <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration. By Default, it is set to `false`</td>
                 </tr>
             </table>
         </td>
