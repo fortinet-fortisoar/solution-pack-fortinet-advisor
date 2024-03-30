@@ -36,22 +36,22 @@ The **FortiAI** solution pack contains the following resources:
             <table>
                 <tr>
                     <th>name</th>
-                    <td>LLM Integration name as per Connector.</td>
+                    <td>LLM Integration name as per Connector. By default, `openai` is set.</td>
                 </tr>
                 <tr>
                     <th>title</th>
-                    <td>LLM Integration title as per Connector.</td>
+                    <td>LLM Integration title as per Connector. By default, `OpenAI` is set.</td>
                 </tr>
                 <tr>
                     <th>modelList</th>
-                    <td>List of LLM Integration models.</td>
+                    <td>List of LLM Integration models. By default, `gpt-3.5-turbo`, `gpt-3.5-turbo-0301`, `gpt-4`, `gpt-4-1106-preview` is present.</td>
                 </tr>
             </table>
         </td>
     </tr>
     <tr>
         <th>llmIntegrationToUse</th>
-        <td>Sets the integration such as OpenAI, Google Bard, etc., to be used as the LLM. By default, 'OpenAI' is configured to be used as the LLM.</td>
+        <td>Sets the integration such as OpenAI, Google Bard, etc., to be used as the LLM. By default, `OpenAI` is configured to be used as the LLM.</td>
     </tr>
     <tr> 
         <th>llmIntegrationData</th>
@@ -59,15 +59,15 @@ The **FortiAI** solution pack contains the following resources:
             <table>
                 <tr>
                     <th>conversationModel</th>
-                    <td>Sets the model of LLM Integration to use in <i>Conversation</i> and <i>Response Plans / Jinja / Playbook How To's </i> Mode.</td>
+                    <td>Sets the model of LLM Integration to use in <i>Conversation</i> and <i>Response Plans / Jinja / Playbook How To's </i> Mode. By Default, `gpt-4-1106-preview` is to be used. </td>
                 </tr>
                 <tr>
                     <th>pBGenerationModel</th>
-                    <td>Sets the model of LLM Integration to use in <i>Playbook Generation</i> Mode.</td>
+                    <td>Sets the model of LLM Integration to use in <i>Playbook Generation</i> Mode. By Default, `gpt-4-1106-preview` is to be used. </td>
                 </tr>
                 <tr>
                     <th>isMultiConfigAvailable</th>
-                    <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration.</td>
+                    <td>Sets as <b>true</b> or <b>false</b> to support the Multiple Configuration. By Default, it is marked as `false`</td>
                 </tr>
             </table>
         </td>
