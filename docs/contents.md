@@ -7,30 +7,23 @@ The **FortiAI** solution pack contains the following resources:
 
 ## Connectors
 
-| Name               | Description                                                |
-|:-------------------|:-----------------------------------------------------------|
-| AI Assistant Utils | Bundles helper methods that aid with content generation.   |
-| OpenAI             | Provides the OpenAI models that are used as a backing LLM. |
+| Name               | Description                                                                                     |
+|:-------------------|:------------------------------------------------------------------------------------------------|
+| AI Assistant Utils | Bundles helper methods that aid with content generation and communicates with LLMs like OpenAI. |
+| OpenAI             | Provides the OpenAI models that are used as a backing LLM.                                      |
 
 ## Widget
 
-| Name                                                        | Description                                                                                          |
-|:------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
-| AI Assistant                                                | Adds the Advisor bot to the FortiSOAR User Interface.                                                |
-| FortiAI Configuration Wizard![icon-new](./res/icon-new.svg) | Launches a wizard that walks a user through the process of setting up LLM Integration Configuration. |
+| Name                         | Description                                                                                          |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------|
+| AI Assistant                 | Adds the Advisor bot to the FortiSOAR User Interface.                                                |
+| FortiAI Configuration Wizard | Launches a wizard that walks a user through the process of setting up LLM Integration Configuration. |
 
 ## Attachments
 
 | Name                                 | Description                                                              |
 |:-------------------------------------|:-------------------------------------------------------------------------|
 | FortiAI - SOC Assistant Instructions | Contains the set of instruction of which SOC Assistant will get created. |
-
-## Attachment - Record Set
-
-| Name                                 | Description                                                              |
-|:-------------------------------------|:-------------------------------------------------------------------------|
-| FortiAI - SOC Assistant Instructions | Contains the set of instruction of which SOC Assistant will get created. |
-
 
 ## Key Store - Record Set
 

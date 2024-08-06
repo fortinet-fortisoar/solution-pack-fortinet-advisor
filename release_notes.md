@@ -13,6 +13,7 @@ FortiAI empowers security teams and addresses the evolving challenges of the mod
   - Escalate alerts to an incident
   - Create a war room for a given incident
   - Create or update FortiSOAR module records
+  - Correlate records
   - Generate a FortiSOAR playbook
   - Create Jinja expressions and Regex to speed up playbook development in FortiSOAR
   - Navigate to a FortiSOAR module such as Alerts, Incidents, or Indicators
@@ -29,7 +30,7 @@ FortiAI empowers security teams and addresses the evolving challenges of the mod
 
 - Previous conversations remain in the conversation window and provide context to the bot until users clear the conversation. Conversations persist throughout repeated logins and logouts.
 
-- With the bot's enhanced understanding of natural language, it derives its operating modes from the conversation, making the options — Playbook Blocks and Conversation Mode — redundant.
+- With the bot's enhanced understanding of natural language, it derives its operating modes from the conversation, making the Playbook Blocks and Conversation Mode, unnecessary.
 
 >[!Note]
 >Sensitive data is still actively masked in all conversations with the LLM.

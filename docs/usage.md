@@ -15,9 +15,6 @@ The **FortiAI** solution pack offers a variety of functions through its **AI Ass
 - **Escalate To Incident**: Escalate, elevate, or promote the alert to an incident.
 - **Setup War Room**: Establish, set up, initiate, or create a war room for an incident.
 
->[!NOTE]
->For record operations, *Link Record* and *Update Record*, the bot expects the `ID` and `UUID` of the records; if the records context is not present in the bot conversation history.
-
 ## Generating Playbooks
 
 Generating playbooks with the OpenAI assistant allows you to streamline and automate threat mitigation processes efficiently. The following section provides detailed instructions on how to create and manage playbooks using the assistant's capabilities.
@@ -65,6 +62,9 @@ One common use case involves creating a playbook to extract indicators from an a
 
 The ability to generate playbooks through OpenAI's assistant represents a significant advancement in playbook design, offering immense assistance to those new to developing playbooks. By following the above steps, administrators can efficiently create and manage robust playbooks to address various threat mitigation scenarios.
 
+[!TIP]
+>It is recommended that you clear a conversation before executing different use cases. Clearing conversations also helps in saving tokens being consumed.
+
 ## Navigating Page
 
 Navigating pages within the FortiAI assistant allows users to access various modules and records efficiently. This functionality enhances workflow efficiency and helps users locate and manage the required information across the system.
@@ -91,9 +91,7 @@ One common use case involves accessing specific records quickly. For instance, a
 
     >*Open the record with ID [ALERT-ID]*
 
-   - The assistant locates and displays the record for you.
-
-Adjust the navigation command to suit your needs, such as specifying a different module or record.
+   - The assistant locates and displays the record for you. The response contains a hyperlink to the said record. Users can refer to previous conversations and navigate to the record using these links.
 
 ### Review Navigation Commands
 
@@ -119,13 +117,13 @@ For example, you can open an alert record and ask the bot for *Source IP* contai
 >[!NOTE]
 >Ensure that context provided is relevant and up-to-date to maintain accuracy in decision-making and task execution.
 
-## Link Record
+## Linking Records
 
 Linking records within the FortiAI assistant involves correlating a record with other relevant records. This functionality helps establish connections between different pieces of information, such as correlating an indicator with an existing alert, to enhance data analysis and response actions.
 
 ### Use Case Example: Correlating an Indicator
 
-A common use case is correlating an indicator with an existing alert. For example, if an alert is triggered due to a specific indicator, linking the indicator to the alert helps in understanding the relationship and impact. This correlation can aid in more accurate threat analysis and response.
+A common use case is correlating an indicator with an existing alert. For example, if an alert is to be associated with an indicator, linking the indicator to the alert helps in understanding the relationship and impact. This correlation can aid in more accurate threat analysis and response.
 
 ### Linking Records Using FortiAI Assistant
 
@@ -139,7 +137,7 @@ A common use case is correlating an indicator with an existing alert. For exampl
 2. **Correlate Records**:
    - Specify the records you want to correlate. For example:
 
-    >*Correlate the newly detected IP [IP-ADDRESS] with the [INCIDENT-ID]*
+    >*Correlate the newly detected IP [INDICATOR-ID] with the [INCIDENT-ID]*
 
    - The assistant identifies and establish correlations between the specified records.
 
@@ -156,7 +154,10 @@ Linking records is crucial for establishing connections between related pieces o
 >[!TIP]
 >When linking records, ensure that the connections are relevant and meaningful. Properly linking records can provide a more comprehensive view and improve the effectiveness of your analysis and response.
 
-## Create Record
+## Creating Records
+
+>[!NOTE]
+>For *Create Record* operation, the bot expects the `ID` and `UUID` of the records; if the records context is not present in the bot conversation history.
 
 Creating records within the FortiAI assistant involves generating new entries for specified types, pages, or modules. This functionality allows users to add new data to the system, such as creating a new alert or incident record, to manage and track information effectively.
 
@@ -194,9 +195,12 @@ A common use case is creating a new incident record when a new threat is detecte
 Creating records is a fundamental task for managing and tracking data within FortiSOAR. By following the steps outlined and leveraging the FortiAI assistant’s capabilities, users can effectively create and manage records to support their workflow and data management needs.
 
 >[!NOTE]
->Ensure that the records created are accurate and complete to maintain effective data management and support your workflow.
+>On an MSSP setup, users cannot prompt the bot from a master to create a record on a tenant other than *`Self`*.
 
-## Update Record
+## Updating Records
+
+>[!NOTE]
+>For *Update Record*, the bot expects the `ID` and `UUID` of the records; if the records context is not present in the bot conversation history.
 
 Updating records within the FortiAI assistant involves modifying existing entries with new or updated information. This functionality ensures that records remain accurate and relevant by reflecting the latest data.
 
@@ -224,19 +228,16 @@ A common use case is updating an incident record with new information, such as a
 
 - Verify that the record has been updated correctly with the new information. Ensure that all changes are accurate and that the record reflects the most recent data.
 
+>[!WARNING]
+>Updating records action overwrites any existing value in a field.
+
 ### Integrate Updated Records into Workflow
 
 - Utilize the updated records within your workflow to ensure that your data and analysis reflect the most current information. The updated records can aid in making informed decisions and managing tasks effectively.
 
->[!TIP]
->Regularly review and update records to ensure that all information remains current and accurate. This practice helps maintain the reliability of your data and supports effective decision-making.
-
 Updating records is a crucial task for maintaining accurate and relevant information within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively manage and update records to support their workflow and data accuracy.
 
->[!NOTE]
->Ensure that the information provided for updates is accurate and complete to maintain the integrity of the records and support your workflow.
-
-## Block Indicator
+## Blocking Indicators
 
 Blocking an indicator within the FortiAI assistant involves using a configured connector to prevent or mitigate the impact of the indicator. This functionality is crucial for managing security threats by stopping potentially harmful indicators from affecting your systems.
 
@@ -249,9 +250,9 @@ A common use case is blocking a malicious IP address that has been identified as
 1. **Initiate Blocking Action**:
    - Issue a command to block the indicator using the [configured connector]. For example:
 
-    >*Block IP address `[IP-ADDRESS]` using the [configured connector]*
+    >*Block IP address `[IP-ADDRESS]`*
 
-   - The assistant uses the specified connector to block the indicator.
+   - The assistant triggers a playbook to block the indicator. If the playbook execution takes time, the bot presents a link to the playbook execution log.
 
 2. **Provide Indicator Details**:
    - Specify the details of the indicator to be blocked. For example:
@@ -268,15 +269,12 @@ A common use case is blocking a malicious IP address that has been identified as
 
 - Incorporate the blocking action into your security workflow to prevent further interactions with the threat. Utilize the blocked indicator information for ongoing analysis and monitoring.
 
->[!Tip]
->Regularly update your list of blocked indicators to reflect new threats and ensure effective protection. Maintaining an up-to-date block list enhances overall security posture.
-
 Blocking indicators is an essential task for managing security threats within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively block harmful indicators and protect their systems.
 
 >[!Note]
 >Ensure that the connector used for blocking is properly configured to execute the blocking action accurately.
 
-## Enrich Indicator
+## Enriching Indicators
 
 Enriching an indicator within the FortiAI assistant involves fetching or retrieving the latest reputation information for the indicator. This functionality helps users gain up-to-date insights into the threat level associated with an indicator, such as an IP address, domain, or file hash.
 
@@ -308,15 +306,9 @@ A common use case is retrieving the reputation of an IP address to assess its th
 
 - Use the enriched reputation information to inform your security analysis and response actions. Incorporate the data into your workflow to enhance decision-making and threat management.
 
->[!Tip]
->Regularly fetch and review the latest reputation information for indicators to stay informed about potential threats. Up-to-date data helps maintain effective security measures.
-
 Enriching indicators is a critical task for understanding threat levels within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively retrieve and utilize the latest reputation information to support their security operations.
 
->[!Note]
->Ensure that the sources used for fetching reputation information are reliable and up-to-date to maintain the accuracy of the data.
-
-## Escalate To Incident
+## Escalating an Alert To Incident
 
 Escalating an alert to an incident within the FortiAI assistant involves promoting an alert to a higher level of response. This functionality is essential for managing critical alerts that require more detailed investigation and response actions.
 
@@ -340,6 +332,9 @@ A common use case is escalating an alert that indicates a significant security t
 
    - The assistant processes the escalation request and generates the incident accordingly.
 
+>[!NOTE]
+>A manual input is presented by the bot, if the alert being escalated is open. Alternatively, you can access pending manual inputs under **Pending Tasks** on the FortiSOAR tool bar.
+
 ### Review Escalated Incidents
 
 - Confirm that the escalation process has been completed successfully and that the new incident record contains all necessary information. Review the incident to ensure it is properly documented and ready for further action.
@@ -348,15 +343,12 @@ A common use case is escalating an alert that indicates a significant security t
 
 - Incorporate the escalated incident into your workflow for comprehensive management and response. Use the incident record to track progress, assign tasks, and coordinate responses.
 
->[!Tip]
->Regularly review and escalate high-priority alerts to ensure timely and effective response. Prompt escalation helps address critical issues and maintains security posture.
-
 Escalating alerts to incidents is a crucial process for managing significant security threats within FortiSOAR. By following the outlined steps and utilizing the FortiAI assistant’s capabilities, users can effectively promote alerts to incidents and manage them with appropriate detail and urgency.
 
 >[!Note]
 >Ensure that all necessary details from the alert are accurately included in the incident record to support effective investigation and resolution.
 
-## Setup War Room
+## Setting Up a War Room
 
 Setting up a war room within the FortiAI assistant involves creating a dedicated space for managing and responding to an incident. This functionality is crucial for coordinating efforts, sharing information, and making decisions during incident response.
 
@@ -380,6 +372,9 @@ A common use case is setting up a war room for a significant incident, such as a
 
    - The assistant processes the request and initiate the war room setup accordingly.
 
+>[!NOTE]
+>A manual input is presented by the bot, if the incident record is open. Alternatively, you can access pending manual inputs under **Pending Tasks** on the FortiSOAR tool bar.
+
 ### Review War Room Setup
 
 - Confirm that the war room setup process has been completed successfully and that the new war room contains all necessary information. Review the war room configuration to ensure it is ready for use.
@@ -396,7 +391,7 @@ Setting up a war room is a critical process for managing significant incidents w
 >[!Note]
 >Ensure that all necessary stakeholders are included in the war room to facilitate comprehensive incident management and decision-making.
 
-## Build Response Plans Using FortiAI
+## Building Response Plans
 
 Building response plans within the FortiAI assistant involves creating structured action plans for investigating and responding to security events. This functionality is essential for users who need to develop comprehensive response strategies for various security incidents.
 
@@ -437,7 +432,7 @@ Building response plans is a critical task for managing security incidents withi
 >[!Note]
 >Ensure that all response plans are thoroughly tested and validated to ensure they work as intended during actual incidents.
 
-## Get Help with a Jinja Expression
+## Getting Help with a Jinja Expression
 
 Getting assistance with Jinja expressions within the FortiAI assistant involves receiving guidance on creating or understanding Jinja expressions used in reference playbooks. This functionality is essential for users who need help with crafting or debugging Jinja templates to automate tasks in FortiSOAR.
 
@@ -471,12 +466,9 @@ A common use case is needing help to create a Jinja expression that extracts spe
 
 - Use the Jinja expressions in your playbooks to automate tasks and data extraction. Incorporate the expressions into your workflow to enhance efficiency and accuracy.
 
->[!Tip]
->Regularly review and test your Jinja expressions to ensure they work as expected. Validating expressions helps maintain the reliability of your automated processes.
-
 Getting help with Jinja expressions is a valuable feature for enhancing automation within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively create and debug Jinja expressions to support their playbook development.
 
->[!Note]
+>[!TIP]
 >Ensure that the Jinja expressions are properly tested and validated before integrating them into production playbooks to avoid errors and ensure smooth operation.
 
 ## Ask a contextual question to FortiAI

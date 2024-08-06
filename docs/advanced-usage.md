@@ -3,6 +3,8 @@
 
 # Advanced Usage
 
+This section includes information that may be helpful to administrators and users interacting with OpenAI Assistant.
+
 ## Prompting tips
 
 Simple tweaks to the input prompts could improve the playbook block generation process using **FortiAI**. While asking queries or giving input to the Assistant bot keep some tips in mind:
@@ -81,7 +83,7 @@ Use the following steps to update the training using your playbook collections:
 9. Run the updated playbook.  
    Once this playbook is successfully executed, your selected custom playbook collections become part of the training dataset.
 
-## How to use an alternate connector configuration?
+## Using an alternate connector configuration
 
 To use the connector configuration other than the default configuration to get responses from the LLM, follow these steps:
 
@@ -90,7 +92,7 @@ To use the connector configuration other than the default configuration to get r
    ![Selecting the configuration to be used](../docs/res/alternateConnectorConfig.png)
 3. Click **Save** to save the updated connector configuration and then click **Save Playbook** to save the playbook.  
 
-## How to restrict access to FortiAI?
+## Restricting access to FortiAI
 
 To restrict access to FortiAI by specifying the teams that are authorized to use the OpenAI connector, perform the following steps:
 
@@ -107,6 +109,49 @@ To restrict access to FortiAI by specifying the teams that are authorized to use
         ![Marking playbooks as Private](../docs/res/pb_mark_private.png)  
      2. In the **Assign Owners** dialog, assign the ownership of the playbook to the same teams that are assigned as owners in the OpenAI connector, and then click **Submit**.   
         Once the teams are assigned in both the playbooks and the OpenAI connector, only those teams will have access to the OpenAI connector and will be able to receive responses from FortiAI.
+
+## Adding New modules to Preset Questions
+
+This section details steps to add new modules and context-sensitive questions when that module's record is opened.
+
+As an example, let us add the **Assets** module (Module API Name: `assets`) and related questions (say `foo`, `bar`, and `baz`) with *Lorem Text* as descriptions. For context, let's select `id`, `name`, and `description` as fields of interest.
+
+1. Open the **Key Store** record named `fortiai-static-questions`
+
+2. Click the **Edit Record** button to edit the record.
+
+3. Enter the following JSON under the parent object `modules`:
+
+```JSON
+"assets": {
+    "questions": [
+    {
+        "enabled": true,
+        "question": "foo",
+        "description": "Lorem ipsum dolor sit amet"
+    },
+    {
+        "enabled": true,
+        "question": "bar",
+        "description": "Consectetur adipiscing elit"
+    },
+    {
+        "enabled": true,
+        "question": "baz",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }
+    ],
+    "fieldsOfInterest": [
+    "id",
+    "name",
+    "description"
+    ]
+}
+```
+
+Now when you open a record under **Assets** module, you can see the 3 questions `foo`, `bar`, and `baz` with *Lorem Text* as descriptions.
+
+![](./res/new_module_questions.png)
 
 ## Troubleshooting
 
@@ -140,6 +185,55 @@ To resolve this issue, try the following:
 - Try to regenerate the steps.
 - Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](#prompting-tips).
 - Verify that your OpenAI account is operational and has enough credit.
+
+### FortiAI does not create or update record
+
+FortiAI does not create or update record as per specified fields in FortiSOAR.
+
+**Resolution**
+
+- Prompt the FortiAI 
+
+    >*What parameter did you pass to create/update field.*
+
+- Correct the parameters as per field API names as mentioned in FortiSOAR settings.
+
+### Renaming OpenAI Connector Configuration
+
+Sometimes, on changing the configuration name of OpenAI connector, it may not correctly render the updated name.
+
+1. Press the **Back** button to return to the **LLM Configuration** page.
+
+2. Click **Next** to advance to the **Connector Configuration** page.
+
+### Response not as Expected
+
+The prompt may not always be as expected, in such cases you may:
+
+1. Send the prompt again
+
+2. Rephrase the prompt to send a more targeted request.
+
+### Response delay
+
+After entering the prompt the text may still be visible; however, the text input field appears disabled and with 3-dot loader gif on screen.
+
+**Resolution**
+
+- The prompt has not passed to the LLM. Refresh the page and try again with the same prompt.
+
+### OpenAI Error Messages
+
+1. Can't add messages to thread_123ndasda341 while a run run_134314hh1 is active.
+**Resolution**
+- Try to cancel the RUN on OpenAI platform - while loading the same thread on assistant using URL - https://platform.openai.com/playground/assistants?mode=assistant&assistant=asst_id&thread=thread_id and cancel the run
+- OR Clear the Conversation
+
+
+
+
+
+
 
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|---------------------------|
