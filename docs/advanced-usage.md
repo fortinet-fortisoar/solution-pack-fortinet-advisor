@@ -5,7 +5,7 @@
 
 ## Prompting tips
 
-Simple tweaks to the input prompts could improve the playbook block generation process using **FortiAI**. While asking queries or giving input to the Advisor keep some tips in mind:
+Simple tweaks to the input prompts could improve the playbook block generation process using **FortiAI**. While asking queries or giving input to the Assistant bot keep some tips in mind:
 
 - To use a specific integration in a use case, provide it as part of the prompt. For example;
 
@@ -85,7 +85,7 @@ Use the following steps to update the training using your playbook collections:
 
 To use the connector configuration other than the default configuration to get responses from the LLM, follow these steps:
 
-1. Go to the '10 - SP - Fortinet Advisor' playbook collection and click the > 'Get LLM Response' playbook to open the same in the playbook designer.
+1. Go to the '10 - SP - FortiAI' playbook collection and click the > 'Get LLM Response' playbook to open the same in the playbook designer.
 2. In the  'Get LLM Response' playbook, double-click the 'Get OpenAI Response' connector step, and select the configuration you want to use:  
    ![Selecting the configuration to be used](../docs/res/alternateConnectorConfig.png)
 3. Click **Save** to save the updated connector configuration and then click **Save Playbook** to save the playbook.  
@@ -98,7 +98,7 @@ To restrict access to FortiAI by specifying the teams that are authorized to use
    ![OpenAI Connection configuration dialog - Ownership icon](../docs/res/rbac_openai.png)
 2. In the **Assign Owners** dialog, you will see that the logged-in user's teams are automatically assigned ownership. To remove ownership of any team, click the **Red Cross** beside its name; similarly, to assign ownership to any team, select the team from the **Owners** drop-down list, click **Assign**, and then click **Submit**:  
    ![OpenAI Connection configuration - Assigning owners for the connector](../docs/res/openai_assignownership.png)  
-3. Mark the following playbooks in the '10 - SP - Fortinet Advisor' playbook collection as **Private** and assign their ownership to the same teams that are assigned as owners in the OpenAI connector.
+3. Mark the following playbooks in the '10 - SP - FortiAI' playbook collection as **Private** and assign their ownership to the same teams that are assigned as owners in the OpenAI connector.
    - Generate WorkPlan For User Input
    - Get Playbook Block Suggestion
    - Converse with LLM  
@@ -112,7 +112,7 @@ To restrict access to FortiAI by specifying the teams that are authorized to use
 
 ### FortiAI bot not visible
 
-The FortiAI bot is not visible after installing the Fortinet Advisor solution pack.
+The FortiAI bot is not visible after installing the **FortiAI** solution pack.
 
 **Resolution**
 

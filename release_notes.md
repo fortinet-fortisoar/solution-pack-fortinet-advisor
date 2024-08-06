@@ -42,7 +42,7 @@ FortiAI empowers security teams and addresses the evolving challenges of the mod
 
 - The playbook collection *10 - SP - Fortinet Advisor* has been renamed to **10 - SP - FortiAI**.
 
-- The following playbooks have been deprecated:
+- The following playbooks have been deprecated, as these actions can be performed by the bot without triggering any of these playbooks:
   - Converse with LLM
   - Generate WorkPlan for User Inputs
   - Get Alert Summary

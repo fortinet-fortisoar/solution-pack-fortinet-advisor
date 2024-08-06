@@ -42,7 +42,7 @@ One common use case involves creating a playbook to extract indicators from an a
     >*Extract Indicators from the Alert Source Data and enrich them using VirusTotal. Based upon reputation, if `malicious` update the indicator reputation to `malicious` else if `suspicious` update the indicator reputation to `suspicious` else update indicator reputation to good.*
 
 2. **Modify Playbook Outline**:
-   - Adjust the playbook outline as needed, such as changing the integration tool from VirusTotal to IPStack.      
+   - Adjust the playbook outline as needed, such as changing the integration tool from VirusTotal to IPStack. You can edit the JSON file and write *IPStack* instead of *VirusTotal*. The bot can also handle if there are typos in specifying the connector name.     
 
     ![FortiAI - Suggested playbook outline](../docs/res/FortiAIPBGeneration.png)
 
@@ -143,9 +143,6 @@ A common use case is correlating an indicator with an existing alert. For exampl
 
    - The assistant identifies and establish correlations between the specified records.
 
-3. **Review Linked Records**:
-   - Review the links and correlations to ensure they are correct and relevant. Verify that the connections between records provide meaningful insights.
-
 ### Review Linked Records
 
 - Verify the accuracy and relevance of the linked records. Ensure that the connections provide a clear understanding of the relationships and contribute to effective analysis.
@@ -154,9 +151,7 @@ A common use case is correlating an indicator with an existing alert. For exampl
 
 - Utilize the linked records to enhance your workflow. The connections between records can provide valuable insights and help streamline data analysis and response actions.
 
-### Conclusion
-
-Linking records is crucial for establishing connections between related pieces of information within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively correlate records to improve their analysis and response efforts.
+Linking records is crucial for establishing connections between related pieces of information within FortiSOAR.
 
 >[!TIP]
 >When linking records, ensure that the connections are relevant and meaningful. Properly linking records can provide a more comprehensive view and improve the effectiveness of your analysis and response.
@@ -187,9 +182,6 @@ A common use case is creating a new incident record when a new threat is detecte
     >*Create a new alert with the following details: `[Details of the alert]`*
 
    - The assistant generates the new record based on the provided details. If any mandatory details are missed, the bot requests for the missing information.
-
-3. **Review and Confirm**:
-   - Review the details of the newly created record to ensure accuracy. Confirm the creation to finalize the record entry.
 
 ### Review Created Records
 
@@ -227,9 +219,6 @@ A common use case is updating an incident record with new information, such as a
     >*Update the alert status to "Resolved" and add a note: [Details of the note]*
 
    - The assistant applies the changes to the record based on the provided information.
-
-3. **Review and Confirm**:
-   - Review the updated details to ensure accuracy. Confirm the update to finalize the changes to the record.
 
 ### Review Updated Records
 
@@ -271,9 +260,6 @@ A common use case is blocking a malicious IP address that has been identified as
 
    - The assistant processes the request and blocks the indicator accordingly.
 
-3. **Review Blocking Status**:
-   - Verify that the indicator has been successfully blocked. Check the status or confirmation provided by the assistant to ensure the action was completed.
-
 ### Review Blocking Actions
 
 - Confirm that the blocking action has been executed correctly and that the indicator is no longer active. Ensure that the blocking process has addressed the threat effectively.
@@ -302,16 +288,17 @@ A common use case is retrieving the reputation of an IP address to assess its th
 
 1. **Initiate Enrichment Request**:
    - Issue a command to fetch the latest reputation of the indicator. For example:
-     > *Retrieve the reputation of IP address `[IP-ADDRESS]`*
+
+    > *Retrieve the reputation of IP address `[IP-ADDRESS]`*
+
    - The assistant queries the relevant sources to get the current reputation information.
 
 2. **Specify Indicator Details**:
    - Provide the details of the indicator for which reputation is to be fetched. For example:
-     > *Get the latest reputation for domain `[DOMAIN]`*
-   - The assistant retrieves the most recent reputation data for the specified indicator.
 
-3. **Review Reputation Information**:
-   - Check the retrieved reputation information to understand the threat level associated with the indicator. Review the details to make informed decisions.
+    > *Get the latest reputation for domain `[DOMAIN]`*
+
+   - The assistant retrieves the most recent reputation data for the specified indicator.
 
 ### Review Enriched Indicators
 
@@ -323,8 +310,6 @@ A common use case is retrieving the reputation of an IP address to assess its th
 
 >[!Tip]
 >Regularly fetch and review the latest reputation information for indicators to stay informed about potential threats. Up-to-date data helps maintain effective security measures.
-
-### Conclusion
 
 Enriching indicators is a critical task for understanding threat levels within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively retrieve and utilize the latest reputation information to support their security operations.
 
@@ -343,16 +328,17 @@ A common use case is escalating an alert that indicates a significant security t
 
 1. **Initiate Escalation Action**:
    - Issue a command to escalate the alert to an incident. For example:
-     > *Promote alert with ID [ALERT-ID] to an incident*
+
+    > *Promote alert with ID [ALERT-ID] to an incident*
+
    - The assistant triggers a playbook that asks for information like incident name and severity before escalating the alert to the incident.
 
 2. **Provide Alert Details**:
    - Specify the details of the alert that needs to be escalated. For example:
-     > *Escalate alert [ALERT-ID] with subject [ALERT-SUBJECT] to incident*
-   - The assistant processes the escalation request and generates the incident accordingly.
 
-3. **Review Incident Creation**:
-   - Verify that the incident has been created and that all relevant details from the alert have been transferred. Ensure that the incident record accurately reflects the information from the alert.
+    > *Escalate alert [ALERT-ID] with subject [ALERT-SUBJECT] to incident*
+
+   - The assistant processes the escalation request and generates the incident accordingly.
 
 ### Review Escalated Incidents
 
@@ -382,16 +368,17 @@ A common use case is setting up a war room for a significant incident, such as a
 
 1. **Initiate War Room Setup**:
    - Issue a command to set up a war room for the incident. For example:
-     > *Establish a war room for incident [INCIDENT-ID]*
+
+    > *Establish a war room for incident [INCIDENT-ID]*
+
    - The assistant creates a new war room associated with the specified incident.
 
 2. **Provide Incident Details**:
    - Specify the details of the incident for which the war room is to be set up. For example:
-     > *Create a war room for incident [INCIDENT-ID] involving [INCIDENT-DESCRIPTION]*
-   - The assistant processes the request and initiate the war room setup accordingly.
 
-3. **Review War Room Creation**:
-   - Verify that the war room has been successfully created and that all relevant details are included. Ensure that the war room is properly configured to support incident response activities.
+    > *Create a war room for incident [INCIDENT-ID] involving [INCIDENT-DESCRIPTION]*
+
+   - The assistant processes the request and initiate the war room setup accordingly.
 
 ### Review War Room Setup
 
@@ -409,37 +396,95 @@ Setting up a war room is a critical process for managing significant incidents w
 >[!Note]
 >Ensure that all necessary stakeholders are included in the war room to facilitate comprehensive incident management and decision-making.
 
-## Build response plans using FortiAI
+## Build Response Plans Using FortiAI
 
-Consider a situation where you are assigned to create a plan of action for investigating a ransomware event.
+Building response plans within the FortiAI assistant involves creating structured action plans for investigating and responding to security events. This functionality is essential for users who need to develop comprehensive response strategies for various security incidents.
 
-You can use *FortiAI* to help with this task by opening a playbook in the playbook designer.
+### Use Case Example: Creating a Plan for a Ransomware Event
 
-Type your query, such as
+A common use case is creating a response plan for a ransomware event. For example, developing a step-by-step action plan to investigate and mitigate a ransomware attack.
 
->*Can you help me with a plan to handle a phishing attack?*
+### Building Response Plans Using FortiAI Assistant
 
-Click the **Post** icon. FortiAI, in response, provides you with a good framework for a response plan that you can use to design playbooks utilizing the **Playbook Generation** option:  
+1. **Initiate Response Plan Creation**:
+   - Open the playbook designer and type your query. For example:
 
-![FortiAI framework for response plans](../docs/res/FortiAIResponsePlans.png)
+    > *Can you help me with a plan to handle a phishing attack?*
 
-## Get help with a Jinja expression
+   - Click the <img src="./res/icon-arrow-right.svg" width="10px"> icon to submit your query, or press *Enter*.
 
-You might need assistance with Jinja expressions found in reference playbooks, or you might need specific Jinja values. For instance, you might be looking for a Jinja to trim HTML from a string input.
+    ![FortiAI framework for response plans](../docs/res/FortiAIResponsePlans.png)
 
-Use FortiAI to help with this task by clicking the **Response Plans / Jinja / Playbook How To's** option in the FortiAI flyout.
+2. **Receive Framework for Response Plan**:
+   - FortiAI provides a framework for a response plan based on your query. For example, it may suggest steps such as identifying phishing emails, isolating affected systems, and notifying relevant stakeholders.
 
-Typing your requirements, such as
+3. **Design Playbooks Using Provided Framework**:
+   - Use the provided framework to design detailed playbooks. Utilize the **Playbook Generation** option to create specific steps and actions based on the response plan.
 
->*I need help with Jinja to trim HTML from a string input*
+### Review and Customize Response Plans
 
-Click the **Post** icon. FortiAI, in response, provides you with the relevant Jinja to utilize:
+- Verify that the suggested response plan framework meets your requirements. Customize the framework to fit the specific details of your security event and organizational policies.
 
-![FortiAI response for a Jinja query](../docs/res/FortiAIJinja.png)
+### Integrate Response Plans into Workflow
+
+- Integrate the developed response plans into your incident response workflow. Use the playbooks to coordinate and execute the response actions effectively.
+
+>[!Tip]
+>Regularly update and review your response plans to ensure they align with the latest threat intelligence and organizational changes. Keeping response plans current enhances their effectiveness.
+
+Building response plans is a critical task for managing security incidents within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively create and implement comprehensive response plans to handle various security events.
+
+>[!Note]
+>Ensure that all response plans are thoroughly tested and validated to ensure they work as intended during actual incidents.
+
+## Get Help with a Jinja Expression
+
+Getting assistance with Jinja expressions within the FortiAI assistant involves receiving guidance on creating or understanding Jinja expressions used in reference playbooks. This functionality is essential for users who need help with crafting or debugging Jinja templates to automate tasks in FortiSOAR.
+
+### Use Case Example: Crafting a Jinja Expression for Data Extraction
+
+A common use case is needing help to create a Jinja expression that extracts specific data from a JSON object within a playbook. For example, extracting an IP address from an alert's details.
+
+### Getting Help with Jinja Expressions Using FortiAI Assistant
+
+1. **Request Jinja Expression Assistance**:
+   - Issue a command to get help with a Jinja expression. For example:
+
+    > *Help me create a Jinja expression to extract the IP address from the alert data*
+
+   - The assistant provides guidance or suggestions for the Jinja expression based on the request.
+
+2. **Specify Jinja Expression Requirements**:
+   - Provide details about the Jinja expression you need help with. For example:
+
+    > *I need a Jinja expression to extract the field `source_ip` from the alert*
+
+   - The assistant processes the request and offers a suitable Jinja expression or provide tips for constructing it.
+
+### Review Jinja Expression Guidance
+
+- Confirm that the guidance or expression provided by the assistant is accurate and relevant to your needs. Make necessary adjustments to fit your specific use case.
+
+    ![FortiAI response for a Jinja query](../docs/res/FortiAIJinja.png)
+
+### Integrate Jinja Expressions into Playbooks
+
+- Use the Jinja expressions in your playbooks to automate tasks and data extraction. Incorporate the expressions into your workflow to enhance efficiency and accuracy.
+
+>[!Tip]
+>Regularly review and test your Jinja expressions to ensure they work as expected. Validating expressions helps maintain the reliability of your automated processes.
+
+Getting help with Jinja expressions is a valuable feature for enhancing automation within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively create and debug Jinja expressions to support their playbook development.
+
+>[!Note]
+>Ensure that the Jinja expressions are properly tested and validated before integrating them into production playbooks to avoid errors and ensure smooth operation.
 
 ## Ask a contextual question to FortiAI
 
-In **Conversation** Mode, FortiAI takes on a more interactive role, offering valuable assistance through conversations in a natural language. 
+FortiAI takes on an interactive role, offering valuable assistance through conversations in a natural language. To maintain the flow of conversation and context, it loads past 20 messages in the conversation window.
+
+>[!NOTE]
+>To modify this behavior, edit the `messagesLimit` parameter in the `fortiai-configurations` **Key Store** record.
 
 You can engage in contextual conversation with FortiAI in the list view and detail view of modules in FortiSOAR, where you can seek guidance, recommendations, information about the latest threats, security processes etc. FortiAI provides insightful responses, leveraging its extensive knowledge base.
 
