@@ -5,7 +5,7 @@
 
 ## Prompting tips
 
-Simple tweaks to the input prompts could improve the playbook block generation process using FortiAI. While asking queries or giving input to the FortiAI keep some tips in mind:
+Simple tweaks to the input prompts could improve the playbook block generation process using **FortiAI**. While asking queries or giving input to the Advisor keep some tips in mind:
 
 - To use a specific integration in a use case, provide it as part of the prompt. For example;
 
@@ -47,10 +47,8 @@ By default, FortiAI is trained using the large collection of use cases available
 
 Simultaneously, we recognize that every organization develops automated content according to its own style and naming practice. You can add your playbook collections to the FortiAI's training set to have it speak your language when creating the playbook blocks.
 
-<table>
-    <th>NOTE</th>
-    <td>To achieve better training results, the playbook collections used for training must have appropriate step names with clear descriptions. This is because the FortiAI uses these to generate the response playbook and steps. Additionally, when asking FortiAI to generate playbooks, it is recommended to use similar step names or keywords as those used in your trained playbook collections. For example, if 'Indicators' are used in step names, then do not use 'IOCs'.</td>
-</table>
+>[!NOTE]
+>To achieve better training results, the playbook collections used for training must have appropriate step names with clear descriptions. This is because the FortiAI uses these to generate the response playbook and steps. Additionally, when asking FortiAI to generate playbooks, it is recommended to use similar step names or keywords as those used in your trained playbook collections. For example, if 'Indicators' are used in step names, then do not use 'IOCs'.
 
 Use the following steps to update the training using your playbook collections: 
 
@@ -70,7 +68,7 @@ Use the following steps to update the training using your playbook collections:
 
     ![Capturing the ID of the exported file](../docs/res/exportWiz_template.png)
 
-6. Click **Automation** > **Playbooks** and search for `FortiAI`.
+6. Click **Automation** > **Playbooks** and search for **FortiAI**.
 
 7. Open the 'Sample - AI Assistant Utils - 2.0.0' playbook collection and clone the 'Refresh Training Data' playbook:
 
@@ -142,8 +140,6 @@ To resolve this issue, try the following:
 - Try to regenerate the steps.
 - Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](#prompting-tips).
 - Verify that your OpenAI account is operational and has enough credit.
-
-
 
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|---------------------------|

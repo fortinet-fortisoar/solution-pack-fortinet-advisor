@@ -1,86 +1,86 @@
 {
-  "modules": {
-    "alerts": {
-      "questions": [
-        {
-          "enabled": true,
-          "question": "Generate Alert Summary",
-          "description": "Automatically generate a concise summary for quick insights and response."
-        },
-        {
-          "enabled": true,
-          "question": "Generate Response Recommendations",
-          "description": "Retrieve tailored response recommendations based on the alert details to guide effective incident resolution."
-        },
-        {
-          "enabled": true,
-          "question": "Generate Investigation Report",
-          "description": "Automatically compile an investigation report summarizing actions taken and finding related to the alert."
-        },
-        {
-          "enabled": true,
-          "question": "Generate MITRE ATT&CK Insights",
-          "description": "Gain actionable insights into the alert's Tactics, Technique, & potential threat actor behaviours through the lens of MITRE ATT&CK."
-        }
-      ],
-      "fieldsOfInterest": [
-        "id",
-        "@id",
-        "name",
-        "description",
-        "type",
-        "status",
-        "severity",
-        "mitreattackid",
-        "createDate",
-        "modifyDate",
-        "sourcedata"
-      ]
-    },
-    "incidents": {
-      "questions": [
-        {
-          "enabled": true,
-          "question": "Generate Incident Summary",
-          "description": "Automatically generate a concise summary for quick insights and response."
-        },
-        {
-          "enabled": true,
-          "question": "Generate Response Recommendations",
-          "description": "Retrieve tailored response recommendations based on the incident details to guide effective incident resolution."
-        },
-        {
-          "enabled": true,
-          "question": "Generate Investigation Report",
-          "description": "Automatically compile an investigation report summarizing actions taken and finding related to the incident."
-        },
-        {
-          "enabled": true,
-          "question": "Generate MITRE ATT&CK Insight",
-          "description": "Gain actionable insights into the incident's Tactics, Technique, & potential threat actor behaviours through the lens of MITRE ATT&CK."
-        }
-      ],
-      "fieldsOfInterest": [
-        "id",
-        "@id",
-        "name",
-        "description",
-        "type",
-        "status",
-        "severity",
-        "mitreattackid",
-        "sourcedata"
-      ]
-    },
-    "indicators": {
-      "questions": [],
-      "fieldsOfInterest": [
-        "id",
-        "@id",
-        "value",
-        "typeofindicator",
-        "reputation"
-      ]
+    "modules": {
+      "alerts": {
+        "questions": [
+          {
+            "enabled": true,
+            "question": "Generate Alert Summary",
+            "description": "Automatically generate a concise summary for quick insights and response."
+          },
+          {
+            "enabled": true,
+            "question": "Generate Response Recommendations",
+            "description": "Retrieve tailored response recommendations based on the alert details to guide effective incident resolution."
+          },
+          {
+            "enabled": true,
+            "question": "Generate Investigation Report",
+            "description": "Automatically compile an investigation report summarizing actions taken and finding related to the alert."
+          },
+          {
+            "enabled": true,
+            "question": "Generate MITRE ATT&CK Insights",
+            "description": "Gain actionable insights into the alert's Tactics, Technique, & potential threat actor behaviours through the lens of MITRE ATT&CK."
+          }
+        ],
+        "fieldsOfInterest": [
+          "id",
+          "@id",
+          "name",
+          "description",
+          "type",
+          "status",
+          "severity",
+          "mitreattackid",
+          "createDate",
+          "modifyDate",
+          "sourcedata"
+        ]
+      },
+      "incidents": {
+        "questions": [
+          {
+            "enabled": true,
+            "question": "Generate Incident Summary",
+            "description": "Automatically generate a concise summary for quick insights and response."
+          },
+          {
+            "enabled": true,
+            "question": "Generate Response Recommendations",
+            "description": "Retrieve tailored response recommendations based on the incident details to guide effective incident resolution."
+          },
+          {
+            "enabled": true,
+            "question": "Generate Investigation Report",
+            "description": "Automatically compile an investigation report summarizing actions taken and finding related to the incident."
+          },
+          {
+            "enabled": true,
+            "question": "Generate MITRE ATT&CK Insight",
+            "description": "Gain actionable insights into the incident's Tactics, Technique, & potential threat actor behaviours through the lens of MITRE ATT&CK."
+          }
+        ],
+        "fieldsOfInterest": [
+          "id",
+          "@id",
+          "name",
+          "description",
+          "type",
+          "status",
+          "severity",
+          "mitreattackid",
+          "sourcedata"
+        ]
+      },
+      "indicators": {
+        "questions": [],
+        "fieldsOfInterest": [
+          "id",
+          "@id",
+          "value",
+          "typeofindicator",
+          "reputation"
+        ]
+      }
     }
   }
-}
