@@ -62,6 +62,19 @@ The following permission allow a user to interact with the **FortiSOAR AI Assist
 >[!Note]
 > The **FortiSOAR AI Assistant** bot becomes available to interact on modules that contain records like Alerts, Indicators, or Incidents. The bot is still available to interact on all such modules even if there are no records present.
 
+## Configuring Voice Support
+
+**Microphone Setup**: Confirm that a functional microphone is connected and enabled. The browser must have permissions to access the microphone.
+
+### Best Practices for Voice Commands
+
+- **Speak Clearly**: Enunciate clearly and at a moderate pace.
+- **One Command at a Time**: Issue one command at a time to ensure accurate processing.
+- **Pause Between Commands**: Allow brief pauses to enable FortiAI to process each command.
+
+> [!Note]
+> The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+
 # Configuration
 
 The **FortiAI** solution depends on the following connectors and widgets:
@@ -69,12 +82,12 @@ The **FortiAI** solution depends on the following connectors and widgets:
 - **AI Assistant Utils** connector to help interact with LLMs like OpenAI.
 
 >[!NOTE]
->The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/document/fortisoar/1.0.0/ai-assistant-utils/690/ai-assistant-utils-v1-0-0) document.
+>The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) document.
 
-- The **AI Assistant** widget to add the **FortiSOAR AI Assistant** bot to the FortiSOAR user interface. For more details, see the [AI Assistant Widget](https://docs.fortinet.com/document/fortisoar/1.0.0/ai-assistant-utils/690/ai-assistant-utils-v1-0-0) document.
+- The **AI Assistant** widget to add the **FortiSOAR AI Assistant** bot to the FortiSOAR user interface. For more details, see the [AI Assistant Widget](https://github.com/fortinet-fortisoar/widget-ai-assistant/blob/develop/README.md) document.
 
 - The **OpenAI** connector to get a response from **FortiSOAR AI Assistant**.
-    - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/document/fortisoar/2.0.0/openai/706/openai-v2-0-0) document.
+    - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/fortisoar/connectors/openai) document.
 
 ## FortiAI Configuration Wizard
 

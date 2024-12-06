@@ -1,6 +1,8 @@
 | [Home](../README.md) |
 |----------------------|
 
+[TOC]
+
 # Usage
 
 The **FortiAI** solution pack offers a variety of functions through its **AI Assistant** to managing and automating tasks related to cybersecurity workflows. Following is an overview of the supported functions:
@@ -10,10 +12,15 @@ The **FortiAI** solution pack offers a variety of functions through its **AI Ass
 - **Link Record**: Link or correlate a record with other relevant records. For example: correlating an indicator to an existing alert or incident.
 - **Create Record**: Create a record for the specified type, page, or module.
 - **Update Record**: Update a record using the updated information provided.
+- **Filter Records**: Filters records in a module as per the conditions provided.
 - **Block Indicator**: Block an indicator using a configured connector.
 - **Enrich Indicator**: Fetch, get, or retrieve the latest reputation of an indicator.
 - **Escalate To Incident**: Escalate, elevate, or promote the alert to an incident.
 - **Setup War Room**: Establish, set up, initiate, or create a war room for an incident.
+- **Filter Records**: Filter records within the FortiSOAR module based on specific criteria or conditions.
+
+>[!NOTE]
+> With the new voice command feature, you can perform all these tasks and more.
 
 ## Generating Playbooks
 
@@ -237,6 +244,43 @@ A common use case is updating an incident record with new information, such as a
 
 Updating records is a crucial task for maintaining accurate and relevant information within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively manage and update records to support their workflow and data accuracy.
 
+## Filtering Records
+
+Filtering records enables users to refine data views, making it easier to identify relevant information quickly. This functionality supports efficient data management by narrowing down results to meet specified conditions, enhancing productivity in tasks like investigating incidents or managing alerts.
+
+### Use Case Example: Filtering Alerts by Severity
+
+A common use case for filtering records is narrowing down alerts based on severity. For instance, filter records to focus on *high-severity* alerts to prioritize critical issues. By filtering records to show only high-severity alerts, the team can ensure they address the most impactful threats promptly.
+
+### Filtering Records Using FortiAI Assistant
+
+1. **Initiate Filter Action**:
+   - Start the filtering process by issuing a command to apply conditions to the records. For example:
+
+    >*Filter alerts where severity is `high`*
+
+   - The assistant applies the specified conditions and returns only the records that meet them.
+
+2. **Update Filter Conditions**:
+   - Adjust the filtering conditions as needed to refine the results further. For example:
+
+    >*Add condition to show alerts created in the last 24 hours*
+
+   - The assistant modifies the filter to include only high-severity alerts from the past day.
+
+### Review Filtered Results
+
+- Once filtering is complete, review the results to confirm that the returned records meet the specified conditions. This step ensures the filter criteria are accurate and that only relevant records are displayed, enabling faster analysis.
+
+### Integrate Filtering Actions into Workflow
+
+- Incorporate filtering into your workflow to streamline data review processes. For example, apply filters to prioritize alerts daily, ensuring high-severity incidents are addressed first.
+
+Filtering records is an effective tool within FortiSOAR to enhance data visibility and focus on critical information. By following these steps and using the FortiAI assistant’s capabilities, users can efficiently manage records and improve their response to threats.
+
+>[!Note]
+>Ensure the conditions applied for filtering are specific and clear to avoid omitting critical records from the filtered results.
+
 ## Blocking Indicators
 
 Blocking an indicator within the FortiAI assistant involves using a configured connector to prevent or mitigate the impact of the indicator. This functionality is crucial for managing security threats by stopping potentially harmful indicators from affecting your systems.
@@ -390,6 +434,24 @@ Setting up a war room is a critical process for managing significant incidents w
 
 >[!Note]
 >Ensure that all necessary stakeholders are included in the war room to facilitate comprehensive incident management and decision-making.
+
+## Filtering Records
+Filtering Records allows users to access specific records efficiently. 
+This functionality helps users locate and manage the required records across the system.
+
+### Use Case Example: Filtering records for alert module
+
+One common use case involves accessing specific records quickly. For instance, a security analyst needs to review the high severity open alerts. By issuing filtration commands, the analyst can access the required records without unnecessary delays.
+
+
+### Filtering Records Using FortiAI Assistant
+
+1. **Initiate Filter Record**:
+   - Issue a command to filter records. For example:
+
+    > *Give me high severity open alerts*
+
+   - The assistant filters the records for you. The response contains a hyperlink to the said records. Users can refer to previous conversations and navigate to the records using these links.
 
 ## Building Response Plans
 

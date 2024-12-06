@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|--------------------------------------------|
+|----------------------|
 
 # Advanced Usage
 
@@ -42,6 +42,9 @@ Simple tweaks to the input prompts could improve the playbook block generation p
 - To create playbooks with decision blocks, use If...else statements.
 
     >For example, Check the IP's reputation using VirusTotal. If it's considered malicious, set the indicator reputation as malicious. If it's considered suspicious, set the indicator reputation as suspicious. Otherwise, set the indicator reputation as good.
+
+> [!Note]
+> For more filtering prompts, refer to [Filtering Records](./prompts-for-filtering-records.md).
 
 ## Utilizing your playbook collections to train the solution
 
@@ -153,87 +156,7 @@ Now when you open a record under **Assets** module, you can see the 3 questions 
 
 ![](./res/new_module_questions.png)
 
-## Troubleshooting
+# Next Steps
 
-### FortiAI bot not visible
-
-The FortiAI bot is not visible after installing the **FortiAI** solution pack.
-
-**Resolution**
-
-To resolve this issue, you can either force a browser refresh or log out and log back in, to your FortiSOAR instance.
-
-### FortiAI flyout does not open
-
-The FortiAI flyout does not launch, or the FortiAI does not display any response for the playbook outline.
-
-**Resolution**
-
-To resolve this issue, check if the user is assigned appropriate permissions. To utilize the FortiAI solution pack, users must have the following permissions, along with other appropriate permissions:
-
-- Read and Usage permissions on Widgets
-- Read and Execute permissions on Playbooks
-
-### FortiAI is unable to generate playbook steps
-
-Based on your prompt, the FortiAI cannot generate the playbook steps.
-
-**Resolution**
-
-To resolve this issue, try the following:
-
-- Try to regenerate the steps.
-- Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](#prompting-tips).
-- Verify that your OpenAI account is operational and has enough credit.
-
-### FortiAI does not create or update record
-
-FortiAI does not create or update record as per specified fields in FortiSOAR.
-
-**Resolution**
-
-- Prompt the FortiAI 
-
-    >*What parameter did you pass to create/update field.*
-
-- Correct the parameters as per field API names as mentioned in FortiSOAR settings.
-
-### Renaming OpenAI Connector Configuration
-
-Sometimes, on changing the configuration name of OpenAI connector, it may not correctly render the updated name.
-
-1. Press the **Back** button to return to the **LLM Configuration** page.
-
-2. Click **Next** to advance to the **Connector Configuration** page.
-
-### Response not as Expected
-
-The prompt may not always be as expected, in such cases you may:
-
-1. Send the prompt again
-
-2. Rephrase the prompt to send a more targeted request.
-
-### Response delay
-
-After entering the prompt the text may still be visible; however, the text input field appears disabled and with 3-dot loader gif on screen.
-
-**Resolution**
-
-- The prompt has not passed to the LLM. Refresh the page and try again with the same prompt.
-
-### OpenAI Error Messages
-
-1. Can't add messages to thread_123ndasda341 while a run run_134314hh1 is active.
-**Resolution**
-- Try to cancel the RUN on OpenAI platform - while loading the same thread on assistant using URL - https://platform.openai.com/playground/assistants?mode=assistant&assistant=asst_id&thread=thread_id and cancel the run
-- OR Clear the Conversation
-
-
-
-
-
-
-
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
-|-----------------------------------------|-------------------------------------------|---------------------------|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
+| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
