@@ -1,18 +1,39 @@
 # What's New
 
-### Advanced Filtering for Enhanced Precision  
+## Connector Generation
 
-The **Advanced Filtering** feature enhances FortiSOAR's search capabilities by allowing users to apply specific criteria to filter records. Whether it's filtering by severity, status, or priority, this functionality ensures that users can retrieve exactly the data they need, improving operational efficiency and decision-making.
+FortiAI now enables connector creation using natural language. By providing inputs such as CURL commands, API details, and configuration parameters, users can generate a fully functional connector that includes:
 
-### Voice Recognition for Hands-Free Interaction  
+- Connector configuration
+- Auto-generated connector code
+- Sample playbooks
 
-The **Voice Recognition** feature transforms the way users interact with FortiSOAR by enabling hands-free control. This innovation streamlines SOC tasks, offering users greater flexibility to issue commands and retrieve data efficiently using natural language.  
+You can also upload attachments to assist in connector generation.
 
-> [!Note]
-> The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+## Advanced Playbook Generation
 
-**Conversation Thread Management**
+FortiAI now produces more accurate, context-aware playbook blocks tailored to specific use cases. Whether automating standard workflows or designing complex incident response logic, it offers an efficient starting point that reduces manual effort.
 
-Previously, conversation threads were deleted from OpenAI whenever *Clear Conversation* was clicked, and a new thread was started with each new prompt.
+Key improvements include:
 
-Now, threads are retained within OpenAI, enabling improved historical reference and continuity. Each new prompt, after clearing the conversation. still initiates a fresh thread, and the *Clear Conversation* option within the user interface continues to clear conversation history, ensuring a clean workspace.
+- Playbook creation from simple prompts or clicks
+- Accurate detection of connector step types, operation names, and available inputs
+- Identification of steps that require loops for record traversal
+
+### Improved Jinja Expression Selection
+
+FortiAI intelligently selects appropriate Jinja expressions for each playbook step, reducing the need for manual adjustments.
+
+Structured outputs are now supported, with JSON data displayed in a readable JSON editor.
+
+## Configuration Wizard Enhancements
+
+The configuration wizard has been improved to support the following:
+
+- Creation of SOC and Playbook assistants
+- Updating assistant instruction sets
+- Clearer error messages for scenarios such as:
+    - Insufficient permissions
+    - Failure during assistant creation or update
+    - Missing default connector configuration in single-user setups
+    - Unspecified user configuration in multi-user environments

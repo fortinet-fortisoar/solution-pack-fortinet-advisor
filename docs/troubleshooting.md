@@ -147,9 +147,43 @@ In some cases, the field names in filters may not reflect changes after subseque
    - Click ![](./res/icon-clear-filter.svg) to remove the current filter.  
    - Reapply the filter by clicking on the filter hyperlink, within the bot conversation, again.  
 
+> [!Note]
+> This issue has been resolved in **FortiSOAR v7.6.1** and later.
 
->[!Note]
->This issue has been resolved in **FortiSOAR v7.6.1** and later.
+### FortiAI Response Incomplete or Unexpected
+
+The assistant may veer off-topic or initiate an incorrect process for generating a connector.
+
+#### Resolution
+
+You may try using the following prompt:
+
+> *Proceed to generate connector by following primary tasks step by step*.
+
+### Connector Import Failed
+
+The connector import process may fail due to missing or invalid files.
+
+#### Resolution
+
+Before retrying the connector generation prompt, you may try the following prompts to generate associated files:
+
+> 1. *Show `info.json` file*
+> 2. *Show python files*
+> 3. *Import connector now*
+
+### Files missing or not Displayed
+
+The assistant may not display the files (`info.json`, `connector.py`, `operations.py`) in the prompt window.
+
+#### Resolution
+
+Before retrying the connector generation prompt, you may try and prompt to regenerate the files and show their contents. The following prompts :
+
+> 1. *Generate `info.json` file*
+> 2. *Generate python files*
+
+
 
 # Next Steps
 
