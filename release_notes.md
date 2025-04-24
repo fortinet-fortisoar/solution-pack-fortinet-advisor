@@ -2,11 +2,7 @@
 
 ## Connector Generation
 
-FortiAI now enables connector creation using natural language. By providing inputs such as CURL commands, API details, and configuration parameters, users can generate a fully functional connector that includes:
-
-- Connector configuration
-- Auto-generated connector code
-- Sample playbooks
+FortiAI now enables connector creation using natural language. By providing inputs such as CURL commands, API details, and configuration parameters, users can generate a fully functional connector that includes Connector configuration, Auto-generated connector code, and Sample playbooks.
 
 You can also upload attachments to assist in connector generation.
 
@@ -37,3 +33,23 @@ The configuration wizard has been improved to support the following:
     - Failure during assistant creation or update
     - Missing default connector configuration in single-user setups
     - Unspecified user configuration in multi-user environments
+
+### AI Assistant Enhancements
+
+- **Attachment support**: Added support for file attachments (applies only to connector generation).
+
+- **Structured outputs**: JSON data is now displayed in a JSON editor for improved readability.
+
+- **Clear conversation**: The "Clear Conversation" feature is now available for both playbook and connector generation. It also clears conversation threads and any attached temporary files.
+
+- **Context-aware assistant loading**: The bot now detects the active page and loads the appropriate assistant automatically.  
+  - On the Content Hub "Create" page, the Connector Generation Assistant will be available.  
+  - On the Playbook Designer page, the Playbook Assistant will be loaded.
+
+- **Load past conversations**:  
+  - Users can now see past conversations relevant to the specific page they are on.  
+    - On the Connector Generation page (Content Hub - Create), only previous connector-related messages will be shown.  
+    - On the Playbook Designer page, only playbook-related messages will be displayed.
+
+> [!Note]
+> Past conversations loads after logout and login, only for the SOC Assistant.

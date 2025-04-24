@@ -20,17 +20,23 @@ The **FortiAI** solution pack depends on the following solution packs.
 You must have the following access and credentials to use this solution pack:
 
 - An OpenAI account and a valid project level API key to access the OpenAI APIs. For information refer to [API Keys](https://platform.openai.com/docs/api-reference/api-keys) section of the OpenAI documentation. Following are the **_minimum_** permissions that must be assigned to users on the OpenAI interface:
+
     - **Administrator**
         - Assistant - **All**
         - Thread - **All**
+
     - **User**
         - Assistant - `Read`
         - Thread - **All**
+
     - The user must be a member of the project whose Project ID is being used.
 
 - Access to supported OpenAI LLM models as versions prior to *`GPT4`* do not generate responses as expected.
 
-To use the **FortiAI** solution pack, you must have **_at least_** the following permissions:
+- To utilize the Fortinet Advisor solution pack, user must have the following access, along with other appropriate permissions:
+
+    - `Read` and `Usage` permissions on Widgets
+    - `Read` and `Execute` permissions on Playbooks
 
 ### Administration Permissions
 
@@ -83,8 +89,6 @@ The **FortiAI** solution depends on the following connectors and widgets:
 
 >[!NOTE]
 >The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) document.
-
-- The **AI Assistant** widget to add the **FortiSOAR AI Assistant** bot to the FortiSOAR user interface. For more details, see the [AI Assistant Widget](https://github.com/fortinet-fortisoar/widget-ai-assistant/blob/develop/README.md) document.
 
 - The **OpenAI** connector to get a response from **FortiSOAR AI Assistant**.
     - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/fortisoar/connectors/openai) document.

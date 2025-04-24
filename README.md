@@ -6,8 +6,8 @@
 * **Compatible Version**: 7.6.0 and later
 * [Release Notes](./release_notes.md)
 
->[!NOTE]
->This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
+> [!NOTE]
+> This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 
 # Overview
 
@@ -48,6 +48,8 @@ For any further questions or concerns about your privacy, refer to [OpenAI’s p
     - [Prompts for filtering *alert* records](./docs/prompts-for-filtering-alert-records.md)
     - [Prompts for filtering *incident* records](./docs/prompts-for-filtering-incident-records.md)
     - [Prompts for filtering *indicator* records](./docs/prompts-for-filtering-indicator-records.md)
+    - [Prompts for creating a connector](./docs/prompts-for-creating-connectors.md)
+
 
 # Next Steps
 
