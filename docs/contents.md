@@ -36,29 +36,15 @@ The **FortiAI** solution pack contains the following resources:
 
 ### `fortiai-configurations`
 
-{
-  "llmIntegrations": [
-    {
-      "name": "openai",
-      "title": "OpenAI",
-      "modelList": [
-        "gpt-4o-mini",
-        "gpt-4o-mini-2024-07-18",
-        "gpt-4o-2024-05-13",
-        "gpt-4-turbo-2024-04-09"
-      ]
-    }
-  ],
-  "isMultiConfigAvailable": false,
-  "pastConversationMsgLimit": 20
-}
-
 - **`llmIntegrations`**: Sets the integration to OpenAI as the default LLM.
     - `name`: LLM Integration name as per Connector. By default, `openai` is set.
     - `title`: LLM Integration title as per Connector. By default, `OpenAI` is set.
     - `modelList`: List of LLM Integration models. By default, `gpt-4o-mini-2024-07-18`, `gpt-4o-mini`, `gpt-4o-2024-05-13`, and `gpt-4-turbo-2024-04-09` is present.
 - `isMultiConfigAvailable`: Sets the availability of multiple configuration. By Default, it is set to `false`.
-- `pBGenerationModel`: Sets the model of LLM Integration to use for playbook generation. By Default, `gpt-4o-mini` is to be used.
+- `pastConversationMsgLimit`: Specify the maximum messages to be loaded in the conversation window on login. By default, it is set to `20`.
+
+> [!Note]
+> The raw file can be accessed here <img src="./res/icon-arrow-right.svg" width="10px"> [`llm-configuration.json`](./llm-configuration.json)
 
 ### `fortiai-static-questions`
 
@@ -81,6 +67,7 @@ The **FortiAI** solution pack contains the following resources:
 
 | Playbook Name                                                      | Description                                                                               |
 |:-------------------------------------------------------------------|:------------------------------------------------------------------------------------------|
+| Clear Assistant metadata ![](./res/icon-new.svg)| Clears the assistant metadata from Integration Cache as per GenAI Type. |
 | Get Playbook Step Suggestion ![](./res/icon-deprecated.svg)        | Suggests steps to create a playbook based on user's query.                                |
 | Get Playbook Step Suggestion (Loop) ![](./res/icon-deprecated.svg) | Suggests steps to create a playbook based on user's query, in a loop.                     |
 | Get Playbook Block Suggestion ![](./res/icon-deprecated.svg)       | Creates a suggested playbook block to perform actions based on user requirements.         |

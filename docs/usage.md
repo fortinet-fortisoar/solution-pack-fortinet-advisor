@@ -27,7 +27,7 @@ The **FortiAI** solution pack offers a variety of functions for managing and aut
 
 FortiAI enables users to generate a FortiSOAR connector using natural language inputs along with API specifications. This feature is especially useful for quickly building connectors without manual coding, by simply describing the connector’s functionality and providing the relevant API details.
 
-### Creating a Connector Using FortiAI
+### Building a Connector Using FortiAI
 
 1. **User Input**  
    In the FortiAI interface, enter a prompt that clearly defines:
@@ -38,24 +38,28 @@ FortiAI enables users to generate a FortiSOAR connector using natural language i
    API details can be provided in various formats, including:
    - `curl` commands  
    - JSON request/response structures  
-   - File attachments in formats such as `.json`, `.yml`, `.txt`, or `.pdf`
+   - File attachments, in formats such as `.json`, `.yml`, `.txt`, or `.pdf`, and not exceeding 100MB in size.
 
 2. **Code Generation**  
-   Based on the provided input, FortiAI will automatically generate the standard connector code files:
-   - `info.json`  
-   - `connector.py`  
-   - `operations.py`  
+   Based on the provided input, FortiAI will automatically generate the standard connector files:
+   - `info.json`
+   - `connector.py`
+   - `operations.py`
+
+   A `requirements.txt` may also be generated if there are any code dependencies.
 
 3. **Output and Packaging**  
-   The generated files, along with sample playbooks, are bundled and the connector is automatically imported into the **Build Your Own Connector (BYOC)** section within FortiSOAR.
+   The generated files, along with sample playbooks, are bundled and the connector is automatically imported into the **Create** tab of the Content Hub. Users can then refresh the page to view the generated connector's tile.
 
 4. **Viewing and Editing**  
-   Once imported, the connector can be accessed under the **"Create"** tab in the Content Hub. Users can review and modify the connector using the BYOC tools available in this section.
+   Once imported, the connector can be accessed under the **Create** tab in the Content Hub. Users can review and modify the connector using the BYOC tools available in this section.
 
 ### Best Practices
 
 - Follow FortiAI's execution flow closely to ensure accurate and complete connector generation. Any necessary modifications should be made *after* the initial generation is complete.  
 - Provide clear, concise, and unambiguous API details. Cleaner inputs significantly improve parameter extraction and the quality of the generated connector.
+
+The section [Example: Building a connector](./example-creating-connectors.md) has details on how to create a connector by way of some examples and prompts.
 
 ## Generating Playbooks
 
@@ -106,6 +110,8 @@ The ability to generate playbooks through OpenAI's assistant represents a signif
 
 > [!TIP]
 > It is recommended that you clear a conversation before executing different use cases. Clearing conversations also helps in saving tokens being consumed.
+
+The section [Example: Generating Playbooks](./example-generating-playbooks.md) has details on how to generate a playbook by way of some examples and prompts.
 
 ## Navigating Page
 
@@ -598,6 +604,8 @@ FortiAI provides a summary about the malware and its associated threat groups. I
 - Select a question to retrieve information about the opened alert.
 
 For advanced usage topics, such as prompting tips n tricks, see [Advanced Usage](./advanced-usage.md).
+
+# Next Steps
 
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|---------------------------|
