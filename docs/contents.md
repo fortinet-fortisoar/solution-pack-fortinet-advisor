@@ -44,7 +44,7 @@ The **FortiAI** solution pack contains the following resources:
 - `pastConversationMsgLimit`: Specify the maximum messages to be loaded in the conversation window on login. By default, it is set to `20`.
 
 > [!Note]
-> The raw file can be accessed here <img src="./res/icon-arrow-right.svg" width="10px"> [`llm-configuration.json`](./llm-configuration.json)
+> The raw file can be accessed here <img src="./res/icon-arrow-right.svg" width="10px"> [`llm-configuration.json`](./res/llm-configuration.json)
 
 ### `fortiai-static-questions`
 
@@ -58,7 +58,7 @@ The **FortiAI** solution pack contains the following resources:
 
 >[!NOTE]
 >To add a preset question for a module:
->Add the question, with `description` and `enable` flag, as JSON under the particular module's API name. A sample [Question JSON](./question-sample.json) has been provided for your reference.
+>Add the question, with `description` and `enable` flag, as JSON under the particular module's API name. A sample [Question JSON](./res/question-sample.json) has been provided for your reference.
 
 ## Playbook Collection
 
