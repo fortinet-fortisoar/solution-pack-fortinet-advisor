@@ -66,8 +66,8 @@ In this example, we create a connector for the product WiGLE with API details as
 
     Use attached swagger file `WiGLE.json` for API details.
 
-> [!NOTE]
-> For this example, you may download and use the [WiGLE API JSON](./res/WiGLE_API_Details.json).
+> [!TIP]
+> For more specifications and information, refer to the [WiGLE Swagger API Doc](https://api.wigle.net/swagger).
 
 2. Press **Enter** to submit your inputs and follow the prompts. *FortiAI* analyzes the provided inputs and prompts you for additional details, such as the authorization type for the product.
  
