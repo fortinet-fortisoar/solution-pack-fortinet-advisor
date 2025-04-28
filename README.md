@@ -6,48 +6,81 @@
 * **Compatible Version**: 7.6.0 and later
 * [Release Notes](./release_notes.md)
 
->[!NOTE]
->This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
+> [!NOTE]
+> This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 
-# Overview
+### **FortiAI Overview: Your Ultimate Security Assistant**
 
-FortiAI is a context-aware GenAI security assistant that transforms how security professionals operate and interact with threat alerts. It simplifies complex analysis and response tasks, enabling users to issue natural language commands for data analysis, threat identification, and remediation within FortiSOAR. With capabilities like generating playbooks, escalating alerts to incidents, setting up war rooms, and crafting [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) expressions, FortiAI accelerates response cycles and enhances accuracy. It supports various functions, including blocking and enriching indicators, linking records, and creating comprehensive response plans, empowering security teams to address modern threats efficiently and effectively.
+FortiAI is a cutting-edge **context-aware GenAI security assistant** that transforms how security professionals operate and respond to threat alerts. Designed to simplify complex analysis and remediation tasks, FortiAI allows users to interact with FortiSOAR through natural language commands for data analysis, threat identification, and resolution. Whether you're building connectors, generating playbooks, escalating alerts, or crafting Jinja expressions, FortiAI accelerates your response cycles and enhances accuracy.
 
-Its unique feature, among others, is its ability to generate playbook blocks tailored to scenarios defined by you, giving you a head start in automating and enhancing your use cases. Whether you are a seasoned playbook developer or just starting out, FortiAI is your go-to partner for streamlined and efficient playbook design.
+With **FortiAI**, every action is simplified, every task is streamlined, and your security operations are more efficient than ever before.
 
-## Filtering Feature Overview  
+---
 
-FortiAI now includes advanced filtering functionality, allowing users to refine their search for records based on specific criteria. This feature empowers users to quickly retrieve targeted data, such as alerts, incidents, or indicators, improving workflow efficiency. The benefits of this feature include:
+### **SOC Assistant Capabilities: Streamlining Security Operations**
 
-- **Enhanced Precision**: Apply specific filters based on severity, status, or other criteria to retrieve exactly what you need.
-- **Time-Saving**: Quickly narrow down search results, reducing the time spent sifting through data and improving decision-making.
+FortiAI doesn’t just stop at connectors and playbooks—it’s packed with a variety of **SOC Assistant capabilities** designed to enhance your entire workflow:
 
-## Voice Support Overview
+- **Advanced Filtering**: Refine searches for alerts, incidents, or indicators using customizable filters. With options like severity, status, and other criteria, users can quickly retrieve the exact data they need—saving time and improving decision-making.
+- **Voice Support**: Experience hands-free interaction with FortiAI’s **voice-to-natural language** functionality. Issue voice commands for tasks like filtering records, generating playbooks, or blocking indicators. Ideal for multitasking, this feature speeds up workflows and improves accessibility.
+- **Alert Escalation**: Automatically escalate critical alerts to incidents, ensuring your team is always on top of the most pressing threats.
+- **War Room Setup**: Quickly set up virtual war rooms to collaborate with your team on incident resolution, ensuring coordinated and efficient responses.
+- **Jinja Expression Crafting**: Design and implement Jinja expressions effortlessly, giving you full control over your playbooks and automations.
 
-FortiAI now includes voice-to-natural-language functionality, enabling hands-free interaction. This feature allows users to give voice commands for tasks such as generating playbooks, filtering records, or blocking indicators, streamlining workflows and increasing accessibility. This feature has multiple benefits like the following:
+These capabilities make FortiAI not just a tool, but a **comprehensive solution** for every aspect of your security operations, from detection to response.
 
-- **Enhanced Usability**: Issue commands without typing, ideal for multitasking.
-- **Efficiency**: Quickly perform actions through voice, reducing operational time.
+---
 
-> [!Note]
-> The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+### **Playbook Designing: Smart, Context-Aware Automation**
 
-## Data Privacy Notice 
+FortiAI is revolutionizing **playbook design** by offering a truly **context-aware** automation engine. Whether you're designing standard workflows or complex incident response protocols, FortiAI now delivers:
+
+- **Intelligent Playbook Blocks**: Automatically generate playbook steps with precise context, reducing manual effort.
+- **Jinja Expression Selection**: FortiAI intelligently picks the best Jinja expressions for each step, making playbooks more efficient.
+- **Dynamic Adjustments**: FortiAI detects which steps need loops for record traversal and tailors playbook steps accordingly.
+
+With these features, FortiAI accelerates playbook creation, ensuring that every action is efficient, accurate, and contextually appropriate for the specific task at hand.
+
+---
+
+### **Connector Generation: Automate Your Integrations with Ease**
+
+FortiAI introduces a game-changing **Connector Generation** feature, allowing users to create custom connectors through **natural language commands**. Whether you need to integrate new tools, systems, or APIs, FortiAI takes care of the heavy lifting:
+
+- **Auto-Generated Connector Code**: With a few simple inputs, you get fully functional connectors ready to integrate into your workflows.
+
+- **File Upload Support**: Upload Postman collections, Swagger files, or even documents (.json, .yml, .txt, .pdf) to assist in the connector creation process.
+
+This functionality allows security teams to build connectors faster, enhance integration capabilities, and ensure that all tools work in harmony within FortiSOAR—cutting down on manual coding and reducing integration times.
+
+---
+
+FortiAI is not just a tool—it’s the future of **security automation**. From effortless connector creation to intelligent playbook design, and even enhanced SOC capabilities, FortiAI is your ultimate assistant in streamlining operations, reducing response times, and staying ahead of threats.
+
+**Ready to elevate your security game?** FortiAI is here to help.
+
+---
+
+### **Data Privacy Notice**
 
 The FortiAI lets you connect your Fortinet account to your own OpenAI account, using your own OpenAI Assistant API key. This integration will send data from your Fortinet account to OpenAI and will show you responses from OpenAI. Fortinet does not verify or correct these responses and has no responsibility for them. OpenAI Assistant is operated by a third party, not Fortinet. You must exercise discretion and independently verify any information or recommendations you receive from OpenAI before relying on them.
 
-Before using the FortiAI, we recommend that you review OpenAI’s API Platform privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in OpenAI’s privacy policy. 
+Before using the FortiAI, we recommend that you review OpenAI’s API Platform privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in OpenAI’s privacy policy.
 
-For any further questions or concerns about your privacy, refer to [OpenAI’s privacy policy](https://openai.com/policies/privacy-policy). 
+For any further questions or concerns about your privacy, refer to [OpenAI’s privacy policy](https://openai.com/policies/privacy-policy).
+
+---
 
 ## Additional Resources 
 
 - [Advanced Usage](./docs/advanced-usage.md)
 - [Troubleshooting](./docs/troubleshooting.md)
-- Try and be astonished!
-    - [Prompts for filtering *alert* records](./docs/prompts-for-filtering-alert-records.md)
-    - [Prompts for filtering *incident* records](./docs/prompts-for-filtering-incident-records.md)
-    - [Prompts for filtering *indicator* records](./docs/prompts-for-filtering-indicator-records.md)
+- [Prompts for filtering *alert* records](./docs/prompts-for-filtering-alert-records.md)
+- [Prompts for filtering *incident* records](./docs/prompts-for-filtering-incident-records.md)
+- [Prompts for filtering *indicator* records](./docs/prompts-for-filtering-indicator-records.md)
+- [Example: Building a connector](./docs/example-creating-connectors.md)
+- [Example: Generating a playbook](./docs/example-generating-playbooks.md)
+
 
 # Next Steps
 

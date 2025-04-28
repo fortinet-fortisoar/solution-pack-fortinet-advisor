@@ -1,18 +1,38 @@
-# What's New
+### What’s New
 
-### Advanced Filtering for Enhanced Precision  
+### FortiAI: Revolutionizing Your Workflow
 
-The **Advanced Filtering** feature enhances FortiSOAR's search capabilities by allowing users to apply specific criteria to filter records. Whether it's filtering by severity, status, or priority, this functionality ensures that users can retrieve exactly the data they need, improving operational efficiency and decision-making.
+**Connector Generation Made Easy**
 
-### Voice Recognition for Hands-Free Interaction  
+With FortiAI’s latest update, you can now generate fully functional connectors using **natural language**. Simply provide details like CURL commands, API parameters, and configuration settings, and voilà! FortiAI auto-generates:
 
-The **Voice Recognition** feature transforms the way users interact with FortiSOAR by enabling hands-free control. This innovation streamlines SOC tasks, offering users greater flexibility to issue commands and retrieve data efficiently using natural language.  
+- **Connector configurations**
+- **Connector code** ready for action
+- **Sample playbooks** to guide your integration
 
-> [!Note]
-> The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+You can upload **Postman collections**, **Swagger files**, or documents in formats like `.json`, `.yml`, `.txt`, or even `.pdf`—FortiAI handles it all seamlessly.
 
-**Conversation Thread Management**
+**AI-Powered Playbook Generation: Smarter, Faster, Better**
 
-Previously, conversation threads were deleted from OpenAI whenever *Clear Conversation* was clicked, and a new thread was started with each new prompt.
+FortiAI takes playbook creation to the next level with **context-aware intelligence**. Whether you’re automating basic workflows or crafting complex incident response protocols, FortiAI now:
 
-Now, threads are retained within OpenAI, enabling improved historical reference and continuity. Each new prompt, after clearing the conversation. still initiates a fresh thread, and the *Clear Conversation* option within the user interface continues to clear conversation history, ensuring a clean workspace.
+- Generates playbook blocks from simple prompts or clicks
+- Accurately detects connector steps, operation names, modules, and available inputs
+- Identifies when loops are needed for record traversal
+- Picks the best **Jinja expressions** for each step, so you don’t have to
+
+With the convenience of **OpenAI’s structured output** for crystal-clear, JSON-formatted data. Your workflows just got a whole lot smoother.
+
+**AI Assistant Upgrades: Smarter, Personalized, and Always On-Point**
+
+FortiAI’s AI Assistant has been supercharged with game-changing features to keep you ahead of the curve:
+
+- **Context-Aware Assistance**: The assistant knows exactly what you’re working on. Whether you’re deep in playbook design or connector creation, it automatically adjusts to the context — without additional prompts.
+- **Load Past Conversations**: Your work stays where you left off. The assistant loads past conversations based on your current page, ensuring your progress is always right at your fingertips—even after you log in and out.
+- **Clear Conversation**: Start fresh anytime by clearing conversations and temporary files - both from FortiSOAR&trade; and OpenAI - with one click.
+
+---
+
+With these powerful enhancements, FortiAI isn’t just a tool—it’s a revolution in workflow automation, streamlining your processes and making your work smarter, not harder.
+
+**Ready to transform your workflow? Try it now and experience the future of automation!**

@@ -23,7 +23,7 @@ The **FortiAI** solution pack contains the following resources:
 
 | Name                                 | Description                                                              |
 |:-------------------------------------|:-------------------------------------------------------------------------|
-| FortiAI - SOC Assistant Instructions | Contains the set of instruction of which SOC Assistant will get created. |
+| FortiAI - SOC Assistant Instructions | Contains the set of instructions used for creating SOC Assistant.        |
 
 ## Key Store - Record Set
 
@@ -40,12 +40,11 @@ The **FortiAI** solution pack contains the following resources:
     - `name`: LLM Integration name as per Connector. By default, `openai` is set.
     - `title`: LLM Integration title as per Connector. By default, `OpenAI` is set.
     - `modelList`: List of LLM Integration models. By default, `gpt-4o-mini-2024-07-18`, `gpt-4o-mini`, `gpt-4o-2024-05-13`, and `gpt-4-turbo-2024-04-09` is present.
-- **`llmIntegrationToUse`**: Sets the integration to OpenAI as the default LLM.
-- **`llmIntegrationData`**: Contains the data for each LLM Integration.
-    - `messagesLimit`: Specify the maximum messages to be loaded in the conversation window on login. By default, it is set to `20`.
-    - `conversationModel`: Sets the model of LLM Integration to use in conversations. By Default, `gpt-4o-mini` is to be used.
-    - `pBGenerationModel`: Sets the model of LLM Integration to use for playbook generation. By Default, `gpt-4o-mini` is to be used.
-    - `isMultiConfigAvailable`: Sets the availability of multiple configuration. By Default, it is set to `false`.
+- `isMultiConfigAvailable`: Sets the availability of multiple configuration. By Default, it is set to `false`.
+- `pastConversationMsgLimit`: Specify the maximum messages to be loaded in the conversation window on login. By default, it is set to `20`.
+
+> [!Note]
+> The raw file can be accessed here <img src="./res/icon-arrow-right.svg" width="10px"> [`llm-configuration.json`](./res/llm-configuration.json)
 
 ### `fortiai-static-questions`
 
@@ -59,20 +58,21 @@ The **FortiAI** solution pack contains the following resources:
 
 >[!NOTE]
 >To add a preset question for a module:
->Add the question, with `description` and `enable` flag, in as JSON under the particular module's API name. A sample [Question JSON](./question-sample.json) has been provided for your reference.
+>Add the question, with `description` and `enable` flag, as JSON under the particular module's API name. A sample [Question JSON](./res/question-sample.json) has been provided for your reference.
 
 ## Playbook Collection
 
 |10 - SP - FortiAI |
 |:----------------:|
 
-| Playbook Name                       | Description                                                                               |
-|:------------------------------------|:------------------------------------------------------------------------------------------|
-| Get Playbook Step Suggestion        | Suggests steps to create a playbook based on user's query.                                |
-| Get Playbook Step Suggestion (Loop) | Suggests steps to create a playbook based on user's query, in a loop.                     |
-| Get Playbook Block Suggestion       | Creates a suggested playbook block to perform actions based on user requirements.         |
-| > Get LLM Response                  | Reference playbook for getting a response from the LLM.                                   |
-| > Get LLM Configuration             | Get the LLM configuration based on the value defined for the key "isMultiConfigAvailable" |
+| Playbook Name                                                      | Description                                                                               |
+|:-------------------------------------------------------------------|:------------------------------------------------------------------------------------------|
+| Clear Assistant metadata ![](./res/icon-new.svg)| Clears the assistant metadata from Integration Cache as per GenAI Type. |
+| Get Playbook Step Suggestion ![](./res/icon-deprecated.svg)        | Suggests steps to create a playbook based on user's query.                                |
+| Get Playbook Step Suggestion (Loop) ![](./res/icon-deprecated.svg) | Suggests steps to create a playbook based on user's query, in a loop.                     |
+| Get Playbook Block Suggestion ![](./res/icon-deprecated.svg)       | Creates a suggested playbook block to perform actions based on user requirements.         |
+| > Get LLM Response ![](./res/icon-deprecated.svg)                  | Reference playbook for getting a response from the LLM.                                   |
+| > Get LLM Configuration ![](./res/icon-deprecated.svg)             | Get the LLM configuration based on the value defined for the key "isMultiConfigAvailable" |
 
 >[!Warning]
 >We recommend that you clone these playbooks before customizing to avoid loss of information while upgrading the solution pack.

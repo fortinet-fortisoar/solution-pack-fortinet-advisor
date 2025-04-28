@@ -5,8 +5,9 @@
 
 # Usage
 
-The **FortiAI** solution pack offers a variety of functions through its **AI Assistant** to managing and automating tasks related to cybersecurity workflows. Following is an overview of the supported functions:
+The **FortiAI** solution pack offers a variety of functions for managing and automating tasks related to cybersecurity workflows. Following is an overview of the supported functions:
 
+- **Create Connector**: Create a connector using natural language prompts, review results, and download the associated connector code in the form of `info.json`, `operations.py` etc.
 - **Generate Playbook**: Generate, create a playbook or workflow, or playbook steps.
 - **Navigate Pages**: Navigate, open, or move to a specific page or module.
 - **Link Record**: Link or correlate a record with other relevant records. For example: correlating an indicator to an existing alert or incident.
@@ -21,6 +22,44 @@ The **FortiAI** solution pack offers a variety of functions through its **AI Ass
 
 >[!NOTE]
 > With the new voice command feature, you can perform all these tasks and more.
+
+## Generating a Connector
+
+FortiAI enables users to generate a FortiSOAR connector using natural language inputs along with API specifications. This feature is especially useful for quickly building connectors without manual coding, by simply describing the connector’s functionality and providing the relevant API details.
+
+### Building a Connector Using FortiAI
+
+1. **User Input**  
+   In the FortiAI interface, enter a prompt that clearly defines:
+   - The purpose of the connector  
+   - The actions it needs to perform  
+   - The associated API endpoint(s)  
+
+   API details can be provided in various formats, including:
+   - `curl` commands  
+   - JSON request/response structures  
+   - File attachments, in formats such as `.json`, `.yml`, `.txt`, or `.pdf`, and not exceeding 100MB in size.
+
+2. **Code Generation**  
+   Based on the provided input, FortiAI will automatically generate the standard connector files:
+   - `info.json`
+   - `connector.py`
+   - `operations.py`
+
+   A `requirements.txt` may also be generated if there are any code dependencies.
+
+3. **Output and Packaging**  
+   The generated files, along with sample playbooks, are bundled and the connector is automatically imported into the **Create** tab of the Content Hub. Users can then refresh the page to view the generated connector's tile.
+
+4. **Viewing and Editing**  
+   Once imported, the connector can be accessed under the **Create** tab in the Content Hub. Users can review and modify the connector using the BYOC tools available in this section.
+
+### Best Practices
+
+- Follow FortiAI's execution flow closely to ensure accurate and complete connector generation. Any necessary modifications should be made *after* the initial generation is complete.  
+- Provide clear, concise, and unambiguous API details. Cleaner inputs significantly improve parameter extraction and the quality of the generated connector.
+
+The section [Example: Building a connector](./example-creating-connectors.md) has details on how to create a connector by way of some examples and prompts.
 
 ## Generating Playbooks
 
@@ -69,8 +108,10 @@ One common use case involves creating a playbook to extract indicators from an a
 
 The ability to generate playbooks through OpenAI's assistant represents a significant advancement in playbook design, offering immense assistance to those new to developing playbooks. By following the above steps, administrators can efficiently create and manage robust playbooks to address various threat mitigation scenarios.
 
-[!TIP]
->It is recommended that you clear a conversation before executing different use cases. Clearing conversations also helps in saving tokens being consumed.
+> [!TIP]
+> It is recommended that you clear a conversation before executing different use cases. Clearing conversations also helps in saving tokens being consumed.
+
+The section [Example: Generating Playbooks](./example-generating-playbooks.md) has details on how to generate a playbook by way of some examples and prompts.
 
 ## Navigating Page
 
@@ -563,6 +604,8 @@ FortiAI provides a summary about the malware and its associated threat groups. I
 - Select a question to retrieve information about the opened alert.
 
 For advanced usage topics, such as prompting tips n tricks, see [Advanced Usage](./advanced-usage.md).
+
+# Next Steps
 
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|---------------------------|
