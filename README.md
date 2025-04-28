@@ -48,7 +48,7 @@ With these features, FortiAI accelerates playbook creation, ensuring that every 
 FortiAI introduces a game-changing **Connector Generation** feature, allowing users to create custom connectors through **natural language commands**. Whether you need to integrate new tools, systems, or APIs, FortiAI takes care of the heavy lifting:
 
 - **Auto-Generated Connector Code**: With a few simple inputs, you get fully functional connectors ready to integrate into your workflows.
-- **Seamless Configuration**: Easily configure connectors using CURL commands, API details, and additional parameters.
+
 - **File Upload Support**: Upload Postman collections, Swagger files, or even documents (.json, .yml, .txt, .pdf) to assist in the connector creation process.
 
 This functionality allows security teams to build connectors faster, enhance integration capabilities, and ensure that all tools work in harmony within FortiSOAR—cutting down on manual coding and reducing integration times.
