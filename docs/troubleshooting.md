@@ -225,6 +225,14 @@ The input or output tokens must be reduced in order to run successfully. Visit h
 > [!NOTE]
 > You may need admin permissions on the project to modify rate limits.
 
+### Error: Indicators Not Unmasked in Playbook Steps on Designer Page
+
+If the playbook outline contains indicators, they remain masked and are not automatically unmasked in the generated step.
+
+#### Resolution
+
+Manually update the masked indicators with their actual (unmasked) values.
+
 # Next Steps
 
 | [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
