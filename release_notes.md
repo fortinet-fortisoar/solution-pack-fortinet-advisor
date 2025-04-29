@@ -36,3 +36,6 @@ FortiAI’s AI Assistant has been supercharged with game-changing features to ke
 With these powerful enhancements, FortiAI isn’t just a tool—it’s a revolution in workflow automation, streamlining your processes and making your work smarter, not harder.
 
 **Ready to transform your workflow? Try it now and experience the future of automation!**
+
+> [!IMPORTANT]
+> After an upgrade, you must run the configuration wizard again.

@@ -1,6 +1,6 @@
 # Release Information
 
-* **Version**: 3.1.0 ![Preview icon](./docs/res/icon-preview.svg)  
+* **Version**: 4.0.0 ![Preview icon](./docs/res/icon-preview.svg)  
 * **Certified**: Yes
 * **Publisher**: Fortinet
 * **Compatible Version**: 7.6.0 and later
@@ -9,7 +9,10 @@
 > [!NOTE]
 > This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 
-### **FortiAI Overview: Your Ultimate Security Assistant**
+> [!IMPORTANT]
+> After an upgrade, you must run the configuration wizard again.
+
+### FortiAI Overview: Your Ultimate Security Assistant
 
 FortiAI is a cutting-edge **context-aware GenAI security assistant** that transforms how security professionals operate and respond to threat alerts. Designed to simplify complex analysis and remediation tasks, FortiAI allows users to interact with FortiSOAR through natural language commands for data analysis, threat identification, and resolution. Whether you're building connectors, generating playbooks, escalating alerts, or crafting Jinja expressions, FortiAI accelerates your response cycles and enhances accuracy.
 
