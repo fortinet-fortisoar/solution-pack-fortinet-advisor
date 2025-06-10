@@ -147,9 +147,91 @@ In some cases, the field names in filters may not reflect changes after subseque
    - Click ![](./res/icon-clear-filter.svg) to remove the current filter.  
    - Reapply the filter by clicking on the filter hyperlink, within the bot conversation, again.  
 
+> [!Note]
+> This issue has been resolved in **FortiSOAR v7.6.1** and later.
 
->[!Note]
->This issue has been resolved in **FortiSOAR v7.6.1** and later.
+### FortiAI Response Incomplete or Unexpected
+
+The assistant may veer off-topic or initiate an incorrect process for generating a connector.
+
+#### Resolution
+
+You may try using the following prompt:
+
+> *Proceed to generate connector by following primary tasks step by step*.
+
+### Connector Import Failed
+
+The connector import process may fail due to missing or invalid files.
+
+#### Resolution
+
+Before retrying the connector generation prompt, you may try the following prompts to generate associated files:
+
+> 1. *Show `info.json` file*
+> 2. *Show python files*
+> 3. *Import connector now*
+
+### Files missing or not Displayed
+
+The assistant may not display the files (`info.json`, `connector.py`, `operations.py`) in the prompt window.
+
+#### Resolution
+
+Before retrying the connector generation prompt, you may try and prompt to regenerate the files and show their contents. The following prompts :
+
+> 1. *Generate `info.json` file*
+> 2. *Generate python files*
+
+### FortiAI Calls Import Connector function Multiple Times
+
+Users may come across situations where the assistant calls the connector function repeatedly.
+
+#### Resolution
+
+Before retrying the connector generation prompt, you may try the following prompts to generate associated files:
+
+> 1. *Show `info.json` file*
+> 2. *Show python files*
+> 3. *Import connector now*
+
+### Connector Imported Automatically Without User Confirmation
+
+Sometimes, the FortiAI connector generation process automatically imports the connector immediately after building it, without waiting for user confirmation. As a result, the connector may be imported without review, or the installation process may take additional time.
+
+#### Resolution
+
+Users can prompt FortiAI to edit or update specific parts of the connector and request a re-import with a **_different_** version. Alternatively, they can delete the existing connector via the UI and ask FortiAI to import it again.
+
+### Error: Request Too Large for gpt-4o-mini (Token Limit Exceeded)
+
+The following error may occur during connector or playbook generation:
+
+```
+OpenAI response failed due to: Request too large for gpt-4o-mini in project [PROJECT_ID] organization [ORG_ID] on tokens per min (TPM): Limit 100, Requested 1645.
+The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.
+```
+
+#### Resolution
+
+1. Visit: `https://platform.openai.com/settings/[PROJECT_ID]/limits`
+   > Replace `[PROJECT_ID]` with your actual project ID.
+
+2. Click **Select Models** under the **Rate Limits** section.
+3. Locate the model mentioned in the error message (e.g., `gpt-4o-mini`).
+4. Adjust or reset the **TPM** (Tokens Per Minute) and **RPM** (Requests Per Minute) limits.
+5. Save the changes.
+
+> [!NOTE]
+> You may need admin permissions on the project to modify rate limits.
+
+### Error: Indicators Not Unmasked in Playbook Steps on Designer Page
+
+If the playbook outline contains indicators, they remain masked and are not automatically unmasked in the generated step.
+
+#### Resolution
+
+Manually update the masked indicators with their actual (unmasked) values.
 
 # Next Steps
 

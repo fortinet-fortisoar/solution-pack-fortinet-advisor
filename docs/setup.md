@@ -20,46 +20,59 @@ The **FortiAI** solution pack depends on the following solution packs.
 You must have the following access and credentials to use this solution pack:
 
 - An OpenAI account and a valid project level API key to access the OpenAI APIs. For information refer to [API Keys](https://platform.openai.com/docs/api-reference/api-keys) section of the OpenAI documentation. Following are the **_minimum_** permissions that must be assigned to users on the OpenAI interface:
+
     - **Administrator**
-        - Assistant - **All**
-        - Thread - **All**
+        - Model - **Read**
+        - Model Capabilities - **Write**
+        - Assistant - **Write**
+        - Threads - **Write**
+        - Files - **Write**
+
     - **User**
-        - Assistant - `Read`
-        - Thread - **All**
+        -  Model - **Read**
+        - Model Capabilities - **Write**
+        - Assistants - **Read**
+        - Threads - **Write**
+        - Files - **Write**
+
     - The user must be a member of the project whose Project ID is being used.
 
 - Access to supported OpenAI LLM models as versions prior to *`GPT4`* do not generate responses as expected.
 
-To use the **FortiAI** solution pack, you must have **_at least_** the following permissions:
+- To utilize the Fortinet Advisor solution pack, user must have the following access, along with other appropriate permissions:
+
+    - `Read` and `Usage` permissions on Widgets
+    - `Read` and `Execute` permissions on Playbooks
 
 ### Administration Permissions
 
 The following permission allow an administrator to run the [configuration wizard](#fortiai-configuration-wizard):
 
-| Module         | Create                             | Read                               | Update                             | Other   |
-|:---------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
-| Attachment     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
-| Connectors     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | Execute |
-| Content Hub    | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
-| Files          | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
-| Key Store      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
-| Playbooks      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | Execute |
-| Solution Packs | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
-| Widgets        | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | Usage   |
+| Module         | Create                             | Read                               | Update                             | Delete                             | Other   |
+|:---------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
+| Attachment     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+| Connectors     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | Execute |
+| Content Hub    | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
+| Files          | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
+| Key Store      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+| Playbooks      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
+| Solution Packs | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+| Widgets        | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | Usage   |
 
 ### User Permissions
 
 The following permission allow a user to interact with the **FortiSOAR AI Assistant** bot. Apart from these, users needs CRU (create, read, and update) permissions on the modules they are assigned to work. For example: users need to be assigned CRU permissions for the **Alert** module for them to manage or take action on an alert.
 
-| Module      | Create                      | Read                               | Update                      | Other   |
-|:------------|:----------------------------|:-----------------------------------|:----------------------------|:--------|
-| Application | ![No](./res/icon-close.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg) | -       |
-| Connectors  | ![No](./res/icon-close.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg) | Execute |
-| Key Store   | ![No](./res/icon-close.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg) | -       |
-| Playbooks   | ![No](./res/icon-close.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg) | Execute |
-| Widgets     | ![No](./res/icon-close.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg) | Usage   |
+| Module      | Create                             | Read                               | Update                             | Delete                             | Other   |
+|:------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
+| Application | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
+| Connectors  | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
+| Key Store   | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
+| Playbooks   | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
+| Widgets     | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Usage   |
+| Files       | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
 
->[!Note]
+> [!Note]
 > The **FortiSOAR AI Assistant** bot becomes available to interact on modules that contain records like Alerts, Indicators, or Incidents. The bot is still available to interact on all such modules even if there are no records present.
 
 ## Configuring Voice Support
@@ -83,8 +96,6 @@ The **FortiAI** solution depends on the following connectors and widgets:
 
 >[!NOTE]
 >The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) document.
-
-- The **AI Assistant** widget to add the **FortiSOAR AI Assistant** bot to the FortiSOAR user interface. For more details, see the [AI Assistant Widget](https://github.com/fortinet-fortisoar/widget-ai-assistant/blob/develop/README.md) document.
 
 - The **OpenAI** connector to get a response from **FortiSOAR AI Assistant**.
     - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/fortisoar/connectors/openai) document.
