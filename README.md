@@ -1,6 +1,6 @@
 # Release Information
 
-* **Version**: 4.0.0 ![Preview icon](./docs/res/icon-preview.svg)  
+* **Version**: 4.0.1 ![Preview icon](./docs/res/icon-preview.svg)  
 * **Certified**: Yes
 * **Publisher**: Fortinet
 * **Compatible Version**: 7.6.0 and later
