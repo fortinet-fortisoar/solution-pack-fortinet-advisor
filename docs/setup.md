@@ -61,7 +61,7 @@ The following permission allow an administrator to run the [configuration wizard
 
 ### User Permissions
 
-The following permission allow a user to interact with the **FortiSOAR AI Assistant** bot. Apart from these, users needs CRU (create, read, and update) permissions on the modules they are assigned to work. For example: users need to be assigned CRU permissions for the **Alert** module for them to manage or take action on an alert.
+The following permission allow a user to interact with the **FortiSOAR AI Assistant** bot ![AI Assistant icon](./res/icon-ai-assistant.svg). Apart from these, users needs CRU (create, read, and update) permissions on the modules they are assigned to work. For example: users need to be assigned CRU permissions for the **Alert** module for them to manage or take action on an alert.
 
 | Module      | Create                             | Read                               | Update                             | Delete                             | Other   |
 |:------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
@@ -73,7 +73,7 @@ The following permission allow a user to interact with the **FortiSOAR AI Assist
 | Files       | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
 
 > [!Note]
-> The **FortiSOAR AI Assistant** bot becomes available to interact on modules that contain records like Alerts, Indicators, or Incidents. The bot is still available to interact on all such modules even if there are no records present.
+> The **FortiSOAR AI Assistant** bot ![AI Assistant icon](./res/icon-ai-assistant.svg) becomes available to interact on modules that contain records like Alerts, Indicators, or Incidents. The bot is still available to interact on all such modules even if there are no records present.
 
 ## Configuring Voice Support
 
@@ -150,7 +150,7 @@ The FortiAI Configuration wizard guides you through the following steps to setup
 > [!IMPORTANT]  
 > By default, all these fields are loaded from, and saved to, the **Key Store** record named *`fortiai-configuration`*.
 
-Navigate to *Incident Response*, *Automation*, or *Resources* navigation menu to interact with **FortiSOAR AI Assistant**.
+Navigate to *Incident Response*, *Automation*, or *Resources* navigation menu to interact with **FortiSOAR AI Assistant** ![AI Assistant icon](./res/icon-ai-assistant.svg).
 
 # Next Steps
 | [Usage](./usage.md) | [Contents](./contents.md) |

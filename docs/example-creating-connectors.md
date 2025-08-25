@@ -8,7 +8,7 @@ The following is an example that contains prompts to help you create a connector
 1. Navigate to **Automation** > **Connectors** or Content Hub.
     - Alternatively, you can navigate to the **Content Hub** and select **Connectors** as the content type.
 
-2. Click the **Create** tab, and then click the AI Assistant icon to open the FortiAI Window:
+2. Click the **Create** tab, and then click the AI Assistant icon ![AI Assistant icon](./res/icon-ai-assistant.svg) to open the FortiAI Window:
 
     ![](./res/byoc_bot_dialog.png)
 
