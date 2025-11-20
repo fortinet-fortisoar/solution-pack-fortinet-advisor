@@ -25,7 +25,7 @@ The **FortiAI** solution pack offers a variety of functions for managing and aut
 
 ## Generating a Connector
 
-FortiAI enables users to generate a FortiSOAR connector using natural language inputs along with API specifications. This feature is especially useful for quickly building connectors without manual coding, by simply describing the connector’s functionality and providing the relevant API details.
+FortiAI enables users to generate a FortiSOAR connector using natural language inputs along with API specifications. This feature is especially useful for quickly building connectors without manual coding, by simply describing the connector's functionality and providing the relevant API details.
 
 ### Building a Connector Using FortiAI
 
@@ -240,7 +240,7 @@ A common use case is creating a new incident record when a new threat is detecte
 
 - Utilize the newly created records within your workflow. The records can be used for tracking, analysis, and response actions, contributing to an efficient data management process.
 
-Creating records is a fundamental task for managing and tracking data within FortiSOAR. By following the steps outlined and leveraging the FortiAI assistant’s capabilities, users can effectively create and manage records to support their workflow and data management needs.
+Creating records is a fundamental task for managing and tracking data within FortiSOAR. By following the steps outlined and leveraging the FortiAI assistant's capabilities, users can effectively create and manage records to support their workflow and data management needs.
 
 >[!NOTE]
 >On an MSSP setup, users cannot prompt the bot from a master to create a record on a tenant other than *`Self`*.
@@ -283,7 +283,7 @@ A common use case is updating an incident record with new information, such as a
 
 - Utilize the updated records within your workflow to ensure that your data and analysis reflect the most current information. The updated records can aid in making informed decisions and managing tasks effectively.
 
-Updating records is a crucial task for maintaining accurate and relevant information within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively manage and update records to support their workflow and data accuracy.
+Updating records is a crucial task for maintaining accurate and relevant information within FortiSOAR. By following the outlined steps and using the FortiAI assistant's capabilities, users can effectively manage and update records to support their workflow and data accuracy.
 
 ## Filtering Records
 
@@ -317,7 +317,7 @@ A common use case for filtering records is narrowing down alerts based on severi
 
 - Incorporate filtering into your workflow to streamline data review processes. For example, apply filters to prioritize alerts daily, ensuring high-severity incidents are addressed first.
 
-Filtering records is an effective tool within FortiSOAR to enhance data visibility and focus on critical information. By following these steps and using the FortiAI assistant’s capabilities, users can efficiently manage records and improve their response to threats.
+Filtering records is an effective tool within FortiSOAR to enhance data visibility and focus on critical information. By following these steps and using the FortiAI assistant's capabilities, users can efficiently manage records and improve their response to threats.
 
 >[!Note]
 >Ensure the conditions applied for filtering are specific and clear to avoid omitting critical records from the filtered results.
@@ -354,7 +354,7 @@ A common use case is blocking a malicious IP address that has been identified as
 
 - Incorporate the blocking action into your security workflow to prevent further interactions with the threat. Utilize the blocked indicator information for ongoing analysis and monitoring.
 
-Blocking indicators is an essential task for managing security threats within FortiSOAR. By following the outlined steps and using the FortiAI assistant’s capabilities, users can effectively block harmful indicators and protect their systems.
+Blocking indicators is an essential task for managing security threats within FortiSOAR. By following the outlined steps and using the FortiAI assistant's capabilities, users can effectively block harmful indicators and protect their systems.
 
 >[!Note]
 >Ensure that the connector used for blocking is properly configured to execute the blocking action accurately.
@@ -391,7 +391,7 @@ A common use case is retrieving the reputation of an IP address to assess its th
 
 - Use the enriched reputation information to inform your security analysis and response actions. Incorporate the data into your workflow to enhance decision-making and threat management.
 
-Enriching indicators is a critical task for understanding threat levels within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively retrieve and utilize the latest reputation information to support their security operations.
+Enriching indicators is a critical task for understanding threat levels within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant's capabilities, users can effectively retrieve and utilize the latest reputation information to support their security operations.
 
 ## Escalating an Alert To Incident
 
@@ -428,7 +428,7 @@ A common use case is escalating an alert that indicates a significant security t
 
 - Incorporate the escalated incident into your workflow for comprehensive management and response. Use the incident record to track progress, assign tasks, and coordinate responses.
 
-Escalating alerts to incidents is a crucial process for managing significant security threats within FortiSOAR. By following the outlined steps and utilizing the FortiAI assistant’s capabilities, users can effectively promote alerts to incidents and manage them with appropriate detail and urgency.
+Escalating alerts to incidents is a crucial process for managing significant security threats within FortiSOAR. By following the outlined steps and utilizing the FortiAI assistant's capabilities, users can effectively promote alerts to incidents and manage them with appropriate detail and urgency.
 
 >[!Note]
 >Ensure that all necessary details from the alert are accurately included in the incident record to support effective investigation and resolution.
@@ -471,7 +471,7 @@ A common use case is setting up a war room for a significant incident, such as a
 >[!Tip]
 >Regularly update the war room with the latest information and ensure all relevant team members have access. An up-to-date war room enhances collaboration and response efficiency.
 
-Setting up a war room is a critical process for managing significant incidents within FortiSOAR. By following the outlined steps and utilizing the FortiAI assistant’s capabilities, users can effectively establish and use war rooms to coordinate incident response and resolution.
+Setting up a war room is a critical process for managing significant incidents within FortiSOAR. By following the outlined steps and utilizing the FortiAI assistant's capabilities, users can effectively establish and use war rooms to coordinate incident response and resolution.
 
 >[!Note]
 >Ensure that all necessary stakeholders are included in the war room to facilitate comprehensive incident management and decision-making.
@@ -530,7 +530,7 @@ A common use case is creating a response plan for a ransomware event. For exampl
 >[!Tip]
 >Regularly update and review your response plans to ensure they align with the latest threat intelligence and organizational changes. Keeping response plans current enhances their effectiveness.
 
-Building response plans is a critical task for managing security incidents within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively create and implement comprehensive response plans to handle various security events.
+Building response plans is a critical task for managing security incidents within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant's capabilities, users can effectively create and implement comprehensive response plans to handle various security events.
 
 >[!Note]
 >Ensure that all response plans are thoroughly tested and validated to ensure they work as intended during actual incidents.
@@ -569,7 +569,7 @@ A common use case is needing help to create a Jinja expression that extracts spe
 
 - Use the Jinja expressions in your playbooks to automate tasks and data extraction. Incorporate the expressions into your workflow to enhance efficiency and accuracy.
 
-Getting help with Jinja expressions is a valuable feature for enhancing automation within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant’s capabilities, users can effectively create and debug Jinja expressions to support their playbook development.
+Getting help with Jinja expressions is a valuable feature for enhancing automation within FortiSOAR. By following the outlined steps and leveraging the FortiAI assistant's capabilities, users can effectively create and debug Jinja expressions to support their playbook development.
 
 >[!TIP]
 >Ensure that the Jinja expressions are properly tested and validated before integrating them into production playbooks to avoid errors and ensure smooth operation.

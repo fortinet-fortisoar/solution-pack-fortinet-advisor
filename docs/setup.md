@@ -126,6 +126,7 @@ The FortiAI Configuration wizard guides you through the following steps to setup
         - `gpt-4o-2024-05-13`
         - `gpt-4-turbo-2024-04-09`
 
+
     - **Playbook Generation Model**: Select one from the following options:
 
         - `gpt-4o-mini-2024-07-18`
@@ -134,6 +135,9 @@ The FortiAI Configuration wizard guides you through the following steps to setup
         - `gpt-4-turbo-2024-04-09`
 
     -  Select **Enable multi user configuration** to use the connector configuration that matches the login ID of the logged-in user. Clear the selection to use the default configuration for the LLM integration.
+
+> [!NOTE]
+> When using a fine-tuned model &mdash; or any model whose name differs from the default models provided by the LLM provider &mdash; add that custom model's name to the [`modelList`](./contents.md#fortiai-configurations).
 
 4. Click **Next** on the lower-right corner.
 
