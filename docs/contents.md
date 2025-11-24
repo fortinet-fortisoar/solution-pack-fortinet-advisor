@@ -44,7 +44,7 @@ The **FortiAI** solution pack contains the following resources:
 - `pastConversationMsgLimit`: Specify the maximum messages to be loaded in the conversation window on login. By default, it is set to `20`.
 
 > [!Note]
-> The raw file can be accessed here <img src="./res/icon-arrow-right.svg" width="10px"> [`llm-configuration.json`](./res/llm-configuration.json)
+> The raw file can be accessed here <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-arrow-right-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-arrow-right-dark.svg"><img alt="" src="./res/icon-arrow-right-dark.svg"></picture> [`llm-configuration.json`](./res/llm-configuration.json)
 
 ### `fortiai-static-questions`
 

@@ -22,10 +22,10 @@ With **FortiAI**, every action is simplified, every task is streamlined, and you
 
 ### **SOC Assistant Capabilities: Streamlining Security Operations**
 
-FortiAI doesn’t just stop at connectors and playbooks—it’s packed with a variety of **SOC Assistant capabilities** designed to enhance your entire workflow:
+FortiAI doesn't just stop at connectors and playbooks—it's packed with a variety of **SOC Assistant capabilities** designed to enhance your entire workflow:
 
 - **Advanced Filtering**: Refine searches for alerts, incidents, or indicators using customizable filters. With options like severity, status, and other criteria, users can quickly retrieve the exact data they need—saving time and improving decision-making.
-- **Voice Support**: Experience hands-free interaction with FortiAI’s **voice-to-natural language** functionality. Issue voice commands for tasks like filtering records, generating playbooks, or blocking indicators. Ideal for multitasking, this feature speeds up workflows and improves accessibility.
+- **Voice Support**: Experience hands-free interaction with FortiAI's **voice-to-natural language** functionality. Issue voice commands for tasks like filtering records, generating playbooks, or blocking indicators. Ideal for multitasking, this feature speeds up workflows and improves accessibility.
 - **Alert Escalation**: Automatically escalate critical alerts to incidents, ensuring your team is always on top of the most pressing threats.
 - **War Room Setup**: Quickly set up virtual war rooms to collaborate with your team on incident resolution, ensuring coordinated and efficient responses.
 - **Jinja Expression Crafting**: Design and implement Jinja expressions effortlessly, giving you full control over your playbooks and automations.
@@ -58,7 +58,7 @@ This functionality allows security teams to build connectors faster, enhance int
 
 ---
 
-FortiAI is not just a tool—it’s the future of **security automation**. From effortless connector creation to intelligent playbook design, and even enhanced SOC capabilities, FortiAI is your ultimate assistant in streamlining operations, reducing response times, and staying ahead of threats.
+FortiAI is not just a tool—it's the future of **security automation**. From effortless connector creation to intelligent playbook design, and even enhanced SOC capabilities, FortiAI is your ultimate assistant in streamlining operations, reducing response times, and staying ahead of threats.
 
 **Ready to elevate your security game?** FortiAI is here to help.
 
@@ -68,9 +68,9 @@ FortiAI is not just a tool—it’s the future of **security automation**. From 
 
 The FortiAI lets you connect your Fortinet account to your own OpenAI account, using your own OpenAI Assistant API key. This integration will send data from your Fortinet account to OpenAI and will show you responses from OpenAI. Fortinet does not verify or correct these responses and has no responsibility for them. OpenAI Assistant is operated by a third party, not Fortinet. You must exercise discretion and independently verify any information or recommendations you receive from OpenAI before relying on them.
 
-Before using the FortiAI, we recommend that you review OpenAI’s API Platform privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in OpenAI’s privacy policy.
+Before using the FortiAI, we recommend that you review OpenAI's API Platform privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in OpenAI's privacy policy.
 
-For any further questions or concerns about your privacy, refer to [OpenAI’s privacy policy](https://openai.com/policies/privacy-policy).
+For any further questions or concerns about your privacy, refer to [OpenAI's privacy policy](https://openai.com/policies/privacy-policy).
 
 ---
 

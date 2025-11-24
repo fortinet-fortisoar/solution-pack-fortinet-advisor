@@ -17,24 +17,24 @@ By following these prompts, analysts and engineers can quickly create actionable
 
 Send the following prompt to FortiAI:
 
-> When an alert is created of type "Suspicious Email":
+> When an alert is created of type **Suspicious Email**:
 > 1. Send an acknowledgement email to the sender.
-> 2. Mark the alert status as "Investigation."
+> 2. Mark the alert status as *Investigation*.
 > 3. If you find email spoofing:
->    - Add the "Spoofing" tag.
->    - Otherwise, add the "No Spoofing" tag.
+>    - Add the *`Spoofing`* tag.
+>    - Otherwise, add the *`No Spoofing`* tag.
 > 4. Find related indicators of type URL.
 > 5. Check the URL rating in FortiSandbox.
-> 6. Ask the user if it is a "Drive-By Download":
->    - If yes, add the tag "Drive By Download."
->    - If no, add the tag "Not Drive By Download."
+> 6. Ask the user if it is a **Drive-By Download**:
+>    - If yes, add the tag *`Drive By Download`*.
+>    - If no, add the tag *`Not Drive By Download`*.
 > 7. Ask the user if the alert is about phishing:
 >    - If phishing:
->       - Mark the alert type as "Phishing."
+>       - Mark the alert type as **Phishing**.
 >       - Send a suspicious response email to the sender.
 >    - If not phishing:
->       - Mark the email classification as "Non-Phishing."
->       - Set the severity to "Low."
+>       - Mark the email classification as **Non-Phishing**.
+>       - Set the severity to **Low**.
 >       - Send a closure response email to the reporter.
 
 ---
@@ -46,7 +46,7 @@ Send the following prompt to FortiAI:
 > 1. Get all unread emails from Exchange.
 > 2. Create an alert record for each unread email.
 > 3. Reply to each email with a thank-you message.
-> 4. Change the newly created alerts' status to "Investigating."
+> 4. Change the newly created alerts' status to **Investigating**.
 
 ---
 
@@ -64,9 +64,9 @@ Send the following prompt to FortiAI:
 
 Send the following prompt to FortiAI:
 
-> 1. Trigger manually on an indicator if its reputation is "Malicious."
+> 1. Trigger manually on an indicator if its reputation is **Malicious**.
 > 2. Block the indicator in FortiGate to prevent threats.
-> 3. Update the indicator’s status to "Blocked."
+> 3. Update the indicator's status to **Blocked**.
 
 ---
 
@@ -83,10 +83,10 @@ Send the following prompt to FortiAI:
 Send the following prompt to FortiAI:
 
 > Upon the creation of an indicator:
-> - Check the IP’s reputation using VirusTotal.
->   - If malicious, set the indicator reputation as "Malicious."
->   - If suspicious, set the indicator reputation as "Suspicious."
->   - Otherwise, set the indicator reputation as "Good."
+> - Check the IP's reputation using VirusTotal.
+>   - If malicious, set the indicator reputation as **Malicious**.
+>   - If suspicious, set the indicator reputation as **Suspicious**.
+>   - Otherwise, set the indicator reputation as **Good**.
 
 ---
 
@@ -105,7 +105,7 @@ Send the following prompt to FortiAI:
 
 Send the following prompt to FortiAI:
 
-> If a file indicator's risk is "High" or above:
+> If a file indicator's risk is *High* or above:
 > - Send the sample to the sandbox for analysis.
 
 ---
