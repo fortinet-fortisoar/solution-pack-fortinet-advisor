@@ -1,91 +1,82 @@
 # Release Information
 
-* **Version**: 4.0.1 ![Preview icon](./docs/res/icon-preview.svg)  
-* **Certified**: Yes
-* **Publisher**: Fortinet
-* **Compatible Version**: 7.6.1 and later
-* [Release Notes](./release_notes.md)
+- **Version**: 6.0.0
+- **Certified**: Yes
+- **Publisher**: Fortinet
+- **Compatible Version**: FortiSOAR v8.0.0 and later
+- [Release Notes](release_notes.md)
 
-> [!NOTE]
-> This is a preview version of **FortiAI** designed to demonstrate the potential of Generative AI in FortiSOAR. Preview releases are a beta release. This means that release is intended to get feedback and might not be best suited for production level deployments. Feature availability and support for preview releases will continue to improve as the solution/feature matures.
 
-> [!IMPORTANT]
-> After an upgrade, you must run the configuration wizard again.
+## Overview
 
-### FortiAI Overview: Your Ultimate Security Assistant
+**FortiAI** is a context-aware generative AI security assistant integrated into FortiSOAR. It enables security analysts to interact with FortiSOAR using natural language for data analysis, threat identification, record management, and automation. FortiAI uses **Fortinet FortiAI** as its backing large language model (LLM), communicating through the **AI Assistant Utils** connector.
 
-FortiAI is a cutting-edge **context-aware GenAI security assistant** that transforms how security professionals operate and respond to threat alerts. Designed to simplify complex analysis and remediation tasks, FortiAI allows users to interact with FortiSOAR through natural language commands for data analysis, threat identification, and resolution. Whether you're building connectors, generating playbooks, escalating alerts, or crafting Jinja expressions, FortiAI accelerates your response cycles and enhances accuracy.
-
-With **FortiAI**, every action is simplified, every task is streamlined, and your security operations are more efficient than ever before.
+Version 6.0.0 introduces **agentic AI** capabilities, enabling FortiAI to autonomously plan and execute multi-step investigation workflows using a suite of specialized AI agents. It also introduces **AI Investigation**, a new tab on the Alert detail page that surfaces AI-driven investigation results directly in context.
 
 ---
 
-### **SOC Assistant Capabilities: Streamlining Security Operations**
+## Capabilities
 
-FortiAI doesn’t just stop at connectors and playbooks—it’s packed with a variety of **SOC Assistant capabilities** designed to enhance your entire workflow:
+### AI Assistant Bot
 
-- **Advanced Filtering**: Refine searches for alerts, incidents, or indicators using customizable filters. With options like severity, status, and other criteria, users can quickly retrieve the exact data they need—saving time and improving decision-making.
-- **Voice Support**: Experience hands-free interaction with FortiAI’s **voice-to-natural language** functionality. Issue voice commands for tasks like filtering records, generating playbooks, or blocking indicators. Ideal for multitasking, this feature speeds up workflows and improves accessibility.
-- **Alert Escalation**: Automatically escalate critical alerts to incidents, ensuring your team is always on top of the most pressing threats.
-- **War Room Setup**: Quickly set up virtual war rooms to collaborate with your team on incident resolution, ensuring coordinated and efficient responses.
-- **Jinja Expression Crafting**: Design and implement Jinja expressions effortlessly, giving you full control over your playbooks and automations.
+The **AI Assistant** bot is accessible globally within FortiSOAR and supports the following operations:
 
-These capabilities make FortiAI not just a tool, but a **comprehensive solution** for every aspect of your security operations, from detection to response.
+- **Record Filtering**: Filter alerts, cases, or indicators by severity, status, date range, assigned user, and other field criteria.
+- **Voice Input**: Issue commands by voice using the built-in voice-to-text feature. Supported on all browsers except Firefox.
+- **Alert Escalation**: Escalate an alert to a case via natural language command.
+- **War Room Setup**: Create a war room for a case to coordinate team response.
+- **Jinja Expression Assistance**: Generate and debug Jinja expressions for use in playbooks.
+- **Record Operations**: Create, update, link, and filter records across FortiSOAR modules.
+- **Indicator Actions**: Block or enrich indicators using configured connectors.
+- **Contextual Q&A**: Ask questions about the currently open record or module.
 
----
+### AI Investigation
 
-### **Playbook Designing: Smart, Context-Aware Automation**
+**AI Investigation** is a tab on the **Alert** detail page that provides an AI-driven investigation of the alert. It uses a coordinated set of AI agents to gather context, correlate related records, query threat intelligence, and produce an investigation summary &ndash; without requiring manual prompting.
 
-FortiAI is revolutionizing **playbook design** by offering a truly **context-aware** automation engine. Whether you're designing standard workflows or complex incident response protocols, FortiAI now delivers:
+### AI Insights Dashboard
 
-- **Intelligent Playbook Blocks**: Automatically generate playbook steps with precise context, reducing manual effort.
-- **Jinja Expression Selection**: FortiAI intelligently picks the best Jinja expressions for each step, making playbooks more efficient.
-- **Dynamic Adjustments**: FortiAI detects which steps need loops for record traversal and tailors playbook steps accordingly.
+The **AI Insights** dashboard surfaces aggregated metrics and AI-generated intelligence across alerts, cases, and indicators.
 
-With these features, FortiAI accelerates playbook creation, ensuring that every action is efficient, accurate, and contextually appropriate for the specific task at hand.
+### Playbook Generation
 
----
+FortiAI supports natural language playbook generation directly from the Playbook Designer:
 
-### **Connector Generation: Automate Your Integrations with Ease**
+- Generates playbook blocks with contextually appropriate steps.
+- Automatically selects Jinja expressions for each step.
+- Detects loop requirements for record traversal.
 
-FortiAI introduces a game-changing **Connector Generation** feature, allowing users to create custom connectors through **natural language commands**. Whether you need to integrate new tools, systems, or APIs, FortiAI takes care of the heavy lifting:
+### Connector Generation
 
-- **Auto-Generated Connector Code**: With a few simple inputs, you get fully functional connectors ready to integrate into your workflows.
-
-- **File Upload Support**: Upload Postman collections, Swagger files, or even documents (.json, .yml, .txt, .pdf) to assist in the connector creation process.
-
-This functionality allows security teams to build connectors faster, enhance integration capabilities, and ensure that all tools work in harmony within FortiSOAR—cutting down on manual coding and reducing integration times.
-
----
-
-FortiAI is not just a tool—it’s the future of **security automation**. From effortless connector creation to intelligent playbook design, and even enhanced SOC capabilities, FortiAI is your ultimate assistant in streamlining operations, reducing response times, and staying ahead of threats.
-
-**Ready to elevate your security game?** FortiAI is here to help.
+FortiAI can generate a FortiSOAR connector from natural language descriptions and API specifications. Supported input formats include `curl` commands, JSON request/response structures, and file attachments (`.json`, `.yml`, `.txt`, `.pdf`, up to 100 MB).
 
 ---
 
-### **Data Privacy Notice**
+## Data Privacy Notice
 
-The FortiAI lets you connect your Fortinet account to your own OpenAI account, using your own OpenAI Assistant API key. This integration will send data from your Fortinet account to OpenAI and will show you responses from OpenAI. Fortinet does not verify or correct these responses and has no responsibility for them. OpenAI Assistant is operated by a third party, not Fortinet. You must exercise discretion and independently verify any information or recommendations you receive from OpenAI before relying on them.
+The FortiAI Solution Pack (SP) activates FortiSOAR's AI features using Fortinet FortiAI entitlements, established through the Fortinet FortiAI connector. Before data is sent to Fortinet FortiAI, FortiSOAR automatically masks sensitive information, including IP addresses, MAC addresses, and other IoCs. All prompts from FortiSOAR pass through the Fortinet FortiAI proxy, where additional security checks are performed to help protect your data. Fortinet FortiAI then processes the masked data and returns responses, which are displayed in FortiSOAR. Fortinet does not verify or correct these responses and has no responsibility for them.
 
-Before using the FortiAI, we recommend that you review OpenAI’s API Platform privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in OpenAI’s privacy policy.
+Before using FortiAI, review Fortinet FortiAI's privacy policy to understand how your data may be used and protected. By continuing to use FortiAI, you acknowledge and agree to the terms outlined in that privacy policy.
 
-For any further questions or concerns about your privacy, refer to [OpenAI’s privacy policy](https://openai.com/policies/privacy-policy).
+For further questions or concerns about your privacy, refer to [Fortinet's privacy policy](https://www.fortinet.com/corporate/about-us/privacy).
 
 ---
 
-## Additional Resources 
+## Additional Resources
 
-- [Advanced Usage](./docs/advanced-usage.md)
-- [Troubleshooting](./docs/troubleshooting.md)
-- [Prompts for filtering *alert* records](./docs/prompts-for-filtering-alert-records.md)
-- [Prompts for filtering *incident* records](./docs/prompts-for-filtering-incident-records.md)
-- [Prompts for filtering *indicator* records](./docs/prompts-for-filtering-indicator-records.md)
-- [Example: Building a connector](./docs/example-creating-connectors.md)
-- [Example: Generating a playbook](./docs/example-generating-playbooks.md)
+- [Setup](docs/setup.md)
+- [Advanced Usage](docs/advanced-usage.md)
+- [AI Configurations](docs/ai-configurations.md)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Prompts for filtering *alert* records](docs/prompts-for-filtering-alert-records.md)
+- [Prompts for filtering *case* records](docs/prompts-for-filtering-case-records.md)
+- [Prompts for filtering *indicator* records](docs/prompts-for-filtering-indicator-records.md)
+- [Example: Building a connector](docs/example-creating-connectors.md)
+- [Example: Generating a playbook](docs/example-generating-playbooks.md)
 
+---
 
-# Next Steps
+## Next Steps
 
-| [Installation](./docs/setup.md#installation) | [Configuration](./docs/setup.md#configuration) | [Usage](./docs/usage.md) | [Contents](./docs/contents.md) |
-| -------------------------------------------- | ---------------------------------------------- | ------------------------ | ------------------------------ |
+| [Installation](docs/setup.md#installation) | [Configuration](docs/setup.md#configuration) | [Usage](docs/usage.md) | [Contents](docs/contents.md) |
+|--------------------------------------------|----------------------------------------------|------------------------|------------------------------|

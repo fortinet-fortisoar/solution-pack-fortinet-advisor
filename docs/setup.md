@@ -1,157 +1,175 @@
-|[Home](../README.md) |
-|---------------------|
+| [Home](../README.md) |
+|---|
 
 # Installation
 
-1. To install a solution pack, click **Content Hub** > **Discover**.
-2. From the list of solution pack that appears, search **FortiAI**.
+The FortiAI solution pack is installed by default in FortiSOAR v8.0.0. If you need to reinstall it — for example, after an accidental removal or during troubleshooting — follow these steps:
+
+1. In FortiSOAR, click **Content Hub** > **Discover**.
+2. Search for **FortiAI** in the solution pack list.
 3. Click the **FortiAI** solution pack card.
-4. Click **Install** on the lower part of the screen to begin the installation.
+4. Click **Install** at the bottom of the screen.
 
 ## Prerequisites
 
-The **FortiAI** solution pack depends on the following solution packs.
+### Dependent Solution Packs
 
-| Name               | Type          | Version          | Purpose                                |
-|:-------------------|:--------------|:-----------------|:---------------------------------------|
-| SOAR Framework     | Solution Pack | v3.0.0 and later | Required for incident response modules |
-| Platform Utilities | Solution Pack | v1.0.0 and later | Required for the key store module      |
+| Name               | Type          | Version          | Purpose                             |
+|--------------------|---------------|------------------|-------------------------------------|
+| SOAR Framework     | Solution Pack | v4.0.0 and later | Required for case response modules. |
+| Platform Utilities | Solution Pack | v1.0.0 and later | Required for the Key Store module.  |
 
-You must have the following access and credentials to use this solution pack:
+### Access and Credentials
 
-- An OpenAI account and a valid project level API key to access the OpenAI APIs. For information refer to [API Keys](https://platform.openai.com/docs/api-reference/api-keys) section of the OpenAI documentation. Following are the **_minimum_** permissions that must be assigned to users on the OpenAI interface:
+- A Fortinet FortiAI account. Refer to the [Fortinet FortiAI connector](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) documentation for details on obtaining and configuring API credentials.
+- Access to supported Fortinet FortiAI LLM models.
+- The following FortiSOAR permissions to use the FortiAI solution pack:
+  - `Read` and `Usage` permissions on Widgets.
+  - `Read` and `Execute` permissions on Playbooks.
 
-    - **Administrator**
-        - Model - **Read**
-        - Model Capabilities - **Write**
-        - Assistant - **Write**
-        - Threads - **Write**
-        - Files - **Write**
+### Enable AI Features
 
-    - **User**
-        -  Model - **Read**
-        - Model Capabilities - **Write**
-        - Assistants - **Read**
-        - Threads - **Write**
-        - Files - **Write**
+Before the FortiAI solution pack can be used, an administrator must enable AI features in FortiSOAR system settings.
 
-    - The user must be a member of the project whose Project ID is being used.
+1. Navigate to **Settings** <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-settings-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-settings-dark.svg"><img alt="" src="./res/icon-settings-dark.svg"></picture>.
+2. Click the tab **FortiAI**.
+3. Select the **Enable AI Features** toggle and click **Save**.
+4. In the confirmation dialog, click **Acknowledge**.
 
-- Access to supported OpenAI LLM models as versions prior to *`GPT4`* do not generate responses as expected.
+Enabling AI features adds the **AI Configurations** section to the **Settings** menu. For details on configuring MCP servers, prompts, organizational context, and insights, see [AI Configurations](ai-configurations.md).
 
-- To utilize the Fortinet Advisor solution pack, user must have the following access, along with other appropriate permissions:
+> [!NOTE]
+> Token usage information is displayed on the FortiAI page. For details on token allocation and usage, refer to the [FortiAI topic](https://docs.fortinet.com/document/fortisoar/8.0.0/administration-guide/249178/introduction) in the Administration Guide.
 
-    - `Read` and `Usage` permissions on Widgets
-    - `Read` and `Execute` permissions on Playbooks
+### Advanced Development Features
+
+To allow users to import or upload custom AI agents, create custom connectors, or create custom widgets, an administrator with **Security Update** permission must provide explicit consent through the **Advanced Development Features** tab.
+
+> [!WARNING]
+> These capabilities can introduce unverified code into the environment. Review the associated risks before enabling them.
+
+**To enable import or upload of custom AI agents:**
+1. Open the **Advanced Development Features** tab under **System Settings**.
+2. Check *I understand the risks and accept responsibility for enabling Import/Export and Upload of AI Agent*.
+3. Click **Submit**.
+
+**To enable custom connector creation (BYOC):**
+1. Check *I understand the risks and accept responsibility for enabling Custom Code Execution*.
+2. Click **Submit**.
+
+**To enable custom widget creation (BYOW):**
+1. Check *I understand the risks and accept responsibility for enabling Build Your Own Widget (BYOW)*.
+2. Click **Submit**.
+
+To modify or remove any of these settings, click **Edit** on the Advanced Development Features page. To revert all settings, click **Reset to Default**.
+
+> [!NOTE]
+> Until administrator consent is granted, users will not see **Upload Connector**, **Upload Widget**, or **Upload AI Agent** options in the Content Hub **Manage** tab, and the **New Connector** and **New Widget** options will not appear under the **Create** tab.
 
 ### Administration Permissions
 
-The following permission allow an administrator to run the [configuration wizard](#fortiai-configuration-wizard):
+The following permissions are required for an administrator to run the [Configuration Wizard](#fortiai-configuration-wizard):
 
 | Module         | Create                             | Read                               | Update                             | Delete                             | Other   |
-|:---------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
-| Attachment     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+|----------------|------------------------------------|------------------------------------|------------------------------------|------------------------------------|---------|
+| Attachment     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | —       |
 | Connectors     | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | Execute |
-| Content Hub    | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
-| Files          | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
-| Key Store      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+| Content Hub    | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | —       |
+| Files          | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | —       |
+| Key Store      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | —       |
 | Playbooks      | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
-| Solution Packs | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | -       |
+| Solution Packs | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | —       |
 | Widgets        | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | Usage   |
 
 ### User Permissions
 
-The following permission allow a user to interact with the **FortiSOAR AI Assistant** bot. Apart from these, users needs CRU (create, read, and update) permissions on the modules they are assigned to work. For example: users need to be assigned CRU permissions for the **Alert** module for them to manage or take action on an alert.
+The following permissions are required for a user to interact with the **AI Assistant** bot. Users also require CRU (Create, Read, Update) permissions on the modules they are assigned to. For example, users managing alerts require CRU permissions on the **Alerts** module.
 
 | Module      | Create                             | Read                               | Update                             | Delete                             | Other   |
-|:------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|:--------|
-| Application | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
+|-------------|------------------------------------|------------------------------------|------------------------------------|------------------------------------|---------|
+| Application | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | —       |
 | Connectors  | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
-| Key Store   | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | -       |
+| Key Store   | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | —       |
 | Playbooks   | ![No](./res/icon-close.svg)        | ![Yes](./res/icon-green-check.svg) | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Execute |
 | Widgets     | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | ![No](./res/icon-close.svg)        | Usage   |
-| Files       | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | -       |
+| Files       | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | ![Yes](./res/icon-green-check.svg) | —       |
 
-> [!Note]
-> The **FortiSOAR AI Assistant** bot becomes available to interact on modules that contain records like Alerts, Indicators, or Incidents. The bot is still available to interact on all such modules even if there are no records present.
+> [!NOTE]
+> 
+> The AI Assistant bot is available on any FortiSOAR module that contains records, such as Alerts, Cases, and Indicators. The bot remains accessible even when a module has no records.
+> ![[Chat Assistant Icon](./res/icon-chat-assistant.svg)](./res/icon-chat-assistant.svg)
 
-## Configuring Voice Support
 
-**Microphone Setup**: Confirm that a functional microphone is connected and enabled. The browser must have permissions to access the microphone.
+> [!NOTE]
+> Users must have access to AI Agents, Widgets (Usage), Alerts, and Indicators to use the AI Investigation tab.
+
+## Configuring Voice Input
+
+**Microphone Setup**: Confirm that a microphone is connected and enabled. The browser must have permission to access the microphone.
 
 ### Best Practices for Voice Commands
 
-- **Speak Clearly**: Enunciate clearly and at a moderate pace.
-- **One Command at a Time**: Issue one command at a time to ensure accurate processing.
-- **Pause Between Commands**: Allow brief pauses to enable FortiAI to process each command.
+- **Speak clearly**: Enunciate at a moderate pace.
+- **One command at a time**: Issue a single command per input to ensure accurate processing.
+- **Pause between commands**: Allow a brief pause between commands so FortiAI can process each one.
 
-> [!Note]
-> The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+> [!NOTE]
+> The voice input feature is not supported on Firefox. The `SpeechRecognition` API used by FortiAI is not compatible with Mozilla Firefox, so the microphone button does not appear when FortiSOAR is accessed via Firefox.
+
+---
 
 # Configuration
 
-The **FortiAI** solution depends on the following connectors and widgets:
+The **FortiAI** solution pack depends on the following connectors and widgets:
 
-- **AI Assistant Utils** connector to help interact with LLMs like OpenAI.
-
->[!NOTE]
->The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) document.
-
-- The **OpenAI** connector to get a response from **FortiSOAR AI Assistant**.
-    - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/fortisoar/connectors/openai) document.
+- **AI Assistant Utils** connector — handles communication between FortiSOAR and the Fortinet FortiAI LLM. This connector does not require a separate configuration. See the [AI Assistant Utils connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) documentation for details.
+- **Fortinet FortiAI** connector — provides LLM responses to the AI Assistant bot and playbook generation features. See the [Fortinet FortiAI connector](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) documentation for configuration steps.
 
 ## FortiAI Configuration Wizard
 
-The wizard helps select the LLM Model, configure the OpenAI connector, and create &ndash; or update &ndash; the OpenAI Assistant. The OpenAI assistant handles SOC conversations and playbook generation.
+The configuration wizard guides you through selecting an LLM reasoning tier, configuring the Fortinet FortiAI connector, and creating or updating the AI assistant. The assistant handles SOC conversations and playbook generation.
 
-The FortiAI Configuration wizard guides you through the following steps to setup FortiAI:
+**To run the wizard:**
 
-1. After [installation](#installation), click the **Configure** button.
+1. After [installation](#installation), click the **Configure** button on the FortiAI solution pack card.
 
-    ![FortiAI Configuration](./res/configure-button.png)
+   [![FortiAI Configuration](res/configure-button.png)](res/configure-button.png)
 
-2.  On the following wizard screen, click **Let's Get Started** to proceed.
+2. On the welcome screen, click **Let's Get Started**.
 
-    ![FortiAI Configuration](./res/config-wizard-00.png)
+   [![FortiAI Configuration Wizard — Welcome](res/config-wizard-00.png)](res/config-wizard-00.png)
 
-3. On the **Configuration** page, select a value for the following fields:
+3. On the **Configuration** page, set the following fields:
 
-    ![](./res/config-wizard-01.png)
+   [![FortiAI Configuration Wizard — Configuration](res/config-wizard-01.png)](res/config-wizard-01.png)
 
-    - **LLM Integration** &mdash; *OpenAI* (default).
-    - **Conversation Model**: Select one from the following options:
+   - **LLM Integration** — Select **Fortinet FortiAI** (default).
+   - **Conversation Model** — Select the reasoning tier for SOC Assistant conversations:
+     - **Low Reasoning** (default)
+     - **High Reasoning**
+   - **Playbook Generation Model** — Select the reasoning tier for playbook generation:
+     - **Low Reasoning** (default)
+     - **High Reasoning**
+   - **Enable multi-user configuration** — When selected, FortiAI uses the connector configuration matching the logged-in user's login ID. When cleared, FortiAI uses the default connector configuration.
 
-        - `gpt-4o-mini-2024-07-18`
-        - `gpt-4o-mini` (default)
-        - `gpt-4o-2024-05-13`
-        - `gpt-4-turbo-2024-04-09`
+4. Click **Next**.
 
-    - **Playbook Generation Model**: Select one from the following options:
+5. On the **Connect LLM** page, configure the **Fortinet FortiAI** connector using your API key. Refer to the [Fortinet FortiAI connector](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) documentation for configuration details.
 
-        - `gpt-4o-mini-2024-07-18`
-        - `gpt-4o-mini` (default)
-        - `gpt-4o-2024-05-13`
-        - `gpt-4-turbo-2024-04-09`
-
-    -  Select **Enable multi user configuration** to use the connector configuration that matches the login ID of the logged-in user. Clear the selection to use the default configuration for the LLM integration.
-
-4. Click **Next** on the lower-right corner.
-
-    - Configure your LLM Integration (OpenAI) on the **Connect LLM** page using the project-level API key. For configuration details, refer to the [OpenAI connector configuration](https://docs.fortinet.com/fortisoar/connectors/openai) section on FortiSOAR connector page.
-
-    ![Connect LLM](./res/config-wizard-02.png)
-
-5. Click **Next** on the lower-right corner.
-
-    ![Finish Configuration](./res/config-wizard-03.png)
+   [![FortiAI Configuration Wizard — Connect LLM](res/config-wizard-02.png)](res/config-wizard-02.png)
 
 6. Click **Finish** to complete the configuration.
 
-> [!IMPORTANT]  
-> By default, all these fields are loaded from, and saved to, the **Key Store** record named *`fortiai-configuration`*.
+> [!IMPORTANT]
+> All configuration values are loaded from and saved to the **Key Store** record named `fortiai-configuration`. Navigate to *Security Operations <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-incident-response-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-incident-response-dark.svg"><img alt="" src="./res/icon-incident-response-dark.svg"></picture>*, *Orchestration* <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-orchestration-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-orchestration-dark.svg"><img alt="" src="./res/icon-orchestration-dark.svg"></picture>, *Resources* <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-resources-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-resources-dark.svg"><img alt="" src="./res/icon-resources-dark.svg"></picture>, or *AI* <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-ai-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-ai-dark.svg"><img alt="" src="./res/icon-ai-dark.svg"></picture> in the navigation menu to begin interacting with the AI feature.
 
-Navigate to *Incident Response*, *Automation*, or *Resources* navigation menu to interact with **FortiSOAR AI Assistant**.
+The playbook developer assistant icon appears you launch the playbook designer:
 
-# Next Steps
-| [Usage](./usage.md) | [Contents](./contents.md) |
-|---------------------|---------------------------|
+![[Chat Assistant Icon](./res/icon-playbook-developer-assistant.svg)](./res/icon-playbook-developer-assistant.svg)
+
+---
+
+## Next Steps
+
+| [Usage](usage.md) | [AI Configurations](ai-configurations.md) | [Contents](contents.md) |
+|-------------------|-------------------------------------------|-------------------------|

@@ -1,168 +1,178 @@
 | [Home](../README.md) |
-|----------------------|
+|---|
 
-# Building a connector through prompts
+# Building a Connector Through Prompts
 
-The following is an example that contains prompts to help you create a connector.
+The following examples demonstrate how to use FortiAI to generate a FortiSOAR connector.
 
-1. Navigate to **Automation** > **Connectors** or Content Hub.
-    - Alternatively, you can navigate to the **Content Hub** and select **Connectors** as the content type.
+> [!Important]
+>
+> Connector generation currently does not support file attachments (PDF, Swagger specifications, Postman collections) when using the Fortinet FortiAI connector. This is a server-side limitation.
+> As a workaround, you can provide API details inline, through chat, as `curl` commands or JSON request/response structures.
 
-2. Click the **Create** tab, and then click the AI Assistant icon to open the FortiAI Window:
 
-    ![](./res/byoc_bot_dialog.png)
+## Prerequisites
 
-3.	Enter appropriate prompts to generate a connector. The prompt must include the connector's purpose, the actions it has to perform, and the API endpoint. The API endpoint can be provided in several formats, including curl commands, JSON data, or attachments in the following formats: `.json`, `.yml`, `.txt`, or `.pdf`.
+1. Navigate to **Automation** > **Connectors**, or to **Content Hub** > **Connectors**.
+2. Click the **Create** tab, then click the **AI Assistant** icon to open the FortiAI panel.
 
-## Example: Create a Criminal IP connector
+   [![FortiAI BYOC dialog](res/byoc_bot_dialog.png)](res/byoc_bot_dialog.png)
 
-In this example, we create a connector for the product Criminal IP with API details as `curl` commands in prompts.
+3. Enter a prompt that includes the connector's purpose, the actions it must perform, and the relevant API endpoint(s). API details can be provided as `curl` commands, JSON data, or file attachments in `.json`, `.yml`, `.txt`, or `.pdf` format.
+
+---
+
+## Example: Criminal IP Connector
+
+This example creates a connector for Criminal IP using `curl` commands to provide API details.
 
 1. Enter the following prompt:
 
-    _Build connector for the product Criminal IP with following actions:_
-    - _Get IP Reputation_
+   *Build a connector for the product Criminal IP with the following actions:*
 
-    - _Get Domain Reputation_
+   - *Get IP Reputation*
+   - *Get Domain Reputation*
 
-    `curl --location --request GET "https://api.criminalip.io/v1/feature/ip/malicious-info?ip=8.8.8.8" --header "x-api-key: <YOUR_OpenAI_API_KEY>"`
+   ```
+   curl --location --request GET "https://api.criminalip.io/v1/feature/ip/malicious-info?ip=8.8.8.8" \
+     --header "x-api-key: <YOUR_API_KEY>"
 
-    `curl --location --request GET "https://api.criminalip.io/v1/domain/reports?query=example.com&offset=0"--header "x-api-key: <YOUR_OpenAI_API_KEY>`
+   curl --location --request GET "https://api.criminalip.io/v1/domain/reports?query=example.com&offset=0" \
+     --header "x-api-key: <YOUR_API_KEY>"
+   ```
 
-2. Press **Enter** to submit your inputs. *FortiAI* analyzes the provided inputs and prompts you for additional details, such as the authorization type for the product.
- 
-    FortiAI also displays a summary of the `info.json` file, among other information, and creates `operations.py` and `connector.py`.
-    
-    At each stage, you can view the generated files by using prompts like *show `operations.py`*. The next prompt explains the process being executed before importing the connector into FortiSOAR&trade;, and offers to import it for you.
+2. Press **Enter**. FortiAI analyzes the input, requests any missing details (such as the authorization type), and generates `info.json`, `operations.py`, and `connector.py`.
+
+   At each stage, you can view individual files by entering a prompt such as *show `operations.py`*.
 
 ### Expected Outcome
 
 After refreshing the page, the generated connector appears under the **Create** tab.
 
-### Reviewing results
+### Reviewing Results
 
-Click **Edit** on the connector's tile to review and make changes to the connector, if required.
+Click **Edit** on the connector tile to review and modify the connector as needed.
 
 ### Publishing the Connector
 
-Click **Publish** to make the connector available for all users in the system. The published connector appears under the **Manage** tab on **Content Hub**. Associated sample playbooks are added to the Playbooks page.
+Click **Publish** to make the connector available to all users. The connector then appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
 ---
 
-## Example: Create a WiGLE connector
+## Example: WiGLE Connector
 
-In this example, we create a connector for the product WiGLE with API details as a JSON attachment in the prompts.
+This example creates a connector for WiGLE using a JSON Swagger file attached to the prompt.
 
 1. Enter the following prompt:
 
-    _Build connector for the product WiGLE with following actions:_
-    - _Get General Statistics_
+   *Build a connector for the product WiGLE with the following actions:*
 
-    - _Get Country Statistics_
+   - *Get General Statistics*
+   - *Get Country Statistics*
+   - *Get Region Statistics*
+   - *Get User Statistics*
 
-    - _Get Region Statistics_
-
-    - _Get User Statistics_
-
-    Use attached swagger file `WiGLE.json` for API details.
+   *Use the attached Swagger file `WiGLE.json` for API details.*
 
 > [!TIP]
-> For more specifications and information, refer to the [WiGLE Swagger API Doc](https://api.wigle.net/swagger).
+> For the full WiGLE API specification, refer to the [WiGLE Swagger API documentation](https://api.wigle.net/swagger).
 
-2. Press **Enter** to submit your inputs and follow the prompts. *FortiAI* analyzes the provided inputs and prompts you for additional details, such as the authorization type for the product.
- 
+2. Press **Enter** and follow the prompts. FortiAI analyzes the file, requests any missing details, and generates the connector files.
+
 ### Expected Outcome
 
 After refreshing the page, the generated connector appears under the **Create** tab.
 
-### Reviewing results
+### Reviewing Results
 
-Click **Edit** on the connector's tile to review and make changes to the connector, if required.
+Click **Edit** on the connector tile to review and modify the connector as needed.
 
 ### Publishing the Connector
 
-Click **Publish** to make the connector available for all users in the system. The published connector appears under the **Manage** tab on **Content Hub**. Associated sample playbooks are added to the Playbooks page.
+Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
 ---
 
-## Example: Create a Logic Monitor connector
+## Example: Logic Monitor Connector
 
-In this example, we create a connector for the product Logic Monitor with API details as text.
+This example creates a connector for Logic Monitor using structured text to define API operations.
 
 1. Enter the following prompt:
 
-    > _Build a connector for Logic monitor using the following details:_<br />
+   > *Build a connector for Logic Monitor using the following details:*
+   >
+   > **Operation**: Get Alert List
+   > **Endpoint**: `/alert/alerts`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **Fields** *(optional)*: Fields to exclude from the response.
+   > - **Size** *(optional)*: Number of alerts to return. Default: `50`.
+   > - **Offset** *(optional)*: Records to skip. Default: `0`.
+   > - **Filter** *(optional)*: Filter query for alert types.
+   >
+   > **Operation**: Get Device Group List
+   > **Endpoint**: `/device/groups`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **Fields** *(optional)*: Fields to exclude from the response.
+   > - **Size** *(optional)*: Number of device groups to return. Default: `50`.
+   > - **Offset** *(optional)*: Records to skip. Default: `0`.
+   > - **Filter** *(optional)*: Filter query for device groups.
+   >
+   > **Operation**: Get Device List
+   > **Endpoint**: `/device/devices`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **Fields** *(optional)*: Fields to exclude from the response.
+   > - **Size** *(optional)*: Number of devices to return. Default: `50`.
+   > - **Offset** *(optional)*: Records to skip. Default: `0`.
+   > - **Filter** *(optional)*: Filter query.
+   >
+   > **Operation**: Get Device Alerts
+   > **Endpoint**: `/device/devices/{id}/alerts`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **ID** *(required)*: Device ID.
+   > - **needMessage** *(optional)*
+   > - **customColumns** *(optional)*
+   > - **Fields** *(optional)*: Fields to exclude from the response.
+   > - **Size** *(optional)*: Number of records to return. Default: `50`.
+   > - **Offset** *(optional)*: Records to skip. Default: `0`.
+   > - **Filter** *(optional)*: Filter query.
+   >
+   > **Operation**: Get Report List
+   > **Endpoint**: `/report/reports`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **Fields** *(optional)*: Fields to exclude from the response.
+   > - **Size** *(optional)*: Number of records to return. Default: `50`.
+   > - **Offset** *(optional)*: Records to skip. Default: `0`.
+   > - **Filter** *(optional)*: Filter query.
+   >
+   > **Operation**: Get Report by ID
+   > **Endpoint**: `/report/reports/{id}`
+   > **HTTP Method**: GET
+   > **Parameters**:
+   > - **ID** *(required)*: Report ID.
+   > - **Fields** *(optional)*: Fields to exclude from the response.
 
-    >**Operation**: Get Alert List<br />
-    >**Endpoint**: `/alert/alerts`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-    >**Size (Optional)**: Alert count to return as response. Default `50`.<br />
-    > **Offset (Optional)**: Records to skip when returning the response. Default `0`.<br />
-    > **Filter (Optional)**: Filter query for segregating alert types.<br />
+2. Press **Enter** and follow the prompts. FortiAI analyzes the input, requests any missing details, and generates the connector files.
 
-    >**Operation**: Get Device Group List<br />
-    >**Endpoint**: `/device/groups`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-    >**Size (Optional)**: Device group count to return as response. Default `50`.<br />
-    > **Offset (Optional)**: Records to skip when returning the response. Default `0`.<br />
-    > **Filter (Optional)**: Filter query for segregating alert types.<br />
-
-    >**Operation**: Get Device List<br />
-    >**Endpoint**: `/device/devices`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-    >**Size (Optional)**: Device count to return as response. Default `50`.<br />
-    > **Offset (Optional)**: Records to skip when returning the response. Default `0`.<br />
-    > **Filter (Optional)**: Filter query for segregating alert types.<br />
-
-    >**Operation**: Get Device Alerts<br />
-    >**Endpoint**: `/device/devices/{id}/alerts`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**ID (Required)**: Device ID to retrieve associated alerts
-    >**needMessage (Optional)**
-    >**customColumns (Optional)**
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-    >**Size (Optional)**: Device count to return as response. Default `50`.<br />
-    > **Offset (Optional)**: Records to skip when returning the response. Default `0`.<br />
-    > **Filter (Optional)**: Filter query for segregating alert types.<br />
-
-    >**Operation**: Get Report List<br />
-    >**Endpoint**: `/report/reports`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-    >**Size (Optional)**: Records to return as response. Default `50`.<br />
-    > **Offset (Optional)**: Records to skip when returning the response. Default `0`.<br />
-    > **Filter (Optional)**: Filter query for segregating alert types.<br />
-
-    >**Operation**: Get Report by ID<br />
-    >**Endpoint**: `/report/reports/{id}`<br />
-    >**HTTP Method**: GET<br />
-    >**Parameters**:<br />
-    >**ID (Required)**: Device ID to retrieve associated alerts
-    >**Fields (Optional)**: Fields to exclude from response.<br />
-
-2. Press **Enter** to submit your inputs and follow the prompts. *FortiAI* analyzes the provided inputs and prompts you for additional details, such as the authorization type for the product.
- 
 ### Expected Outcome
 
 After refreshing the page, the generated connector appears under the **Create** tab.
 
-### Reviewing results
+### Reviewing Results
 
-Click **Edit** on the connector's tile to review and make changes to the connector, if required.
+Click **Edit** on the connector tile to review and modify the connector as needed.
 
 ### Publishing the Connector
 
-Click **Publish** to make the connector available for all users in the system. The published connector appears under the **Manage** tab on **Content Hub**. Associated sample playbooks are added to the Playbooks page.
+Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
-# Next Steps
+---
 
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
-| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
+## Next Steps
+
+| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
+|---|---|---|---|

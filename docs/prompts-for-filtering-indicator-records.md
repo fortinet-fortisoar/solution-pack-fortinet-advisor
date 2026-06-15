@@ -1,37 +1,40 @@
 | [Home](../README.md) |
-|----------------------|
+|---|
 
-# Filtering indicators through prompts
+# Filtering Indicators Through Prompts
 
-This guide contains prompts for efficiently filtering indicators using the FortiAI Assistant. Each prompt focuses on some possible filtering criteria to streamline threat investigation and response.
+This reference contains prompts for filtering indicator records in FortiSOAR using the AI Assistant bot. Use these prompts to retrieve indicators based on criteria such as type, reputation, or status.
 
-### Example: Retrieve Indicators of Type URL
+> [!NOTE]
+> Filtering operations apply to a single module at a time. Prompts that combine filter criteria across multiple modules are not supported.
 
-This example demonstrates how to filter indicators based on their type (URL), allowing users to focus on indicators of a specific type.
+---
 
-* **Prompt**:  
-   > _"Give me all indicators of type URL."_
+## Example: Retrieve Indicators of Type URL
 
-* **Expected Outcome**:  
-   Lists all indicators of *type* **URL**.
+Retrieves all indicators whose **Type** is **URL**.
 
-### Review Results
+**Prompt:**
+> *Give me all indicators of type URL.*
 
-Verify that the results include only indicators of *type* **URL**.
+**Expected outcome:** Lists all indicators with a *Type* of **URL**.
 
-### Other examples
+Verify that only URL-type indicators are returned and no other indicator types are included.
 
-Similarly, you can use the following prompts to filter indicator records.
+---
 
-1. Give me all indicators of type URL or IP
- 
-2. Give me all blocked indicators.
- 
-3. Fetch all the indicators with Good Reputation
- 
-4. Filter out all the indicators having reputation either Suspicious or Malicious.
+## Additional Prompts
 
-# Next Steps
+The following prompts can also be used to filter indicator records:
 
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
-| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
+1. *Give me all indicators of type URL or IP.*
+2. *Give me all blocked indicators.*
+3. *Fetch all the indicators with Good reputation.*
+4. *Filter out all the indicators having reputation either Suspicious or Malicious.*
+
+---
+
+## Next Steps
+
+| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
+|---|---|---|---|
