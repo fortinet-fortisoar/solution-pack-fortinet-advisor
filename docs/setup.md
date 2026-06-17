@@ -53,14 +53,6 @@ To allow users to import or upload custom AI agents, create custom connectors, o
 2. Check *I understand the risks and accept responsibility for enabling Import/Export and Upload of AI Agent*.
 3. Click **Submit**.
 
-**To enable custom connector creation (BYOC):**
-1. Check *I understand the risks and accept responsibility for enabling Custom Code Execution*.
-2. Click **Submit**.
-
-**To enable custom widget creation (BYOW):**
-1. Check *I understand the risks and accept responsibility for enabling Build Your Own Widget (BYOW)*.
-2. Click **Submit**.
-
 To modify or remove any of these settings, click **Edit** on the Advanced Development Features page. To revert all settings, click **Reset to Default**.
 
 > [!NOTE]

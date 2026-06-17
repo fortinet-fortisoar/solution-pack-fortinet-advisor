@@ -14,21 +14,21 @@ The **FortiAI** solution pack contains the following resources.
 
 ## Widgets
 
-| Name                         | Description                                                    |
-|------------------------------|----------------------------------------------------------------|
-| AI Assistant                 | Adds the FortiAI bot to the FortiSOAR user interface.          |
-| FortiAI Configuration Wizard | Launches the setup wizard for configuring the LLM integration. |
-| AI Investigation Overview    |                                                                |
-| AI Configuration             |                                                                |
-| AI Investigation Details     |                                                                |
-| AI Insight Cards             |                                                                |
+| Name                         | Description                                                                                                                |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| AI Assistant                 | Adds the FortiAI bot to the FortiSOAR user interface.                                                                      |
+| FortiAI Configuration Wizard | Launches the setup wizard for configuring the LLM integration.                                                             |
+| AI Investigation Overview    | AI Investigation Overview of AI verdict, summary, key findings and highlighted feature                                     |
+| AI Configuration             | The AI Configuration widget helps you to set up LLM integrations and choose the model to be used across different AI modes |
+| AI Investigation Details     | AI Investigation Details widget to monitor AI Summary                                                                      |
+| Insight Cards                | Representation of data using cards                                                                                         |
 
 
-## Attachments
+<!-- ## Attachments
 
 | Name                                 | Description                                                        |
 |--------------------------------------|--------------------------------------------------------------------|
-| FortiAI - SOC Assistant Instructions | Contains the instruction set used to initialize the SOC Assistant. |
+| FortiAI - SOC Assistant Instructions | Contains the instruction set used to initialize the SOC Assistant. | -->
 
 ## Key Store — Record Sets
 
@@ -68,23 +68,21 @@ The **FortiAI** solution pack contains the following resources.
 
 ### 10 - SP - FortiAI
 
-| Playbook Name                       | Description                                                                         |
-|-------------------------------------|-------------------------------------------------------------------------------------|
-| Clear Assistant Metadata            | Clears assistant metadata from the Integration Cache for the configured GenAI type. |
-| Get Playbook Step Suggestion        | Suggests playbook steps based on a user query.                                      |
-| Get Playbook Step Suggestion (Loop) | Suggests playbook steps based on a user query, iterating in a loop.                 |
-| Get Playbook Block Suggestion       | Generates a playbook block to perform actions based on user requirements.           |
-| > Get LLM Response                  | Reference playbook for obtaining a response from the LLM.                           |
-| > Get LLM Configuration             | Retrieves the LLM configuration based on the `isMultiConfigAvailable` key.          |
-|Alert - Escalate To Incident (Referenced)|Creates a new incident with the given inputs and links the alert(s) to the newly created Incident.|
-
-### 10 - AI Utilities
-
-
+| Playbook Name                             | Description                                                                                        |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Clear Assistant Metadata                  | Clears assistant metadata from the Integration Cache for the configured GenAI type.                |
+| Alert - Escalate To Incident (Referenced) | Creates a new incident with the given inputs and links the alert(s) to the newly created Incident. |
+| Trigger Insight                           | Schedule playbook to trigger insight.                                                              |
+| Get Assistant Details By LLM Type         | Get Assistant Metadata and its details                                                             |
+| Get OpenAI Assistant Details              | Get assistant details from openai                                                                  |
 
 ### 10 - Knowledge Base Update
 
-
+| Playbook Name                                 | Description                                                                                    |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| Create Organizational Context Index on update | Updates the index record within Elasticsearch to be used by Organization Context Agent.        |
+| Create Organizational Contexts Index          | Creates the index of the record within Elasticsearch to be used by Organization Context Agent. |
+| Delete Organizational Context Index           | Deletes the index of the record within Elasticsearch to be used by Organization Context Agent. |
 
 > [!WARNING]
 > 
@@ -93,29 +91,29 @@ The **FortiAI** solution pack contains the following resources.
 
 ## AI Agents
 
-FortiAI v6.0.0 introduces agentic AI support. Each AI agent is delivered as a separate solution pack and is documented individually. The following agents are available:
+FortiAI `v6.0.0` introduces agentic AI support. Each AI agent is available as a new content, installed with FortiSOAR, and is documented individually. The following agents are available:
 
-| Agent Name                                    | Description |
-|-----------------------------------------------|-------------|
-| AI Agent: IOC Masking                         |             |
-| AI Agent: Alert Investigation                 |             |
-| AI Agent: Investigation Hypothesis Generation |             |
-| AI Agent: Investigation Planner               |             |
-| AI Agent: Investigation Summarization         |             |
-| AI Agent: Alert Correlation                   |             |
-| AI Agent: Threat Intelligence Provider        |             |
-| AI Agent: Query SIEM                          |             |
-| AI Agent: FortiSOAR Data Access               |             |
-| AI Agent: ITSM Context Provider               |             |
-| AI Agent: Query Endpoint                      |             |
-| AI Agent: Organization Context Provider       |             |
-| AI Agent: Identity Context Provider           |             |
-| AI Agent: Asset Context Provider              |             |
-| AI Agent: Chat Assistant                      |             |
-| AI Agent: Metric Computation                  |             |
-| AI Agent: Task Planner                        |             |
-| AI Agent: Impact Analysis                     |             |
-| AI Agent: Summary                             |             |
+| Agent Name                                    |
+|-----------------------------------------------|
+| AI Agent: IOC Masking                         |
+| AI Agent: Alert Investigation                 |
+| AI Agent: Investigation Hypothesis Generation |
+| AI Agent: Investigation Planner               |
+| AI Agent: Investigation Summarization         |
+| AI Agent: Alert Correlation                   |
+| AI Agent: Threat Intelligence Provider        |
+| AI Agent: Query SIEM                          |
+| AI Agent: FortiSOAR Data Access               |
+| AI Agent: ITSM Context Provider               |
+| AI Agent: Query Endpoint                      |
+| AI Agent: Organization Context Provider       |
+| AI Agent: Identity Context Provider           |
+| AI Agent: Asset Context Provider              |
+| AI Agent: Chat Assistant                      |
+| AI Agent: Metric Computation                  |
+| AI Agent: Task Planner                        |
+| AI Agent: Impact Analysis                     |
+| AI Agent: Summary                             |
 
 ---
 

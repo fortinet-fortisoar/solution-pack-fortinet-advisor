@@ -3,7 +3,13 @@
 
 # Advanced Usage
 
-This section includes information that may be helpful to administrators and users interacting with AI Assistant.
+This section includes information that may be helpful to administrators and users interacting with Fortinet FortiAI.
+
+- Following is the chat assistant icon
+
+    ![](./res/icon-chat-assistant.svg)
+
+- It is location on the lower left of the screen.
 
 ## Prompting tips
 
