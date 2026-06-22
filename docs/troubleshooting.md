@@ -1,239 +1,232 @@
 | [Home](../README.md) |
-|----------------------|
+|---|
 
 # Troubleshooting
 
-## FortiAI bot not visible
+---
 
-The FortiAI bot is not visible after installing the **FortiAI** solution pack.
+## AI Assistant Bot Not Visible
 
-**Resolution**
+**Symptom:** The AI Assistant bot does not appear after installing the FortiAI solution pack.
 
-To resolve this issue, you can either force a browser refresh or log out and log back in, to your FortiSOAR instance.
+**Resolution:** Force a browser refresh or log out and log back in to your FortiSOAR instance.
 
-## FortiAI bot doesn't display mic
+---
 
-The *Voice Recognition* feature is currently unsupported on the Firefox browser as the webkit `SpeechRecognition` is not compatible with Mozilla Firefox. Hence, the mic button is not available when the FortiSOAR&trade; environment is accessed using the Firefox browser.
+## AI Assistant Bot Does Not Display the Microphone Button
 
-## FortiAI flyout does not open
+**Symptom:** The microphone button is missing in the AI Assistant bot.
 
-The FortiAI flyout does not launch, or the FortiAI does not display any response for the playbook outline.
+**Cause:** The voice input feature relies on the `SpeechRecognition` API, which is not supported by Mozilla Firefox.
 
-**Resolution**
+**Resolution:** Access FortiSOAR using a supported browser (for example, Chrome or Edge).
 
-To resolve this issue, check if the user is assigned appropriate permissions. To utilize the FortiAI solution pack, users must have the following permissions, along with other appropriate permissions:
+---
 
-- Read and Usage permissions on Widgets
-- Read and Execute permissions on Playbooks
+## FortiAI Flyout Does Not Open
 
-## FortiAI is unable to generate playbook steps
+**Symptom:** The FortiAI flyout does not open, or FortiAI does not display a response for the playbook outline.
 
-Based on your prompt, the FortiAI cannot generate the playbook steps.
+**Resolution:** Verify that the user has the required permissions:
 
-**Resolution**
+- `Read` and `Usage` permissions on Widgets
+- `Read` and `Execute` permissions on Playbooks
 
-To resolve this issue, try the following:
+---
 
-- Try to regenerate the steps.
-- Rephrase the prompt and try to generate the playbook steps, see [Prompting tips](#prompting-tips).
-- Verify that your OpenAI account is operational and has enough credit.
+## FortiAI Cannot Generate Playbook Steps
 
-## FortiAI does not create or update record
+**Symptom:** FortiAI does not generate playbook steps based on the provided prompt.
 
-FortiAI does not create or update record as per specified fields in FortiSOAR.
+**Resolution:**
 
-**Resolution**
+1. Retry generating the steps.
+2. Rephrase the prompt. Refer to [Prompting Tips](advanced-usage.md#prompting-tips) for guidance.
+3. Verify that the Fortinet FortiAI connector is correctly configured and that the associated account has sufficient API quota.
 
-- Prompt the FortiAI 
+---
 
-    >*What parameter did you pass to create/update field.*
+## FortiAI Does Not Create or Update a Record
 
-- Correct the parameters as per field API names as mentioned in FortiSOAR settings.
+**Symptom:** FortiAI does not create or update a record as specified.
 
-## Renaming OpenAI Connector Configuration
+**Resolution:**
 
-Sometimes, on changing the configuration name of OpenAI connector, it may not correctly render the updated name.
+1. Prompt FortiAI to confirm the parameters it used:
+   > *What parameters did you pass to create/update the field?*
+2. Correct any incorrect field API names. Refer to the FortiSOAR module settings for the correct API names.
 
-1. Press the **Back** button to return to the **LLM Configuration** page.
+---
 
-2. Click **Next** to advance to the **Connector Configuration** page.
+## Response Not as Expected
 
-## Response not as Expected
+**Symptom:** FortiAI returns an incorrect or off-topic response.
 
-The prompt may not always be as expected, in such cases you may:
+**Resolution:**
 
-1. Send the prompt again
+1. Send the same prompt again.
+2. Rephrase the prompt to be more specific.
 
-2. Rephrase the prompt to send a more targeted request.
+---
 
-## Response delay
+## Response Delay
 
-After entering the prompt the text may still be visible; however, the text input field appears disabled and with 3-dot loader gif on screen.
+**Symptom:** The prompt text is still visible in the input field, the field appears disabled, and a three-dot loading animation is shown.
 
-**Resolution**
+**Cause:** The prompt was not transmitted to the LLM.
 
-- The prompt has not passed to the LLM. Refresh the page and try again with the same prompt.
+**Resolution:** Refresh the page and resubmit the prompt.
 
-## OpenAI Error Messages
+---
 
-### Error: Cannot add messages to `thread_123ndasda341` while a run thread `run_134314hh1` is active.
+## Connector Configuration Name Does Not Update
 
-**Resolution**
-- Try to cancel the RUN on OpenAI platform - while loading the same thread on assistant using URL - https://platform.openai.com/playground/assistants?mode=assistant&assistant=asst_id&thread=thread_id and cancel the run
+**Symptom:** After renaming a Fortinet FortiAI connector configuration, the updated name is not reflected in the wizard.
 
-    OR
+**Resolution:**
 
-- Clear the Conversation
+1. Click **Back** to return to the **LLM Configuration** page.
+2. Click **Next** to proceed to the **Connector Configuration** page.
 
-### Error: `Run Cancelled Exception` as toast notification
+---
 
-This error typically occurs when:  
-- A subsequent prompt is sent in the same conversation.  
-- A prompt involves filtering across multiple modules (e.g., incidents and alerts).  
+## FortiAI Error Messages
 
->[!Note]
->Filtering operations do not support multiple modules simultaneously.This usually happens on subsequent prompting or with prompts including multiple modules.
->For example: *Fetch alerts with severity high, reputation good, and incidents with severity high*
+### Error: Session Conflict — Cannot Add Messages While a Request Is Active
 
-#### Resolution
+**Symptom:** FortiAI returns an error indicating that the current session is busy or that a prior request is still being processed.
 
-1. **Clear the Conversation**:  
-   - End the current conversation to reset the context.
+**Resolution:**
 
-2. **Rephrase the Prompt**:  
-   - Simplify the request to focus on a single module at a time.  
-   - Avoid combining filtering criteria across different modules (e.g., incidents and alerts).
+- Wait for the active request to complete, then resubmit the prompt.
 
-3. **Send the Prompt Again**:  
-   - Issue the rephrased prompt in a new conversation to ensure proper execution.
+  OR
 
-### Filters Involving DateTime  
+- Clear the conversation to reset the session context.
 
-DateTime filtering may sometimes yield unexpected results due to default behaviors or incomplete prompts. Follow these steps to ensure accurate outcomes.
+---
 
-#### Resolution
+### Error: `Run Cancelled Exception` Toast Notification
 
-1. **Specify the Timezone**:  
-   - By default, DateTime filters may use UTC rather than your local timezone.  
-   - Rephrase your prompt to explicitly include your preferred timezone.  
+**Symptom:** A `Run Cancelled Exception` error appears as a toast notification.
 
-     **Example**:  
-     > _"Filter alerts created on 1st December 2024. Consider local timezone."_
+**Cause:** This typically occurs when a subsequent prompt is sent before the previous one completes, or when the prompt includes filtering criteria across multiple modules.
 
-2. **Include the Year**:  
-   - Omitting the year in DateTime filters can lead to inaccurate results.  
-   - Always include the year to ensure the system applies the correct date range.  
+> [!NOTE]
+> Filtering does not support multiple modules simultaneously. For example, *Fetch alerts with severity high and cases with severity high* in a single prompt is not supported.
 
-     **Example**:  
-     > _"Filter alerts created on 1st December 2024."_
+**Resolution:**
 
-3. **Account for the Entire Day**:  
-   - If only a date or day is mentioned, the filter might not cover all events of that day.  
-   - Rephrase the prompt to explicitly request filtering for the entire day.  
+1. Clear the conversation to reset the context.
+2. Simplify the prompt to target a single module at a time.
+3. Resubmit the prompt in a new conversation.
 
-     **Example**:  
-     > _"Filter alerts created on 1st December 2024. Consider entire day."_
+---
 
-### Field Names in Filters Do Not Update  
+### Filters Involving DateTime
 
-In some cases, the field names in filters may not reflect changes after subsequent prompts. Follow these steps to resolve the issue.
+**Symptom:** DateTime-based filtering returns unexpected or incomplete results.
 
-#### Resolution
+**Resolution:**
 
-1. **Refresh the Page**:  
-   - Reload the page to ensure the filters reflect the updated field names.  
+1. **Specify the timezone.** By default, DateTime filters may use UTC. Include the preferred timezone explicitly.
+   > *Filter alerts created on 1st December 2024. Consider local timezone.*
 
-2. **Clear and Reapply the Filter**:  
-   - Click ![](./res/icon-clear-filter.svg) to remove the current filter.  
-   - Reapply the filter by clicking on the filter hyperlink, within the bot conversation, again.  
+2. **Include the year.** Omitting the year can produce inaccurate results.
+   > *Filter alerts created on 1st December 2024.*
 
-> [!Note]
-> This issue has been resolved in **FortiSOAR v7.6.1** and later.
+3. **Cover the full day.** If only a date is specified, the filter may not include all events that day.
+   > *Filter alerts created on 1st December 2024. Consider the entire day.*
 
-### FortiAI Response Incomplete or Unexpected
+---
 
-The assistant may veer off-topic or initiate an incorrect process for generating a connector.
+### Field Names in Filters Do Not Update
 
-#### Resolution
+**Symptom:** Filter field names do not reflect changes after subsequent prompts.
 
-You may try using the following prompt:
+**Resolution:**
 
-> *Proceed to generate connector by following primary tasks step by step*.
+1. Refresh the page.
+2. Click the clear filter icon to remove the current filter, then click the filter hyperlink in the bot conversation to reapply it.
+
+> [!NOTE]
+> This issue was resolved in **FortiSOAR v7.6.1** and later.
+
+---
+
+### FortiAI Response Is Incomplete or Off-Topic
+
+**Symptom:** FortiAI goes off-topic or initiates an incorrect process during connector generation.
+
+**Resolution:** Use the following prompt to redirect FortiAI:
+> *Proceed to generate connector by following primary tasks step by step.*
+
+---
 
 ### Connector Import Failed
 
-The connector import process may fail due to missing or invalid files.
+**Symptom:** The connector import process fails due to missing or invalid files.
 
-#### Resolution
+**Resolution:** Before retrying, prompt FortiAI to regenerate the required files:
+1. *Show `info.json` file*
+2. *Show Python files*
+3. *Import connector now*
 
-Before retrying the connector generation prompt, you may try the following prompts to generate associated files:
+---
 
-> 1. *Show `info.json` file*
-> 2. *Show python files*
-> 3. *Import connector now*
+### Files Missing or Not Displayed
 
-### Files missing or not Displayed
+**Symptom:** The generated connector files (`info.json`, `connector.py`, `operations.py`) are not shown in the prompt window.
 
-The assistant may not display the files (`info.json`, `connector.py`, `operations.py`) in the prompt window.
+**Resolution:** Prompt FortiAI to regenerate and display the files:
+1. *Generate `info.json` file*
+2. *Generate Python files*
 
-#### Resolution
+---
 
-Before retrying the connector generation prompt, you may try and prompt to regenerate the files and show their contents. The following prompts :
+### FortiAI Calls the Import Connector Function Multiple Times
 
-> 1. *Generate `info.json` file*
-> 2. *Generate python files*
+**Symptom:** FortiAI calls the connector import function repeatedly without user input.
 
-### FortiAI Calls Import Connector function Multiple Times
+**Resolution:** Use the following prompts to recover:
+1. *Show `info.json` file*
+2. *Show Python files*
+3. *Import connector now*
 
-Users may come across situations where the assistant calls the connector function repeatedly.
-
-#### Resolution
-
-Before retrying the connector generation prompt, you may try the following prompts to generate associated files:
-
-> 1. *Show `info.json` file*
-> 2. *Show python files*
-> 3. *Import connector now*
+---
 
 ### Connector Imported Automatically Without User Confirmation
 
-Sometimes, the FortiAI connector generation process automatically imports the connector immediately after building it, without waiting for user confirmation. As a result, the connector may be imported without review, or the installation process may take additional time.
+**Symptom:** The connector is imported immediately after generation without waiting for the user to confirm.
 
-#### Resolution
+**Resolution:** Prompt FortiAI to update specific parts of the connector and request a re-import with a **different** version. Alternatively, delete the connector via the Content Hub and prompt FortiAI to import it again.
 
-Users can prompt FortiAI to edit or update specific parts of the connector and request a re-import with a **_different_** version. Alternatively, they can delete the existing connector via the UI and ask FortiAI to import it again.
+---
 
-### Error: Request Too Large for gpt-4o-mini (Token Limit Exceeded)
+### Error: API Rate Limit or Quota Exceeded
 
-The following error may occur during connector or playbook generation:
+**Symptom:** FortiAI returns an error during connector or playbook generation indicating that an API rate limit or quota has been exceeded.
 
-```
-OpenAI response failed due to: Request too large for gpt-4o-mini in project [PROJECT_ID] organization [ORG_ID] on tokens per min (TPM): Limit 100, Requested 1645.
-The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.
-```
+**Resolution:**
 
-#### Resolution
-
-1. Visit: `https://platform.openai.com/settings/[PROJECT_ID]/limits`
-   > Replace `[PROJECT_ID]` with your actual project ID.
-
-2. Click **Select Models** under the **Rate Limits** section.
-3. Locate the model mentioned in the error message (e.g., `gpt-4o-mini`).
-4. Adjust or reset the **TPM** (Tokens Per Minute) and **RPM** (Requests Per Minute) limits.
-5. Save the changes.
+1. Log in to the Fortinet FortiAI platform and navigate to your account's rate limit or quota settings.
+2. Review and adjust the configured limits for the applicable model.
+3. Save the changes and retry the operation.
 
 > [!NOTE]
-> You may need admin permissions on the project to modify rate limits.
+> Admin permissions on the Fortinet FortiAI project may be required to modify rate limits.
 
-### Error: Indicators Not Unmasked in Playbook Steps on Designer Page
+---
 
-If the playbook outline contains indicators, they remain masked and are not automatically unmasked in the generated step.
+### Error: Indicators Not Unmasked in Playbook Steps
 
-#### Resolution
+**Symptom:** Indicators in the playbook outline remain masked and are not automatically unmasked in the generated step.
 
-Manually update the masked indicators with their actual (unmasked) values.
+**Resolution:** Manually replace the masked indicator placeholders with their actual values in the playbook step.
 
-# Next Steps
+---
 
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
-| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
+## Next Steps
+
+| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
+|---|---|---|---|
