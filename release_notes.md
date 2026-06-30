@@ -1,7 +1,8 @@
 ### What’s New
 
-#### Bug Fixes:
-
-- Ensured user prompts work when a module does not have correlated fields or key mappings in the **Key Store** `fortiai-static-questions`, with the recommendation engine enabled.
-
-- Enhanced performance for modules with relevant fields.
+- Added support for Fortinet FortiAI as an LLM provider.
+- Removed support for:
+  - Using an alternate connector configuration.
+  - Restricting access to FortiAI.
+  - Utilizing playbook collections to train the solution.
+- The solution is no longer in *Preview*.
