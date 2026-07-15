@@ -39,6 +39,11 @@ You must have the following access and credentials to use this solution pack:
 
 - Access to supported OpenAI LLM models as versions prior to *`GPT4`* do not generate responses as expected.
 
+> [!Important]
+>
+> OpenAI does not install with a *fresh* installation of FortiAI `v5.0.0` solution pack. It is only available to use and configure on upgraded instances.
+> 
+
 - To utilize the Fortinet Advisor solution pack, user must have the following access, along with other appropriate permissions:
 
     - `Read` and `Usage` permissions on Widgets
@@ -97,7 +102,10 @@ The **FortiAI** solution depends on the following connectors and widgets:
 >[!NOTE]
 >The AI Assistant Utils connector does not require a configuration. For more details, see the [AI Assistant Utils Connector](https://docs.fortinet.com/fortisoar/connectors/ai-assitant-utils) document.
 
-- The **OpenAI** connector to get a response from **FortiSOAR AI Assistant**.
+- The **Fortinet FortiAI** connector as an LLM to get a response from **FortiSOAR AI Assistant**.
+    - To configure and use the Fortinet FortiAI connector, see the [Fortinet FortiAI Connector](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) document.
+
+- The **OpenAI** connector as an LLM to get a response from **FortiSOAR AI Assistant**.
     - To configure and use the OpenAI connector, see the [OpenAI Connector](https://docs.fortinet.com/fortisoar/connectors/openai) document.
 
 ## FortiAI Configuration Wizard
@@ -114,36 +122,15 @@ The FortiAI Configuration wizard guides you through the following steps to setup
 
     ![FortiAI Configuration](./res/config-wizard-00.png)
 
-3. On the **Configuration** page, select a value for the following fields:
-
-    ![](./res/config-wizard-01.png)
-
-    - **LLM Integration** &mdash; *OpenAI* (default).
-    - **Conversation Model**: Select one from the following options:
-
-        - `gpt-4o-mini-2024-07-18`
-        - `gpt-4o-mini` (default)
-        - `gpt-4o-2024-05-13`
-        - `gpt-4-turbo-2024-04-09`
-
-    - **Playbook Generation Model**: Select one from the following options:
-
-        - `gpt-4o-mini-2024-07-18`
-        - `gpt-4o-mini` (default)
-        - `gpt-4o-2024-05-13`
-        - `gpt-4-turbo-2024-04-09`
-
-    -  Select **Enable multi user configuration** to use the connector configuration that matches the login ID of the logged-in user. Clear the selection to use the default configuration for the LLM integration.
+3. On the **Configuration** page, select a value for the **LLM Provider** field and specify values as requested.
 
 4. Click **Next** on the lower-right corner.
 
-    - Configure your LLM Integration (OpenAI) on the **Connect LLM** page using the project-level API key. For configuration details, refer to the [OpenAI connector configuration](https://docs.fortinet.com/fortisoar/connectors/openai) section on FortiSOAR connector page.
-
-    ![Connect LLM](./res/config-wizard-02.png)
+    - Configure your LLM Integration (OpenAI or Fortinet FortiAI) on the **Connect LLM** page. For configuration details, refer to:
+        - [OpenAI connector configuration](https://docs.fortinet.com/fortisoar/connectors/openai)
+        - [Fortinet FortiAI connector configuration](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) section on FortiSOAR connector page.
 
 5. Click **Next** on the lower-right corner.
-
-    ![Finish Configuration](./res/config-wizard-03.png)
 
 6. Click **Finish** to complete the configuration.
 
@@ -153,5 +140,6 @@ The FortiAI Configuration wizard guides you through the following steps to setup
 Navigate to *Incident Response*, *Automation*, or *Resources* navigation menu to interact with **FortiSOAR AI Assistant**.
 
 # Next Steps
+
 | [Usage](./usage.md) | [Contents](./contents.md) |
 |---------------------|---------------------------|

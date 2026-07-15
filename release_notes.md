@@ -1,7 +1,12 @@
 ### What’s New
 
-#### Bug Fixes:
+- Added support for Fortinet FortiAI as an LLM provider.
 
-- Ensured user prompts work when a module does not have correlated fields or key mappings in the **Key Store** `fortiai-static-questions`, with the recommendation engine enabled.
+- Removed support for:
+  - Using an alternate connector configuration.
+  - Restricting access to FortiAI.
+  - Utilizing playbook collections to train the solution.
 
-- Enhanced performance for modules with relevant fields.
+- FortiAI `v5.0.0` has been migrated from the *Assistants API* to the **Responses API** as OpenAI has deprecated its Assistants API and will permanently discontinue it on August 26, 2026.
+
+- The solution is no longer in *Preview*.
