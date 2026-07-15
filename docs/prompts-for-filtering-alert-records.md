@@ -1,107 +1,102 @@
 | [Home](../README.md) |
-|----------------------|
+|---|
 
-# Filtering alerts through prompts
+# Filtering Alerts Through Prompts
 
-This guide contains prompts that focus on filtering active and historical alerts to streamline threat investigation and response. Prompts in this section allow users to retrieve alerts based on criteria such as severity, status, priority, or assigned user, providing a targeted view of alerts under investigation or requiring immediate attention.
+This reference contains prompts for filtering alert records in FortiSOAR using the AI Assistant bot. Use these prompts to retrieve alerts based on criteria such as severity, status, date range, or assigned user.
 
-### Example: Retrieve alerts under investigation
+> [!NOTE]
+> Filtering operations apply to a single module at a time. Prompts that combine filter criteria across multiple modules (for example, alerts and cases simultaneously) are not supported.
 
-This section demonstrates prompts for isolating alerts whose *Status* is **Investigating**. This example provides prompts along with the expected outcome, helping users quickly access alerts that require further analysis or follow-up actions.
+---
 
-* **Prompt**:
+## Example: Retrieve Alerts Under Investigation
 
-    > _"Filter out all the alerts which are currently under investigation."_
+Retrieves alerts whose **Status** is **Investigating**.
 
-* **Expected Outcome**: Displays only alerts whose *Status* is **Investigating**.
+**Prompt:**
+> *Filter out all the alerts which are currently under investigation.*
 
-![Under investigation alerts filtered](./res/filter-alert-investigating.png)
+**Expected outcome:** Displays only alerts with a *Status* of **Investigating**.
 
-#### Review results
+[![Under investigation alerts filtered](res/filter-alert-investigating.png)](res/filter-alert-investigating.png)
 
-Verify that the results include only alerts marked as **Investigating**, ensuring that irrelevant alerts are excluded as per the filtering criteria.
+Verify that the results include only alerts marked as **Investigating**.
 
-### Example: Retrieve high-severity open alerts
+---
 
-This example demonstrates how to filter alerts based on both severity and status, helping users prioritize urgent, unresolved cases.
+## Example: Retrieve High-Severity Open Alerts
 
-* **Prompt**:  
-   > _"Get all alerts with status open and severity high."_
+Retrieves alerts filtered by both severity and status.
 
-* **Expected Outcome**:  
-   Displays only alerts with a *Status* of **Open** and a severity of **High**.
+**Prompt:**
+> *Get all alerts with status open and severity high.*
 
-![Open, high-severity alerts filtered](./res/filter-alert-open-high.png)
+**Expected outcome:** Displays only alerts with a *Status* of **Open** and a *Severity* of **High**.
 
-#### Review results
+[![Open high-severity alerts filtered](res/filter-alert-open-high.png)](res/filter-alert-open-high.png)
 
-Verify that the results include only high-severity open alerts.
+Verify that only high-severity open alerts are returned.
 
-### Example: Retrieve high-severity priority 1 alerts
+---
 
-This example demonstrates how to filter alerts based on both severity and priority, helping users prioritize urgent cases.
+## Example: Retrieve High-Severity Priority 1 Alerts
 
-* **Prompt**:  
-   > _"Give high-severity alerts with priority 1."_
+Retrieves alerts filtered by both severity and priority weight.
 
-* **Expected Outcome**:  
-   Displays only alerts with a *Priority Weight* of **1** and a *Severity* of **High**.
+**Prompt:**
+> *Give high-severity alerts with priority 1.*
 
-![Priority 1, high-severity alerts filtered](./res/filter-alert-priority-1-high.png)
+**Expected outcome:** Displays only alerts with a *Priority Weight* of **1** and a *Severity* of **High**.
 
-### Review results
+Verify that only alerts with priority weight 1 and high severity are returned.
 
-Verify that the results include only alerts with priority weight of 1 and a severity of high.
+---
 
-### Example: Retrieve alerts assigned to me
+## Example: Retrieve Alerts Assigned to the Current User
 
-This example demonstrates how to filter alerts that are assigned to the current user, allowing you to quickly view alerts requiring your attention.
+Retrieves alerts assigned to the currently logged-in user.
 
-* **Prompt**:  
-   > _"Give alerts assigned to me."_
+**Prompt:**
+> *Give alerts assigned to me.*
 
-* **Expected Outcome**:  
-   Displays only alerts that are assigned to the currently logged-in user.
+**Expected outcome:** Displays only alerts assigned to the current user.
 
-![Alerts assigned to self-user filtered](./res/filter-alert-assigned-self.png)
+[![Alerts assigned to the current user](res/filter-alert-assigned-self.png)](res/filter-alert-assigned-self.png)
 
-### Review results
+Verify that only alerts assigned to the current user are returned.
 
-Verify that the results include only the alerts that are assigned to the current user, ensuring no other alerts are included.
+---
 
-### Example: Retrieve alerts created between a date range
+## Example: Retrieve Alerts Created Within a Date Range
 
-This example demonstrates how to filter alerts based on a specific date range, helping users focus on alerts created within a defined time period.
+Retrieves alerts created within a specified time period.
 
-* **Prompt**:  
-   > _"Give me all alerts created in the last 15 days."_
+**Prompt:**
+> *Give me all alerts created in the last 15 days.*
 
-* **Expected Outcome**:  
-   Displays only alerts that were created between the specified date range.
+**Expected outcome:** Displays only alerts created within the last 15 days.
 
-![Alerts created between October 1 and 15, 2024](./res/filter-alert-date-range.png)
+[![Alerts filtered by date range](res/filter-alert-date-range.png)](res/filter-alert-date-range.png)
 
-### Review Results
+Verify that only alerts within the specified period are returned. For reliable DateTime filtering, always specify the year and timezone. See [DateTime filtering guidance](troubleshooting.md#filters-involving-datetime) in the Troubleshooting guide.
 
-Verify that the results include only alerts created within the specified date range, ensuring no alerts outside the period are displayed.
+---
 
-### Other examples
+## Additional Prompts
 
-Similarly, you can use the following prompts to filter alert records.
+The following prompts can also be used to filter alert records:
 
-1. Give me alerts assigned to <user-1>.
- 
-2. Give me all alerts created between October 1, 2024, and October 15, 2024
- 
-3. Show me all alerts where the *severity* is either high or critical, the status is open or in progress, and the type is malware or phishing. The alerts should have been created within the last 7 days, and the source IP should start with `192.168.1`.
- 
-4. List all in-progress alerts, excluding those of the phishing or suspicious type.
+1. *Give me alerts assigned to `[user name]`.*
+2. *Give me all alerts created between October 1, 2024, and October 15, 2024.*
+3. *Show me all alerts where the severity is either high or critical, the status is open or in progress, and the type is malware or phishing. The alerts should have been created within the last 7 days, and the source IP should start with `192.168.1`.*
+4. *List all in-progress alerts, excluding those of the phishing or suspicious type.*
+5. *Filter out all the alerts with technique ID `T1074.001`.*
+6. *Find alerts triggered by the rule `PH_RULE_UEBA_AI_FILE_WRITTEN`.*
 
-5.  Filter out all the alerts with technique ID `T1074.001`.
+---
 
-6. Find alerts triggered by the rule `PH_RULE_UEBA_AI_FILE_WRITTEN`.
+## Next Steps
 
-# Next Steps
-
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
-| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
+| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
+|---|---|---|---|
