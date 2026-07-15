@@ -3,6 +3,12 @@
 
 # Building a connector through prompts
 
+> [!Important]
+>
+> Connector generation currently does not support file attachments (PDF, Swagger specifications, Postman collections) when using the Fortinet FortiAI connector. This is a server-side limitation.
+> As a workaround, you can provide API details inline, through chat, as curl commands or JSON request/response structures.
+> 
+
 The following is an example that contains prompts to help you create a connector.
 
 1. Navigate to **Automation** > **Connectors** or Content Hub.
