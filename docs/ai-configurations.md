@@ -3,7 +3,7 @@
 
 # AI Configurations
 
-The **AI Configurations** section appears in the FortiSOAR **Settings** menu after an administrator [enables AI features](setup.md#enable-ai-features). It provides the configuration layer that governs how AI agents analyze data, interact with external tools, and generate responses during investigations.
+The **AI Configurations** section appears in the FortiSOAR **Settings** menu after an administrator [enables AI features](./setup.md#enable-ai-features). It provides the configuration layer that governs how AI agents analyze data, interact with external tools, and generate responses during investigations.
 
 > [!NOTE]
 > Review these configurations carefully before making changes. Incorrect modifications may affect AI investigation functionality. Fortinet recommends leaving default settings in place unless a specific customization is required.
@@ -90,7 +90,7 @@ For full procedures on creating, scheduling, and managing insights, refer to the
 
 ---
 
-## Next Steps
+# Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) |
-|---------------------------------------|-----------------------------------------|-------------------|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
+| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |

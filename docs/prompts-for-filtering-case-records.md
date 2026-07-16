@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|---|
+|----------------------|
 
 # Filtering Cases Through Prompts
 
@@ -36,5 +36,5 @@ The following prompts can also be used to filter case records:
 
 ## Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
-|---|---|---|---|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+|-----------------------------------------|-------------------------------------------|------------------|---------------------------|

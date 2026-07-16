@@ -1,11 +1,11 @@
 | [Home](../README.md) |
-|---|
+|----------------------|
 
 # Generating Playbooks Using Prompts
 
 The following prompts can be submitted to FortiAI to generate playbooks. Each prompt corresponds to a common SOC use case. Submit the prompt in the Playbook Designer input field and follow the on-screen steps.
 
-For general guidance on playbook generation, see [Generating Playbooks](usage.md#generating-playbooks) in the Usage guide.
+For general guidance on playbook generation, see [Generating Playbooks](./usage#generating-playbooks) in the Usage guide.
 
 ---
 
@@ -106,5 +106,5 @@ For general guidance on playbook generation, see [Generating Playbooks](usage.md
 
 ## Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
-|---|---|---|---|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+|-----------------------------------------|-------------------------------------------|------------------|---------------------------|

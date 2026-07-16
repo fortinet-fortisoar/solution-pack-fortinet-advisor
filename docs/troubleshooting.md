@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|---|
+|----------------------|
 
 # Troubleshooting
 
@@ -41,7 +41,7 @@
 **Resolution:**
 
 1. Retry generating the steps.
-2. Rephrase the prompt. Refer to [Prompting Tips](advanced-usage.md#prompting-tips) for guidance.
+2. Rephrase the prompt. Refer to [Prompting Tips](./advanced-usage.md#prompting-tips) for guidance.
 3. Verify that the Fortinet FortiAI connector is correctly configured and that the associated account has sufficient API quota.
 
 ---
@@ -228,5 +228,5 @@
 
 ## Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
-|---|---|---|---|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+|-----------------------------------------|-------------------------------------------|------------------|---------------------------|

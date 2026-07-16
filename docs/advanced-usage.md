@@ -25,7 +25,7 @@ Simple tweaks to the input prompts could improve the playbook block generation p
     
     In the second prompt, FortiAI may include any enrichment source such as IP Quality Score, AlienVault-OTX, VirusTotal, etc. You must also ensure that any connector specified in the prompt is installed on your system.
 
-- To create playbooks intended to add a record in FortiSOAR, avoid using *Create <`module name`> record* as the first step. Instead, place it in the next step after gathering details from a previous action.
+- To create playbooks intended to add a record in FortiSOAR, avoid using *Create <`module-name`> record* as the first step. Instead, place it in the next step after gathering details from a previous action.
 
     >For example, use *Fetch Unread Emails from Exchange and create Alert record*
 
