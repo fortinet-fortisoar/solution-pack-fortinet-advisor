@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|---|
+|----------------------|
 
 # Installation
 
@@ -36,7 +36,7 @@ Before the FortiAI solution pack can be used, an administrator must enable AI fe
 3. Select the **Enable AI Features** toggle and click **Save**.
 4. In the confirmation dialog, click **Acknowledge**.
 
-Enabling AI features adds the **AI Configurations** section to the **Settings** menu. For details on configuring MCP servers, prompts, organizational context, and insights, see [AI Configurations](ai-configurations.md).
+Enabling AI features adds the **AI Configurations** section to the **Settings** menu. For details on configuring MCP servers, prompts, organizational context, and insights, see [AI Configurations](./ai-configurations.md).
 
 > [!NOTE]
 > Token usage information is displayed on the FortiAI page. For details on token allocation and usage, refer to the [FortiAI topic](https://docs.fortinet.com/document/fortisoar/8.0.0/administration-guide/249178/introduction) in the Administration Guide.
@@ -125,15 +125,15 @@ The configuration wizard guides you through selecting an LLM reasoning tier, con
 
 1. After [installation](#installation), click the **Configure** button on the FortiAI solution pack card.
 
-   [![FortiAI Configuration](res/configure-button.png)](res/configure-button.png)
+   [![FortiAI Configuration](./res/configure-button.png)](./res/configure-button.png)
 
 2. On the welcome screen, click **Let's Get Started**.
 
-   [![FortiAI Configuration Wizard — Welcome](res/config-wizard-00.png)](res/config-wizard-00.png)
+   [![FortiAI Configuration Wizard — Welcome](./res/config-wizard-00.png)](./res/config-wizard-00.png)
 
 3. On the **Configuration** page, set the following fields:
 
-   [![FortiAI Configuration Wizard — Configuration](res/config-wizard-01.png)](res/config-wizard-01.png)
+   [![FortiAI Configuration Wizard — Configuration](./res/config-wizard-01.png)](./res/config-wizard-01.png)
 
    - **LLM Integration** — Select **Fortinet FortiAI** (default).
    - **Conversation Model** — Select the reasoning tier for SOC Assistant conversations:
@@ -148,7 +148,7 @@ The configuration wizard guides you through selecting an LLM reasoning tier, con
 
 5. On the **Connect LLM** page, configure the **Fortinet FortiAI** connector using your API key. Refer to the [Fortinet FortiAI connector](https://docs.fortinet.com/fortisoar/connectors/fortinet-fortiai) documentation for configuration details.
 
-   [![FortiAI Configuration Wizard — Connect LLM](res/config-wizard-02.png)](res/config-wizard-02.png)
+   [![FortiAI Configuration Wizard — Connect LLM](./res/config-wizard-02.png)](./res/config-wizard-02.png)
 
 6. Click **Finish** to complete the configuration.
 
@@ -163,5 +163,5 @@ The playbook developer assistant icon appears you launch the playbook designer:
 
 ## Next Steps
 
-| [Usage](usage.md) | [AI Configurations](ai-configurations.md) | [Contents](contents.md) |
-|-------------------|-------------------------------------------|-------------------------|
+| [Usage](./usage) | [Contents](./contents.md) |
+|------------------|---------------------------|

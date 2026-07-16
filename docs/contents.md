@@ -49,7 +49,7 @@ The **FortiAI** solution pack contains the following resources.
 - `pastConversationMsgLimit`: Maximum number of messages loaded in the conversation window on login. Default: `20`.
 
 > [!NOTE]
-> The raw configuration file is available at [`llm-configuration.json`](res/llm-configuration.json).
+> The raw configuration file is available at [`llm-configuration.json`](./res/llm-configuration.json).
 
 ### `fortiai-static-questions`
 
@@ -62,7 +62,7 @@ The **FortiAI** solution pack contains the following resources.
     - **`fieldsOfInterest`**: Array of field API names used to build context for the preset questions. Each module may define different fields of interest.
 
 > [!NOTE]
-> To add a preset question for a module, add a question object with `description` and `enable` fields under the module's API name. A sample [Question JSON](res/question-sample.json) is available for reference.
+> To add a preset question for a module, add a question object with `description` and `enable` fields under the module's API name. A sample [Question JSON](./res/question-sample.json) is available for reference.
 
 ## Playbook Collection
 
@@ -117,7 +117,7 @@ FortiAI `v6.0.0` introduces agentic AI support. Each AI agent is available as a 
 
 ---
 
-## Next Steps
+# Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) |
-|---------------------------------------|-----------------------------------------|-------------------|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) |
+| --------------------------------------- | ----------------------------------------- | ------------------- |

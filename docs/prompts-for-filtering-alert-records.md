@@ -1,5 +1,5 @@
 | [Home](../README.md) |
-|---|
+|----------------------|
 
 # Filtering Alerts Through Prompts
 
@@ -19,7 +19,7 @@ Retrieves alerts whose **Status** is **Investigating**.
 
 **Expected outcome:** Displays only alerts with a *Status* of **Investigating**.
 
-[![Under investigation alerts filtered](res/filter-alert-investigating.png)](res/filter-alert-investigating.png)
+[![Under investigation alerts filtered](./res/filter-alert-investigating.png)](./res/filter-alert-investigating.png)
 
 Verify that the results include only alerts marked as **Investigating**.
 
@@ -34,7 +34,7 @@ Retrieves alerts filtered by both severity and status.
 
 **Expected outcome:** Displays only alerts with a *Status* of **Open** and a *Severity* of **High**.
 
-[![Open high-severity alerts filtered](res/filter-alert-open-high.png)](res/filter-alert-open-high.png)
+[![Open high-severity alerts filtered](./res/filter-alert-open-high.png)](./res/filter-alert-open-high.png)
 
 Verify that only high-severity open alerts are returned.
 
@@ -62,7 +62,7 @@ Retrieves alerts assigned to the currently logged-in user.
 
 **Expected outcome:** Displays only alerts assigned to the current user.
 
-[![Alerts assigned to the current user](res/filter-alert-assigned-self.png)](res/filter-alert-assigned-self.png)
+[![Alerts assigned to the current user](./res/filter-alert-assigned-self.png)](./res/filter-alert-assigned-self.png)
 
 Verify that only alerts assigned to the current user are returned.
 
@@ -77,9 +77,9 @@ Retrieves alerts created within a specified time period.
 
 **Expected outcome:** Displays only alerts created within the last 15 days.
 
-[![Alerts filtered by date range](res/filter-alert-date-range.png)](res/filter-alert-date-range.png)
+[![Alerts filtered by date range](./res/filter-alert-date-range.png)](./res/filter-alert-date-range.png)
 
-Verify that only alerts within the specified period are returned. For reliable DateTime filtering, always specify the year and timezone. See [DateTime filtering guidance](troubleshooting.md#filters-involving-datetime) in the Troubleshooting guide.
+Verify that only alerts within the specified period are returned. For reliable DateTime filtering, always specify the year and timezone. See [DateTime filtering guidance](./troubleshooting.md#filters-involving-datetime) in the Troubleshooting guide.
 
 ---
 
@@ -98,5 +98,5 @@ The following prompts can also be used to filter alert records:
 
 ## Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
-|---|---|---|---|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+|-----------------------------------------|-------------------------------------------|------------------|---------------------------|

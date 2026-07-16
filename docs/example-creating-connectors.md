@@ -16,7 +16,7 @@ The following examples demonstrate how to use FortiAI to generate a FortiSOAR co
 1. Navigate to **Automation** > **Connectors**, or to **Content Hub** > **Connectors**.
 2. Click the **Create** tab, then click the **AI Assistant** icon to open the FortiAI panel.
 
-   [![FortiAI BYOC dialog](res/byoc_bot_dialog.png)](res/byoc_bot_dialog.png)
+   [![FortiAI BYOC dialog](./res/byoc_bot_dialog.png)](./res/byoc_bot_dialog.png)
 
 3. Enter a prompt that includes the connector's purpose, the actions it must perform, and the relevant API endpoint(s). API details can be provided as `curl` commands, JSON data, or file attachments in `.json`, `.yml`, `.txt`, or `.pdf` format.
 
@@ -172,7 +172,7 @@ Click **Publish** to make the connector available to all users. The connector ap
 
 ---
 
-## Next Steps
+# Next Steps
 
-| [Installation](setup.md#installation) | [Configuration](setup.md#configuration) | [Usage](usage.md) | [Contents](contents.md) |
-|---|---|---|---|
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
+| --------------------------------------- | ----------------------------------------- | ------------------- | ------------------------- |
