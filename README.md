@@ -4,7 +4,7 @@
 - **Certified**: Yes
 - **Publisher**: Fortinet
 - **Compatible Version**: FortiSOAR v8.0.0 and later
-- [Release Notes](release_notes.md)
+- [Release Notes](./release_notes.md)
 
 
 ## Overview
@@ -64,19 +64,19 @@ For further questions or concerns about your privacy, refer to [Fortinet's priva
 
 ## Additional Resources
 
-- [Setup](docs/setup.md)
-- [Advanced Usage](docs/advanced-usage.md)
-- [AI Configurations](docs/ai-configurations.md)
-- [Troubleshooting](docs/troubleshooting.md)
-- [Prompts for filtering *alert* records](docs/prompts-for-filtering-alert-records.md)
-- [Prompts for filtering *case* records](docs/prompts-for-filtering-case-records.md)
-- [Prompts for filtering *indicator* records](docs/prompts-for-filtering-indicator-records.md)
-- [Example: Building a connector](docs/example-creating-connectors.md)
-- [Example: Generating a playbook](docs/example-generating-playbooks.md)
+- [Setup](./docs/setup.md)
+- [Advanced Usage](./docs/advanced-usage.md)
+- [AI Configurations](./docs/ai-configurations.md)
+- [Troubleshooting](./docs/troubleshooting.md)
+- [Prompts for filtering *alert* records](./docs/prompts-for-filtering-alert-records.md)
+- [Prompts for filtering *case* records](./docs/prompts-for-filtering-case-records.md)
+- [Prompts for filtering *indicator* records](./docs/prompts-for-filtering-indicator-records.md)
+- [Example: Building a connector](./docs/example-creating-connectors.md)
+- [Example: Generating a playbook](./docs/example-generating-playbooks.md)
 
 ---
 
 ## Next Steps
 
-| [Installation](docs/setup.md#installation) | [Configuration](docs/setup.md#configuration) | [Usage](docs/usage.md) | [Contents](docs/contents.md) |
-|--------------------------------------------|----------------------------------------------|------------------------|------------------------------|
+| [Installation](./docs/setup.md#installation) | [Configuration](./docs/setup.md#configuration) | [Usage](./docs/usage.md) | [Contents](./docs/contents.md) |
+|----------------------------------------------|------------------------------------------------|--------------------------|--------------------------------|
