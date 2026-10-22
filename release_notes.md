@@ -1,9 +1,8 @@
 # What's New
 
-> [!IMPORTANT]
-> 
-> FortiAI `v6.0.0` requires **FortiSOAR `v8.0.0` or later**. Deployments running an earlier version of FortiSOAR must upgrade before installing or upgrading to FortiAI `v6.0.0`.
-> 
+| Compatible Version |
+|:------------------:|
+|  FortiSOAR v8.0.0  |
 
 ## Enhancements
 
