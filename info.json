@@ -1,0 +1,344 @@
+{
+    "name": "fortinetAdvisor",
+    "version": "6.1.0",
+    "fsrMinCompatibility": "8.0.1",
+    "type": "solutionpack",
+    "local": true,
+    "label": "FortiAI",
+    "dependencies": [
+        {
+            "name": "sOARFramework",
+            "type": "solutionpack",
+            "label": "SOAR Framework",
+            "minVersion": null
+        },
+        {
+            "name": "platformUtilities",
+            "type": "solutionpack",
+            "label": "Platform Utilities",
+            "minVersion": null
+        }
+    ],
+    "prerequisite": null,
+    "publisher": "Fortinet",
+    "description": "This Solution Pack delivers autonomous, analyst-grade security operations by orchestrating specialized AI agents that triage alerts, enrich context- reducing SOC workload while accelerating response with enterprise-grade trust and control.",
+    "help": "https://github.com/fortinet-fortisoar/solution-pack-fortinet-advisor/blob/release/6.1.0/README.md",
+    "category": [
+        "FortiAI",
+        "Utilities"
+    ],
+    "supportInfo": null,
+    "iconLarge": "fsr-icon-large.png",
+    "certified": "true",
+    "postInstallConfig": {
+        "enabled": true,
+        "widgets": [
+            {
+                "name": "agenticAIConfiguration",
+                "label": "AI Configuration",
+                "version": "1.0.0",
+                "autoLaunch": false,
+                "buttonLabel": "Configure"
+            }
+        ]
+    },
+    "recordTags": [
+        "Agentic AI"
+    ],
+    "date": "2026-08-26T03:27:44+00:00",
+    "contents": {
+        "picklistNames": [
+            {
+                "name": "Solution Pack Category"
+            },
+            {
+                "name": "SOC Role"
+            },
+            {
+                "name": "AI Verdict"
+            }
+        ],
+        "modules": {
+            "alerts": {
+                "name": "Alerts",
+                "apiName": "alerts"
+            },
+            "insights": {
+                "name": "Insights",
+                "apiName": "insights"
+            },
+            "organizational_contexts": {
+                "name": "Organizational Context",
+                "apiName": "organizational_contexts"
+            },
+            "insight_templates": {
+                "name": "Insight Templates",
+                "apiName": "insight_templates"
+            }
+        },
+        "viewTemplates": {
+            "alerts": {
+                "name": "Alerts",
+                "apiName": "alerts",
+                "views": [
+                    "form",
+                    "detail",
+                    "list"
+                ]
+            },
+            "insights": {
+                "name": "Insights",
+                "apiName": "insights",
+                "views": [
+                    "form",
+                    "detail",
+                    "list"
+                ]
+            }
+        },
+        "roles": [
+            {
+                "name": "Agentic AI"
+            },
+            {
+                "name": "Full App Permissions"
+            }
+        ],
+        "playbooks": [
+            {
+                "name": "10 - Knowledge Base Update"
+            },
+            {
+                "name": "10 - SP - FortiAI"
+            }
+        ],
+        "dashboards": [
+            {
+                "name": "Agentic AI"
+            }
+        ],
+        "connectors": [
+            {
+                "name": "Fortinet FortiAI",
+                "apiName": "fortinet-fortiai-proxy"
+            }
+        ],
+        "widgets": [
+            {
+                "apiName": "insightCards",
+                "name": "Insight Cards"
+            },
+            {
+                "apiName": "aiAssistant",
+                "name": "AI Assistant"
+            },
+            {
+                "apiName": "agenticAIConfiguration",
+                "name": "AI Configuration"
+            },
+            {
+                "apiName": "aiInvestigationDetails",
+                "name": "AI Investigation Details"
+            },
+            {
+                "apiName": "aiInvestigationOverview",
+                "name": "AI Investigation Overview"
+            },
+            {
+                "apiName": "aiAgentTraceability",
+                "name": "AI Agent Traceability"
+            }
+        ],
+        "ai_agents": [
+            {
+                "name": "IOC Masking",
+                "apiName": "ioc-masking",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Alert Investigation",
+                "apiName": "alert-investigation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Investigation Hypothesis Generation",
+                "apiName": "investigation-hypothesis",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Investigation Planner",
+                "apiName": "investigation-planning",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Investigation Summarization",
+                "apiName": "investigation-verdict",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Alert Correlation",
+                "apiName": "alert-correlation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Threat Intelligence Provider",
+                "apiName": "ioc-enrichment",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Query SIEM",
+                "apiName": "siem",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "FortiSOAR Data Access",
+                "apiName": "fortisoar-data-access",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "ITSM Context Provider",
+                "apiName": "itsm",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Query Endpoint",
+                "apiName": "endpoint-telemetry",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Organization Context Provider",
+                "apiName": "organization-context",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Indentity Context Provider",
+                "apiName": "identity-context",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Asset Context Provider",
+                "apiName": "asset-enrichment",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Connector Generation",
+                "apiName": "connector-generation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Chat Assistant",
+                "apiName": "conversation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Metric Computation",
+                "apiName": "metric-computation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Task Planner",
+                "apiName": "task-planner",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Impact Analysis",
+                "apiName": "risk-evaluation",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Summary",
+                "apiName": "summary",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Orchestrator",
+                "apiName": "orchestrator",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "SOC Response",
+                "apiName": "soc-response-action",
+                "install": true,
+                "configurations": false
+            },
+            {
+                "name": "Playbook Generator",
+                "apiName": "playbook-generator",
+                "install": true,
+                "configurations": false
+            }
+        ],
+        "mcp_configurations": [
+            "FortiSOAR Module Management",
+            "FortiSOAR Playbook Management",
+            "Utility Tools",
+            "SOC Framework"
+        ],
+        "mcp_servers": [
+            {
+                "name": "Utility",
+                "apiName": "utility"
+            },
+            {
+                "name": "Modules",
+                "apiName": "modules"
+            },
+            {
+                "name": "Playbooks",
+                "apiName": "playbooks"
+            },
+            {
+                "name": "SOC Framework",
+                "apiName": "soc"
+            }
+        ],
+        "recordSets": [
+            {
+                "name": "Organizational Contexts",
+                "apiName": "organizational_contexts",
+                "count": 58
+            },
+            {
+                "name": "Insight Templates",
+                "apiName": "insight_templates",
+                "count": 15
+            },
+            {
+                "name": "Attachments",
+                "apiName": "attachments",
+                "count": 1
+            },
+            {
+                "name": "Key Store",
+                "apiName": "keys",
+                "count": 2
+            },
+            {
+                "name": "LLM Configurations",
+                "apiName": "llm_configurations",
+                "count": 2
+            }
+        ]
+    }
+}

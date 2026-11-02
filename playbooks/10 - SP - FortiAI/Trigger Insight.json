@@ -1,0 +1,84 @@
+{
+  "@type": "Workflow",
+  "triggerLimit": null,
+  "name": "Trigger Insight",
+  "aliasName": null,
+  "tag": null,
+  "description": "Schedule playbook to trigger insight.",
+  "isActive": true,
+  "debug": true,
+  "singleRecordExecution": false,
+  "remoteExecutableFlag": false,
+  "parameters": [],
+  "synchronous": false,
+  "collection": "/api/3/workflow_collections/7fa6324f-bb48-4b6c-ad0a-738343ddd7a4",
+  "versions": [],
+  "triggerStep": "/api/3/workflow_steps/98aca658-a772-4d6e-ac41-1420db687943",
+  "steps": [
+    {
+      "@type": "WorkflowStep",
+      "name": "Start",
+      "description": null,
+      "arguments": {
+        "__triggerLimit": true,
+        "step_variables": {
+          "input": {
+            "params": []
+          }
+        },
+        "triggerOnSource": true,
+        "triggerOnReplicate": false
+      },
+      "status": null,
+      "top": "30",
+      "left": "125",
+      "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+      "group": null,
+      "uuid": "98aca658-a772-4d6e-ac41-1420db687943"
+    },
+    {
+      "@type": "WorkflowStep",
+      "name": "Trigger Insight",
+      "description": null,
+      "arguments": {
+        "params": {
+          "iri": "/api/ai/insight/trigger/schedule",
+          "body": "{{vars.__schedule}}",
+          "method": "POST"
+        },
+        "version": "3.7.0",
+        "connector": "cyops_utilities",
+        "operation": "make_cyops_request",
+        "operationTitle": "FSR: Make FortiSOAR API Call",
+        "step_variables": []
+      },
+      "status": null,
+      "top": "165",
+      "left": "125",
+      "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+      "group": null,
+      "uuid": "20e3dad4-3174-455e-bf33-a38966b426f7"
+    }
+  ],
+  "routes": [
+    {
+      "@type": "WorkflowRoute",
+      "name": "Start -> Trigger Insight",
+      "targetStep": "/api/3/workflow_steps/20e3dad4-3174-455e-bf33-a38966b426f7",
+      "sourceStep": "/api/3/workflow_steps/98aca658-a772-4d6e-ac41-1420db687943",
+      "label": null,
+      "isExecuted": false,
+      "group": null,
+      "uuid": "d3be10d6-e9cb-41bf-8f1a-3b8107cdb040"
+    }
+  ],
+  "groups": [],
+  "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+  "playbookOrigin": "/api/3/picklists/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+  "isEditable": false,
+  "uuid": "654ea33e-254d-4a02-a188-464d03e6bdc7",
+  "owners": [],
+  "isPrivate": false,
+  "deletedAt": null,
+  "recordTags": []
+}

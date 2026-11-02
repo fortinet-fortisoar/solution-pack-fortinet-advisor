@@ -1,0 +1,19 @@
+{
+    "uuid": "bcd2462e-ad81-4307-b9b6-664e74219c10",
+    "tools": [],
+    "@context": "\/api\/3\/contexts\/MCPConfiguration",
+    "@type": "MCPConfiguration",
+    "url": "https:\/\/localhost\/mcp\/soc\/",
+    "transport": "http",
+    "active": true,
+    "timeout": null,
+    "command": "",
+    "authentication": "{\"type\":\"FSR\"}",
+    "description": "MCP Server enables AI agents to perform SOC operations such as retrieving alerts, fetching correlated alerts and indicators, enriching indicators, and hunting IOCs. It provides a centralized interface for security operations and helps streamline alert investigation and threat analysis workflows.",
+    "name": "SOC Framework",
+    "type": "internal",
+    "metadata": null,
+    "createDate": 1779267859.477927,
+    "modifyDate": 1779267929.123261,
+    "recordTags": []
+}

@@ -1,0 +1,16 @@
+{
+    "ORGANIZATIONAL_CONTEXTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "조직 컨텍스트",
+            "PLURAL_NAME": "조직 컨텍스트"
+        },
+        "FIELDS": {
+            "TITLE": "제목",
+            "CATEGORY": "카테고리",
+            "SUBCATEGORY": "하위 카테고리",
+            "DESCRIPTION": "설명",
+            "CONTENT": "콘텐츠",
+            "LLMSUMMARIZE": "LLM 요약"
+        }
+    }
+}

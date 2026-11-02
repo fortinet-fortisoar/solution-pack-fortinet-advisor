@@ -1,0 +1,16 @@
+{
+    "INSIGHTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "인사이트",
+            "PLURAL_NAME": "인사이트"
+        },
+        "FIELDS": {
+            "TITLE": "제목",
+            "QUERY": "쿼리",
+            "ACTIVE": "활성",
+            "PLANID": "플랜 ID",
+            "SOCROLE": "SOC 역할",
+            "SCHEDULEID": "스케줄 ID"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "@context": "\/api\/3\/contexts\/WorkflowCollection",
+    "@type": "WorkflowCollection",
+    "name": "10 - SP - FortiAI",
+    "description": null,
+    "visible": true,
+    "image": null,
+    "uuid": "7fa6324f-bb48-4b6c-ad0a-738343ddd7a4",
+    "deletedAt": null,
+    "recordTags": []
+}

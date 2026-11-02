@@ -1,0 +1,19 @@
+{
+    "uuid": "c8ef6eb0-3d0e-4c5b-b98c-6d03a23148d6",
+    "tools": [],
+    "@context": "\/api\/3\/contexts\/MCPConfiguration",
+    "@type": "MCPConfiguration",
+    "url": "https:\/\/localhost\/mcp\/utility\/",
+    "transport": "http",
+    "active": true,
+    "timeout": null,
+    "command": "",
+    "authentication": "{\"type\":\"FSR\"}",
+    "description": "MCP Server provides commonly used utility functions such as retrieving the current date and time, helping AI agents perform general-purpose operational and workflow support tasks.",
+    "name": "Utility Tools",
+    "type": "internal",
+    "metadata": null,
+    "createDate": 1773559719.314062,
+    "modifyDate": 1773559719.314062,
+    "recordTags": []
+}

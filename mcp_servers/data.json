@@ -1,0 +1,30 @@
+[
+  {
+    "uuid": "08b91772-74a4-432c-9149-9866ca1dc4f0",
+    "name": "utility",
+    "label": "Utility",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "uuid": "bfe709ab-b9c5-406e-8ad6-76f2b55bde8c",
+    "name": "modules",
+    "label": "Modules",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "uuid": "74d3d366-9cbc-47eb-afa9-11f5d446b3d1",
+    "name": "playbooks",
+    "label": "Playbooks",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "uuid": "f614a26a-e25f-4c0d-bda4-3ebb2d567c6f",
+    "name": "soc",
+    "label": "SOC Framework",
+    "configuration": [],
+    "dependencies": []
+  }
+]

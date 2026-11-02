@@ -1,0 +1,16 @@
+{
+    "ORGANIZATIONAL_CONTEXTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Organizational Context",
+            "PLURAL_NAME": "Organizational Contexts"
+        },
+        "FIELDS": {
+            "TITLE": "Title",
+            "CATEGORY": "Category",
+            "SUBCATEGORY": "Sub Category",
+            "DESCRIPTION": "Description",
+            "CONTENT": "Content",
+            "LLMSUMMARIZE": "LLM Summarize"
+        }
+    }
+}

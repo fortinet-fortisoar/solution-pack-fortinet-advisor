@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "洞察模板",
+            "PLURAL_NAME": "洞察模板"
+        },
+        "FIELDS": {
+            "TITLE": "标题",
+            "QUERY": "查询",
+            "PLAN": "计划",
+            "SOCROLE": "SOC角色"
+        }
+    }
+}

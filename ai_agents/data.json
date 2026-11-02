@@ -1,0 +1,287 @@
+[
+  {
+    "name": "ioc-masking",
+    "label": "IOC Masking"
+  },
+  {
+    "name": "alert-investigation",
+    "label": "Alert Investigation"
+  },
+  {
+    "name": "investigation-hypothesis",
+    "label": "Investigation Hypothesis Generation",
+    "configuration": [
+      {
+        "agent_name": "investigation-hypothesis",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "config_type": "custom",
+          "llm_provider": "104e1297-5ff3-4ff2-8d8e-e8e828cc5ade",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "7f10857c-7019-4c28-9c93-4e7fa00a3bd1"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "investigation-planning",
+    "label": "Investigation Planner",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "name": "investigation-verdict",
+    "label": "Investigation Summarization",
+    "configuration": [
+      {
+        "agent_name": "investigation-verdict",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "config_type": "custom",
+          "llm_provider": "104e1297-5ff3-4ff2-8d8e-e8e828cc5ade",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "f636d090-e9fa-40d8-b886-b403f8174926"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "alert-correlation",
+    "label": "Alert Correlation",
+    "configuration": [
+      {
+        "agent_name": "alert-correlation",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10",
+            "c8ef6eb0-3d0e-4c5b-b98c-6d03a23148d6"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "ef5b3fc5-715a-44e6-8129-d93f4b7fccb3"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "ioc-enrichment",
+    "label": "Threat Intelligence Provider",
+    "configuration": [
+      {
+        "agent_name": "ioc-enrichment",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "db94531b-9903-46d0-ae38-823e39838dd5"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "siem",
+    "label": "Query SIEM",
+    "configuration": [
+      {
+        "agent_name": "siem",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "a2249ea5-dc82-4448-bf64-b4e23b5a1fb8"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "fortisoar-data-access",
+    "label": "FortiSOAR Data Access",
+    "configuration": [
+      {
+        "agent_name": "fortisoar-data-access",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "c8ef6eb0-3d0e-4c5b-b98c-6d03a23148d6",
+            "2e541107-0b55-4623-b297-dfac495a863e"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "9ee4f2c8-16a9-47de-b840-30398df36123"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "itsm",
+    "label": "ITSM Context Provider",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "name": "endpoint-telemetry",
+    "label": "Query Endpoint",
+    "configuration": [],
+    "dependencies": []
+  },
+  {
+    "name": "organization-context",
+    "label": "Organization Context Provider",
+    "configuration": [
+      {
+        "agent_name": "organization-context",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10"
+        },
+        "config_id": "19aa707c-bb8d-4993-baab-7e5652c403fe"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "identity-context",
+    "label": "Indentity Context Provider",
+    "configuration": [
+      {
+        "agent_name": "identity-context",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "e24b2222-779f-4a86-a2eb-acd11d6910d8"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "asset-enrichment",
+    "label": "Asset Context Provider",
+    "configuration": [
+      {
+        "agent_name": "asset-enrichment",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "10c4a74e-ed4a-496a-8bbb-9fc176cce39a"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "connector-generation",
+    "label": "Connector Generation"
+  },
+  {
+    "name": "conversation",
+    "label": "Chat Assistant"
+  },
+  {
+    "name": "metric-computation",
+    "label": "Metric Computation",
+    "configuration": [
+      {
+        "agent_name": "metric-computation",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "config_type": "custom",
+          "llm_provider": "104e1297-5ff3-4ff2-8d8e-e8e828cc5ade",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "0375ea29-b664-46fa-8318-c41685d5af9b"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "soc-response-action",
+    "label": "SOC Response",
+    "configuration": [
+      {
+        "agent_name": "soc-response-action",
+        "name": "",
+        "default": false,
+        "config": {
+          "name": "Custom Configuration",
+          "mcp_server": [
+            "bcd2462e-ad81-4307-b9b6-664e74219c10"
+          ],
+          "config_type": "custom",
+          "llm_provider": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+          "masking_agent": "ioc-masking"
+        },
+        "config_id": "ba7e684a-06ef-44d2-8aed-f1a261496b54"
+      }
+    ],
+    "dependencies": []
+  },
+  {
+    "name": "task-planner",
+    "label": "Task Planner"
+  },
+  {
+    "name": "risk-evaluation",
+    "label": "Impact Analysis"
+  },
+  {
+    "name": "summary",
+    "label": "Summary"
+  },
+  {
+    "name": "orchestrator",
+    "label": "Orchestrator"
+  },
+  {
+    "name": "playbook-generator",
+    "label": "Playbook Generator"
+  }
+]

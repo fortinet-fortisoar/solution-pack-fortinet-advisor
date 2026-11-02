@@ -1,0 +1,17 @@
+[
+    "On Create",
+    "On Delete",
+    "On Update",
+    "Subroutine",
+    "fsr-ai",
+    "FortiAI",
+    "LLM",
+    "OpenAI",
+    "Referenced",
+    "aibot",
+    "aibot-getLLMResponse",
+    "aibot-playbookBlockSuggestion",
+    "aibot-playbookJinjaSuggestion",
+    "playbookBlockSuggestion",
+    "system"
+]

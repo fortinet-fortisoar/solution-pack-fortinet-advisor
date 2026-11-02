@@ -1,0 +1,13 @@
+{
+    "ALERTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Alerte",
+            "PLURAL_NAME": "Alertes"
+        },
+        "FIELDS": {
+            "AIVERDICT": "Verdict IA",
+            "AISUMMARY": "Résumé IA",
+            "TRIAGETASKID": "ID de tâche de triage"
+        }
+    }
+}

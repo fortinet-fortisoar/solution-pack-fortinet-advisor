@@ -1,0 +1,13 @@
+{
+    "ALERTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "告警",
+            "PLURAL_NAME": "告警"
+        },
+        "FIELDS": {
+            "AIVERDICT": "AI判定",
+            "AISUMMARY": "AI摘要",
+            "TRIAGETASKID": "分诊任务ID"
+        }
+    }
+}

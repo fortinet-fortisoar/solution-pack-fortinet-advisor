@@ -1,0 +1,16 @@
+{
+    "ORGANIZATIONAL_CONTEXTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "组织上下文",
+            "PLURAL_NAME": "组织上下文"
+        },
+        "FIELDS": {
+            "TITLE": "标题",
+            "CATEGORY": "类别",
+            "SUBCATEGORY": "子类别",
+            "DESCRIPTION": "描述",
+            "CONTENT": "内容",
+            "LLMSUMMARIZE": "LLM摘要"
+        }
+    }
+}

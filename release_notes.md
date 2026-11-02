@@ -1,45 +1,83 @@
+| Compatible Version         |
+|----------------------------|
+| FortiSOAR v8.0.1 and later |
+
 # What's New
 
-| Compatible Version |
-|:------------------:|
-|  FortiSOAR v8.0.0  |
+FortiAI `v6.1.0` adds traceability for AI agent runs, four AI agents, four MCP servers, reusable insight templates, quick prompts on module list views, and AI verdict and summary fields on the **Alert** record.
+
+> [!Important]
+> FortiAI `v6.1.0` requires FortiSOAR `v8.0.1` and later. Deployments running an earlier version of FortiSOAR must upgrade before installing or upgrading to FortiAI `v6.1.0`.
 
 ## Enhancements
 
-### Agentic AI Support
+This release includes the following enhancements.
 
-FortiAI `v6.0.0` introduces agentic AI capabilities. A coordinated set of AI agents can autonomously plan and execute multi-step investigation workflows, query external data sources, correlate records, and produce structured investigation outputs — without requiring manual prompting at each step.
+### AI Agent Traceability
 
-Refer to the individual AI agent documentation on [FortiSOAR Content Hub](https://fortisoar.contenthub.fortinet.com//list.html?contentType=ai_agent) for details.
+**AI Agent Traceability** shows every step of the agent run that produced a result. Open it from **AI Investigation Details** to review the run as an expandable list of steps, with the total number of steps and the total run time. Selecting a step shows its status, duration, input, and output, along with the model, provider, token usage, and MCP server used for that step.
 
-### AI Investigation
+For details, see [Using the AI Agent Traceability](./docs/ai-agent-traceability.md).
 
-**AI Investigation** is a new tab on the **Alert** detail page. It runs an automated investigation using a coordinated pipeline of AI agents — including hypothesis generation, investigation planning, data source querying, alert correlation, and summarization — and surfaces results directly in context.
+### AI verdict and summary on alerts
 
-### AI Insights Dashboard
+The **Alert** module now carries two AI fields that persist the outcome of an investigation:
 
-The **AI Insights** dashboard aggregates AI-generated intelligence across alerts, cases, and indicators. It is accessible via **AI** > **AI Insights** or **Dashboard** > **AI Insights** in the left navigation pane.
+- **AI Verdict**: The verdict reached for the alert. Values are **Not Investigated**, **Benign**, **Inconclusive**, **Suspicious**, **False Positive**, **Malicious**, and **Pending**.
+- **AI Summary**: The summary produced for the alert.
 
-### AI Configurations
+### Insight templates
 
-A new **AI Configurations** section is available in the FortiSOAR **Settings** menu after an administrator enables AI features. It provides centralized configuration for the following:
+Insight templates provide reusable queries for the **AI Insights** dashboard, each associated with a SOC role. Supported roles are **SOC Analyst**, **SOC Manager**, **Threat Analyst**, and **Infrastructure Admin**.
 
-- **MCP Servers**: Model Context Protocol servers that act as a communication bridge between the LLM and external tools, data sources, and APIs. Four MCP servers are configured by default: FortiSOAR Module Management, FortiSOAR Playbook Management, SOC Framework, and Utility Tools.
-- **Prompts**: Structured prompt templates used by AI agents during investigations.
-- **Organizational Context**: Predefined knowledge records that provide AI agents with organization-specific investigation procedures, risk criteria, and environment context.
-- **Insights**: Scheduled AI-generated analyses surfaced on the AI Insights dashboard.
+Manage templates from **Settings** > **AI Configurations** > **Insights**. For details, see [AI Configurations](./docs/ai-configurations.md).
+
+### Quick prompts on list views
+
+The **Alert**, **Case**, and **Indicator** modules now show quick prompts on their list views, in addition to the quick prompts shown in the AI chat window when a record is open.
+
+To change which questions appear, including the questions shown on list views, edit the `fortiai-static-questions` Key Store record. For details, see [Customizing quick prompts](./docs/advanced-usage.md#customizing-quick-prompts) in the Advanced Usage guide.
+
+### New AI agents
+
+This release adds the following AI agents:
+
+- **Orchestrator**: Interprets a natural language request that requires planning, plans the work, and runs it. The **Chat Assistant** agent decides when to call it.
+- **SOC Response Action**: Performs response and remediation actions, such as blocking an indicator or creating and updating a ticket in the connected ITSM system. It runs only as part of an Orchestrator plan.
+- **Connector Generation**: Generates a FortiSOAR connector from a natural language description and API specification.
+- **Playbook Generator**: Generates playbook content from a natural language description.
+
+For agent details, refer to the individual AI agent documentation on [FortiSOAR Content Hub](https://fortisoar.contenthub.fortinet.com/list.html?contentType=ai_agent).
+
+### New MCP servers
+
+This release adds the following MCP servers.
+
+- **FortiSOAR Module Management**: Enables AI agents to access available FortiSOAR modules, retrieve their schemas, and query records.
+- **FortiSOAR Playbook Management**: Enables AI agents to retrieve, run, and monitor FortiSOAR playbooks.
+- **SOC Framework**: Enables AI agents to perform SOC operations, such as retrieving alerts, fetching correlated alerts and indicators, enriching indicators, and hunting IOCs.
+- **Utility Tools**: Provides commonly used utility functions, such as retrieving the current date and time.
+
+### Approval before a state-changing action
+
+Orchestrator asks for approval before it runs an action that changes state, when the analyst did not ask for that action directly. The plan pauses until the request is approved or denied.
+
+### Upgrade migration
+
+A post-installation playbook migrates existing Key Store records to the Integration SDK and restructures LLM metadata during an upgrade. No manual action is required.
 
 ---
 
-### Change in LLM Provider
+## Changes
 
-The FortiSOAR AI uses the *Fortinet FortiAI* connector instead of OpenAI.
+This release includes the following changes.
 
-### Automatic IOC Masking and FortiAI Proxy
+- **Chat Assistant** agent now supports copying conversations using a copy button.
 
-Before any data is sent to Fortinet FortiAI, FortiSOAR automatically masks sensitive information — including IP addresses, MAC addresses, and usernames — using the **IOC Masking** agent. All prompts pass through the Fortinet FortiAI proxy before reaching FortiAI services.
+- **AI Assistant Utils connector removed**: The **AI Assistant Utils** connector is no longer used and is not shipped with the solution pack. FortiSOAR reaches Fortinet FortiAI through the **Fortinet FortiAI** connector.
 
-### FortiAI Installed by Default
+- **Alert escalation playbook renamed**: The **Alert - Escalate To Incident (Referenced)** playbook is renamed to **Alert - Escalate To Case (Referenced)**, to match the terminology used across FortiSOAR.
 
-The FortiAI solution pack is installed by default in FortiSOAR `v8.0.0`.
- 
+- **Voice input removed**: Voice input is no longer available. Commands that were previously issued by voice must be entered in the chat.
+
+- **File attachment removed**: The option to attach a file is no longer available. Instructions or `curl` commands must be entered in the chat.

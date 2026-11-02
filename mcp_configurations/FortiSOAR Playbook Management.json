@@ -1,0 +1,19 @@
+{
+    "uuid": "ad624cc1-5863-4bc5-8b5c-b203a9351c91",
+    "tools": [],
+    "@context": "\/api\/3\/contexts\/MCPConfiguration",
+    "@type": "MCPConfiguration",
+    "url": "https:\/\/localhost\/mcp\/playbooks\/",
+    "transport": "http",
+    "active": true,
+    "timeout": null,
+    "command": "",
+    "authentication": "{\"type\":\"FSR\"}",
+    "description": "MCP Server enables AI Agent to retrieve, execute, and monitor FortiSOAR playbooks, while also allowing playbooks to be tagged and exposed as tools. It serves as a centralized solution for managing all playbook-related operations.",
+    "name": "FortiSOAR Playbook Management",
+    "type": "internal",
+    "metadata": null,
+    "createDate": 1773559684.539464,
+    "modifyDate": 1773559684.539464,
+    "recordTags": []
+}

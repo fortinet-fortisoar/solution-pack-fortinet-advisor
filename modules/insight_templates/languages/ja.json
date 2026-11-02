@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "インサイトテンプレート",
+            "PLURAL_NAME": "インサイトテンプレート"
+        },
+        "FIELDS": {
+            "TITLE": "タイトル",
+            "QUERY": "クエリ",
+            "PLAN": "プラン",
+            "SOCROLE": "SOCロール"
+        }
+    }
+}

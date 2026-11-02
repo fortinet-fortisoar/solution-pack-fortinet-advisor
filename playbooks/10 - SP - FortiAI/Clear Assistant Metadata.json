@@ -1,0 +1,88 @@
+{
+    "@type": "Workflow",
+    "triggerLimit": null,
+    "name": "Clear Assistant Metadata",
+    "aliasName": null,
+    "tag": null,
+    "description": "Clears the assistant metadata from Integration Cache as per GenAI Type.",
+    "isActive": false,
+    "debug": false,
+    "singleRecordExecution": false,
+    "remoteExecutableFlag": false,
+    "parameters": [],
+    "synchronous": false,
+    "collection": "\/api\/3\/workflow_collections\/7fa6324f-bb48-4b6c-ad0a-738343ddd7a4",
+    "versions": [],
+    "triggerStep": "\/api\/3\/workflow_steps\/d434b906-665a-44db-8e40-98fa34a194bb",
+    "steps": [
+        {
+            "@type": "WorkflowStep",
+            "name": "Clear Assistant Metadata",
+            "description": null,
+            "arguments": {
+                "name": "AI Assistant Utils",
+                "params": {
+                    "genai_type": "OpenAI"
+                },
+                "version": "4.0.1",
+                "connector": "aiassistant-utils",
+                "operation": "clear_assistant_data",
+                "operationTitle": "Clear Assistant Data",
+                "pickFromTenant": false,
+                "step_variables": []
+            },
+            "status": null,
+            "top": "140",
+            "left": "240",
+            "stepType": "\/api\/3\/workflow_step_types\/0bfed618-0316-11e7-93ae-92361f002671",
+            "group": null,
+            "uuid": "48babc2a-31d9-4bef-9843-5b29b784f69a"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Start",
+            "description": null,
+            "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                    "input": {
+                        "params": []
+                    }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+            },
+            "status": null,
+            "top": "40",
+            "left": "40",
+            "stepType": "\/api\/3\/workflow_step_types\/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+            "group": null,
+            "uuid": "d434b906-665a-44db-8e40-98fa34a194bb"
+        }
+    ],
+    "routes": [
+        {
+            "@type": "WorkflowRoute",
+            "name": "Start -> Clear Assistant Metadata",
+            "targetStep": "\/api\/3\/workflow_steps\/48babc2a-31d9-4bef-9843-5b29b784f69a",
+            "sourceStep": "\/api\/3\/workflow_steps\/d434b906-665a-44db-8e40-98fa34a194bb",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "5f903643-97a8-46da-80d3-923983695a21"
+        }
+    ],
+    "groups": [],
+    "priority": null,
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": false,
+    "uuid": "a1d11b63-e7c5-441f-9286-1ee8276c9549",
+    "owners": [],
+    "isPrivate": false,
+    "deletedAt": null,
+    "recordTags": [
+        "FortiAI",
+        "LLM",
+        "OpenAI"
+    ]
+}

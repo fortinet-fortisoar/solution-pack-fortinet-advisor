@@ -1,0 +1,13 @@
+{
+    "ALERTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "アラート",
+            "PLURAL_NAME": "アラート"
+        },
+        "FIELDS": {
+            "AIVERDICT": "AI判定",
+            "AISUMMARY": "AI要約",
+            "TRIAGETASKID": "トリアージタスクID"
+        }
+    }
+}

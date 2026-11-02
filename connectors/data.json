@@ -1,0 +1,58 @@
+[
+    {
+        "name": "fortinet-fortiai-proxy",
+        "label": "Fortinet FortiAI",
+        "category": [
+            "LLM Provider"
+        ],
+        "description": "FortiAI Proxy is a secure intermediary that routes Chat Completions API requests through a controlled layer instead of sending them directly to the LLM provider.",
+        "publisher": "Fortinet",
+        "operation_roles": [],
+        "configurations": [
+            {
+                "id": 12,
+                "config_id": "bc2039c4-c90c-47ea-8d8f-0acfec1f108c",
+                "status": 1,
+                "name": "Low Reasoning",
+                "default": true,
+                "config": {
+                    "port": "443",
+                    "model": "AI_MODEL_MEDIUM",
+                    "verify_ssl": true,
+                    "server_address": "https:\/\/fortiai.forticloud.com",
+                    "addition_parameter_is_required": ""
+                },
+                "remote_status": [],
+                "health_status": [],
+                "connector": 30,
+                "agent": "4f7e05fa5429c34de4ec13316bd89c5b",
+                "teams": []
+            },
+            {
+                "id": 13,
+                "config_id": "fac28c47-21ce-416f-8cbb-6b6dcc3bf8e8",
+                "status": 1,
+                "name": "High Reasoning",
+                "default": false,
+                "config": {
+                    "port": "443",
+                    "model": "AI_MODEL_LARGE",
+                    "verify_ssl": true,
+                    "server_address": "https:\/\/fortiai.forticloud.com",
+                    "addition_parameter_is_required": ""
+                },
+                "remote_status": [],
+                "health_status": [],
+                "connector": 30,
+                "agent": "4f7e05fa5429c34de4ec13316bd89c5b",
+                "teams": []
+            }
+        ],
+        "dataImports": [],
+        "install_mode": "rpm",
+        "ingestionPlaybooks": {
+            "collections": [],
+            "exported_tags": []
+        }
+    }
+]

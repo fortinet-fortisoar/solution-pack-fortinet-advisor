@@ -1,0 +1,16 @@
+{
+    "INSIGHTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Insight",
+            "PLURAL_NAME": "Insights"
+        },
+        "FIELDS": {
+            "TITLE": "Title",
+            "QUERY": "Query",
+            "ACTIVE": "Active",
+            "PLANID": "Plan ID",
+            "SOCROLE": "SOC Role",
+            "SCHEDULEID": "Schedule ID"
+        }
+    }
+}

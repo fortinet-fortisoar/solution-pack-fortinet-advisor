@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Insight Template",
+            "PLURAL_NAME": "Insight Templates"
+        },
+        "FIELDS": {
+            "TITLE": "Title",
+            "QUERY": "Query",
+            "PLAN": "Plan",
+            "SOCROLE": "SOC Role"
+        }
+    }
+}

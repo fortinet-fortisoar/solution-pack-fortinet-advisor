@@ -1,0 +1,17 @@
+{
+    "@context": "\/api\/3\/contexts\/SystemViewTemplate",
+    "@type": "SystemViewTemplate",
+    "type": "form",
+    "config": {
+        "rows": []
+    },
+    "module": "insights",
+    "filters": [],
+    "isDefault": true,
+    "visible": true,
+    "viewOptions": "form",
+    "name": "Base Template",
+    "system": true,
+    "uuid": "modules-insights-form",
+    "newUuid": "bd5867ce-e15b-4170-8848-cdfa4c9fc72c"
+}
