@@ -1,0 +1,80 @@
+{
+    "@context": "\/api\/3\/contexts\/PicklistName",
+    "@id": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+    "@type": "PicklistName",
+    "name": "AI Verdict",
+    "system": false,
+    "picklists": [
+        {
+            "@id": "\/api\/3\/picklists\/210a0158-3748-47fa-81f9-e5deee715783",
+            "@type": "Picklist",
+            "itemValue": "Not Investigated",
+            "orderIndex": 0,
+            "color": "#8E98AC",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "210a0158-3748-47fa-81f9-e5deee715783"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/d6e9c3ac-527e-4891-a198-d5d2d2735b2d",
+            "@type": "Picklist",
+            "itemValue": "Benign",
+            "orderIndex": 1,
+            "color": "#16A34A",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "d6e9c3ac-527e-4891-a198-d5d2d2735b2d"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/e13187d5-b5a5-4b2b-aa8d-d39ddf1aa81e",
+            "@type": "Picklist",
+            "itemValue": "Inconclusive",
+            "orderIndex": 2,
+            "color": "#4737A5",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "e13187d5-b5a5-4b2b-aa8d-d39ddf1aa81e"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/9921088e-07dd-4689-8507-8adc44ea3e77",
+            "@type": "Picklist",
+            "itemValue": "Suspicious",
+            "orderIndex": 3,
+            "color": "#FC7A2C",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "9921088e-07dd-4689-8507-8adc44ea3e77"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/b2efcf10-37b1-4973-a97f-321b37fc48ed",
+            "@type": "Picklist",
+            "itemValue": "False Positive",
+            "orderIndex": 4,
+            "color": "#0BA5EC",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "b2efcf10-37b1-4973-a97f-321b37fc48ed"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/c17dda0b-716d-4e83-8b07-87cb953a51d6",
+            "@type": "Picklist",
+            "itemValue": "Malicious",
+            "orderIndex": 5,
+            "color": "#E44834",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "c17dda0b-716d-4e83-8b07-87cb953a51d6"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/1352d36d-e5d8-4e8f-a530-fc715b3380de",
+            "@type": "Picklist",
+            "itemValue": "Pending",
+            "orderIndex": 6,
+            "color": "#DEC11C",
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/202307a3-d0de-4816-8dae-74933df464a0",
+            "uuid": "1352d36d-e5d8-4e8f-a530-fc715b3380de"
+        }
+    ],
+    "uuid": "202307a3-d0de-4816-8dae-74933df464a0"
+}

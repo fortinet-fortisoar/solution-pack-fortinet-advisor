@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Modèle d’aperçu",
+            "PLURAL_NAME": "Modèles d’aperçu"
+        },
+        "FIELDS": {
+            "TITLE": "Titre",
+            "QUERY": "Requête",
+            "PLAN": "Plan",
+            "SOCROLE": "Rôle SOC"
+        }
+    }
+}

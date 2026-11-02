@@ -1,0 +1,670 @@
+{
+    "@context": "\/api\/3\/contexts\/PicklistName",
+    "@id": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+    "@type": "PicklistName",
+    "name": "Solution Pack Category",
+    "system": true,
+    "picklists": [
+        {
+            "@id": "\/api\/3\/picklists\/0fb52636-53a1-4300-a70b-8a9d380c47d8",
+            "@type": "Picklist",
+            "itemValue": "Analytics and SIEM",
+            "orderIndex": 1,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "0fb52636-53a1-4300-a70b-8a9d380c47d8"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/dd5398a6-bcaa-4c60-8c66-8ef140ff4a21",
+            "@type": "Picklist",
+            "itemValue": "Asset Management",
+            "orderIndex": 2,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "dd5398a6-bcaa-4c60-8c66-8ef140ff4a21"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/f2018e7c-e295-4662-9d21-7e74a23e754c",
+            "@type": "Picklist",
+            "itemValue": "Attack surface management",
+            "orderIndex": 3,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "f2018e7c-e295-4662-9d21-7e74a23e754c"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/2bf1b9b5-d34a-4d25-8517-88450feb74b2",
+            "@type": "Picklist",
+            "itemValue": "Authentication",
+            "orderIndex": 4,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "2bf1b9b5-d34a-4d25-8517-88450feb74b2"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/8d149cad-bf3e-4298-8e52-6aeff980be14",
+            "@type": "Picklist",
+            "itemValue": "Automation controller",
+            "orderIndex": 5,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "8d149cad-bf3e-4298-8e52-6aeff980be14"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/6efaf1b8-5b47-4af7-9a90-386943f3db93",
+            "@type": "Picklist",
+            "itemValue": "Case Management",
+            "orderIndex": 6,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "6efaf1b8-5b47-4af7-9a90-386943f3db93"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/d6249ded-4eaa-42ba-b848-84db84b70c55",
+            "@type": "Picklist",
+            "itemValue": "Cloud access security broker (CASB)",
+            "orderIndex": 7,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "d6249ded-4eaa-42ba-b848-84db84b70c55"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/bc7dca99-593c-4f45-a644-c2f21896e187",
+            "@type": "Picklist",
+            "itemValue": "Cloud Security",
+            "orderIndex": 8,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "bc7dca99-593c-4f45-a644-c2f21896e187"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/604e7c98-1d10-4566-b540-66a1a05344c4",
+            "@type": "Picklist",
+            "itemValue": "Communication and Coordination",
+            "orderIndex": 9,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "604e7c98-1d10-4566-b540-66a1a05344c4"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/5697b618-4107-4684-8866-806ba9e695d2",
+            "@type": "Picklist",
+            "itemValue": "Compliance and Reporting",
+            "orderIndex": 10,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "5697b618-4107-4684-8866-806ba9e695d2"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/882fc785-5c03-41f6-9af6-d37d3bb25665",
+            "@type": "Picklist",
+            "itemValue": "Compute Platform",
+            "orderIndex": 11,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "882fc785-5c03-41f6-9af6-d37d3bb25665"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/3eaaf285-075a-49a0-931f-da3ca98bfca7",
+            "@type": "Picklist",
+            "itemValue": "Computing",
+            "orderIndex": 12,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "3eaaf285-075a-49a0-931f-da3ca98bfca7"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/dbe019d8-4f7c-4faa-9187-25c1d256fb16",
+            "@type": "Picklist",
+            "itemValue": "Container Services",
+            "orderIndex": 13,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "dbe019d8-4f7c-4faa-9187-25c1d256fb16"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/455ef9d3-63f6-43a9-9467-8e0eaef6f53a",
+            "@type": "Picklist",
+            "itemValue": "Database",
+            "orderIndex": 14,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "455ef9d3-63f6-43a9-9467-8e0eaef6f53a"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/6dd6857f-1d76-4af4-a29b-ec5c84615656",
+            "@type": "Picklist",
+            "itemValue": "Deception",
+            "orderIndex": 15,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "6dd6857f-1d76-4af4-a29b-ec5c84615656"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/db89d659-ee5f-4208-bc77-98457623e009",
+            "@type": "Picklist",
+            "itemValue": "DevOps and Digital Operations",
+            "orderIndex": 16,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "db89d659-ee5f-4208-bc77-98457623e009"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/c1785b08-68dd-4545-a24b-7d85e14f8203",
+            "@type": "Picklist",
+            "itemValue": "Digital assistant",
+            "orderIndex": 17,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "c1785b08-68dd-4545-a24b-7d85e14f8203"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/9072dc10-b195-4eaa-a5e3-70cb37657348",
+            "@type": "Picklist",
+            "itemValue": "Email Gateway",
+            "orderIndex": 18,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "9072dc10-b195-4eaa-a5e3-70cb37657348"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/61f11f04-7473-468b-997c-01a252eb8525",
+            "@type": "Picklist",
+            "itemValue": "Email Security",
+            "orderIndex": 19,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "61f11f04-7473-468b-997c-01a252eb8525"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/a73c1bc2-595d-4144-bbc2-e28c7a8865fd",
+            "@type": "Picklist",
+            "itemValue": "Email Server",
+            "orderIndex": 20,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "a73c1bc2-595d-4144-bbc2-e28c7a8865fd"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/f69279ca-fe0c-4ea6-baf0-f243779637d8",
+            "@type": "Picklist",
+            "itemValue": "Endpoint Security",
+            "orderIndex": 21,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "f69279ca-fe0c-4ea6-baf0-f243779637d8"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/67a14841-001a-4fc1-93e6-a65a3ed0221c",
+            "@type": "Picklist",
+            "itemValue": "Enterprise mobility management",
+            "orderIndex": 22,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "67a14841-001a-4fc1-93e6-a65a3ed0221c"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/65597818-3e92-4669-a2f7-65c6d7eaa302",
+            "@type": "Picklist",
+            "itemValue": "Firewall and Network Protection",
+            "orderIndex": 23,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "65597818-3e92-4669-a2f7-65c6d7eaa302"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/eecca1fe-4fac-424d-9365-be62b21e9372",
+            "@type": "Picklist",
+            "itemValue": "Forensics and Malware Analysis",
+            "orderIndex": 24,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "eecca1fe-4fac-424d-9365-be62b21e9372"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/73c30973-6029-4ab4-97a8-86d49b65da4b",
+            "@type": "Picklist",
+            "itemValue": "FortiSOAR Essentials",
+            "orderIndex": 25,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "73c30973-6029-4ab4-97a8-86d49b65da4b"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/202a79e6-8ace-4b66-800d-d49afa8ba7b7",
+            "@type": "Picklist",
+            "itemValue": "Identity and Access Management",
+            "orderIndex": 26,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "202a79e6-8ace-4b66-800d-d49afa8ba7b7"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/becbba1a-b104-4c12-9f04-6463d1925f7c",
+            "@type": "Picklist",
+            "itemValue": "Insider Threat",
+            "orderIndex": 27,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "becbba1a-b104-4c12-9f04-6463d1925f7c"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/f366b1c7-4746-40a5-a66f-bcf91a2a8207",
+            "@type": "Picklist",
+            "itemValue": "OT & IoT Security",
+            "orderIndex": 28,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "f366b1c7-4746-40a5-a66f-bcf91a2a8207"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/a8d38bda-eba8-40e6-a591-c3a11fa57ad4",
+            "@type": "Picklist",
+            "itemValue": "IT Service Management",
+            "orderIndex": 29,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "a8d38bda-eba8-40e6-a591-c3a11fa57ad4"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/7118aa7b-c6f2-4896-9d6c-df3464a60742",
+            "@type": "Picklist",
+            "itemValue": "IT Services",
+            "orderIndex": 30,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "7118aa7b-c6f2-4896-9d6c-df3464a60742"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/bec66bba-19dd-4da6-9667-820f21911670",
+            "@type": "Picklist",
+            "itemValue": "Logging",
+            "orderIndex": 31,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "bec66bba-19dd-4da6-9667-820f21911670"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/36ac536a-d779-47fe-b118-e84fbd570b9b",
+            "@type": "Picklist",
+            "itemValue": "Malware Analysis",
+            "orderIndex": 32,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "36ac536a-d779-47fe-b118-e84fbd570b9b"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/46b87c50-f495-4e4f-aeec-2bbe3c968d9a",
+            "@type": "Picklist",
+            "itemValue": "Message Queueing Service",
+            "orderIndex": 33,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "46b87c50-f495-4e4f-aeec-2bbe3c968d9a"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/fe0c0163-724b-48c0-b3f1-96f3a6883556",
+            "@type": "Picklist",
+            "itemValue": "ML Service",
+            "orderIndex": 34,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "fe0c0163-724b-48c0-b3f1-96f3a6883556"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/04606b5b-71f7-4892-8263-6bfaf7475b16",
+            "@type": "Picklist",
+            "itemValue": "Monitoring",
+            "orderIndex": 35,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "04606b5b-71f7-4892-8263-6bfaf7475b16"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/c6290ce4-be98-4e49-9087-38fb1f1eb281",
+            "@type": "Picklist",
+            "itemValue": "Network Security",
+            "orderIndex": 36,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "c6290ce4-be98-4e49-9087-38fb1f1eb281"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/b93315d9-b634-4865-bc44-6d3f966ee549",
+            "@type": "Picklist",
+            "itemValue": "Query Service",
+            "orderIndex": 37,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "b93315d9-b634-4865-bc44-6d3f966ee549"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/777ea1c4-6615-4b0e-9097-66738696b3e6",
+            "@type": "Picklist",
+            "itemValue": "Security Posture Management",
+            "orderIndex": 38,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "777ea1c4-6615-4b0e-9097-66738696b3e6"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/0bdfa5b4-c458-49b3-a421-3daa24e4e482",
+            "@type": "Picklist",
+            "itemValue": "Storage",
+            "orderIndex": 39,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "0bdfa5b4-c458-49b3-a421-3daa24e4e482"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/cec487d0-ad90-410e-a2f3-7bf9da2d414c",
+            "@type": "Picklist",
+            "itemValue": "Task Management",
+            "orderIndex": 40,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "cec487d0-ad90-410e-a2f3-7bf9da2d414c"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/a332eaf4-29f5-45fb-a8d1-98e6588fc9b7",
+            "@type": "Picklist",
+            "itemValue": "Threat Detection",
+            "orderIndex": 41,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "a332eaf4-29f5-45fb-a8d1-98e6588fc9b7"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/d5412df1-7d2d-4517-b5dc-f8ecacdc182e",
+            "@type": "Picklist",
+            "itemValue": "Threat Hunting and Search",
+            "orderIndex": 42,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "d5412df1-7d2d-4517-b5dc-f8ecacdc182e"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/cfa2f776-75e2-4e5f-8377-a35d5ae2acea",
+            "@type": "Picklist",
+            "itemValue": "Threat Intelligence",
+            "orderIndex": 43,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "cfa2f776-75e2-4e5f-8377-a35d5ae2acea"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/f53d34dc-48a4-46b1-a0d3-954e80330d9f",
+            "@type": "Picklist",
+            "itemValue": "Utilities",
+            "orderIndex": 44,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "f53d34dc-48a4-46b1-a0d3-954e80330d9f"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/414a740c-05d7-48ea-8a8f-8e1e5d419c46",
+            "@type": "Picklist",
+            "itemValue": "Vulnerability and Risk Management",
+            "orderIndex": 45,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "414a740c-05d7-48ea-8a8f-8e1e5d419c46"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/323704ef-72fd-4143-a62e-3c6f10e3e1c7",
+            "@type": "Picklist",
+            "itemValue": "Web Application",
+            "orderIndex": 46,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "323704ef-72fd-4143-a62e-3c6f10e3e1c7"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/32323e02-3bf2-487e-9d08-06a70d7b8586",
+            "@type": "Picklist",
+            "itemValue": "Breach and Attack Simulation (BAS)",
+            "orderIndex": 47,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "32323e02-3bf2-487e-9d08-06a70d7b8586"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/fc694c09-0f6d-4fbc-946b-36b9aab2c6b2",
+            "@type": "Picklist",
+            "itemValue": "Ticket Management",
+            "orderIndex": 48,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "fc694c09-0f6d-4fbc-946b-36b9aab2c6b2"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/c0033521-1bcd-4d5e-a09d-a8396969035b",
+            "@type": "Picklist",
+            "itemValue": "Generative AI",
+            "orderIndex": 49,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "c0033521-1bcd-4d5e-a09d-a8396969035b"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/5c352f0a-eaef-44e1-9a50-0bf440b8926",
+            "@type": "Picklist",
+            "itemValue": "LLM",
+            "orderIndex": 50,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "5c352f0a-eaef-44e1-9a50-0bf440b8926"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/9d89472e-c31c-464a-b149-ed17e257e0d0",
+            "@type": "Picklist",
+            "itemValue": "FortiAI",
+            "orderIndex": 51,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "9d89472e-c31c-464a-b149-ed17e257e0d0"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/598fdfeb-1bbd-4284-8fd5-496005cfeaae",
+            "@type": "Picklist",
+            "itemValue": "Document Reader",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "598fdfeb-1bbd-4284-8fd5-496005cfeaae"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/4327c3b8-2275-45aa-9993-fac15412dc92",
+            "@type": "Picklist",
+            "itemValue": "Investigation",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "4327c3b8-2275-45aa-9993-fac15412dc92"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/4134d7f3-e1b7-430e-bc11-35860d842e57",
+            "@type": "Picklist",
+            "itemValue": "Data Enrichment & Threat Intelligence",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "4134d7f3-e1b7-430e-bc11-35860d842e57"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/de83e35e-36ea-498b-8460-3bd35a5c08ba",
+            "@type": "Picklist",
+            "itemValue": "IT Service",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "de83e35e-36ea-498b-8460-3bd35a5c08ba"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/99818987-11bd-4511-a54b-a51a6cf94e63",
+            "@type": "Picklist",
+            "itemValue": "Translator",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "99818987-11bd-4511-a54b-a51a6cf94e63"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/e9fa62f6-6b9d-48e6-a7af-c47d276bfaac",
+            "@type": "Picklist",
+            "itemValue": "Identity Management",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "e9fa62f6-6b9d-48e6-a7af-c47d276bfaac"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/87a74758-6b1d-47af-8b9a-6b050055dad6",
+            "@type": "Picklist",
+            "itemValue": "Endpoint Management",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "87a74758-6b1d-47af-8b9a-6b050055dad6"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/fe2febdd-2ac1-43c6-8ba5-aa0bb88e6f58",
+            "@type": "Picklist",
+            "itemValue": "Content Management",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "fe2febdd-2ac1-43c6-8ba5-aa0bb88e6f58"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/d8a2a6e6-101b-4287-9485-9524510c9b22",
+            "@type": "Picklist",
+            "itemValue": "Machine Learning",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "d8a2a6e6-101b-4287-9485-9524510c9b22"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/ed6d5af7-3c97-4885-aacb-053ae228941e",
+            "@type": "Picklist",
+            "itemValue": "Network Protection",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "ed6d5af7-3c97-4885-aacb-053ae228941e"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/38f989cb-0bd0-473c-981d-f07ecd94580b",
+            "@type": "Picklist",
+            "itemValue": "Source Code Management",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "38f989cb-0bd0-473c-981d-f07ecd94580b"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/ce5f9cea-acf3-4eb2-8b38-96d6ac4a79d6",
+            "@type": "Picklist",
+            "itemValue": "Information",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "ce5f9cea-acf3-4eb2-8b38-96d6ac4a79d6"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/dc03170b-a3f0-4f9e-9417-ec4cdf98d961",
+            "@type": "Picklist",
+            "itemValue": "Endpoint Protection",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "dc03170b-a3f0-4f9e-9417-ec4cdf98d961"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/5df9191c-3c56-48b6-94dc-4b9576af3873",
+            "@type": "Picklist",
+            "itemValue": "System Monitoring",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "5df9191c-3c56-48b6-94dc-4b9576af3873"
+        },
+        {
+            "@id": "\/api\/3\/picklists\/eb50b293-1cad-4896-ba17-69995fa5e8a4",
+            "@type": "Picklist",
+            "itemValue": "LLM Provider",
+            "orderIndex": 0,
+            "color": null,
+            "icon": null,
+            "listName": "\/api\/3\/picklist_names\/9ac56bf5-321f-4602-bbd6-e5a14338df2a",
+            "uuid": "eb50b293-1cad-4896-ba17-69995fa5e8a4"
+        }
+    ],
+    "uuid": "9ac56bf5-321f-4602-bbd6-e5a14338df2a"
+}

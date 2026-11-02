@@ -1,0 +1,16 @@
+{
+    "INSIGHTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Aperçu",
+            "PLURAL_NAME": "Aperçus"
+        },
+        "FIELDS": {
+            "TITLE": "Titre",
+            "QUERY": "Requête",
+            "ACTIVE": "Actif",
+            "PLANID": "ID du plan",
+            "SOCROLE": "Rôle SOC",
+            "SCHEDULEID": "ID du planning"
+        }
+    }
+}

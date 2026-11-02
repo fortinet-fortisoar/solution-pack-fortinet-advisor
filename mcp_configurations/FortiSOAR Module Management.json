@@ -1,0 +1,19 @@
+{
+    "@context": "\/api\/3\/contexts\/MCPConfiguration",
+    "@type": "MCPConfiguration",
+    "url": "https:\/\/localhost\/mcp\/modules\/",
+    "transport": "http",
+    "active": true,
+    "timeout": null,
+    "command": "",
+    "authentication": "{\"type\":\"FSR\"}",
+    "description": "MCP Server enables AI agents to access available FortiSOAR modules, retrieve their schemas, and query module data directly within FortiSOAR. It provides a centralized interface for managing and interacting with all module-related operations.",
+    "name": "FortiSOAR Module Management",
+    "uuid": "2e541107-0b55-4623-b297-dfac495a863e",
+    "type": "internal",
+    "tools": [],
+    "metadata": null,
+    "createDate": 1773039008.884347,
+    "modifyDate": 1773049815.032533,
+    "recordTags": []
+}

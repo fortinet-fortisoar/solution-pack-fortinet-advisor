@@ -1,0 +1,44 @@
+[
+    {
+        "@type": "LLMConfiguration",
+        "baseUrl": null,
+        "name": "Low Reasoning",
+        "provider": "fortisoar",
+        "modelName": "gpt-4.1",
+        "active": true,
+        "isDefault": true,
+        "apiKey": "default",
+        "config": {
+            "connector_name": "fortinet-fortiai-proxy",
+            "connector_config_id": "bc2039c4-c90c-47ea-8d8f-0acfec1f108c"
+        },
+        "model": null,
+        "uuid": "1bfa20df-3ca8-4b70-904c-4da36370bc10",
+        "createUser": null,
+        "createDate": null,
+        "modifyUser": null,
+        "modifyDate": null,
+        "recordTags": []
+    },
+    {
+        "@type": "LLMConfiguration",
+        "baseUrl": null,
+        "name": "High Reasoning",
+        "provider": "fortisoar",
+        "modelName": "gpt-5.4",
+        "active": true,
+        "isDefault": false,
+        "apiKey": "default",
+        "config": {
+            "connector_name": "fortinet-fortiai-proxy",
+            "connector_config_id": "fac28c47-21ce-416f-8cbb-6b6dcc3bf8e8"
+        },
+        "model": null,
+        "uuid": "104e1297-5ff3-4ff2-8d8e-e8e828cc5ade",
+        "createUser": null,
+        "createDate": null,
+        "modifyUser": null,
+        "modifyDate": null,
+        "recordTags": []
+    }
+]

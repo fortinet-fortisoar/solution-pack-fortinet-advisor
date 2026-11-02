@@ -1,0 +1,50 @@
+{
+  "@context": "\/api\/3\/contexts\/PicklistName",
+  "@id": "\/api\/3\/picklist_names\/1371f5ca-a530-49a1-a743-8d220b2ed322",
+  "@type": "PicklistName",
+  "name": "SOC Role",
+  "system": false,
+  "picklists": [
+    {
+      "@id": "\/api\/3\/picklists\/6c3b4aee-2d50-4e93-b0c4-4e2bca1d3f70",
+      "@type": "Picklist",
+      "itemValue": "SOC Analyst",
+      "orderIndex": 0,
+      "color": null,
+      "icon": null,
+      "listName": "\/api\/3\/picklist_names\/1371f5ca-a530-49a1-a743-8d220b2ed322",
+      "uuid": "6c3b4aee-2d50-4e93-b0c4-4e2bca1d3f70"
+    },
+    {
+      "@id": "\/api\/3\/picklists\/c5678e72-4527-4f96-b78c-7b128e57763d",
+      "@type": "Picklist",
+      "itemValue": "SOC Manager",
+      "orderIndex": 1,
+      "color": null,
+      "icon": null,
+      "listName": "\/api\/3\/picklist_names\/1371f5ca-a530-49a1-a743-8d220b2ed322",
+      "uuid": "c5678e72-4527-4f96-b78c-7b128e57763d"
+    },
+    {
+      "@id": "\/api\/3\/picklists\/991f21d9-525e-4160-acb5-17534a3cf8af",
+      "@type": "Picklist",
+      "itemValue": "Threat Analyst",
+      "orderIndex": 2,
+      "color": null,
+      "icon": null,
+      "listName": "\/api\/3\/picklist_names\/1371f5ca-a530-49a1-a743-8d220b2ed322",
+      "uuid": "991f21d9-525e-4160-acb5-17534a3cf8af"
+    },
+    {
+      "@id": "\/api\/3\/picklists\/a5a523cb-d598-48f3-8f33-0b4fc1d96497",
+      "@type": "Picklist",
+      "itemValue": "Infrastructure Admin",
+      "orderIndex": 6,
+      "color": null,
+      "icon": null,
+      "listName": "\/api\/3\/picklist_names\/1371f5ca-a530-49a1-a743-8d220b2ed322",
+      "uuid": "a5a523cb-d598-48f3-8f33-0b4fc1d96497"
+    }
+  ],
+  "uuid": "1371f5ca-a530-49a1-a743-8d220b2ed322"
+}

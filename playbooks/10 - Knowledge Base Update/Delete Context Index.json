@@ -1,0 +1,100 @@
+{
+    "@context": "\/api\/3\/contexts\/Workflow",
+    "@type": "Workflow",
+    "triggerLimit": null,
+    "name": "Delete Organizational Context Index",
+    "aliasName": null,
+    "tag": null,
+    "description": null,
+    "isActive": true,
+    "debug": false,
+    "singleRecordExecution": false,
+    "remoteExecutableFlag": false,
+    "parameters": [],
+    "synchronous": false,
+    "collection": "\/api\/3\/workflow_collections\/644bc15d-d5f0-48f1-860a-6e43cff751d3",
+    "versions": [],
+    "triggerStep": "\/api\/3\/workflow_steps\/e609a8ac-cb51-4a8b-8510-be65e71e6d9a",
+    "steps": [
+        {
+            "@type": "WorkflowStep",
+            "name": "Delete Index",
+            "description": null,
+            "arguments": {
+                "params": {
+                  "iri": "/api/ai/enrich/context/index/{{vars.input.records[0].uuid}}",
+                  "body": "",
+                  "method": "DELETE"
+                },
+                "version": "3.7.0",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+            },
+            "status": null,
+            "top": "167",
+            "left": "387",
+            "stepType": "\/api\/3\/workflow_step_types\/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+            "group": null,
+            "uuid": "beddd1f6-2fa3-46a3-95b5-769ef8475ec1"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Start",
+            "description": null,
+            "arguments": {
+                "resource": "organizational_contexts",
+                "resources": [
+                    "organizational_contexts"
+                ],
+                "__triggerLimit": true,
+                "step_variables": {
+                    "input": {
+                        "params": [],
+                        "records": [
+                            "{{vars.input.records[0]}}"
+                        ]
+                    }
+                },
+                "triggerOnSource": true,
+                "fieldbasedtrigger": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                },
+                "triggerOnReplicate": false
+            },
+            "status": null,
+            "top": "40",
+            "left": "40",
+            "stepType": "\/api\/3\/workflow_step_types\/ef350fda-1771-477a-8f90-16f68cd7e5cb",
+            "group": null,
+            "uuid": "e609a8ac-cb51-4a8b-8510-be65e71e6d9a"
+        }
+    ],
+    "routes": [
+        {
+            "@type": "WorkflowRoute",
+            "name": "Start -> Create Index",
+            "targetStep": "\/api\/3\/workflow_steps\/beddd1f6-2fa3-46a3-95b5-769ef8475ec1",
+            "sourceStep": "\/api\/3\/workflow_steps\/e609a8ac-cb51-4a8b-8510-be65e71e6d9a",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "69c9f24a-7c01-4b6e-b7b8-293843b7dbf4"
+        }
+    ],
+    "groups": [],
+    "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": false,
+    "uuid": "e3271647-c92a-4dfe-ba9c-41e4ae0514cd",
+    "owners": [],
+    "isPrivate": false,
+    "deletedAt": null,
+    "recordTags": [
+        "On Delete"
+    ]
+}

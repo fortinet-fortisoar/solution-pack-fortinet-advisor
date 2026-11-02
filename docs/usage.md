@@ -3,35 +3,27 @@
 
 # Usage
 
-The **FortiAI** solution pack supports the following operations via the AI Assistant bot:
+The AI Assistant bot accepts requests in natural language, from single actions to multi-step tasks. Common requests fall into the following groups.
 
-| Operation             | Description                                                                          |
-|-----------------------|--------------------------------------------------------------------------------------|
-| **Create Connector**  | Generate a connector from a natural language description and API specification.      |
-| **Generate Playbook** | Generate playbook steps or a complete playbook from a natural language description.  |
-| **Navigate Pages**    | Navigate to a specific module or record.                                             |
-| **Link Record**       | Correlate a record with another record (for example, link an indicator to an alert). |
-| **Create Record**     | Create a new record in a specified module.                                           |
-| **Update Record**     | Update fields on an existing record.                                                 |
-| **Filter Records**    | Apply conditions to filter records within a module.                                  |
-| **Block Indicator**   | Block an indicator using a configured connector.                                     |
-| **Enrich Indicator**  | Retrieve the latest reputation for an indicator.                                     |
-| **Escalate to Case**  | Escalate an alert to a case.                                                         |
-| **Setup War Room**    | Create a war room for a case.                                                        |
-| **AI Investigation**  | Run an automated AI-driven investigation from the Alert detail page.                 |
+- **Work with records**: [create](#creating-records), [update](#updating-records), [link](#linking-records), and [filter](#filtering-records) records.
+- **Respond to threats**: [block](#blocking-indicators) and [enrich](#enriching-indicators) indicators, [escalate an alert to a case](#escalating-an-alert-to-a-case), and [set up a war room](#setting-up-a-war-room).
+- **Investigate**: run [AI Investigation](#ai-investigation) on an alert, or make [requests that require planning](./advanced-usage.md#making-requests-that-require-planning).
+- **Build content**: generate [connectors](#generating-a-connector) and [playbooks](#generating-playbooks), and get help with [response plans](#building-response-plans) and [Jinja expressions](#getting-help-with-jinja-expressions).
 
-> [!NOTE]
-> All operations listed above can also be triggered using the voice input feature.
+> [!Note]
+> Restart the MCP server service after creating a new module to query records.
 
 ---
 
-## Generating a Connector
+## Generating a connector
 
 FortiAI can generate a FortiSOAR connector from natural language inputs and API specifications, producing all required connector files without manual coding.
 
 ### Procedure
 
-1. **Provide input** — In the FortiAI interface, enter a prompt that specifies:
+Use the following steps to generate a connector.
+
+1. **Provide input**: Navigate to **Content Hub** <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-chevron-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-chevron-dark.svg"><img alt=">" src="./res/icon-chevron-dark.svg"></picture> **Create**, open the AI Assistant bot, and enter a prompt that specifies:
    - The purpose of the connector.
    - The actions it must perform.
    - The associated API endpoint(s).
@@ -39,99 +31,85 @@ FortiAI can generate a FortiSOAR connector from natural language inputs and API 
    API details can be provided as:
    - `curl` commands
    - JSON request/response structures
-   - File attachments in `.json`, `.yml`, `.txt`, or `.pdf` format (maximum 100 MB per file)
 
-2. **Review generated files** — FortiAI generates the following standard connector files:
+> [!Note]
+> API specifications cannot be supplied as file attachments, such as PDF files, Swagger specifications, or Postman collections. Enter the specification in the chat instead, using `curl` commands or JSON.
+
+2. **Review generated files**: FortiAI generates the following standard connector files:
    - `info.json`
    - `connector.py`
    - `operations.py`
    - `requirements.txt` (generated only when code dependencies are present)
 
-3. **Review import** — The generated files and associated sample playbooks are bundled and the connector is automatically imported into the **Create** tab of the Content Hub. Refresh the page to view the generated connector tile.
+3. **Review import**: The generated files and associated sample playbooks are bundled and the connector is automatically imported into the **Create** tab of the Content Hub. Refresh the page to view the generated connector tile.
 
-4. **Edit the connector** — Access the connector under the **Create** tab in the Content Hub and review or modify it using the BYOC tools.
+4. **Edit the connector**: Access the connector under the **Create** tab in the Content Hub and review or modify it using the Build Your Own Connector tools.
 
-### Best Practices
+### Best practices
+
+Follow these practices for better results.
 
 - Complete the full generation flow before making any modifications to the generated files.
 - Provide clear and unambiguous API details. Well-structured inputs improve parameter extraction and output quality.
 
 For step-by-step examples, see [Example: Building a connector](./example-creating-connectors.md).
 
+> [!Note]
+> It is recommended to clear a conversation before starting a new use case. This reduces token consumption and prevents context from a previous request from influencing the new request.
+
 ---
 
-## Generating Playbooks
+## Generating playbooks
 
 FortiAI generates playbooks and playbook steps from natural language descriptions entered in the Playbook Designer.
 
-> [!TIP]
+> [!Tip]
 > Generate smaller, focused playbook blocks for easier review. Combine multiple blocks to build larger workflows.
 
 ### Procedure
 
-1. **Open Playbook Designer** — For an introduction to the Playbook Designer, refer to [Creating Playbooks](https://docs.fortinet.com/document/fortisoar/8.0.0/user-guide/103864/get-started-with-fortisoar) in the FortiSOAR User Guide.
+Use the following steps to generate a playbook.
 
-2. **Enter your requirements** — Type a natural language description in the Playbook Designer input field. For example:
+1. **Open Playbook Designer**: For an introduction to the Playbook Designer, refer to [Creating Playbooks](https://docs.fortinet.com/document/fortisoar/8.0.0/user-guide/103864/get-started-with-fortisoar) in the FortiSOAR User Guide.
+
+2. **Enter your requirements**: Describe the playbook in natural language in the Playbook Designer input field. For example:
    > *Extract Indicators from the Alert Source Data and enrich them using VirusTotal. Based upon reputation, if `malicious` update the indicator reputation to `malicious`, else if `suspicious` update the indicator reputation to `suspicious`, else update indicator reputation to `good`.*
 
-3. **Modify the outline** — Adjust the generated playbook outline as needed. For example, replace one integration with another by editing the JSON. FortiAI tolerates minor typos in connector names.
+3. **Modify the outline**: Adjust the generated playbook outline as needed. For example, replace one integration with another by editing the JSON. FortiAI tolerates minor typos in connector names.
 
-   [![FortiAI — Suggested playbook outline](./res/FortiAIPBGeneration.png)](./res/FortiAIPBGeneration.png)
+4. **Generate the playbook**: Click **Ok, Generate Playbook**.
 
-4. **Generate the playbook** — Click **Ok, Generate Playbook**.
+5. **Monitor progress**: A loading indicator is displayed while FortiAI generates the playbook steps.
 
-   > [!NOTE]
-   > If a playbook step references a connector that is not installed, FortiAI will indicate which step requires the missing connector.
+6. **Review generated steps**: The generated playbook block appears in the Playbook Designer.
 
-5. **Monitor progress** — A loading indicator is displayed while FortiAI generates the playbook steps.
+7. **Connect to main flow**: Connect the generated playbook block to the main playbook flow to complete the workflow.
 
-6. **Review generated steps** — The generated playbook block appears in the Playbook Designer. Double-click any step to inspect its configuration.
-
-   [![Reviewing a playbook step generated by FortiAI](./res/FortiAIGeneratedPb_StepReview.png)](./res/FortiAIGeneratedPb_StepReview.png)
-
-7. **Connect to main flow** — Connect the generated playbook block to the main playbook flow to complete the workflow.
-
-> [!TIP]
+> [!Tip]
 > Clear the conversation before switching to a different use case. This reduces token consumption and prevents context from one request influencing another.
 
 For step-by-step examples, see [Example: Generating Playbooks](./example-generating-playbooks.md).
 
 ---
 
-## Navigating Pages
-
-The AI Assistant bot can navigate to any module or record in FortiSOAR from a natural language command.
-
-### Commands
-
-- **Navigate to a module:**
-  > *Navigate to the Alerts module*
-
-  > *Navigate to Content Hub*
-
-- **Open a specific record:**
-  > *Open the record with ID [ALERT-ID]*
-
-  The bot returns a hyperlink to the specified record. Previous conversation messages also retain navigation links.
-
----
-
-## Providing Context
+## Providing context
 
 The bot automatically loads the context of the currently open record. You can ask questions about the open record directly without restating its details. For example:
 
 > *What is the source IP in this record?*
 
-> [!NOTE]
+> [!Note]
 > Ensure the context is current and relevant when making decisions based on bot responses.
 
 ---
 
-## Linking Records
+## Linking records
 
 The bot can correlate records with one another, such as linking an indicator to an alert or a case.
 
 ### Commands
+
+The following examples link and correlate records.
 
 - **Link a specific record:**
   > *Link indicator ID [INDICATOR-ID] to alert ID [ALERT-ID]*
@@ -139,19 +117,21 @@ The bot can correlate records with one another, such as linking an indicator to 
 - **Correlate records:**
   > *Correlate the newly detected IP [INDICATOR-ID] with [CASE-ID]*
 
-> [!TIP]
+> [!Tip]
 > Verify that linked records are contextually relevant. Accurate links improve threat analysis and reduce noise.
 
 ---
 
-## Creating Records
+## Creating records
 
 The bot can create new records in any FortiSOAR module.
 
-> [!NOTE]
+> [!Note]
 > For *Create Record* operations, the bot requires the `ID` and `UUID` of related records if they are not already present in the conversation history.
 
 ### Commands
+
+The following examples create records.
 
 - **Create a record:**
   > *Create a new case record in the Cases module*
@@ -161,19 +141,18 @@ The bot can create new records in any FortiSOAR module.
 
   If required fields are missing, the bot will prompt for the missing information.
 
-> [!NOTE]
-> On an MSSP setup, users cannot prompt the bot from a master tenant to create a record on any tenant other than *`Self`*.
-
 ---
 
-## Updating Records
+## Updating records
 
 The bot can update field values on existing records.
 
-> [!NOTE]
+> [!Note]
 > For *Update Record* operations, the bot requires the `ID` and `UUID` of the target record if not already in the conversation history.
 
 ### Commands
+
+The following examples update records.
 
 - **Update a record:**
   > *Update the case with ID [CASE-ID] with the following details: [Updated details]*
@@ -181,16 +160,18 @@ The bot can update field values on existing records.
 - **Update a specific field:**
   > *Update the alert status to "Resolved" and add a note: [Note text]*
 
-> [!WARNING]
+> [!Warning]
 > Updating a record overwrites any existing value in the specified field.
 
 ---
 
-## Filtering Records
+## Filtering records
 
 The bot applies filter conditions to records in a module and returns a hyperlink to the filtered view.
 
 ### Commands
+
+The following examples filter records.
 
 - **Filter by a single condition:**
   > *Filter alerts where severity is `high`*
@@ -198,21 +179,20 @@ The bot applies filter conditions to records in a module and returns a hyperlink
 - **Add additional conditions:**
   > *Add condition to show alerts created in the last 24 hours*
 
-> [!NOTE]
+> [!Note]
 > Filter conditions must target a single module at a time. Prompts that combine filter criteria across multiple modules (for example, cases and alerts simultaneously) are not supported.
 
-For a complete reference of filtering prompts, see:
-- [Prompts for filtering alert records](./prompts-for-filtering-alert-records.md)
-- [Prompts for filtering case records](./prompts-for-filtering-case-records.md)
-- [Prompts for filtering indicator records](./prompts-for-filtering-indicator-records.md)
+For a reference of example filtering prompts, see [Prompt examples](./prompt-examples.md).
 
 ---
 
-## Blocking Indicators
+## Blocking indicators
 
 The bot triggers a playbook to block an indicator using a configured connector.
 
 ### Commands
+
+The following examples block indicators.
 
 - **Block by IP address:**
   > *Block IP address `[IP-ADDRESS]`*
@@ -222,16 +202,18 @@ The bot triggers a playbook to block an indicator using a configured connector.
 
   If the playbook execution takes time, the bot returns a link to the playbook execution log.
 
-> [!NOTE]
+> [!Note]
 > Verify that the connector used for blocking is correctly configured before issuing a block command.
 
 ---
 
-## Enriching Indicators
+## Enriching indicators
 
 The bot retrieves the current reputation for an indicator from configured threat intelligence sources.
 
 ### Commands
+
+The following examples enrich indicators.
 
 - **Enrich by IP address:**
   > *Retrieve the reputation of IP address `[IP-ADDRESS]`*
@@ -241,11 +223,13 @@ The bot retrieves the current reputation for an indicator from configured threat
 
 ---
 
-## Escalating an Alert to a Case
+## Escalating an alert to a case
 
 The bot triggers the alert escalation playbook, which collects required details (case name, severity) before creating the case.
 
 ### Commands
+
+The following examples escalate an alert.
 
 - **Escalate an alert:**
   > *Promote alert with ID [ALERT-ID] to a case*
@@ -253,16 +237,18 @@ The bot triggers the alert escalation playbook, which collects required details 
 - **Escalate with additional context:**
   > *Escalate alert [ALERT-ID] with subject [ALERT-SUBJECT] to a case*
 
-> [!NOTE]
+> [!Note]
 > If the alert record is open, the bot presents a manual input prompt. Pending manual inputs are also accessible under **Pending Tasks** in the FortiSOAR toolbar.
 
 ---
 
-## Setting Up a War Room
+## Setting up a war room
 
 The bot creates a war room associated with a specified case.
 
 ### Commands
+
+The following examples create a war room.
 
 - **Create a war room:**
   > *Establish a war room for case [CASE-ID]*
@@ -270,35 +256,39 @@ The bot creates a war room associated with a specified case.
 - **Create with context:**
   > *Create a war room for case [CASE-ID] involving [CASE-DESCRIPTION]*
 
-> [!NOTE]
+> [!Note]
 > If the case record is open, the bot presents a manual input prompt. Pending manual inputs are also accessible under **Pending Tasks** in the FortiSOAR toolbar.
 
-> [!TIP]
+> [!Tip]
 > Keep the war room updated with the latest findings and ensure all relevant team members have access.
 
 ---
 
-## Building Response Plans
+## Building response plans
 
 The bot can generate a structured response plan framework for a security event, which can then be used as the basis for playbook creation.
 
 ### Commands
+
+The following example requests a response plan.
 
 - **Request a response plan:**
   > *Can you help me with a plan to handle a phishing attack?*
 
   FortiAI returns a structured framework (for example: identify phishing emails, isolate affected systems, notify stakeholders). Use the **Playbook Generation** option to convert the framework into executable playbook steps.
 
-> [!TIP]
+> [!Tip]
 > Review and update response plans regularly to reflect current threat intelligence and organizational requirements.
 
 ---
 
-## Getting Help with Jinja Expressions
+## Getting help with Jinja expressions
 
 FortiAI can generate or explain Jinja expressions for use in playbooks.
 
 ### Commands
+
+The following examples request Jinja expressions.
 
 - **Request an expression:**
   > *Help me create a Jinja expression to extract the IP address from the alert data*
@@ -306,18 +296,18 @@ FortiAI can generate or explain Jinja expressions for use in playbooks.
 - **Request a specific field:**
   > *I need a Jinja expression to extract the field `source_ip` from the alert*
 
-  [![FortiAI response for a Jinja query](./res/FortiAIJinja.png)](./res/FortiAIJinja.png)
-
-> [!TIP]
+> [!Tip]
 > Test Jinja expressions in a non-production playbook before deploying them.
 
 ---
 
 ## AI Investigation
 
-**AI Investigation** is a tab on the **Alert** detail page. It runs an automated, agentic investigation of the alert using a coordinated set of AI agents — without requiring manual prompting.
+**AI Investigation** is a tab on the **Alert** detail page. It runs an automated investigation of the alert using a coordinated set of AI agents, without requiring manual prompting.
 
-### Running an Investigation
+### Running an investigation
+
+Use the following steps to run an investigation.
 
 1. Open the alert you want to investigate.
 2. Click the **AI Investigation** tab.
@@ -325,7 +315,7 @@ FortiAI can generate or explain Jinja expressions for use in playbooks.
 
 The investigation runs automatically. The left pane displays progress steps such as *Enriching Alert Context*, *Executing Investigation Plan*, *Evaluating Hypothesis*, and *Generating Investigation Verdict*.
 
-### Investigation Output
+### Investigation output
 
 After the investigation completes, the view displays three sections:
 
@@ -356,33 +346,47 @@ Summarizes the overall alert classification. The Verdict section contains three 
 
 Click **Re-investigate** to rerun the investigation after making changes such as updating configurations, adding threat intelligence sources, or modifying alert data.
 
-> [!NOTE]
+> [!Note]
 > AI Investigation results depend on the AI agents installed and configured in your environment. Users must have access to AI Agents, Widgets (Usage), Alerts, and Indicators. Refer to the individual AI agent documentation for prerequisites and configuration details.
 
 ---
 
-## Contextual Questions
+## Contextual questions
 
-The AI Assistant bot maintains conversation context, loading the last 20 messages in the conversation window on login. Access the bot from any module list view or detail view, or via **AI** > **AI Agents** in the left navigation pane.
+The AI Assistant bot maintains conversation context, loading the last 20 messages in the conversation window on login. Access the bot from any module list view or detail view, or via **AI** <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-chevron-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-chevron-dark.svg"><img alt=">" src="./res/icon-chevron-dark.svg"></picture> **AI Agents** in the left navigation pane.
 
-> [!NOTE]
+> [!Note]
 > To change the message limit, edit the `messagesLimit` parameter in the `fortiai-configurations` **Key Store** record.
 
 For example, with a Dragonfly malware alert open:
 
 > *Can you provide me with more information about the Dragonfly Malware?*
 
-[![Asking a contextual question to FortiAI](./res/conversationMode.png)](./res/conversationMode.png)
+---
+
+## Module-specific quick prompts
+
+When a record is open, the AI Assistant bot displays module-specific quick prompts. Click a question to retrieve information about the open record. Quick prompts are also shown on a module's list view.
+
+For the default quick prompts configured for each module, see [`fortiai-static-questions`](./contents.md#fortiai-static-questions) in the Contents guide.
+
+For advanced usage, including prompting tips, see [Advanced Usage](./advanced-usage.md).
 
 ---
 
-## Module-Specific Preset Questions
+## Adding a response as a comment
 
-When a record is open, the AI Assistant bot displays module-specific preset questions. Click a question to retrieve information about the open record.
+Save an AI Assistant bot response to the open record as a comment, so the response stays with the record.
 
-[![Module preset questions](./res/module_questions.png)](./res/module_questions.png)
+1. Open the detail page of the record, for example an alert, a case, or an indicator.
+2. Open the AI Assistant bot and enter your request.
+3. Under the response, click **Add as comment**.
+   The response is added to the record as a comment, posted under your user name and tagged **FortiAI**.
+4. To view the comment, click **Comments** in the record header.
+   The **Workspace** panel opens on the **Comments** tab.
 
-For advanced usage, including prompting tips, see [Advanced Usage](./advanced-usage.md).
+> [!Note]
+> **Add as comment** works only on a record detail page. On a list view, clicking it has no effect.
 
 ---
 

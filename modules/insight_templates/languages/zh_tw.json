@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "洞察範本",
+            "PLURAL_NAME": "洞察範本"
+        },
+        "FIELDS": {
+            "TITLE": "標題",
+            "QUERY": "查詢",
+            "PLAN": "計劃",
+            "SOCROLE": "SOC角色"
+        }
+    }
+}

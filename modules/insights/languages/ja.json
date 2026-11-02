@@ -1,0 +1,16 @@
+{
+    "INSIGHTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "インサイト",
+            "PLURAL_NAME": "インサイト"
+        },
+        "FIELDS": {
+            "TITLE": "タイトル",
+            "QUERY": "クエリ",
+            "ACTIVE": "有効",
+            "PLANID": "プランID",
+            "SOCROLE": "SOCロール",
+            "SCHEDULEID": "スケジュールID"
+        }
+    }
+}

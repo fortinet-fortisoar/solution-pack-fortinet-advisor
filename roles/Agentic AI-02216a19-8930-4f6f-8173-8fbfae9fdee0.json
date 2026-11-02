@@ -1,0 +1,130 @@
+{
+    "@context": "\/api\/3\/contexts\/Role",
+    "@id": "\/api\/3\/roles\/02216a19-8930-4f6f-8173-8fbfae9fdee0",
+    "@type": "Role",
+    "description": "Manages required permission for Agentic AI",
+    "name": "Agentic AI",
+    "modulePermissions": {
+        "0": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "organizational_contexts"
+        },
+        "1": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "ai_agents"
+        },
+        "5": {
+            "@type": "ModulePermission",
+            "canCreate": false,
+            "canExecute": false,
+            "canRead": true,
+            "canUpdate": false,
+            "canDelete": false,
+            "fieldPermissions": [],
+            "module": "application"
+        },
+        "29": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "prompts"
+        },
+        "43": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "alerts"
+        },
+        "45": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "insights"
+        },
+        "46": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "insight_templates"
+        },
+        "47": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "llm_configurations"
+        },
+        "48": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "mcp_configurations"
+        },
+        "65": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": false,
+            "fieldPermissions": [],
+            "module": "llm_activity_logs"
+        },
+        "27": {
+            "@type": "ModulePermission",
+            "canCreate": true,
+            "canExecute": true,
+            "canRead": true,
+            "canUpdate": true,
+            "canDelete": true,
+            "fieldPermissions": [],
+            "module": "widgets"
+        },
+        "34": {
+            "@type": "ModulePermission",
+            "canCreate": false,
+            "canExecute": false,
+            "canRead": true,
+            "canUpdate": false,
+            "canDelete": false,
+            "fieldPermissions": [],
+            "module": "security"
+        }
+    },
+    "uuid": "02216a19-8930-4f6f-8173-8fbfae9fdee0"
+}

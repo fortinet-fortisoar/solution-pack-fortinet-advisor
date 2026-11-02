@@ -1,0 +1,11 @@
+{
+    "@context": "\/api\/3\/contexts\/WorkflowCollection",
+    "@type": "WorkflowCollection",
+    "name": "10 - Knowledge Base Update",
+    "description": null,
+    "visible": true,
+    "image": null,
+    "uuid": "644bc15d-d5f0-48f1-860a-6e43cff751d3",
+    "deletedAt": null,
+    "recordTags": []
+}

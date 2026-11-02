@@ -1,0 +1,21 @@
+[
+    {
+        "@type": "Attachment",
+        "name": "FortiAI - SOC Assistant Instructions",
+        "description": "Contains the set of instructions of which SOC Assistant will get created\/updated",
+        "file": "\/api\/3\/files\/35366274-37ce-421b-a953-9d6132081ee2",
+        "type": "\/api\/3\/picklists\/9ad4871c-ef9a-4e44-a0e7-cc320041ad6f",
+        "uuid": "d579c48e-2745-4d09-9db2-e97301272d94",
+        "createUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
+        "createDate": 1721025583.442573,
+        "modifyUser": "\/api\/3\/people\/3451141c-bac6-467c-8d72-85e0fab569ce",
+        "modifyDate": 1738044829.12241,
+        "recordTags": [
+            "aibot",
+            "FortiAI",
+            "openai",
+            "soc_assistant"
+        ],
+        "assignee": ""
+    }
+]

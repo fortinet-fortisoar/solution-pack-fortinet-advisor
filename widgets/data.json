@@ -1,0 +1,32 @@
+[
+    {
+        "name": "insightCards",
+        "title": "Insight Cards",
+        "install_mode": "rpm"
+    },
+    {
+        "name": "aiAssistant",
+        "title": "AI Assistant",
+        "install_mode": "rpm"
+    },
+    {
+        "name": "agenticAIConfiguration",
+        "title": "AI Configuration",
+        "install_mode": "rpm"
+    },
+    {
+        "name": "aiInvestigationDetails",
+        "title": "AI Investigation Details",
+        "install_mode": "rpm"
+    },
+    {
+        "name": "aiInvestigationOverview",
+        "title": "AI Investigation Overview",
+        "install_mode": "rpm"
+    },
+    {
+        "name": "aiAgentTraceability",
+        "title": "AI Agent Traceability",
+        "install_mode": "rpm"
+    }
+]

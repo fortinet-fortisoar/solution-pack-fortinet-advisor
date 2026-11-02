@@ -1,0 +1,13 @@
+{
+    "@context": "\/api\/3\/contexts\/File",
+    "@type": "File",
+    "uuid": "35366274-37ce-421b-a953-9d6132081ee2",
+    "assignee": "",
+    "id": "35366274-37ce-421b-a953-9d6132081ee2",
+    "filename": "SOC Assistant Instruction.txt",
+    "mimeType": "text\/plain",
+    "uploadDate": 1721313020.584312,
+    "size": 4552,
+    "thumbnail": null,
+    "metadata": []
+}

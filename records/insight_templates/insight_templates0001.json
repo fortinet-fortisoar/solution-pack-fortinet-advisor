@@ -1,0 +1,2835 @@
+[
+    {
+        "@type": "InsightTemplate",
+        "title": "High Risk Active Alerts",
+        "query": "What alerts are active right now, and which one could hurt us the most?",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve Active Alerts",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "Fetch all active alerts from the FortiSOAR system.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Instruction to retrieve active alerts.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather a list of all active alerts for further analysis.",
+                    "step_id": "step1",
+                    "description": "Fetch all alerts that are currently active from the FortiSOAR system.",
+                    "natural_language_task": "Fetch all active alerts from the FortiSOAR system."
+                },
+                {
+                    "agent": "risk-evaluation",
+                    "title": "Evaluate Alert Impact",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "List of active alerts to be evaluated for impact.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To determine the potential impact of each alert to prioritize them effectively.",
+                    "step_id": "step2",
+                    "description": "Assess the potential impact of each active alert based on severity, critical asset involvement, and malicious indicators.",
+                    "natural_language_task": "Evaluate the potential impact of each active alert based on severity, critical asset involvement, and malicious indicators."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Identify Highest Impact Alert",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Impact evaluation results of active alerts.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To identify the alert that poses the greatest risk to the organization.",
+                    "step_id": "step3",
+                    "description": "Determine which active alert has the highest potential impact on the organization.",
+                    "natural_language_task": "Identify the alert with the highest potential impact from the evaluated alerts."
+                }
+            ],
+            "entities":  [
+                "Alert.status",
+                "Alert.severity",
+                "Alert.indicators",
+                "Alert.assets"
+              ],
+            "objective": "Identify all active alerts and determine which one poses the highest potential impact to the organization.",
+            "feasibility": {
+                "reason": "The task can be completed using available agents to retrieve active alerts and evaluate their impact based on severity, critical asset involvement, and malicious indicators.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify all active alerts.",
+                "Evaluate the potential impact of each active alert.",
+                "Determine which active alert has the highest potential impact."
+            ],
+            "intent_interpretation": "The user wants to identify currently active alerts and assess which one poses the greatest risk to the organization."
+        },
+        "socrole": "SOC Analyst",
+        "uuid": "998a8164-680a-4552-a9ce-c8347a62c87e",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "24-hours Activity",
+        "query": "Summarize past 24 hours activity",
+        "plan": {
+            "steps": [
+                {
+                  "step_id": "1",
+                  "title": "Retrieve Cases from the Past 24 Hours",
+                  "description": "Gather all cases recorded within the last 24 hours.",
+                  "agent": "fortisoar-data-access",
+                  "purpose": "Collect timely case data to understand recent security events.",
+                  "natural_language_task": "Retrieve cases created in the past 24 hours.",
+                  "inputs": [
+                    {
+                      "type": "text",
+                      "value": "incident createDate",
+                      "knowledge": {
+                        "description": "Time of case creation",
+                        "role": "filter",
+                        "fields": null,
+                        "units": "milliseconds",
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": "Used to filter incidents and alerts from the past 24 hours.",
+                        "policy_mapping": null
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step_id": "2",
+                  "title": "Retrieve Alerts from the Past 24 Hours",
+                  "description": "Gather all alerts recorded within the last 24 hours.",
+                  "agent": "fortisoar-data-access",
+                  "purpose": "Collect recent alert data to understand potential security anomalies.",
+                  "natural_language_task": "Retrieve alerts created in the past 24 hours.",
+                  "inputs": [
+                    {
+                      "type": "text",
+                      "value": "alert createDate",
+                      "knowledge": {
+                        "description": "Time of alert creation",
+                        "role": "filter",
+                        "fields": null,
+                        "units": "milliseconds",
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": "Used to filter alerts occurring within the last 24 hours.",
+                        "policy_mapping": null
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step_id": "3",
+                  "title": "Assess Impact of Cases and Alerts",
+                  "description": "Evaluate cases and alerts for impact based on severity and involvement of critical assets.",
+                  "agent": "metric-computation",
+                  "purpose": "Understand the threat and impact level from recent security events.",
+                  "natural_language_task": "Assess impact based on severity, critical asset involvement, and malicious indicators of collected cases and alerts.",
+                  "inputs": [
+                    {
+                      "type": "step_output",
+                      "value": {
+                        "step_id": "1"
+                      },
+                      "knowledge": {
+                        "description": "Data on recently recorded cases.",
+                        "role": "produced_data",
+                        "fields": null,
+                        "units": null,
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": null,
+                        "policy_mapping": null
+                      }
+                    },
+                    {
+                      "type": "step_output",
+                      "value": {
+                        "step_id": "2"
+                      },
+                      "knowledge": {
+                        "description": "Data on recently recorded alerts.",
+                        "role": "produced_data",
+                        "fields": null,
+                        "units": null,
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": null,
+                        "policy_mapping": null
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step_id": "4",
+                  "title": "Evaluate Risk from Cases and Alerts",
+                  "description": "Determine the risk level of identified security activities.",
+                  "agent": "risk-evaluation",
+                  "purpose": "Identify and prioritize high-risk activities for strategic response.",
+                  "natural_language_task": "Evaluate risk based on impact assessment, critical asset involvement, and severity of cases and alerts.",
+                  "inputs": [
+                    {
+                      "type": "step_output",
+                      "value": {
+                        "step_id": "3"
+                      },
+                      "knowledge": {
+                        "description": "Impact assessment data from recent cases and alerts.",
+                        "role": "produced_data",
+                        "fields": null,
+                        "units": null,
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": null,
+                        "policy_mapping": null
+                      }
+                    },
+                    {
+                      "type": "text",
+                      "value": "incident severity, alert severity, incident assets, alert assets",
+                      "knowledge": {
+                        "description": "Fields used to determine severity and potential risk.",
+                        "role": "input fields",
+                        "fields": null,
+                        "units": null,
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": null,
+                        "policy_mapping": null
+                      }
+                    }
+                  ]
+                },
+                {
+                  "step_id": "5",
+                  "title": "Summarize Security Activities in the Last 24 Hours",
+                  "description": "Create a concise summary of key findings and overall situation in the last 24 hours.",
+                  "agent": "summary",
+                  "purpose": "Provide SOC Management with high-level insights on recent security activities for decision-making.",
+                  "natural_language_task": "Generate a high-level summary of risk evaluation and impact of cases and alerts in the past 24 hours.",
+                  "inputs": [
+                    {
+                      "type": "step_output",
+                      "value": {
+                        "step_id": "4"
+                      },
+                      "knowledge": {
+                        "description": "Risk evaluation results from recent cases and alerts.",
+                        "role": "produced_data",
+                        "fields": null,
+                        "units": null,
+                        "calculation": null,
+                        "aggregation": null,
+                        "usage": null,
+                        "policy_mapping": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "entities": [
+                "incident createDate",
+                "alert createDate",
+                "incident severity",
+                "alert severity",
+                "incident assets",
+                "alert assets",
+                "incident indicators",
+                "alert indicators"
+              ],
+              "objective": "Summarize past 24 hours activity",
+              "feasibility": {
+                "status": "feasible",
+                "reason": "The task can be accomplished using available agents to extract relevant cases and alerts and then summarizing the risk and impact.",
+                "clarification_questions": []
+              },
+              "chain_of_thought": [
+                "Identify the scope of activities that occurred in the past 24 hours.",
+                "Evaluate the impact level of these activities on overall security posture.",
+                "Determine the risk associated with the identified activities.",
+                "Summarize the overall situation and key findings from the activities in the past 24 hours."
+              ],
+              "intent_interpretation": "Provide a high-level summary of the past 24-hour security activities, focusing on impact and risk assessments to aid in strategic decision-making."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "c33ae75a-5d61-4ac5-b848-12d72ded98ac"
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Alerts SLA Violations",
+        "query": "What is the average time to contain critical alerts, and how does this map to our service level agreements (SLAs)",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve Contained Critical Alerts",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "Retrieve all alerts with severity 'Critical' and status 'Closed'.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "This input specifies the criteria for selecting alerts that are both critical and have been contained (closed).",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the necessary data on critical alerts that have been contained.",
+                    "step_id": "step1",
+                    "description": "Identify all critical alerts that have been contained to form the dataset for analysis.",
+                    "natural_language_task": "Retrieve all alerts with severity 'Critical' and status 'Closed'."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Calculate Containment Time for Each Alert",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The dataset of critical alerts that have been contained.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "text",
+                            "value": "Calculate the containment time for each alert by subtracting the createDate from the resolvedDate.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "This instruction specifies the calculation needed to determine the containment time for each alert.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To compute the containment time for each alert, which is necessary for calculating the average.",
+                    "step_id": "step2",
+                    "description": "Determine the time taken to contain each critical alert by calculating the difference between the creation and resolution timestamps.",
+                    "natural_language_task": "Calculate the containment time for each alert by subtracting the createDate from the resolvedDate."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Compute Average Containment Time",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The containment times for each critical alert.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To determine the average containment time, which will be compared against SLAs.",
+                    "step_id": "step3",
+                    "description": "Calculate the average containment time for the critical alerts.",
+                    "natural_language_task": "Compute the average of the containment times calculated in the previous step."
+                },
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve SLA for Critical Alerts",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "Retrieve the SLA template for critical alerts, focusing on the containment time.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "This input specifies the need to retrieve SLA information related to containment time for critical alerts.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To obtain the SLA containment time for critical alerts, which will be used for comparison.",
+                    "step_id": "step4",
+                    "description": "Identify the SLA containment time for critical alerts to assess compliance.",
+                    "natural_language_task": "Retrieve the SLA template for critical alerts, focusing on the containment time."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Compare Average Containment Time Against SLA",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The average containment time for critical alerts.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "step4"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The SLA containment time for critical alerts.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To evaluate whether the average containment time meets the SLA requirements.",
+                    "step_id": "step5",
+                    "description": "Assess compliance by comparing the average containment time with the SLA containment time for critical alerts.",
+                    "natural_language_task": "Compare the average containment time from step 3 against the SLA containment time from step 4 to assess compliance."
+                }
+            ],
+            "entities": [
+              "Alert.severity",
+              "Alert.createDate",
+              "Alert.resolvedDate",
+              "SLA Template.Severity",
+              "SLA Template.Incident Response Time"
+            ],
+            "objective": "Determine the average time to contain critical alerts and assess compliance with SLAs.",
+            "feasibility": {
+                "reason": "The task can be completed using available agents to retrieve alert data, compute metrics, and compare against SLA templates.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the population of critical alerts that have been contained.",
+                "Determine the time taken to contain each critical alert within the identified population.",
+                "Calculate the average time to contain critical alerts from the determined times.",
+                "Identify the service level agreements (SLAs) related to the containment time for critical alerts.",
+                "Compare the calculated average containment time against the SLAs to assess compliance."
+            ],
+            "intent_interpretation": "The user wants to understand the average containment time for critical alerts and how it aligns with SLAs, focusing on high-level insights for decision-making."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "a0c9749d-17f9-4196-8871-9d96f914cf7b"
+    },
+    {
+    "@type": "InsightTemplate",
+    "title": "Weekly False Positive Analysis",
+    "query": "Review alerts closed as false positives during the current week to identify recurring benign patterns, improve alert fidelity, and reduce unnecessary analyst workload through enhanced detection tuning and contextual correlation.",
+    "plan": {
+      "steps": [
+        {
+          "agent": "fortisoar-data-access",
+          "title": "Retrieve Weekly Closed False Positive Alerts",
+          "inputs": [
+            {
+              "type": "text",
+              "value": "alert.closedDate, alert.closureReason",
+              "knowledge": {
+                "role": "instruction",
+                "units": "milliseconds",
+                "usage": null,
+                "fields": {
+                  "alert.closedDate": "Filter to match current week",
+                  "alert.closureReason": "Filter for false positives"
+                },
+                "aggregation": null,
+                "calculation": null,
+                "description": "Identifies alerts closed within the current week due to false positive classification.",
+                "policy_mapping": null
+              }
+            }
+          ],
+          "purpose": "To gather relevant alerts for identifying recurring false positive patterns.",
+          "step_id": "1",
+          "description": "Fetch alerts closed as false positives during the current week to create a dataset for analysis.",
+          "natural_language_task": "Retrieve all alerts closed this week with closure reason set as 'false positive'."
+        },
+        {
+          "agent": "fortisoar-data-access",
+          "title": "Classify Alerts by Type and Description",
+          "inputs": [
+            {
+              "type": "step_output",
+              "value": {
+                "path": "data",
+                "step_id": "1"
+              },
+              "knowledge": {
+                "role": "produced_data",
+                "units": null,
+                "usage": null,
+                "fields": {
+                  "alert.type": "Used for grouping alerts",
+                  "alert.description": "Used for identifying unifying characteristics"
+                },
+                "aggregation": null,
+                "calculation": "Grouping by alert type and evaluating descriptions.",
+                "description": "Data from step 1 containing alerts to be classified by type and description.",
+                "policy_mapping": null
+              }
+            }
+          ],
+          "purpose": "To classify alerts by type which will help in identifying recurring benign patterns.",
+          "step_id": "2",
+          "description": "Organize the retrieved false positive alerts based on their type and description to determine common patterns.",
+          "natural_language_task": "Classify the retrieved alerts by type and description fields."
+        },
+        {
+          "agent": "metric-computation",
+          "title": "Evaluate Patterns for Potential Tuning",
+          "inputs": [
+            {
+              "type": "step_output",
+              "value": {
+                "path": "data",
+                "step_id": "2"
+              },
+              "knowledge": {
+                "role": "produced_data",
+                "units": null,
+                "usage": null,
+                "fields": null,
+                "aggregation": null,
+                "calculation": "Determines which alert types/descriptions frequently appear as false positives.",
+                "description": "Classified alert data revealing frequency and common patterns.",
+                "policy_mapping": null
+              }
+            }
+          ],
+          "purpose": "To discover frequent false positives that suggest areas for system tuning.",
+          "step_id": "3",
+          "description": "Analyze the classified alerts for recurring patterns that suggest areas for tuning.",
+          "natural_language_task": "Identify recurring patterns across classified alerts to find potential tuning opportunities."
+        },
+        {
+          "agent": "summary",
+          "title": "Generate Recommendations for Detection Tuning",
+          "inputs": [
+            {
+              "type": "step_output",
+              "value": {
+                "path": "data",
+                "step_id": "3"
+              },
+              "knowledge": {
+                "role": "produced_data",
+                "units": null,
+                "usage": "To reduce false positives through tuning recommendations.",
+                "fields": null,
+                "aggregation": null,
+                "calculation": "Summarizes findings into actionable tuning advice.",
+                "description": "Results of pattern evaluation highlighting tuning opportunities.",
+                "policy_mapping": null
+              }
+            }
+          ],
+          "purpose": "To provide a quick, concise report on tuning opportunities to improve alert fidelity.",
+          "step_id": "4",
+          "description": "Compile results into actionable recommendations for detection tuning based on identified patterns.",
+          "natural_language_task": "Summarize identified patterns and recommend detection tuning opportunities to reduce false positives and analyst workload."
+        }
+      ],
+      "entities": [
+        "alert.closedDate",
+        "alert.closureReason",
+        "alert.type",
+        "alert.description",
+        "alert.resolutionNotes"
+      ],
+      "objective": "Review alerts closed as false positives during the current week to identify recurring benign patterns, improve alert fidelity, and reduce unnecessary analyst workload through enhanced detection tuning and contextual correlation.",
+      "feasibility": {
+        "reason": "The task can be achieved using the 'fortisoar-data-access' and 'summary' agents to retrieve relevant alerts and synthesize findings.",
+        "status": "feasible",
+        "clarification_questions": []
+      },
+      "chain_of_thought": [
+        "Identify alerts closed as false positives during the current week.",
+        "Classify these alerts by type to determine common patterns.",
+        "Evaluate alerts for recurring benign patterns indicating potential tuning opportunities.",
+        "Prioritize patterns that reduce unnecessary workload for analysts.",
+        "Make recommendations for detection tuning and alert correlation based on identified patterns."
+      ],
+      "intent_interpretation": "The user intends to analyze alerts marked as false positives during the current week to pinpoint recurring false alerts and subsequently propose tuning adjustments to improve alert accuracy."
+    },
+    "socrole": "SOC Analyst",
+    "uuid": "2509fcff-76e9-46a3-b16e-a740dfa3eac1",
+    "recordTags": []
+  },
+    {
+      "@type": "InsightTemplate",
+      "title": "Repeated Phishing Activity Against Admin User",
+      "query": "Investigate repeated phishing cases targeting the user account ‘admin’ to identify attack patterns, delivery sources, user exposure, and indicators of persistent credential-focused threat activity.",
+      "plan": {
+        "steps": [
+          {
+            "agent": "fortisoar-data-access",
+            "title": "Identify Phishing Cases Targeting 'admin'.",
+            "inputs": [
+              {
+                "type": "text",
+                "value": "phishing",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Type of cases to focus on, specifically phishing.",
+                  "policy_mapping": null
+                }
+              },
+              {
+                "type": "text",
+                "value": "admin",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Target user account for the phishing cases.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To obtain a list of phishing cases involving the 'admin' account.",
+            "step_id": "1",
+            "description": "Retrieve recent phishing cases in FortiSOAR specifically targeting the 'admin' user account.",
+            "natural_language_task": "Retrieve all phishing cases where the target user account is 'admin'."
+          },
+          {
+            "agent": "metric-computation",
+            "title": "Classify Attack Vectors in Retrieved Cases",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "1"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Phishing cases for classification of attack vectors.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To determine the common attack methods targeting 'admin'.",
+            "step_id": "2",
+            "description": "Classify and summarize attack vectors and methods used in the phishing cases identified in Step 1.",
+            "natural_language_task": "Classify and summarize attack vectors for the identified phishing cases."
+          },
+          {
+            "agent": "fortisoar-data-access",
+            "title": "Identify Delivery Sources for Phishing Attempts",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "1"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Phishing cases targeting 'admin' to determine delivery sources.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To identify the origins of phishing attacks on the 'admin'.",
+            "step_id": "3",
+            "description": "Determine and summarize the delivery sources for phishing attempts targeting the 'admin' account from the cases identified.",
+            "natural_language_task": "Identify and summarize the delivery sources for phishing cases targeting the 'admin' from the cases retrieved in Step 1."
+          },
+          {
+            "agent": "metric-computation",
+            "title": "Evaluate Exposure Level of 'admin' Account",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "1"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Phishing cases for exposure evaluation.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To determine how exposed the 'admin' account is to phishing.",
+            "step_id": "4",
+            "description": "Assess the exposure level of the 'admin' account by evaluating the frequency and impact of phishing attacks.",
+            "natural_language_task": "Compute exposure level of the 'admin' account by examining case frequencies and success rates from Step 1 data."
+          },
+          {
+            "agent": "risk-evaluation",
+            "title": "Identify Indicators of Credential-Focused Threats",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "1"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": null,
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Phishing cases for threat indicator evaluation.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To identify persistent threats to admin account credentials.",
+            "step_id": "5",
+            "description": "Analyze indicators related to the phishing attempts on 'admin' to identify any signs of persistent credential-focused threats.",
+            "natural_language_task": "Evaluate indicators of compromise and threat persistence in phishing cases affecting 'admin'."
+          }
+        ],
+        "entities": [
+          "incidentName",
+          "userAccount",
+          "attackVector",
+          "phishingAttackSources",
+          "exposureLevel",
+          "indicators"
+        ],
+        "objective": "Investigate repeated phishing cases targeting the user account ‘admin’ to identify attack patterns, delivery sources, user exposure, and indicators of persistent credential-focused threat activity.",
+        "feasibility": {
+          "reason": "The task is feasible using FortiSOAR capabilities by leveraging case and alert data related to phishing attempts targeting the 'admin' account.",
+          "status": "feasible",
+          "clarification_questions": []
+        },
+        "chain_of_thought": [
+          "Identify recent phishing cases specifically targeting the user account 'admin'.",
+          "Classify the attack vectors and methods used in the identified phishing cases.",
+          "Determine the sources of delivery for the phishing attempts targeting 'admin'.",
+          "Evaluate the exposure level of the 'admin' account to phishing attacks in terms of frequency and success rate.",
+          "Identify indicators of potential persistent credential-focused threats targeting the 'admin' account."
+        ],
+        "intent_interpretation": "The user wants to quickly validate and classify phishing cases targeting the 'admin' account, focusing on identifying attack methods, sources, exposure, and any signs of persistence, while avoiding deep dives or broad context analysis."
+      },
+      "socrole": "SOC Analyst",
+      "uuid": "96b77e15-ddb9-4683-a7e4-16a2b102abf6",
+      "recordTags": []
+    },
+    {
+      "@type": "InsightTemplate",
+      "title": "Active Assigned Alerts Prioritization",
+      "query": "Review all active alerts currently assigned to me and prioritize pending investigations by criticality, and response urgency to ensure focus on the highest-risk security events.",
+      "plan": {
+        "steps": [
+          {
+            "agent": "fortisoar-data-access",
+            "title": "Retrieve Active Alerts",
+            "inputs": [
+              {
+                "type": "text",
+                "value": "assignedTo",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": null,
+                  "usage": "Filter alerts to those assigned to the current SOC_ANALYST.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Field indicating the analyst to whom the alert is assigned.",
+                  "policy_mapping": null
+                }
+              },
+              {
+                "type": "text",
+                "value": "status",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": null,
+                  "usage": "Filter alerts to active ones, excluding those with 'Closed' status.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Field indicating the current status of an alert.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To obtain a list of all alerts that the analyst needs to prioritize.",
+            "step_id": "1",
+            "description": "Retrieve alerts currently assigned to the analyst and active in status.",
+            "natural_language_task": "Retrieve all active alerts assigned to the analyst with 'status' not marked as 'Closed'."
+          },
+          {
+            "agent": "metric-computation",
+            "title": "Classify Alerts by Criticality",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "1"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": "Provide data for classifying alerts by severity.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "List of active alerts assigned to the analyst.",
+                  "policy_mapping": null
+                }
+              },
+              {
+                "type": "text",
+                "value": "severity",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": null,
+                  "usage": "Determine importance and urgency of alerts.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Field indicating the criticality level of an alert.",
+                  "policy_mapping": "Severity classification for prioritization."
+                }
+              }
+            ],
+            "purpose": "To identify which alerts are considered high criticality and require urgent attention.",
+            "step_id": "2",
+            "description": "Classify retrieved alerts based on their severity to identify high-criticality alerts.",
+            "natural_language_task": "Classify alerts by their 'severity' to determine which are of high or critical importance."
+          },
+          {
+            "agent": "metric-computation",
+            "title": "Assess Response Urgency",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "2"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": "Evaluate response deadlines for urgency assessment.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "List of high-criticality alerts identified from previous classification.",
+                  "policy_mapping": null
+                }
+              },
+              {
+                "type": "text",
+                "value": "ackDueDate",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": "milliseconds",
+                  "usage": "Determine when alerts require acknowledgment by.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Field indicating the SLA defined acknowledgment due date for the alert.",
+                  "policy_mapping": "SLA compliance requirement."
+                }
+              },
+              {
+                "type": "text",
+                "value": "resDueDate",
+                "knowledge": {
+                  "role": "instruction",
+                  "units": "milliseconds",
+                  "usage": "Evaluate the urgency of closing high-criticality alerts.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Field indicating the deadline by which the alert should be resolved.",
+                  "policy_mapping": "SLA compliance requirement."
+                }
+              }
+            ],
+            "purpose": "To assess how urgently high-criticality alerts need to be responded to, based on SLA deadlines.",
+            "step_id": "3",
+            "description": "Determine response urgency for high-criticality alerts.",
+            "natural_language_task": "Compute response urgency for high-criticality alerts using 'ackDueDate' and 'resDueDate'."
+          },
+          {
+            "agent": "metric-computation",
+            "title": "Prioritize Alerts",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "3"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": "Determine the sequence in which alerts should be addressed.",
+                  "fields": null,
+                  "aggregation": "ordering",
+                  "calculation": null,
+                  "description": "Response urgency assessment for high-criticality alerts.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To order high-risk alerts so the analyst knows the exact sequence of addressing them based on criticality and response urgency.",
+            "step_id": "4",
+            "description": "Prioritize high-criticality alerts based on calculated urgency.",
+            "natural_language_task": "Rank high-criticality alerts by combining criticality level and response urgency metrics."
+          },
+          {
+            "agent": "summary",
+            "title": "Generate Prioritized Alert List",
+            "inputs": [
+              {
+                "type": "step_output",
+                "value": {
+                  "step_id": "4"
+                },
+                "knowledge": {
+                  "role": "produced_data",
+                  "units": null,
+                  "usage": "Inform the analyst about alerts that need immediate attention.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Prioritized list of alerts for action.",
+                  "policy_mapping": null
+                }
+              },
+              {
+                "type": "text",
+                "value": "brief overview",
+                "knowledge": {
+                  "role": "configuration",
+                  "units": null,
+                  "usage": "Ensure summary meets the analyst's need for quick overview.",
+                  "fields": null,
+                  "aggregation": null,
+                  "calculation": null,
+                  "description": "Output format specifying how detailed the summary report should be.",
+                  "policy_mapping": null
+                }
+              }
+            ],
+            "purpose": "To produce a final list for the analyst that details which alerts require immediate focus.",
+            "step_id": "5",
+            "description": "Create a list of prioritized alerts highlighting the highest-risk events.",
+            "natural_language_task": "Create a summary of prioritized high-risk alerts for immediate action by the analyst."
+          }
+        ],
+        "entities": [
+          "assignedTo",
+          "severity",
+          "ackDueDate",
+          "resDueDate",
+          "status"
+        ],
+        "objective": "Review and prioritize active alerts assigned to the analyst by criticality and response urgency for focused action on high-risk events.",
+        "feasibility": {
+          "reason": "Task can be accomplished using FortiSOAR modules and workflow capabilities.",
+          "status": "feasible",
+          "clarification_questions": []
+        },
+        "chain_of_thought": [
+          "Identify the set of all active alerts currently assigned to the analyst.",
+          "Validate and classify active alerts based on predefined criticality levels.",
+          "Determine the response urgency for each validated high-criticality alert.",
+          "Prioritize the list of alerts by a combination of criticality and response urgency.",
+          "Generate a focused list highlighting the highest-risk security events for immediate action."
+        ],
+        "intent_interpretation": "The user seeks to quickly prioritize active alerts assigned to them by assessing criticality and urgency to identify and focus on the highest-risk events."
+      },
+      "socrole": "SOC Analyst",
+      "uuid": "ce3faa58-a1a4-4371-8713-94ad11a100a0",
+      "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Weekly SLA Breach Assessment",
+        "query": "Review cases that breached SLA during the current week to identify delays in response handling, escalation inefficiencies, and process improvement opportunities impacting SOC performance.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve cases with SLA breaches during the current week",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "incident",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The module to query for cases.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "json",
+                            "value": {
+                                "filters": {
+                                    "timeFrame": "current_week",
+                                    "slaBreached": true
+                                }
+                            },
+                            "knowledge": {
+                                "role": "configuration",
+                                "units": null,
+                                "usage": null,
+                                "fields": {
+                                    "timeFrame": "Specifies the time range for the query.",
+                                    "slaBreached": "Indicates SLA breach status."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Filter to identify cases with SLA breaches during the current week.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the dataset of cases that breached SLA for further analysis.",
+                    "step_id": "1",
+                    "description": "Identify cases that breached SLA within the current week based on acknowledgment and resolution deadlines.",
+                    "natural_language_task": "Fetch all cases where SLA was breached during the current week, including details like id, severity, type, affected systems, and SLA timestamps."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Classify cases by type, severity, and affected systems",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The dataset of SLA-breached cases.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To understand the distribution and impact of SLA-breached cases.",
+                    "step_id": "2",
+                    "description": "Organize the retrieved cases into categories based on their type, severity, and affected systems.",
+                    "natural_language_task": "Classify the cases by type, severity, and affected systems."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Analyze delays in response handling",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The dataset of SLA-breached cases.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To quantify the extent of delays in response handling.",
+                    "step_id": "3",
+                    "description": "Calculate the average and maximum delays in acknowledgment and resolution for the SLA-breached cases.",
+                    "natural_language_task": "Compute the average and maximum delays in acknowledgment and resolution times for the cases."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Identify patterns in escalation inefficiencies",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The dataset of SLA-breached cases.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To identify root causes of inefficiencies in escalation processes.",
+                    "step_id": "4",
+                    "description": "Determine common factors or patterns contributing to escalation inefficiencies in the SLA-breached cases.",
+                    "natural_language_task": "Analyze the cases to identify patterns or common factors contributing to escalation inefficiencies."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Summarize process improvement opportunities",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Classified case data.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Metrics on delays in response handling.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "4"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Patterns in escalation inefficiencies.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To deliver actionable insights and recommendations for SOC management.",
+                    "step_id": "5",
+                    "description": "Provide a high-level summary of findings and suggest opportunities for process improvements to enhance SOC performance.",
+                    "natural_language_task": "Summarize the findings from the analysis and suggest process improvement opportunities."
+                }
+            ],
+            "entities": [
+                "incident.id",
+                "incident.severity",
+                "incident.createDate",
+                "incident.ackDate",
+                "incident.resDate",
+                "incident.ackDueDate",
+                "incident.resDueBy",
+                "incident.type",
+                "incident.affectedSystems"
+            ],
+            "objective": "Review cases that breached SLA during the current week to identify delays in response handling, escalation inefficiencies, and process improvement opportunities impacting SOC performance.",
+            "feasibility": {
+                "reason": "The task can be completed using FortiSOAR's case and SLA tracking capabilities, along with analytical agents for summarization and metric computation.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the cases that breached SLA during the current week.",
+                "Classify the identified cases by type, severity, and affected systems.",
+                "Evaluate the average and maximum delays in response handling for these cases.",
+                "Determine patterns or common factors contributing to escalation inefficiencies.",
+                "Summarize opportunities for process improvements to enhance SOC performance."
+            ],
+            "intent_interpretation": "The user aims to gain a high-level understanding of SLA breaches in cases, focusing on delays, inefficiencies, and improvement opportunities."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "083bf8cf-2b55-41b4-8c54-60e4383279b6",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Ransomware Indicator Mapping",
+        "query": "Review indicators associated with ransomware cases to identify common attack patterns, delivery mechanisms, lateral movement behavior, and infrastructure linked to ransomware campaigns for proactive detection and response.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve ransomware-related cases and their indicators",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "incident",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The module containing ransomware cases.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "json",
+                            "value": {
+                                "filter": {
+                                    "type": "ransomware"
+                                }
+                            },
+                            "knowledge": {
+                                "role": "configuration",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Filter to identify ransomware cases.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the foundational dataset of ransomware cases and their indicators.",
+                    "step_id": "1",
+                    "description": "Identify all cases classified as ransomware and extract their associated indicators for further analysis.",
+                    "natural_language_task": "Fetch all cases classified as ransomware along with their associated indicators."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Classify indicators by type",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data.indicators",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Indicators extracted from ransomware cases.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To structure the indicators for targeted analysis.",
+                    "step_id": "2",
+                    "description": "Organize the extracted indicators into categories such as file hashes, IP addresses, domains, and email addresses.",
+                    "natural_language_task": "Classify the indicators from the ransomware cases by their type."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Analyze attack patterns in ransomware cases",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Ransomware cases and their details.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To uncover common attack patterns in ransomware cases.",
+                    "step_id": "3",
+                    "description": "Identify recurring tactics and similarities in the attack patterns observed in the ransomware cases.",
+                    "natural_language_task": "Analyze the attack patterns observed in the ransomware cases for recurring tactics and similarities."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Determine ransomware delivery mechanisms",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Ransomware cases and their details.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To understand how ransomware is delivered to targets.",
+                    "step_id": "4",
+                    "description": "Investigate the delivery mechanisms used in the ransomware campaigns, such as phishing emails, exploit kits, or malicious downloads.",
+                    "natural_language_task": "Identify the delivery mechanisms used in the ransomware campaigns."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Investigate lateral movement techniques",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Ransomware cases and their details.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To understand the lateral movement behavior of ransomware.",
+                    "step_id": "5",
+                    "description": "Analyze the methods and tools used by ransomware to propagate within networks.",
+                    "natural_language_task": "Investigate the lateral movement techniques employed by ransomware."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Examine ransomware infrastructure",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Ransomware cases and their details.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To map the infrastructure used in ransomware campaigns.",
+                    "step_id": "6",
+                    "description": "Identify the infrastructure linked to ransomware campaigns, such as command-and-control servers and hosting services.",
+                    "natural_language_task": "Examine the infrastructure linked to ransomware campaigns."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Correlate findings to identify trends",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Classified indicators.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Attack patterns analysis.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "4"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Delivery mechanisms analysis.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "5"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Lateral movement techniques analysis.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "6"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Infrastructure analysis.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To synthesize findings and identify overarching trends.",
+                    "step_id": "7",
+                    "description": "Combine insights from previous analyses to identify commonalities and trends across ransomware cases.",
+                    "natural_language_task": "Correlate the findings from ransomware cases to identify commonalities and trends."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Develop contextual understanding of ransomware campaigns",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "7"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": null,
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Correlated findings and trends.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To provide a comprehensive understanding of ransomware campaigns.",
+                    "step_id": "8",
+                    "description": "Synthesize all findings to understand the evolution and potential future behaviors of ransomware campaigns.",
+                    "natural_language_task": "Generate a detailed report summarizing the findings on ransomware campaigns, including their evolution and potential future behaviors."
+                }
+            ],
+            "entities": [
+                "incident.id",
+                "incident.name",
+                "incident.severity",
+                "incident.indicators",
+                "indicator.type",
+                "indicator.value",
+                "indicator.reputation",
+                "indicator.createDate",
+                "indicator.relatedAlerts",
+                "indicator.relatedIncidents"
+            ],
+            "objective": "Review indicators associated with ransomware cases to identify common attack patterns, delivery mechanisms, lateral movement behavior, and infrastructure linked to ransomware campaigns for proactive detection and response.",
+            "feasibility": {
+                "reason": "The task can be executed using FortiSOAR's capabilities to analyze cases, indicators, and associated data.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the set of ransomware cases to be analyzed, including their associated indicators.",
+                "Classify the indicators by type, such as file hashes, IP addresses, domains, or email addresses.",
+                "Analyze the attack patterns observed in the ransomware cases, focusing on similarities and recurring tactics.",
+                "Determine the delivery mechanisms used in the ransomware campaigns, such as phishing emails, exploit kits, or malicious downloads.",
+                "Investigate the lateral movement techniques employed by the ransomware, including tools and methods used to propagate within networks.",
+                "Examine the infrastructure linked to the ransomware campaigns, such as command-and-control servers, hosting services, or distribution networks.",
+                "Correlate the findings to identify commonalities and trends across the ransomware cases.",
+                "Develop a contextual understanding of the ransomware campaigns, including their evolution and potential future behaviors."
+            ],
+            "intent_interpretation": "Perform a detailed analysis of ransomware-related indicators to uncover patterns, tactics, and infrastructure for proactive threat management."
+        },
+        "socrole": "Threat Analyst",
+        "uuid": "4803c03b-7b00-431e-89de-c98b5d476360",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Case-Affected Asset Monitoring",
+        "query": "Review all assets currently involved in open cases to identify impacted infrastructure, assess operational risk exposure, and prioritize stabilization.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve Open Cases and Associated Assets",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "List all incidents where status is not 'Closed' or 'Resolved', and extract corresponding assets fields for each incident.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": "Source data for establishing asset impact scope.",
+                                "fields": {
+                                    "Asset.id": "Unique asset identifier",
+                                    "Asset.name": "Asset display label",
+                                    "Incident.id": "Incident unique id",
+                                    "Incident.assets": "Linked asset identifiers\/names",
+                                    "Incident.status": "Current incident state\u2014filters for open incidents",
+                                    "Asset.configuration_state": "Current configuration or operational state of the asset"
+                                },
+                                "aggregation": "N\/A",
+                                "calculation": "N\/A",
+                                "description": "Filters cases based on open status and pulls asset linkage fields to find current infrastructure involvement.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To determine the comprehensive list of infrastructure components (assets) actively impacted by ongoing cases.",
+                    "step_id": "1",
+                    "description": "Identify all cases that are currently open and extract the set of assets linked to each open case.",
+                    "natural_language_task": "Retrieve all cases with status indicating 'open' (not closed or resolved), and extract the associated asset records for each such case including asset id, name, and configuration state."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Enumerate Impacted Infrastructure Components",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Asset scope for operational risk analysis.",
+                                "fields": {
+                                    "Asset.id": "Used to deduplicate and group impacted infrastructure",
+                                    "Asset.name": "For reporting the impacted component",
+                                    "Asset.configuration_state": "Relevant to downstream operational risk evaluation"
+                                },
+                                "aggregation": "unique, group by asset.id",
+                                "calculation": "Removes duplicates and groups by asset ID.",
+                                "description": "Takes the raw output from open case queries, focusing on asset-related fields.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To isolate the unique set of infrastructure components impacted, ensuring no duplication and revealing the current operational exposure landscape.",
+                    "step_id": "2",
+                    "description": "Parse the asset list to enumerate which infrastructure components are involved in at least one open case.",
+                    "natural_language_task": "From the list of assets extracted from open cases, enumerate unique asset IDs and map to their infrastructure component (name, configuration state)."
+                },
+                {
+                    "agent": "risk-evaluation",
+                    "title": "Assess Operational Risk Exposure per Infrastructure Component",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": null,
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Risk evaluation input dataset.",
+                                "fields": {
+                                    "Asset.id": "For correlating with incident counts\/severity",
+                                    "Asset.configuration_state": "Reference for risk scoring"
+                                },
+                                "aggregation": null,
+                                "calculation": "Asset => [{incident_severity}, {incident_count}, {configuration_state}]",
+                                "description": "Impacted asset list and their attributes, as deduplicated in the previous step. Provides the scope for risk evaluation.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Calculate risk exposure per asset.",
+                                "fields": {
+                                    "Incident.assets": "To match asset-incident linkage",
+                                    "Incident.severity": "To derive asset's maximum severity exposure"
+                                },
+                                "aggregation": "count, max",
+                                "calculation": "Aggregates incident metrics per asset",
+                                "description": "Case-level data, including linked severity, for each impacted asset; enables aggregation needed for risk calculation.",
+                                "policy_mapping": "Prioritizes assets with high-severity, multi-incident impact, or risky configuration state."
+                            }
+                        }
+                    ],
+                    "purpose": "To provide practical severity-based risk assessment guiding prioritization for stabilization, focusing on operational impact (severity, system state) rather than threat intelligence.",
+                    "step_id": "3",
+                    "description": "For each impacted asset, compute an operational risk exposure score based on case severity, asset state, and number of cases impacting the asset.",
+                    "natural_language_task": "For each unique asset, evaluate operational risk exposure using the following factors: number of open cases affecting the asset, maximum case severity, and current configuration state of the asset."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Prioritize Infrastructure Components for Stabilization",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Direct action prioritization list.",
+                                "fields": {
+                                    "Asset.id": "Infrastructure component identifier",
+                                    "operational_risk_score": "Calculated risk metric, higher = more critical",
+                                    "Asset.configuration_state": "Surfaced to support prioritization"
+                                },
+                                "aggregation": "sort, rank",
+                                "calculation": "Sorts assets by descending risk_score, prioritizes risky configurations.",
+                                "description": "Risk exposure score and configuration state for each infrastructure asset.",
+                                "policy_mapping": "Aligns with admin focus on stability and risk reduction."
+                            }
+                        }
+                    ],
+                    "purpose": "To present a practical action-oriented prioritized list of infrastructure stabilization targets using objective, system-driven risk and operational data.",
+                    "step_id": "4",
+                    "description": "Rank the impacted infrastructure assets for immediate stabilization based on operational risk exposure and configuration state.",
+                    "natural_language_task": "Sort the list of impacted infrastructure components by operational risk exposure (computed in previous step) and highlight those in non-optimal configuration states at the top of the prioritization."
+                }
+            ],
+            "entities": [
+                "Incident.id",
+                "Incident.status",
+                "Incident.assets",
+                "Incident.severity",
+                "Asset.id",
+                "Asset.name",
+                "Asset.configuration_state"
+            ],
+            "objective": "Review all assets currently involved in open cases to identify impacted infrastructure, assess operational risk exposure, and prioritize stabilization.",
+            "feasibility": {
+                "reason": "All required data\u2014open cases, associated assets, operational status, and risk exposure\u2014can be retrieved and correlated using the FortiSOAR Case module and its cross-referenced data structures, and the available analytical and risk evaluation agents.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the set of assets currently involved in open cases",
+                "Determine the impacted infrastructure components among these assets",
+                "Evaluate the operational risk exposure associated with each impacted infrastructure component",
+                "Prioritize the impacted infrastructure components for stabilization based on operational risk and configuration state"
+            ],
+            "intent_interpretation": "The user (an Infrastructure Admin) wants a practical analysis of which infrastructure assets are affected by currently open cases, an assessment of operational risk for those assets, and a prioritized list for stabilization action\u2014focusing on operational/system state, not broader threat intelligence."
+        },
+        "socrole": "Infrastructure Admin",
+        "uuid": "7a4e9d40-b887-4460-8cfb-317d2f206d04",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Analyst-Wise Pending Investigation Analysis",
+        "query": "Analyze pending investigation alerts by analyst to identify workload distribution, response bottlenecks, and opportunities for operational balancing across the SOC team.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve Pending Investigation Alerts",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "pending investigation",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": "Filter alerts by their current status.",
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "The status filter to identify alerts that are pending investigation.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the dataset of alerts that are pending investigation for further analysis.",
+                    "step_id": "1",
+                    "description": "Fetch all alerts currently in pending or investigation status.",
+                    "natural_language_task": "Retrieve all alerts where the status is 'pending or investigation'."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Classify Alerts by Assigned Analyst",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "count",
+                                "usage": "Analyze workload distribution among analysts.",
+                                "fields": {
+                                    "assignedTo": "The analyst assigned to each alert."
+                                },
+                                "aggregation": "group by",
+                                "calculation": "Group by 'assignedTo' and count alerts.",
+                                "description": "The dataset of pending alerts retrieved in the previous step.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To identify how pending alerts are distributed among analysts.",
+                    "step_id": "2",
+                    "description": "Group the retrieved alerts by the assigned analyst to understand workload distribution.",
+                    "natural_language_task": "Group the pending alerts by the 'assignedTo' field and count the number of alerts for each analyst."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Calculate Average Pending Time for Alerts",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "milliseconds",
+                                "usage": "Identify response bottlenecks.",
+                                "fields": {
+                                    "createDate": "The creation date of each alert."
+                                },
+                                "aggregation": "average",
+                                "calculation": "Average time difference between 'createDate' and current date.",
+                                "description": "The dataset of pending alerts retrieved in the first step.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To evaluate the efficiency of alert handling and identify delays.",
+                    "step_id": "3",
+                    "description": "Determine the average time alerts remain in pending status to identify response bottlenecks.",
+                    "natural_language_task": "Calculate the average time difference between the 'createDate' and the current date for all pending alerts."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Analyze Severity Distribution of Pending Alerts",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "count",
+                                "usage": "Understand risk prioritization.",
+                                "fields": {
+                                    "severity": "The severity level of each alert."
+                                },
+                                "aggregation": "group by",
+                                "calculation": "Group by 'severity' and count alerts.",
+                                "description": "The dataset of pending alerts retrieved in the first step.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To evaluate the risk profile of pending alerts based on their severity.",
+                    "step_id": "4",
+                    "description": "Assess the distribution of alert severities among pending cases to understand risk prioritization.",
+                    "natural_language_task": "Group the pending alerts by 'severity' and count the number of alerts in each severity category."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Identify Workload Imbalances",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "count",
+                                "usage": "Identify workload imbalances.",
+                                "fields": {
+                                    "count": "The number of alerts assigned to each analyst.",
+                                    "assignedTo": "The analyst assigned to each alert."
+                                },
+                                "aggregation": "comparison",
+                                "calculation": "Compare individual workloads to the average workload.",
+                                "description": "The workload distribution data grouped by analyst.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To identify opportunities for redistributing workloads among analysts.",
+                    "step_id": "5",
+                    "description": "Highlight analysts with significantly higher or lower workloads to suggest operational balancing.",
+                    "natural_language_task": "Analyze the workload distribution data to identify analysts with workloads significantly above or below the average."
+                }
+            ],
+            "entities": [
+                "alert.status",
+                "alert.assignedTo",
+                "alert.createDate",
+                "alert.severity"
+            ],
+            "objective": "Analyze pending investigation alerts by analyst to identify workload distribution, response bottlenecks, and opportunities for operational balancing across the SOC team.",
+            "feasibility": {
+                "reason": "The task can be completed using FortiSOAR's alert module and analytical capabilities to retrieve and analyze alert data.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the total number of pending investigation alerts across the SOC team.",
+                "Classify the pending alerts by assigned analyst to determine workload distribution.",
+                "Evaluate the average time alerts remain in pending status to identify potential response bottlenecks.",
+                "Assess the distribution of alert severities among pending cases to understand risk prioritization.",
+                "Identify analysts with significantly higher or lower workloads to highlight opportunities for operational balancing."
+            ],
+            "intent_interpretation": "The user seeks a high-level analysis of pending investigation alerts to understand workload distribution, identify response bottlenecks, and suggest operational balancing strategies."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "86127ac3-1bd9-43e7-a733-f0038d6befe3",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Critical Asset Targeting Analysis",
+        "query": "Analyze alerts targeting critical assets to identify high-risk attack activity, affected business-critical systems, potential compromise indicators, and escalation requirements based on asset sensitivity.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Fetch Alerts Targeting Critical Assets",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "alerts linked to assets where asset.criticality = 'critical' AND alert.status != 'Closed'",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": "Primary selection criterion",
+                                "fields": {
+                                    "alert.assets": "links alerts to associated assets",
+                                    "asset.criticality": "designates business importance"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Filters alerts to those impacting critical assets and are still active, ensuring focus on currently relevant high-sensitivity events.",
+                                "policy_mapping": "Critical asset involvement signals high organizational impact"
+                            }
+                        }
+                    ],
+                    "purpose": "Restrict the operational dataset to alerts with potential for the highest business impact.",
+                    "step_id": "1",
+                    "description": "Retrieve current alerts that are explicitly associated with assets marked as 'critical' in the asset inventory.",
+                    "natural_language_task": "Find all non-closed alerts where associated assets are classified as business-critical or critical, including alert details, severity, linked assets, and indicators."
+                },
+                {
+                    "agent": "risk-evaluation",
+                    "title": "Classify and Prioritize Alert Risk",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Risk categorization",
+                                "fields": {
+                                    "Alert.severity": "labels alert risk level",
+                                    "Indicator.reputation": "clarifies indicator threat level"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Dynamic alert set filtered for critical asset involvement",
+                                "policy_mapping": "High\/Critical severity paired with malicious indicator triggers escalation per security policy"
+                            }
+                        }
+                    ],
+                    "purpose": "Surface high-risk alerts for rapid escalation consideration, per validated organizational risk rules.",
+                    "step_id": "2",
+                    "description": "Classify the returned alerts by severity and presence of associated malicious indicators, enabling immediate risk-based triage.",
+                    "natural_language_task": "Evaluate and score each alert based on severity and presence of associated indicators classified as malicious or suspicious. Identify highest-risk alerts for prioritized response."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Extract Business-Critical Systems Affected",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Affected business system identification",
+                                "fields": {
+                                    "Asset.id": "unique business system id",
+                                    "Asset.criticality": "captures asset business value"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Risk-evaluated alert data referencing affected asset information",
+                                "policy_mapping": "Alerts targeting business-critical assets require prioritized validation"
+                            }
+                        }
+                    ],
+                    "purpose": "Inform asset owners and guide asset-centric response.",
+                    "step_id": "3",
+                    "description": "Summarize which critical assets (business systems) are affected by the open high-priority alerts for immediate situational awareness.",
+                    "natural_language_task": "List unique business-critical asset identifiers\/names impacted by alerts classified as high or critical risk from previous step."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Identify and Enumerate Compromise Indicators",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Indicator validation",
+                                "fields": {
+                                    "Indicator.value": "observable indicator",
+                                    "Indicator.reputation": "maliciousness context"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Contains alert and indicator references from prioritized high-risk population",
+                                "policy_mapping": "Presence of malicious indicators mandates further review or escalation"
+                            }
+                        }
+                    ],
+                    "purpose": "Rapidly inform the analyst about potential evidence of compromise.",
+                    "step_id": "4",
+                    "description": "Extract and list all distinct IOCs associated with these high-priority alerts to assist validation and investigation steps.",
+                    "natural_language_task": "Extract and enumerate unique indicator values and reputations (malicious\/suspicious\/unknown) linked to high-priority critical asset alerts."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Synthesize Escalation Recommendations",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": [
+                                {
+                                    "step_id": "2"
+                                },
+                                {
+                                    "step_id": "3"
+                                },
+                                {
+                                    "step_id": "4"
+                                }
+                            ],
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Escalation triage summary",
+                                "fields": {
+                                    "High-risk alert ids": "For rapid analyst reference",
+                                    "Critical asset ids\/names": "For business alignment",
+                                    "Indicator values (malicious only)": "For evidence of compromise"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Aggregates high risk alert data, asset impact information, and key indicators of compromise for escalation guidance.",
+                                "policy_mapping": "Supports incident-response policy for rapid escalation of high-impact critical asset events"
+                            }
+                        },
+                        {
+                            "type": "text",
+                            "value": "Concise SOC action briefing",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": "Action summary delivery",
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Specifies output format as a fast-digest action-oriented summary per SOC analyst preference.",
+                                "policy_mapping": "Mapping to SOC workflow for rapid handoff"
+                            }
+                        }
+                    ],
+                    "purpose": "Support real-time analyst decision on which events justify escalated response or further triage.",
+                    "step_id": "5",
+                    "description": "Produce a succinct summary indicating which alerts\/assets demand immediate escalation due to severity and asset sensitivity, including associated IOCs.",
+                    "natural_language_task": "Generate a concise action summary listing high-priority alerts, affected critical business systems, linked malicious indicators, and corresponding escalation recommendations based on asset sensitivity and risk score."
+                }
+            ],
+            "entities": [
+                "Alert.id",
+                "Alert.severity",
+                "Alert.assets",
+                "Alert.indicators",
+                "Alert.status",
+                "Asset.id",
+                "Asset.criticality",
+                "Indicator.value",
+                "Indicator.reputation"
+            ],
+            "objective": "Analyze alerts targeting critical assets to identify high-risk attack activity, affected business-critical systems, potential compromise indicators, and escalation requirements based on asset sensitivity.",
+            "feasibility": {
+                "reason": "All required data\u2014alert-to-asset correlation, alert severity, associated indicators, and asset classifications\u2014are available within FortiSOAR modules. Rapid prioritization can be supported by the available agents with minimal steps, meeting the real-time SOC Analyst's goals.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify alerts associated with critical assets",
+                "Classify alerts by risk level and relevance to attack activity",
+                "Determine which business-critical systems are affected by the alerts",
+                "Identify indicators of potential compromise within the alert population",
+                "Evaluate asset sensitivity to prioritize alerts for escalation"
+            ],
+            "intent_interpretation": "The user, a SOC_ANALYST, requires a rapid validation and prioritization of alerts which target critical business systems, focusing on risk level, threat indicators, impacted assets, and quick escalation recommendations."
+        },
+        "socrole": "SOC Analyst",
+        "uuid": "6fff37d8-1617-48b5-941e-8f5341bc6498",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Analyst Case Closure Performance Review",
+        "query": "Group analysts by case closure count for today to evaluate operational productivity, response efficiency, and overall case management performance across the SOC team.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve cases closed today",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "resolvedDate within today's date range",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": "milliseconds",
+                                "usage": "Defines the scope of incidents to analyze.",
+                                "fields": {
+                                    "resolvedDate": "Date when the incident was resolved."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Filter to identify cases resolved today.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the necessary data on cases closed today for further analysis.",
+                    "step_id": "1",
+                    "description": "Fetch all cases that were resolved today to analyze closure counts and efficiency.",
+                    "natural_language_task": "Retrieve all cases where the resolvedDate is within today's date range."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Group cases by analyst",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Provides the dataset for grouping and counting.",
+                                "fields": {
+                                    "incidentLead": "Analyst responsible for the incident.",
+                                    "resolvedDate": "Date of resolution."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Data on cases closed today.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To determine the number of cases closed by each analyst.",
+                    "step_id": "2",
+                    "description": "Organize the retrieved cases by the analyst responsible for their closure.",
+                    "natural_language_task": "Group the cases by the caseLead field and count the number of cases closed by each analyst."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Calculate average closure time per analyst",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": {
+                                    "createDate": "milliseconds",
+                                    "resolvedDate": "milliseconds"
+                                },
+                                "usage": "Used to compute average closure time.",
+                                "fields": {
+                                    "createDate": "Date when the incident was created.",
+                                    "incidentLead": "Analyst responsible for the incident.",
+                                    "resolvedDate": "Date when the incident was resolved."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Case data including creation and resolution timestamps.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To evaluate response efficiency of analysts.",
+                    "step_id": "3",
+                    "description": "Compute the average time taken by each analyst to close cases.",
+                    "natural_language_task": "Calculate the average time difference between createDate and resolvedDate for cases grouped by caseLead."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Summarize SOC team performance",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Provides productivity metrics.",
+                                "fields": {
+                                    "count": "Number of incidents closed.",
+                                    "incidentLead": "Analyst responsible for the incident."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Case closure counts per analyst.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "milliseconds",
+                                "usage": "Provides efficiency metrics.",
+                                "fields": {
+                                    "incidentLead": "Analyst responsible for the incident.",
+                                    "averageClosureTime": "Average time taken to close incidents."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Average closure times per analyst.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To provide a high-level overview of SOC team productivity and efficiency.",
+                    "step_id": "4",
+                    "description": "Generate a summary of SOC team performance based on closure counts and efficiency metrics.",
+                    "natural_language_task": "Summarize the distribution of case closure counts and average closure times per analyst, highlighting key productivity and efficiency trends."
+                }
+            ],
+            "entities": [
+                "incidentLead",
+                "resolvedDate",
+                "createDate",
+                "resDate"
+            ],
+            "objective": "Evaluate operational productivity, response efficiency, and overall case management performance across the SOC team by analyzing case closure counts for today.",
+            "feasibility": {
+                "reason": "The task can be completed using FortiSOAR's case module to retrieve and analyze closure data, and the metric-computation agent to calculate productivity and efficiency metrics.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the total number of cases closed by each analyst for today.",
+                "Evaluate the distribution of case closure counts among analysts to identify productivity trends.",
+                "Assess the average time taken to close cases by analysts to gauge response efficiency.",
+                "Summarize the overall case management performance of the SOC team based on closure counts and efficiency metrics."
+            ],
+            "intent_interpretation": "The user seeks a high-level analysis of SOC team performance based on case closure metrics for today, focusing on productivity and efficiency."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "8e850804-e4e9-486d-8ea5-17020d732c30",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Critical CVE Exposure in Production Assets",
+        "query": "Analyze assets with critical CVEs to identify vulnerable systems, assess exploitation risk, and prioritize patching and mitigation actions for high-impact security weaknesses.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve assets with critical CVEs",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "asset records with linked CVEs of severity 'Critical'",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": {
+                                    "cves": "List of critical CVEs mapped to the asset",
+                                    "asset_id": "Unique asset identifier",
+                                    "configuration": "Relevant context\/config for the asset"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Filter identifies assets with critical vulnerabilities, providing a targeted set for further operational assessment.",
+                                "policy_mapping": "Targets urgent patching according to vulnerability management policy"
+                            }
+                        }
+                    ],
+                    "purpose": "To scope the systems under the greatest immediate operational risk due to critical vulnerabilities.",
+                    "step_id": "1",
+                    "description": "Identify all asset records that are currently associated with at least one CVE marked as critical severity.",
+                    "natural_language_task": "Fetch all asset records that have linked CVE records with severity set to 'Critical'. Extract asset identifiers, associated CVE(s), and initial configuration\/context fields as available."
+                },
+                {
+                    "agent": "risk-evaluation",
+                    "title": "Assess operational and exploitation risk per asset",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Input for contextual risk computation",
+                                "fields": {
+                                    "cves": "Linked CVEs and severity",
+                                    "asset_id": "Asset identifier",
+                                    "configuration": "Exposure, operational role, and patch status"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Assets with critical CVEs and relevant configuration\/context details extracted previously.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To translate CVE criticality into operational risk by considering each asset\u2019s configuration, exposure, and business importance.",
+                    "step_id": "2",
+                    "description": "For each asset with a critical CVE, evaluate the asset\u2019s operational configuration, criticality to business, and exposure level to estimate the real-world exploitation risk.",
+                    "natural_language_task": "For each asset, assess the likelihood and impact of exploitation of the linked critical CVEs based on asset configuration (internet-facing or internal, production or non-production), operational role, and existing patch status. Prioritize high-exposure and high-criticality assets."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Prioritize patching and mitigation actions",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Basis for creating actionable remediation order",
+                                "fields": {
+                                    "asset_id": "Asset reference",
+                                    "risk_score": "Combined exploitation risk and operational impact",
+                                    "operational_criticality": "Importance to services"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Risk-assessed asset list including exploitation likelihood and system criticality.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To efficiently allocate patching and mitigation resources where they will have the highest risk reduction and minimal operational downtime.",
+                    "step_id": "3",
+                    "description": "Rank the vulnerable assets for remediation based on exploitation likelihood, operational impact, and criticality to infrastructure stability.",
+                    "natural_language_task": "From evaluated risks, create a prioritized list of assets requiring patching or mitigation, ordering by greatest risk and operational importance. Include configuration\/context to inform maintenance scheduling and downtime planning."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Produce actionable remediation summary",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "path": "data",
+                                "step_id": "3"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Direct input for engineer's operational workflow",
+                                "fields": {
+                                    "urgency": "Remediation priority",
+                                    "asset_id": "System to remediate",
+                                    "recommended_action": "Patching or alternative mitigation required"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Ordered and risk-prioritized list of assets with contextual remediation guidance.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "text",
+                            "value": "bullet-point practical summary",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": "Ensures concise report suited for immediate action",
+                                "fields": null,
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Formatting directive for clarity and directness suited to operational staff.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To provide operational engineers with a clear, practical action list to quickly stabilize and secure key infrastructure components.",
+                    "step_id": "4",
+                    "description": "Generate a concise, actionable summary of prioritized assets and corresponding patch or mitigation guidance for immediate operational remediation.",
+                    "natural_language_task": "Generate a ranked summary of vulnerable assets, indicating immediate patching\/mitigation requirements, impact notes, and suggested action order."
+                }
+            ],
+            "entities": [
+                "asset",
+                "CVE",
+                "asset configuration",
+                "severity",
+                "criticality",
+                "operational exposure",
+                "patch status"
+            ],
+            "objective": "Analyze assets with critical CVEs to identify vulnerable systems, assess exploitation risk, and prioritize patching and mitigation actions for high-impact security weaknesses.",
+            "feasibility": {
+                "reason": "All requested tasks\u2014asset-CVE linkage, configuration\/context extraction, and operational prioritization\u2014can be modeled with existing FortiSOAR modules and the available agents for record retrieval, metric computation, risk evaluation, and summary.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify assets with critical CVEs present.",
+                "Assess the operational impact of each critical vulnerability on system functionality.",
+                "Evaluate the exploitation risk for each vulnerable system based on configuration and exposure.",
+                "Prioritize assets for patching and mitigation actions based on security impact and operational importance."
+            ],
+            "intent_interpretation": "User seeks to pragmatically locate systems threatened by critical vulnerabilities, evaluate the practical exploitability and business impact based on configuration and operational context, and produce an action-oriented remediation order for patching and mitigation."
+        },
+        "socrole": "Infrastructure Admin",
+        "uuid": "a2c3b4ad-c8f4-4a57-87e5-1b11d7655c47",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "Critical Cases Opened in the Last 6 Hours",
+        "query": "Review critical cases opened within the last 6 hours to assess active threat exposure, investigation priority, response status, and immediate containment requirements.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve critical cases opened in the last 6 hours",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "Incident",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": null,
+                                "usage": null,
+                                "fields": {
+                                    "Incident": "FortiSOAR incident record type"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Specifies the FortiSOAR module for case records.",
+                                "policy_mapping": null
+                            }
+                        },
+                        {
+                            "type": "json",
+                            "value": {
+                                "fields": [
+                                    "id",
+                                    "name",
+                                    "createDate",
+                                    "severity",
+                                    "status",
+                                    "incidentLead",
+                                    "ackDueDate",
+                                    "resDueBy",
+                                    "ackDate",
+                                    "resDate",
+                                    "affectedAssets",
+                                    "indicators",
+                                    "resolvedDate"
+                                ],
+                                "filters": [
+                                    {
+                                        "field": "severity",
+                                        "value": "Critical",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "field": "createDate",
+                                        "value": "now minus 6 hours (in ms)",
+                                        "operator": "gte"
+                                    }
+                                ]
+                            },
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": {
+                                    "ackDate": "milliseconds",
+                                    "resDate": "milliseconds",
+                                    "resDueBy": "milliseconds",
+                                    "ackDueDate": "milliseconds",
+                                    "createDate": "milliseconds",
+                                    "resolvedDate": "milliseconds"
+                                },
+                                "usage": "Initial filtering and extraction for triage",
+                                "fields": {
+                                    "status": "Current workflow\/investigation state",
+                                    "ackDate": "Actual time of acknowledgment",
+                                    "resDate": "Actual time of response\/closure",
+                                    "resDueBy": "Response SLA deadline",
+                                    "severity": "Incident priority\/impact",
+                                    "ackDueDate": "Acknowledgment SLA time",
+                                    "createDate": "Incident open timestamp in ms",
+                                    "indicators": "Associated IOCs\/compound threat",
+                                    "incidentLead": "Incident assignee",
+                                    "resolvedDate": "Final resolution timestamp",
+                                    "affectedAssets": "Linked business\/critical assets"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Defines the filtering and field extraction logic to scope the query to cases of critical severity opened in the last 6 hours, pulling only fields relevant to rapid triage.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "Limit assessment scope to the most urgent and recently opened cases, focusing the investigation on high-impact, actionable cases.",
+                    "step_id": "1",
+                    "description": "Obtain all case records with severity 'Critical' and a createDate within the past 6 hours for rapid triage.",
+                    "natural_language_task": "Fetch all cases where severity = 'Critical' and createDate is within the last 6 hours; return id, name, createDate, severity, status, caseLead, ackDueDate, resDueBy, ackDate, resDate, affectedAssets, indicators, resolvedDate."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Assess active threat exposure, priority, response, and containment needs",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": null,
+                                "usage": "Primary data for rapid classification and actionability markings",
+                                "fields": {
+                                    "id": "Unique identifier for incident",
+                                    "name": "Incident label",
+                                    "status": "Workflow\/investigation state",
+                                    "ackDate": "Measured for SLA adherence",
+                                    "resDate": "Incident closure timestamp",
+                                    "resDueBy": "SLA compliance reference",
+                                    "severity": "For priority assessment",
+                                    "ackDueDate": "SLA compliance reference",
+                                    "createDate": "Creation time reference",
+                                    "indicators": "Active threat (malicious\/benign)",
+                                    "incidentLead": "Assignee for fast triage",
+                                    "resolvedDate": "Closure indicator",
+                                    "affectedAssets": "Business impact"
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Provides the filtered and parsed case records from the previous step, including all fields needed for high-level prioritization and classification.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "Synthesize a high-level status assessment and surface actionable next steps by correlating case fields for immediate SOC decision-making.",
+                    "step_id": "2",
+                    "description": "Quickly classify each case for threat exposure level, current investigation priority, SLA status, and identify any that are unresolved and may require immediate containment actions.",
+                    "natural_language_task": "For each case returned, evaluate: (a) exposure\u2014are any affected assets critical and do indicators reflect a malicious reputation? (b) investigation priority\u2014has the case been acknowledged/assigned? (c) response status\u2014compare SLA due dates to current time and state (open or resolved); (d) containment required\u2014flag cases unresolved and past response SLA, or with critical assets still affected."
+                }
+            ],
+            "entities": [
+                "Incident.id",
+                "Incident.name",
+                "Incident.createDate",
+                "Incident.severity",
+                "Incident.status",
+                "Incident.incidentLead",
+                "Incident.ackDueDate",
+                "Incident.resDueBy",
+                "Incident.ackDate",
+                "Incident.resDate",
+                "Incident.affectedAssets",
+                "Incident.indicators",
+                "Incident.resolvedDate"
+            ],
+            "objective": "Review critical cases opened within the last 6 hours to assess active threat exposure, investigation priority, response status, and immediate containment requirements.",
+            "feasibility": {
+                "reason": "All required data points and queries can be addressed through the FortiSOAR case module and related enrichment fields using available agents. No deep or historical analysis is needed.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify critical cases opened within the last 6 hours",
+                "Evaluate current threat exposure status for each case",
+                "Determine investigation priority for each case",
+                "Assess current response status for each case",
+                "Identify immediate containment requirements for each case"
+            ],
+            "intent_interpretation": "The user seeks a rapid, actionable overview of recent critical cases to validate which cases represent active threats, require urgent prioritization, and may need immediate containment\u2014with a preference for quick, summary-focused assessment steps."
+        },
+        "socrole": "SOC Analyst",
+        "uuid": "b9544968-a15f-4e91-a065-f34a54bc4452",
+        "recordTags": []
+    },
+    {
+        "@type": "InsightTemplate",
+        "title": "AI-Flagged Suspicious and Malicious Alert Analysis",
+        "query": "Review alerts classified as suspicious or malicious by AI to validate high-risk detections, identify emerging threat activity, and prioritize cases requiring immediate analyst attention.",
+        "plan": {
+            "steps": [
+                {
+                    "agent": "fortisoar-data-access",
+                    "title": "Retrieve AI-classified suspicious or malicious alerts",
+                    "inputs": [
+                        {
+                            "type": "text",
+                            "value": "Retrieve alerts where classification is 'suspicious' or 'malicious'.",
+                            "knowledge": {
+                                "role": "instruction",
+                                "units": "N\/A",
+                                "usage": "Filter alerts for analysis.",
+                                "fields": {
+                                    "classification": "AI classification of the alert."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Criteria for selecting alerts based on AI classification.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To gather the initial dataset of alerts for risk evaluation and trend analysis.",
+                    "step_id": "1",
+                    "description": "Fetch alerts classified as suspicious or malicious by AI for further analysis.",
+                    "natural_language_task": "Retrieve all alerts classified as suspicious or malicious by AI."
+                },
+                {
+                    "agent": "risk-evaluation",
+                    "title": "Evaluate risk and impact of retrieved alerts",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "N\/A",
+                                "usage": "Input for risk evaluation.",
+                                "fields": {
+                                    "severity": "Severity of the alert.",
+                                    "indicators": "Indicators associated with the alert."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Alerts retrieved in the previous step.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To determine the severity and urgency of the alerts for prioritization.",
+                    "step_id": "2",
+                    "description": "Assess the risk level and potential organizational impact of the retrieved alerts.",
+                    "natural_language_task": "Evaluate the risk and organizational impact of the retrieved alerts."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Identify patterns or trends in alert activity",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "1"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "milliseconds",
+                                "usage": "Identify temporal or categorical trends.",
+                                "fields": {
+                                    "type": "Type of alert.",
+                                    "createDate": "Timestamp of alert creation."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Alerts dataset for trend analysis.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To uncover potential emerging threats and inform prioritization.",
+                    "step_id": "3",
+                    "description": "Analyze the alerts to detect any emerging threat patterns or trends.",
+                    "natural_language_task": "Analyze the retrieved alerts for patterns or trends indicating emerging threat activity."
+                },
+                {
+                    "agent": "metric-computation",
+                    "title": "Prioritize cases based on risk and urgency",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": {
+                                "step_id": "2"
+                            },
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "N\/A",
+                                "usage": "Determine prioritization order.",
+                                "fields": {
+                                    "impact": "Potential impact of the alert.",
+                                    "riskLevel": "Assessed risk level of the alert."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Risk evaluation results from the previous step.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To ensure high-risk alerts are addressed promptly.",
+                    "step_id": "4",
+                    "description": "Rank the alerts by their assessed risk and urgency to focus analyst attention.",
+                    "natural_language_task": "Prioritize the alerts based on their risk and urgency."
+                },
+                {
+                    "agent": "summary",
+                    "title": "Summarize findings and provide high-level insights",
+                    "inputs": [
+                        {
+                            "type": "step_output",
+                            "value": [
+                                {
+                                    "step_id": "2"
+                                },
+                                {
+                                    "step_id": "3"
+                                },
+                                {
+                                    "step_id": "4"
+                                }
+                            ],
+                            "knowledge": {
+                                "role": "produced_data",
+                                "units": "N\/A",
+                                "usage": "Provide a comprehensive overview for decision-making.",
+                                "fields": {
+                                    "riskSummary": "Summary of risk levels.",
+                                    "trendAnalysis": "Identified trends in alert activity.",
+                                    "prioritization": "Ranked list of alerts."
+                                },
+                                "aggregation": null,
+                                "calculation": null,
+                                "description": "Outputs from risk evaluation, trend analysis, and prioritization.",
+                                "policy_mapping": null
+                            }
+                        }
+                    ],
+                    "purpose": "To provide the SOC manager with actionable insights for decision-making.",
+                    "step_id": "5",
+                    "description": "Generate a summary of the analysis, highlighting key risks, trends, and priorities.",
+                    "natural_language_task": "Summarize the findings from the analysis, including key risks, trends, and prioritized alerts."
+                }
+            ],
+            "entities": [
+                "alert.severity",
+                "alert.type",
+                "alert.indicators",
+                "alert.createDate",
+                "alert.assignedTo",
+                "alert.status",
+                "alert.resDate",
+                "alert.comments",
+                "indicator.reputation",
+                "indicator.type"
+            ],
+            "objective": "Review alerts classified as suspicious or malicious by AI to validate high-risk detections, identify emerging threat activity, and prioritize cases requiring immediate analyst attention.",
+            "feasibility": {
+                "reason": "The task aligns with available FortiSOAR capabilities, including alert retrieval, risk evaluation, and summarization.",
+                "status": "feasible",
+                "clarification_questions": []
+            },
+            "chain_of_thought": [
+                "Identify the set of alerts classified as suspicious or malicious by AI.",
+                "Evaluate the risk level and potential impact of these alerts on the organization.",
+                "Determine if there are patterns or trends indicating emerging threat activity.",
+                "Prioritize cases based on their assessed risk and urgency for analyst attention.",
+                "Summarize the overall situation and provide high-level insights for decision-making."
+            ],
+            "intent_interpretation": "The user seeks a high-level review of AI-classified suspicious or malicious alerts to assess risk, identify trends, and prioritize cases for action."
+        },
+        "socrole": "SOC Manager",
+        "uuid": "bc248add-ecbf-415b-966a-8bd6801a64d5",
+        "recordTags": []
+    }
+]

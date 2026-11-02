@@ -1,0 +1,99 @@
+{
+    "@type": "Workflow",
+    "triggerLimit": null,
+    "name": "Create Organizational Contexts Index",
+    "aliasName": null,
+    "tag": null,
+    "description": null,
+    "isActive": true,
+    "debug": true,
+    "singleRecordExecution": false,
+    "remoteExecutableFlag": false,
+    "parameters": [],
+    "synchronous": false,
+    "collection": "\/api\/3\/workflow_collections\/644bc15d-d5f0-48f1-860a-6e43cff751d3",
+    "versions": [],
+    "triggerStep": "\/api\/3\/workflow_steps\/97b68dc1-e7d1-422f-8b4a-91e8af211f10",
+    "steps": [
+        {
+            "@type": "WorkflowStep",
+            "name": "Create Index",
+            "description": null,
+            "arguments": {
+                "params": {
+                    "iri": "\/api\/ai\/enrich\/context\/index",
+                    "body": "{{vars.input.records[0]}}",
+                    "method": "POST"
+                },
+                "version": "3.7.0",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+            },
+            "status": null,
+            "top": "165",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+            "group": null,
+            "uuid": "aa3dda28-c24b-47c0-a035-f9a5571ed6ce"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Start",
+            "description": null,
+            "arguments": {
+                "resource": "organizational_contexts",
+                "resources": [
+                    "organizational_contexts"
+                ],
+                "__triggerLimit": true,
+                "step_variables": {
+                    "input": {
+                        "params": [],
+                        "records": [
+                            "{{vars.input.records[0]}}"
+                        ]
+                    }
+                },
+                "triggerOnSource": true,
+                "fieldbasedtrigger": {
+                    "sort": [],
+                    "limit": 30,
+                    "logic": "AND",
+                    "filters": []
+                },
+                "triggerOnReplicate": false
+            },
+            "status": null,
+            "top": "30",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/ea155646-3821-4542-9702-b246da430a8d",
+            "group": null,
+            "uuid": "97b68dc1-e7d1-422f-8b4a-91e8af211f10"
+        }
+    ],
+    "routes": [
+        {
+            "@type": "WorkflowRoute",
+            "name": "Start -> Copy of Create Index",
+            "targetStep": "\/api\/3\/workflow_steps\/aa3dda28-c24b-47c0-a035-f9a5571ed6ce",
+            "sourceStep": "\/api\/3\/workflow_steps\/97b68dc1-e7d1-422f-8b4a-91e8af211f10",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "ee157c63-2fe4-48e5-ba89-ad3ed63210ee"
+        }
+    ],
+    "groups": [],
+    "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": true,
+    "uuid": "9b0c4ae6-e1f4-40a8-9577-87e5c2ec5d2c",
+    "owners": [],
+    "isPrivate": false,
+    "deletedAt": null,
+    "recordTags": [
+        "On Create"
+    ]
+}

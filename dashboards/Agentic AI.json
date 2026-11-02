@@ -1,0 +1,33 @@
+{
+    "@context": "\/api\/3\/contexts\/Dashboard",
+    "@type": "Dashboard",
+    "isDefault": false,
+    "hidden": false,
+    "uuid": "a53641b0-f571-40ca-bd0c-ca454d699329",
+    "displayName": "AI Insights",
+    "type": "rows",
+    "templateType": "dashboard",
+    "roles": [],
+    "parentTemplateId": null,
+    "config": {
+        "rows": [
+            {
+                "columns": [
+                    {
+                        "widgets": [
+                            {
+                                "type": "insightCards-1.0.0",
+                                "config": {
+                                    "wid": "1b7577be-b092-45f3-9ea0-ff6220349481"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "wid": "1f31add8-85ae-42c8-ab86-d125f12be215"
+            }
+        ]
+    },
+    "filterArray": [],
+    "updateDate": null
+}

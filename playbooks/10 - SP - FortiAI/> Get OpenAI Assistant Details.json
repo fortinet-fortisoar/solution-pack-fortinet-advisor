@@ -1,0 +1,145 @@
+{
+    "@type": "Workflow",
+    "triggerLimit": null,
+    "name": "> Get OpenAI Assistant Details",
+    "aliasName": null,
+    "tag": null,
+    "description": "Get assistant details from openai",
+    "isActive": true,
+    "debug": true,
+    "singleRecordExecution": false,
+    "remoteExecutableFlag": false,
+    "parameters": [
+        "llm_metadata",
+        "config_name"
+    ],
+    "synchronous": false,
+    "collection": "\/api\/3\/workflow_collections\/7fa6324f-bb48-4b6c-ad0a-738343ddd7a4",
+    "versions": [],
+    "triggerStep": "\/api\/3\/workflow_steps\/f2abcb82-7ba0-437d-9f74-0790ab74f6b8",
+    "steps": [
+        {
+            "@type": "WorkflowStep",
+            "name": "Configuration",
+            "description": null,
+            "arguments": {
+                "assistant_ids": "{% set assistant_ids = {} %}{% for key, value in vars.input.params['llm_metadata']['assistant_sub_category_metadata'].items() %}{% set _ = assistant_ids.update({key: value['id']}) %}{% endfor %}{{assistant_ids}}"
+            },
+            "status": null,
+            "top": "165",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
+            "uuid": "36c7dbca-c796-4e6d-90c2-2e8f1bd4b4ec"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Get Assistant Detail",
+            "description": null,
+            "arguments": {
+                "name": "OpenAI",
+                "config": "{{vars.input.params['config_name']}}",
+                "params": {
+                    "assistant_id": "{{vars.item}}"
+                },
+                "version": "3.1.0",
+                "for_each": {
+                    "item": "{{vars.assistant_ids.values() | list}}",
+                    "parallel": false,
+                    "condition": ""
+                },
+                "connector": "openai",
+                "operation": "get_assistant",
+                "operationTitle": "Get Assistant Details",
+                "pickFromTenant": false,
+                "step_variables": []
+            },
+            "status": null,
+            "top": "300",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/0bfed618-0316-11e7-93ae-92361f002671",
+            "group": null,
+            "uuid": "68a2d757-831f-4e7a-a60b-be9e38c17978"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Return Output",
+            "description": null,
+            "arguments": {
+                "result": "{% set assistant_mapping = {} %}{% for key, value in vars.assistant_ids.items() %}{% for assistant_data in vars.steps.Get_Assistant_Detail %}{% if assistant_data['data']['id'] == value %}{% set _ = assistant_mapping.update({key: assistant_data['data']}) %}{% endif %}{% endfor %}{% endfor %}{{assistant_mapping}}"
+            },
+            "status": null,
+            "top": "435",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+            "group": null,
+            "uuid": "7e4e0dd9-6f94-4299-b155-6eb9c3931ec2"
+        },
+        {
+            "@type": "WorkflowStep",
+            "name": "Start",
+            "description": null,
+            "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                    "input": {
+                        "params": []
+                    }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+            },
+            "status": null,
+            "top": "30",
+            "left": "125",
+            "stepType": "\/api\/3\/workflow_step_types\/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+            "group": null,
+            "uuid": "f2abcb82-7ba0-437d-9f74-0790ab74f6b8"
+        }
+    ],
+    "routes": [
+        {
+            "@type": "WorkflowRoute",
+            "name": "Configuration -> Get Assistant Detail",
+            "targetStep": "\/api\/3\/workflow_steps\/68a2d757-831f-4e7a-a60b-be9e38c17978",
+            "sourceStep": "\/api\/3\/workflow_steps\/36c7dbca-c796-4e6d-90c2-2e8f1bd4b4ec",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "00c47128-27be-4184-9017-d1041364a889"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Get Assistant Detail -> Output",
+            "targetStep": "\/api\/3\/workflow_steps\/7e4e0dd9-6f94-4299-b155-6eb9c3931ec2",
+            "sourceStep": "\/api\/3\/workflow_steps\/68a2d757-831f-4e7a-a60b-be9e38c17978",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "6cb8e7bb-6623-4923-afcc-5a9fce5638db"
+        },
+        {
+            "@type": "WorkflowRoute",
+            "name": "Start -> Configuration",
+            "targetStep": "\/api\/3\/workflow_steps\/36c7dbca-c796-4e6d-90c2-2e8f1bd4b4ec",
+            "sourceStep": "\/api\/3\/workflow_steps\/f2abcb82-7ba0-437d-9f74-0790ab74f6b8",
+            "label": null,
+            "isExecuted": false,
+            "group": null,
+            "uuid": "41cf68e5-2da8-4e29-a712-c0df846232b4"
+        }
+    ],
+    "groups": [],
+    "priority": "\/api\/3\/picklists\/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+    "playbookOrigin": "\/api\/3\/picklists\/b6d710a9-a8ec-41ec-8817-fe9fa062fcdd",
+    "isEditable": false,
+    "uuid": "376f2d1c-c76a-4367-9c3d-97956dc09bc4",
+    "owners": [],
+    "isPrivate": false,
+    "deletedAt": null,
+    "recordTags": [
+        "FortiAI",
+        "LLM",
+        "OpenAI"
+    ]
+}

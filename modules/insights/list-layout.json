@@ -1,0 +1,40 @@
+{
+    "@context": "\/api\/3\/contexts\/SystemViewTemplate",
+    "@type": "SystemViewTemplate",
+    "type": "rows",
+    "config": {
+        "rows": [
+            {
+                "columns": [
+                    {
+                        "widgets": [
+                            {
+                                "type": "insightCards-1.0.0",
+                                "config": {
+                                    "wid": "15847ad7-1fec-4381-bc25-42e8ff0af0e9"
+                                }
+                            }
+                        ],
+                        "style": "col-lg-12"
+                    }
+                ],
+                "wid": "9936308f-a104-43e6-8ae6-354cc2ae0ecb",
+                "_collapsed": false
+            }
+        ],
+        "wid": "1ebe4148-f1ba-4f98-9412-52fab4de4638",
+        "metadata": {
+            "customTemplateTitle": "insights",
+            "originalTemplateTitle": "insights"
+        }
+    },
+    "module": "insights",
+    "filters": [],
+    "isDefault": true,
+    "visible": true,
+    "viewOptions": "list",
+    "name": "Base Template",
+    "system": true,
+    "uuid": "modules-insights-list",
+    "newUuid": "f463e167-2e26-4828-a265-48be2eba8c81"
+}

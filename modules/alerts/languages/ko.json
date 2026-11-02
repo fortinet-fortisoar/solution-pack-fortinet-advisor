@@ -1,0 +1,13 @@
+{
+    "ALERTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "경고",
+            "PLURAL_NAME": "경고"
+        },
+        "FIELDS": {
+            "AIVERDICT": "AI 판정",
+            "AISUMMARY": "AI 요약",
+            "TRIAGETASKID": "트리아지 작업 ID"
+        }
+    }
+}

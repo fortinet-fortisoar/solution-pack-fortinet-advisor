@@ -1,0 +1,13 @@
+{
+    "ALERTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "Alert",
+            "PLURAL_NAME": "Alerts"
+        },
+        "FIELDS": {
+            "AIVERDICT": "AI Verdict",
+            "AISUMMARY": "AI Summary",
+            "TRIAGETASKID": "Triage Task Id"
+        }
+    }
+}

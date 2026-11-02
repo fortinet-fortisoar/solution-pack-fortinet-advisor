@@ -1,0 +1,186 @@
+{
+    "descriptions": {
+        "plural": "Alerts",
+        "singular": "Alert"
+    },
+    "type": "alerts",
+    "attributes": [
+        {
+            "@type": "AttributeMetadata",
+            "type": "picklists",
+            "name": "aIVerdict",
+            "length": null,
+            "formType": "picklist",
+            "dataSource": {
+                "model": "picklists",
+                "query": {
+                    "logic": "AND",
+                    "filters": [
+                        {
+                            "field": "listName__name",
+                            "operator": "eq",
+                            "value": "AI Verdict"
+                        }
+                    ],
+                    "sort": [
+                        {
+                            "field": "orderIndex",
+                            "direction": "ASC"
+                        }
+                    ]
+                },
+                "displayConditions": {
+                    "210a0158-3748-47fa-81f9-e5deee715783": {
+                        "visibility": "visible",
+                        "conditions": null
+                    },
+                    "d6e9c3ac-527e-4891-a198-d5d2d2735b2d": {
+                        "visibility": "visible",
+                        "conditions": null
+                    },
+                    "e13187d5-b5a5-4b2b-aa8d-d39ddf1aa81e": {
+                        "visibility": "visible",
+                        "conditions": null
+                    },
+                    "9921088e-07dd-4689-8507-8adc44ea3e77": {
+                        "visibility": "visible",
+                        "conditions": null
+                    },
+                    "b2efcf10-37b1-4973-a97f-321b37fc48ed": {
+                        "visibility": "visible",
+                        "conditions": null
+                    },
+                    "c17dda0b-716d-4e83-8b07-87cb953a51d6": {
+                        "visibility": "visible",
+                        "conditions": null
+                    }
+                }
+            },
+            "searchable": false,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": true,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": null,
+            "defaultValue": "\/api\/3\/picklists\/210a0158-3748-47fa-81f9-e5deee715783",
+            "tooltip": null,
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": null,
+            "readable": true,
+            "writeable": true,
+            "identifier": null,
+            "unique": false,
+            "recommend": false,
+            "skipSerialization": false,
+            "displayName": "{{ aIVerdict }}",
+            "descriptions": {
+                "singular": "AI Verdict"
+            }
+        },
+        {
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "aISummary",
+            "length": null,
+            "formType": "richtext",
+            "dataSource": null,
+            "searchable": true,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761,
+                "_enableRange": false
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": null,
+            "defaultValue": null,
+            "tooltip": null,
+            "visibility": true,
+            "htmlEscape": false,
+            "orphanRemoval": null,
+            "readable": true,
+            "writeable": true,
+            "identifier": null,
+            "unique": false,
+            "recommend": false,
+            "skipSerialization": false,
+            "displayName": "{{ aISummary }}",
+            "descriptions": {
+                "singular": "AI Summary"
+            }
+        },
+        {
+            "@type": "AttributeMetadata",
+            "type": "string",
+            "name": "triagetaskid",
+            "length": null,
+            "formType": "text",
+            "dataSource": null,
+            "searchable": false,
+            "peerReplicable": true,
+            "system": false,
+            "encrypted": false,
+            "gridColumn": false,
+            "collection": false,
+            "inversedField": null,
+            "ownsRelationship": false,
+            "validation": {
+                "required": false,
+                "minlength": 0,
+                "maxlength": 10485761,
+                "_enableRange": false
+            },
+            "bulkAction": {
+                "allow": false,
+                "buttonText": "",
+                "buttonIcon": "",
+                "buttonClass": "btn btn-default btn-sm"
+            },
+            "dataSourceFilters": null,
+            "defaultValue": "",
+            "tooltip": null,
+            "visibility": false,
+            "htmlEscape": false,
+            "orphanRemoval": null,
+            "readable": true,
+            "writeable": true,
+            "identifier": null,
+            "unique": false,
+            "recommend": false,
+            "skipSerialization": false,
+            "displayName": "{{ triagetaskid }}",
+            "descriptions": {
+                "singular": "Triage Task Id"
+            }
+        }
+    ],
+    "tableName": "alerts",
+    "displayName": "{{ name }}"
+}

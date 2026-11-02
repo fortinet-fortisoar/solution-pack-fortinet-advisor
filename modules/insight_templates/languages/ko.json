@@ -1,0 +1,14 @@
+{
+    "INSIGHT_TEMPLATES": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "인사이트 템플릿",
+            "PLURAL_NAME": "인사이트 템플릿"
+        },
+        "FIELDS": {
+            "TITLE": "제목",
+            "QUERY": "쿼리",
+            "PLAN": "플랜",
+            "SOCROLE": "SOC 역할"
+        }
+    }
+}

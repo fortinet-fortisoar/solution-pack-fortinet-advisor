@@ -1,0 +1,16 @@
+{
+    "INSIGHTS": {
+        "MODULE_DETAILS": {
+            "SINGULAR_NAME": "洞察",
+            "PLURAL_NAME": "洞察"
+        },
+        "FIELDS": {
+            "TITLE": "標題",
+            "QUERY": "查詢",
+            "ACTIVE": "啟用",
+            "PLANID": "計劃ID",
+            "SOCROLE": "SOC角色",
+            "SCHEDULEID": "排程ID"
+        }
+    }
+}
