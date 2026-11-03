@@ -3,112 +3,118 @@
 
 # Advanced Usage
 
-This section includes information that may be helpful to administrators and users interacting with Fortinet FortiAI.
+This page covers information that helps administrators and users get better results from FortiAI.
 
-- Following is the chat assistant icon
+The chat assistant icon appears at the lower left of the screen.
 
-    ![](./res/icon-chat-assistant.svg)
+![Chat assistant icon](./res/icon-chat-assistant.svg)
 
-- It is location on the lower left of the screen.
+## Making requests that require planning
+
+Each message you send is evaluated on its own, except a reply to a paused plan, which goes back to Orchestrator. Simple requests (querying, filtering, or summarizing records, answering questions about the open record, or reviewing work that is already complete) are handled directly by the Chat Assistant agent. Requests that cannot be satisfied by a single action, such as following a standard operating procedure, gathering evidence across multiple sources, or coordinating a response, are handed to the **Orchestrator** agent. Orchestrator plans the work, runs it, and returns a single response.
+
+| Request type                                                       | Handled by     |
+|--------------------------------------------------------------------|----------------|
+| Query, list, filter, or summarize records                          | Chat Assistant |
+| Create or update records using known information                   | Chat Assistant |
+| Take a single action, such as blocking or enriching one indicator  | Chat Assistant |
+| Write out an SOP as text                                           | Chat Assistant |
+| Review or explain a completed investigation or SOP                 | Chat Assistant |
+| Investigate, correlate, or threat-hunt across multiple sources     | Orchestrator   |
+| Follow an SOP, or run a multi-step response objective              | Orchestrator   |
+| Coordinate containment or remediation across systems               | Orchestrator   |
+
+Because intent can change during a conversation, a single conversation can move between the two agents more than once. For example, you might ask for an alert to be summarized (Chat Assistant), investigated and contained (Orchestrator), and then ask for the completed investigation to be explained (Chat Assistant).
+
+> [!Note]
+> Asking to summarize or review the output of a completed investigation does not start a new one.
+
+The following request is an example of one that Orchestrator plans and runs:
+
+> Using the following SOP, enrich IP `10.10.10.10`.
+>
+> - Enrich the IP address using available threat intelligence sources.
+> - Block the IP address if it is malicious or suspicious.
+> - Create or update the corresponding indicator record.
+
+At the end of a plan, Orchestrator reports the overall outcome, such as completed, partially completed, failed, or denied, and lists the actions it performed with the status of each.
+
+A plan can pause and wait for you, in two cases.
+
+| Pause type              | What happens                                                                                              |
+|-------------------------|-----------------------------------------------------------------------------------------------------------|
+| Clarification requested | A value needed by the plan is missing or ambiguous. Answer the question to continue.                      |
+| Approval requested      | A step changes state, and you did not ask for that change directly. Approve or deny the step to continue. |
+
+Remediation steps, such as blocking an indicator, run through the **SOC Response Action** agent as part of an Orchestrator plan.
+
+> [!Caution]
+> Approve a remediation step only when you are satisfied that the target and the action are correct. An approved step runs immediately.
+
+> [!Tip]
+> Naming the action you want in your own request avoids an approval pause, because the step is no longer one you did not ask for. Only include the action when you intend it to run.
 
 ## Prompting tips
 
-Simple tweaks to the input prompts could improve the playbook block generation process using **FortiAI**. While asking queries or giving input to the Assistant bot keep some tips in mind:
+Small changes to a prompt improve the quality of generated playbook blocks. Keep the following in mind when you prompt the AI Assistant bot.
 
-- To use a specific integration in a use case, provide it as part of the prompt. For example;
+- To use a specific integration in a use case, name it in the prompt. For example, use *Get IP Reputation using VirusTotal* instead of *Get IP Reputation*.
 
-    - Use *Get IP Reputation using VirusTotal*
+  In the second prompt, FortiAI may include any enrichment source, such as IP Quality Score, AlienVault OTX, or VirusTotal. Ensure that any connector named in the prompt is installed on your system.
 
-        instead of
+- To create playbooks that add a record in FortiSOAR, avoid using *Create `<module-name>` record* as the first step. Place it in the step after gathering details from a previous action.
 
-    - *Get IP Reputation*.
-    
-    In the second prompt, FortiAI may include any enrichment source such as IP Quality Score, AlienVault-OTX, VirusTotal, etc. You must also ensure that any connector specified in the prompt is installed on your system.
+  > For example, use *Fetch Unread Emails from Exchange and create Alert record*.
 
-- To create playbooks intended to add a record in FortiSOAR, avoid using *Create <`module-name`> record* as the first step. Instead, place it in the next step after gathering details from a previous action.
+- To update a record with a value, use *Update `<module name>`*.
 
-    >For example, use *Fetch Unread Emails from Exchange and create Alert record*
+  > For example, *Update Alert Severity to Critical* works better than *Increase Alert Severity to Critical*.
 
-- To update a record in FortiSOAR with some value, use *Update <`module name`>....*.
+- To create playbooks with On Create, On Update, or On Delete triggers, add terms such as *On create, on update, or on delete of `<module name>` record, perform further actions*.
 
-    >For example, *Update Alert Severity to Critical* works better than *Increase Alert Severity to Critical*. 
+  > For example, *On Create of alert add a comment Hello, Analyst!*
 
-- To create playbooks with On Create, On Update, or On Delete triggers, add terms such as 'On create/on update/on delete of <`module name`> record, perform further <actions>...'.
+- To create playbooks with manual triggers, use *Manual Trigger on `<module name>`, perform further actions*.
 
-    >For example, On Create of alert add a comment *Hello, Analyst!*
+  > For example, *Manually trigger a playbook upon a Phishing type Alert Record to change the status to Investigating.*
 
-- To create playbooks with manual triggers, use 'Manual Trigger on <`module name`>, perform further <actions>...'
+- To create playbooks with manual inputs, add terms such as *Prompt the user for further actions*.
 
-    >For example, Manually trigger a playbook upon a Phishing type Alert Record to change the status to Investigating.
+  > For example, *Check the reputation of the indicator using VirusTotal and prompt the user for action: either block it or take no action.*
 
-- To create playbooks with manual inputs, add terms such as 'Prompt the user for further <`name some actions`>...'
+- To create playbooks with decision blocks, use if and else statements.
 
-    >For example, Check the reputation of the indicator using VirusTotal and prompt the user for action: either block it or take no action.
-
-- To create playbooks with decision blocks, use If...else statements.
-
-    >For example, Check the IP's reputation using VirusTotal. If it's considered malicious, set the indicator reputation as malicious. If it's considered suspicious, set the indicator reputation as suspicious. Otherwise, set the indicator reputation as good.
+  > For example, *Check the reputation of the IP using VirusTotal. If it is considered malicious, set the indicator reputation as malicious. If it is considered suspicious, set the indicator reputation as suspicious. Otherwise, set the indicator reputation as good.*
 
 > [!Note]
-> For more filtering prompts, refer to [Filtering Records](./prompts-for-filtering-records.md).
+> For more filtering prompts, see [Prompt examples](./prompt-examples.md).
 
-<!-- ## Utilizing your playbook collections to train the solution
+## Customizing quick prompts
 
-By default, FortiAI is trained using the large collection of use cases available on the [FortiSOAR Content Hub](https://fortisoar.contenthub.fortinet.com/list.html). 
+Quick prompts appear in two places:
 
-Simultaneously, we recognize that every organization develops automated content according to its own style and naming practice. You can add your playbook collections to the FortiAI's training set to have it speak your language when creating the playbook blocks.
+- In the AI chat window, when a record in a module is open. These questions come from the module's `questions` array.
+- On the module's list view. These questions come from the module's `listQuestions` array.
 
->[!NOTE]
->To achieve better training results, the playbook collections used for training must have appropriate step names with clear descriptions. This is because the FortiAI uses these to generate the response playbook and steps. Additionally, when asking FortiAI to generate playbooks, it is recommended to use similar step names or keywords as those used in your trained playbook collections. For example, if 'Indicators' are used in step names, then do not use 'IOCs'.
+You can modify the quick prompts that ship with the solution pack, add questions to a module that is already configured, or add a new module with its own questions.
 
-Use the following steps to update the training using your playbook collections: 
+For the structure of the `fortiai-static-questions` record, see [`fortiai-static-questions`](./contents.md#fortiai-static-questions) in the Contents guide.
 
-1. Log onto FortiSOAR.
+To change the quick prompts, edit the Key Store record named `fortiai-static-questions`:
 
-2. Navigate to **Settings** <picture><source media="(prefers-color-scheme: dark)" srcset="./res/icon-settings-light.svg"><source media="(prefers-color-scheme: light)" srcset="./res/icon-settings-dark.svg"><img alt="" src="./res/icon-settings-dark.svg"></picture>.
+1. Open the Key Store record named `fortiai-static-questions`.
 
-3. Under **Application Editor**, click **Import & Export**.
+2. Click **Edit Record**.
 
-4. Click to open the **Export** Tab.
+3. Make your changes under the parent object `modules`:
 
-5. On the `Export Wizard` page, click **New Template** to create a template that contains playbook collections you want to add as part of the training.
+   - **Modify an existing question**: Change its `question` or `description` text, or set `enabled` to `false` to hide it without removing it.
+   - **Add a question to a configured module**: Add a question object with `question`, `description`, and `enabled` fields to the module's `questions` or `listQuestions` array.
+   - **Add a new module**: Add an object keyed by the module's API name, containing `questions`, `listQuestions`, and `fieldsOfInterest`.
 
-6. Select **Playbooks** to open the playbook collections to export. Click **Continue**.
+4. Save the record.
 
-   ![Creating a new Export template with playbooks collections as part of training](../docs/res/exportWiz_pbTraining.png)
-
-7. Select the playbook collections to be included in the training, provide an appropriate name for the export, and then click **Save and Run Export** to complete the export process. 
-
-8. Download the exported file.  
-
-   The exported file is the latest entry in the **Export History** tab. Capture its unique identifier, as shown in the following image:  
-
-    ![Capturing the ID of the exported file](../docs/res/exportWiz_template.png)
-
-9. Click **Automation** > **Playbooks** and search for **FortiAI**.
-
-10. Open the 'Sample - AI Assistant Utils - 2.0.0' playbook collection and clone the 'Refresh Training Data' playbook:
-
-   ![Cloning the Refresh Training Data playbook](../docs/res/clonePBcollection.png)
-
-11. Open the 'Refresh Training Data' playbook and click the **Refresh Training Data** step. In the **Export File IRI** box, enter the file IRI to the value you had captured in step 5, and save the step and the playbook: 
-
-   ![Updated the file IRI in the Refresh Training Data step](../docs/res/refreshtrainingdata.png)
-
-12. Run the updated playbook.  
-   Once this playbook is successfully executed, your selected custom playbook collections become part of the training dataset. -->
-
-## Adding New modules to Preset Questions
-
-This section details steps to add new modules and context-sensitive questions when that module's record is opened.
-
-As an example, let us add the **Assets** module (Module API Name: `assets`) and related questions (say `foo`, `bar`, and `baz`) with *Lorem Text* as descriptions. For context, let's select `id`, `name`, and `description` as fields of interest.
-
-1. Open the **Key Store** record named `fortiai-static-questions`
-
-2. Click the **Edit Record** button to edit the record.
-
-3. Enter the following JSON under the parent object `modules`:
+As an example, add the **Assets** module, whose module API name is `assets`, with the record questions `foo`, `bar`, and `baz` and the list question `qux`, using placeholder text as descriptions. For context, select `id`, `name`, and `description` as fields of interest:
 
 ```JSON
 "assets": {
@@ -129,6 +135,13 @@ As an example, let us add the **Assets** module (Module API Name: `assets`) and 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
     }
     ],
+    "listQuestions": [
+    {
+        "enabled": true,
+        "question": "qux",
+        "description": "Sed do eiusmod tempor incididunt ut labore"
+    }
+    ],
     "fieldsOfInterest": [
     "id",
     "name",
@@ -137,9 +150,11 @@ As an example, let us add the **Assets** module (Module API Name: `assets`) and 
 }
 ```
 
-Now when you open a record under **Assets** module, you can see the 3 questions `foo`, `bar`, and `baz` with *Lorem Text* as descriptions.
+When you open a record in the **Assets** module, the three questions `foo`, `bar`, and `baz` appear with their descriptions in the AI chat window.
 
-![](./res/new_module_questions.png)
+The question `qux` appears on **Assets** list view.
+
+---
 
 # Next Steps
 

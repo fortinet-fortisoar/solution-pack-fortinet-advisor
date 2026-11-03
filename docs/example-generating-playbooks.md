@@ -1,15 +1,15 @@
 | [Home](../README.md) |
 |----------------------|
 
-# Generating Playbooks Using Prompts
+# Generating playbooks using prompts
 
 The following prompts can be submitted to FortiAI to generate playbooks. Each prompt corresponds to a common SOC use case. Submit the prompt in the Playbook Designer input field and follow the on-screen steps.
 
-For general guidance on playbook generation, see [Generating Playbooks](./usage#generating-playbooks) in the Usage guide.
+For general guidance on playbook generation, see [Generating Playbooks](./usage.md#generating-playbooks) in the Usage guide.
 
 ---
 
-## Example: Handling Suspicious Email Alerts
+## Example: handling suspicious email alerts
 
 > When an alert is created of type "Suspicious Email":
 >
@@ -25,7 +25,7 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Automated Alert Creation from Unread Emails
+## Example: automated alert creation from unread emails
 
 > 1. Get all unread emails from Exchange.
 > 2. Create an alert record for each unread email.
@@ -34,7 +34,7 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Enrich IP Indicators Using VirusTotal
+## Example: enriching IP indicators using VirusTotal
 
 > Upon the creation of an indicator of type IP Address:
 >
@@ -43,7 +43,7 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Blocking Malicious Indicators
+## Example: blocking malicious indicators
 
 > 1. Trigger manually on an indicator if its reputation is "Malicious."
 > 2. Block the indicator in FortiGate to prevent threats.
@@ -51,13 +51,13 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Sending Alert Details via Email
+## Example: sending alert details by email
 
 > Manually select an alert and send its details to `noreply@example.com`.
 
 ---
 
-## Example: IP Reputation Assessment
+## Example: IP reputation assessment
 
 > Upon the creation of an indicator:
 >
@@ -68,7 +68,7 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: CVE Record Enrichment
+## Example: CVE record enrichment
 
 > Upon the creation of a CVE record:
 >
@@ -78,7 +78,7 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Sandbox Analysis for High-Risk Files
+## Example: sandbox analysis for high-risk files
 
 > If a file indicator's risk is "High" or above:
 >
@@ -86,19 +86,19 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ---
 
-## Example: Asset Identification
+## Example: asset identification
 
 > Find and identify the asset related to IP address `10.10.10.10`.
 
 ---
 
-## Example: File Download from URL
+## Example: file download from a URL
 
 > Download a file from a given URL and save it as an attachment.
 
 ---
 
-## Example: Attachment Analysis
+## Example: attachment analysis
 
 > Analyze the downloaded attachment using both a sandbox environment and VirusTotal.
 
@@ -106,5 +106,5 @@ For general guidance on playbook generation, see [Generating Playbooks](./usage#
 
 ## Next Steps
 
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|------------------|---------------------------|

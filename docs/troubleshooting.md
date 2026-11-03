@@ -5,7 +5,17 @@
 
 ---
 
-## AI Assistant Bot Not Visible
+## Error: `Failed to load tokens.`
+
+**Symptom:** FortiAI returns `Failed to load tokens.` and no AI feature responds.
+
+**Cause:** The license carries no token allowance. Trial licenses do not include one.
+
+**Resolution:** Apply a production or evaluation license, or purchase add-on tokens through FortiCare.
+
+---
+
+## AI Assistant bot not visible
 
 **Symptom:** The AI Assistant bot does not appear after installing the FortiAI solution pack.
 
@@ -13,17 +23,7 @@
 
 ---
 
-## AI Assistant Bot Does Not Display the Microphone Button
-
-**Symptom:** The microphone button is missing in the AI Assistant bot.
-
-**Cause:** The voice input feature relies on the `SpeechRecognition` API, which is not supported by Mozilla Firefox.
-
-**Resolution:** Access FortiSOAR using a supported browser (for example, Chrome or Edge).
-
----
-
-## FortiAI Flyout Does Not Open
+## FortiAI flyout does not open
 
 **Symptom:** The FortiAI flyout does not open, or FortiAI does not display a response for the playbook outline.
 
@@ -34,7 +34,7 @@
 
 ---
 
-## FortiAI Cannot Generate Playbook Steps
+## FortiAI cannot generate playbook steps
 
 **Symptom:** FortiAI does not generate playbook steps based on the provided prompt.
 
@@ -46,7 +46,7 @@
 
 ---
 
-## FortiAI Does Not Create or Update a Record
+## FortiAI does not create or update a record
 
 **Symptom:** FortiAI does not create or update a record as specified.
 
@@ -58,7 +58,7 @@
 
 ---
 
-## Response Not as Expected
+## Response not as expected
 
 **Symptom:** FortiAI returns an incorrect or off-topic response.
 
@@ -69,7 +69,7 @@
 
 ---
 
-## Response Delay
+## Response delay
 
 **Symptom:** The prompt text is still visible in the input field, the field appears disabled, and a three-dot loading animation is shown.
 
@@ -79,7 +79,7 @@
 
 ---
 
-## Connector Configuration Name Does Not Update
+## Connector configuration name does not update
 
 **Symptom:** After renaming a Fortinet FortiAI connector configuration, the updated name is not reflected in the wizard.
 
@@ -90,9 +90,11 @@
 
 ---
 
-## FortiAI Error Messages
+## FortiAI error messages
 
-### Error: Session Conflict — Cannot Add Messages While a Request Is Active
+This section describes error messages that FortiAI returns and how to resolve them.
+
+### Error: Session conflict: cannot add messages while a request is active
 
 **Symptom:** FortiAI returns an error indicating that the current session is busy or that a prior request is still being processed.
 
@@ -106,13 +108,13 @@
 
 ---
 
-### Error: `Run Cancelled Exception` Toast Notification
+### Error: `Run Cancelled Exception` toast notification
 
 **Symptom:** A `Run Cancelled Exception` error appears as a toast notification.
 
 **Cause:** This typically occurs when a subsequent prompt is sent before the previous one completes, or when the prompt includes filtering criteria across multiple modules.
 
-> [!NOTE]
+> [!Note]
 > Filtering does not support multiple modules simultaneously. For example, *Fetch alerts with severity high and cases with severity high* in a single prompt is not supported.
 
 **Resolution:**
@@ -123,7 +125,7 @@
 
 ---
 
-### Filters Involving DateTime
+### Filters involving DateTime
 
 **Symptom:** DateTime-based filtering returns unexpected or incomplete results.
 
@@ -140,7 +142,7 @@
 
 ---
 
-### Field Names in Filters Do Not Update
+### Field names in filters do not update
 
 **Symptom:** Filter field names do not reflect changes after subsequent prompts.
 
@@ -149,12 +151,12 @@
 1. Refresh the page.
 2. Click the clear filter icon to remove the current filter, then click the filter hyperlink in the bot conversation to reapply it.
 
-> [!NOTE]
+> [!Note]
 > This issue was resolved in **FortiSOAR v7.6.1** and later.
 
 ---
 
-### FortiAI Response Is Incomplete or Off-Topic
+### FortiAI response is incomplete or off-topic
 
 **Symptom:** FortiAI goes off-topic or initiates an incorrect process during connector generation.
 
@@ -163,7 +165,7 @@
 
 ---
 
-### Connector Import Failed
+### Connector import failed
 
 **Symptom:** The connector import process fails due to missing or invalid files.
 
@@ -174,7 +176,7 @@
 
 ---
 
-### Files Missing or Not Displayed
+### Files missing or not displayed
 
 **Symptom:** The generated connector files (`info.json`, `connector.py`, `operations.py`) are not shown in the prompt window.
 
@@ -184,7 +186,7 @@
 
 ---
 
-### FortiAI Calls the Import Connector Function Multiple Times
+### FortiAI calls the import connector function multiple times
 
 **Symptom:** FortiAI calls the connector import function repeatedly without user input.
 
@@ -195,7 +197,7 @@
 
 ---
 
-### Connector Imported Automatically Without User Confirmation
+### Connector imported automatically without user confirmation
 
 **Symptom:** The connector is imported immediately after generation without waiting for the user to confirm.
 
@@ -203,7 +205,7 @@
 
 ---
 
-### Error: API Rate Limit or Quota Exceeded
+### Error: API rate limit or quota exceeded
 
 **Symptom:** FortiAI returns an error during connector or playbook generation indicating that an API rate limit or quota has been exceeded.
 
@@ -213,12 +215,12 @@
 2. Review and adjust the configured limits for the applicable model.
 3. Save the changes and retry the operation.
 
-> [!NOTE]
+> [!Note]
 > Admin permissions on the Fortinet FortiAI project may be required to modify rate limits.
 
 ---
 
-### Error: Indicators Not Unmasked in Playbook Steps
+### Error: Indicators not unmasked in playbook steps
 
 **Symptom:** Indicators in the playbook outline remain masked and are not automatically unmasked in the generated step.
 
@@ -228,5 +230,5 @@
 
 ## Next Steps
 
-| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage) | [Contents](./contents.md) |
+| [Installation](./setup.md#installation) | [Configuration](./setup.md#configuration) | [Usage](./usage.md) | [Contents](./contents.md) |
 |-----------------------------------------|-------------------------------------------|------------------|---------------------------|
