@@ -1,28 +1,16 @@
 | [Home](../README.md) |
 |---|
 
-# Building a Connector Through Prompts
+# Building a connector through prompts
 
-The following examples demonstrate how to use FortiAI to generate a FortiSOAR connector.
+The following examples show how to use FortiAI to generate a FortiSOAR connector.
 
 > [!Important]
->
-> Connector generation currently does not support file attachments (PDF, Swagger specifications, Postman collections) when using the Fortinet FortiAI connector. This is a server-side limitation.
-> As a workaround, you can provide API details inline, through chat, as `curl` commands or JSON request/response structures.
-
-
-## Prerequisites
-
-1. Navigate to **Automation** > **Connectors**, or to **Content Hub** > **Connectors**.
-2. Click the **Create** tab, then click the **AI Assistant** icon to open the FortiAI panel.
-
-   [![FortiAI BYOC dialog](./res/byoc_bot_dialog.png)](./res/byoc_bot_dialog.png)
-
-3. Enter a prompt that includes the connector's purpose, the actions it must perform, and the relevant API endpoint(s). API details can be provided as `curl` commands, JSON data, or file attachments in `.json`, `.yml`, `.txt`, or `.pdf` format.
+> API specifications cannot be supplied as file attachments, such as PDF files, Swagger specifications, or Postman collections. Enter the specification in the chat instead, using `curl` commands or JSON.
 
 ---
 
-## Example: Criminal IP Connector
+## Example: Criminal IP connector
 
 This example creates a connector for Criminal IP using `curl` commands to provide API details.
 
@@ -41,27 +29,21 @@ This example creates a connector for Criminal IP using `curl` commands to provid
      --header "x-api-key: <YOUR_API_KEY>"
    ```
 
-2. Press **Enter**. FortiAI analyzes the input, requests any missing details (such as the authorization type), and generates `info.json`, `operations.py`, and `connector.py`.
+2. Press **Enter**. FortiAI analyzes the input, requests any missing details, such as the authorization type, and generates `info.json`, `operations.py`, and `connector.py`.
 
    At each stage, you can view individual files by entering a prompt such as *show `operations.py`*.
 
-### Expected Outcome
+   - **Expected outcome**: After refreshing the page, the generated connector appears under the **Create** tab.
 
-After refreshing the page, the generated connector appears under the **Create** tab.
+   - **Reviewing results**: Click **Edit** on the connector tile to review and modify the connector as needed.
 
-### Reviewing Results
-
-Click **Edit** on the connector tile to review and modify the connector as needed.
-
-### Publishing the Connector
-
-Click **Publish** to make the connector available to all users. The connector then appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
+   - **Publishing the connector**: Click **Publish** to make the connector available to all users. The connector then appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
 ---
 
-## Example: WiGLE Connector
+## Example: WiGLE connector
 
-This example creates a connector for WiGLE using a JSON Swagger file attached to the prompt.
+This example creates a connector for WiGLE using `curl` commands to provide API details.
 
 1. Enter the following prompt:
 
@@ -72,28 +54,34 @@ This example creates a connector for WiGLE using a JSON Swagger file attached to
    - *Get Region Statistics*
    - *Get User Statistics*
 
-   *Use the attached Swagger file `WiGLE.json` for API details.*
+   ```
+   curl --location --request GET "https://api.wigle.net/api/v2/stats/general" \
+     --header "Authorization: Basic <YOUR_ENCODED_TOKEN>"
 
-> [!TIP]
+   curl --location --request GET "https://api.wigle.net/api/v2/stats/countries" \
+     --header "Authorization: Basic <YOUR_ENCODED_TOKEN>"
+
+   curl --location --request GET "https://api.wigle.net/api/v2/stats/regions?country=US" \
+     --header "Authorization: Basic <YOUR_ENCODED_TOKEN>"
+
+   curl --location --request GET "https://api.wigle.net/api/v2/stats/user" \
+     --header "Authorization: Basic <YOUR_ENCODED_TOKEN>"
+   ```
+
+> [!Tip]
 > For the full WiGLE API specification, refer to the [WiGLE Swagger API documentation](https://api.wigle.net/swagger).
 
-2. Press **Enter** and follow the prompts. FortiAI analyzes the file, requests any missing details, and generates the connector files.
+2. Press **Enter** and follow the prompts. FortiAI analyzes the input, requests any missing details, and generates the connector files.
 
-### Expected Outcome
+   - **Expected outcome**: After refreshing the page, the generated connector appears under the **Create** tab.
 
-After refreshing the page, the generated connector appears under the **Create** tab.
+   - **Reviewing results**: Click **Edit** on the connector tile to review and modify the connector as needed.
 
-### Reviewing Results
-
-Click **Edit** on the connector tile to review and modify the connector as needed.
-
-### Publishing the Connector
-
-Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
+   - **Publishing the connector**: Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
 ---
 
-## Example: Logic Monitor Connector
+## Example: Logic Monitor connector
 
 This example creates a connector for Logic Monitor using structured text to define API operations.
 
@@ -158,17 +146,11 @@ This example creates a connector for Logic Monitor using structured text to defi
 
 2. Press **Enter** and follow the prompts. FortiAI analyzes the input, requests any missing details, and generates the connector files.
 
-### Expected Outcome
+     - **Expected outcome**: After refreshing the page, the generated connector appears under the **Create** tab.
 
-After refreshing the page, the generated connector appears under the **Create** tab.
+     - **Reviewing results**: Click **Edit** on the connector tile to review and modify the connector as needed.
 
-### Reviewing Results
-
-Click **Edit** on the connector tile to review and modify the connector as needed.
-
-### Publishing the Connector
-
-Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
+     - **Publishing the connector**: Click **Publish** to make the connector available to all users. The connector appears under the **Manage** tab in the Content Hub, and its associated sample playbooks are added to the Playbooks page.
 
 ---
 
